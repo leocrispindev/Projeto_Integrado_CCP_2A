@@ -8,9 +8,9 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700"
 	rel="stylesheet">
 <link rel="stylesheet"
-	href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="login2.css">
-<link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+	href="resources/node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="resources/css/login.css">
+<link rel="icon" href="resources/assets/favicon.ico" type="image/x-icon">
 <title>Login</title>
 </head>
 <body>
@@ -156,7 +156,7 @@
 
 	</main>
 
-	<script src="../bundle.js"></script>
-	<script defer src="../src/all.min.js"></script>
+	<script src="resources/bundle.js"></script>
+	<script defer src="resources/js/all.min.js"></script>
 </body>
 </html>
