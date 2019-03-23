@@ -1,0 +1,168 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+
+.links{
+    width:100%;
+    height:50px;
+    position:fixed;
+    display:flex;
+}
+
+.links label{
+    padding:10px 0;
+    flex-grow:1;
+    cursor:pointer;
+    transition:all, .4s;
+    text-align:center;
+    font-size:100%;
+    color:#fff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.links label:hover{ 
+    border-bottom-style: solid;
+    border-bottom-width: 5px;
+    border-bottom-color: white;
+
+}
+
+.scroll input{ /*radio button some*/
+    display:none;
+}
+
+.bloco{ /* barar de rolagem scroll*/
+    width:100vw;
+    height:100vh;
+    justify-content:center;
+    flex-direction: column;
+    align-items:center;
+    display:flex;
+}
+
+
+.titulo-informacoes{
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 1000;
+    font-size: 50px;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.titulo-informacoes::after{
+    content: '|';
+    margin-left: 5px;
+    opacity: 1;
+    animation: blink .7s 10s;
+}
+
+@keyframes blink{
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.alterar-informacoes{
+    display: block;
+    margin-left: auto;
+    margin-right:5%;
+    cursor: pointer;
+}
+
+.alterar-informacoes:hover{
+    transition: 1s;
+    transform: rotate(360deg);
+}
+
+
+.corpo-informacoes{
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    text-align: center;
+    text-transform: capitalize;
+    opacity: 1;
+}
+
+.corpo-informacoes{
+    animation: blinkInformacoes 2s;
+}
+
+@keyframes blinkInformacoes{
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.avatar-usuario{
+    width:0px;
+    height:0px;
+}
+
+.avatar-usuario-carregado{
+    transition: 1s;
+    width:200px; 
+    height:200px;
+}
+
+
+#nodejs{ /*faz parte do bloco*/
+    background: url("../assets/background1.jpg");
+    background-size: cover;
+}
+
+
+#bootstrap{
+    background-color:#69f;
+}
+
+#sass{
+    background-color:#faa;
+}
+
+#ruby{
+    background-color:#aaa; 
+}
+
+#angular{
+    background-color:#414950;
+}
+
+.scroll{
+    display:flex;
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+}
+
+.sections{
+    transition:all .4s;
+}
+
+#rd_bootstrap:checked ~ .sections{
+    margin-top:-100vh;
+}
+#rd_sass:checked ~ .sections{
+    margin-top:-200vh;
+}
+#rd_ruby:checked ~ .sections{
+    margin-top:-300vh;
+}
+#rd_angular:checked ~ .sections{
+    margin-top: -400vh;
+}

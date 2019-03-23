@@ -152,9 +152,8 @@
 			</div>
 		</div>
 	</div>
-
-
 	</main>
+	
 	<script src="resources/js/TelaLogin/telaLogin.js"></script>
 	<script src="resources/bundle.js"></script>
 	<script defer src="resources/js/all.min.js"></script>
