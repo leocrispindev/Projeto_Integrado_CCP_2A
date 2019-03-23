@@ -3,13 +3,8 @@ import $ from 'jquery';
 import 'bootstrap';
 // PELO AMOR DE DEUS NAO MEXA NISSO OBRIGADO
 
-import {efeito} from './setaEfeitoLogin';
-
-import {animacaoBotaoAdicionar} from './alunoAnimacoes';
-
 import {capsLock, validaEmail, validaSenha, textoRecuperarSenha, 
-    habilitaBotoes, mudaParaTelaDeRegistro, timeAlerta, verificaCargo} from './TelaLoginAnimacoes';
-
+    habilitaBotoes, mudaParaTelaDeRegistro, timeAlerta, verificaCargo} from './TelaLogin/TelaLoginAnimacoes';
 
 capsLock();
 validaEmail("#userEmail");
@@ -31,13 +26,12 @@ verificaCargo();
 
 timeAlerta();
 
+import {ChamaLeftBar, alterarInformacoesConta} from './Aluno/dashBoard';
 
+ChamaLeftBar();
 
-// EFEITOS RELACIONADOS A TELAS MORTAS 
-// efeito();
-// animacaoBotaoAdicionar();
+alterarInformacoesConta();
 
-
-
+import {teste} from "./TelaLogin/telaLogin";
 
 

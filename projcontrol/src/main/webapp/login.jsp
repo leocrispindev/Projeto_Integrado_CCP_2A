@@ -22,7 +22,7 @@
 		<span id="fechaAlert" style="float: right; cursor: pointer;">X</span>
 		<h4 class="alert-heading">Registrado</h4>
 		<hr>
-		<p class="mb-0">Parabéns você foi registrado com sucesso</p>
+		<p class="mb-0">Parabï¿½ns vocï¿½ foi registrado com sucesso</p>
 	</div>
 
 	<div class="center-box">
@@ -30,7 +30,7 @@
 		<!-- FORMULARIO DE LOGIN -->
 		<form id="form-login">
 			<div class="form-group">
-				<small>Não tem uma conta? <a id="fazerRegistro">Faça seu
+				<small>Nï¿½o tem uma conta? <a id="fazerRegistro">Faï¿½a seu
 						registro</a>
 				</small> <i hidden id="inform-capslock" title="CAPSLOCK LIGADO!"
 					class="fas fa-lock  caps-lock-warn"></i> <br /> <label
@@ -40,7 +40,7 @@
 			<div class="form-group">
 				<label for="userPassword">Senha</label> <i hidden
 					id="senhaRequisitos"
-					title="A senha é composta por:&#013;Minimo 6 Caracteres&#013;Letra Maiuscula&#013;Letra Minuscula&#013; Caracter Especial&#013;Numero"
+					title="A senha ï¿½ composta por:&#013;Minimo 6 Caracteres&#013;Letra Maiuscula&#013;Letra Minuscula&#013; Caracter Especial&#013;Numero"
 					class="fas fa-info-circle password-warn"></i> <input
 					type="password" class="form-control" id="userPassword" required>
 			</div>
@@ -58,7 +58,7 @@
 				data-toggle="modal" data-target="#exampleModalCenter">Esqueceu
 					sua Senha?</a></small> <br />
 			<button disabled type="submit"
-				class="btn btn-primary btn-lg btn-block loginBtn">Login</button>
+			class="btn btn-primary btn-lg btn-block loginBtn" onclick="getVerificaLogin()"> Login</button>
 		</form>
 
 		<!-- FORMULARIO DE REGISTRO -->
@@ -102,7 +102,7 @@
 			<div class="form-group">
 				<label for="userPasswordRegister">Senha</label> <i hidden
 					id="senhaRequisitosRegistro"
-					title="A senha é composta por:&#013;Minimo 6 Caracteres&#013;Letra Maiuscula&#013;Letra Minuscula&#013; Caracter Especial&#013;Numero"
+					title="A senha ï¿½ composta por:&#013;Minimo 6 Caracteres&#013;Letra Maiuscula&#013;Letra Minuscula&#013; Caracter Especial&#013;Numero"
 					class="fas fa-info-circle password-warn senhaRequisitosRegistro"></i>
 				<input type="password" class="form-control userPasswordRegister"
 					id="userPasswordRegister" required>
@@ -135,10 +135,10 @@
 				<div class="modal-body">
 					<form>
 						<div class="form-group">
-							<label for="recuperarEmail">Endereço de E-mail</label> <input
+							<label for="recuperarEmail" onclick="teste()">Endereï¿½o de E-mail</label> <input
 								type="email" class="form-control" id="recuperarEmail"
 								aria-describedby="emailHelp"> <small id="infoEmail"
-								class="text-success" hidden>Enviamos as informações de
+								class="text-success" hidden>Enviamos as informaï¿½ï¿½es de
 								senha para o respectivo email!</small>
 						</div>
 					</form>
@@ -155,7 +155,7 @@
 
 
 	</main>
-
+	<script src="resources/js/TelaLogin/telaLogin.js"></script>
 	<script src="resources/bundle.js"></script>
 	<script defer src="resources/js/all.min.js"></script>
 </body>
