@@ -26,12 +26,5 @@ verificaCargo();
 
 timeAlerta();
 
-import {ChamaLeftBar, alterarInformacoesConta} from './Aluno/dashBoard';
-
-ChamaLeftBar();
-
-alterarInformacoesConta();
-
-import {teste} from "./TelaLogin/telaLogin";
 
 
