@@ -86,18 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./js/Aluno/dashBoard.js":
-/*!*******************************!*\
-  !*** ./js/Aluno/dashBoard.js ***!
-  \*******************************/
-/*! exports provided: ChamaLeftBar, alterarInformacoesConta */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function($) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"ChamaLeftBar\", function() { return ChamaLeftBar; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"alterarInformacoesConta\", function() { return alterarInformacoesConta; });\nfunction ChamaLeftBar() {\n  $('#btnLeftBar').on(\"click\", function () {\n    if ($('#leftBar').hasClass('leftBar')) {\n      $('#leftBar').removeClass('leftBar');\n      $('#leftBar').addClass('leftBarAberta');\n      $('.conteudo').attr(\"hidden\", \"true\");\n      $('.conteudo').removeAttr(\"hidden\");\n      $('.sessao-aluno').attr('hidden', 'true');\n    } else if ($('#leftBar').hasClass('leftBarAberta')) {\n      $('#leftBar').removeClass('leftBarAberta');\n      $('#leftBar').addClass('leftBar');\n      $('.conteudo').attr(\"hidden\", \"true\");\n      $('.sessao-aluno').removeAttr('hidden');\n    }\n  });\n}\n\nfunction alterarInformacoesConta() {\n  $('#alteraInformacoesDaConta').on(\"click\", function () {\n    $('.sessao-aluno').attr('hidden', 'true');\n    $('.sessao-aluno2').removeAttr('hidden');\n  });\n  $('#voltaParaInformacoes').on(\"click\", function () {\n    $('.sessao-aluno2').attr('hidden', 'true');\n    $('.sessao-aluno').removeAttr('hidden');\n  });\n}\n\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./js/Aluno/dashBoard.js?");
-
-/***/ }),
-
 /***/ "./js/TelaLogin/TelaLoginAnimacoes.js":
 /*!********************************************!*\
   !*** ./js/TelaLogin/TelaLoginAnimacoes.js ***!
@@ -110,18 +98,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(f
 
 /***/ }),
 
-/***/ "./js/TelaLogin/telaLogin.js":
-/*!***********************************!*\
-  !*** ./js/TelaLogin/telaLogin.js ***!
-  \***********************************/
-/*! exports provided: teste */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function($) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"teste\", function() { return teste; });\nfunction getVerificaLogin() {\n  var email = $('#').val();\n  var password = $('#').val();\n  $.ajax({\n    method: \"POST\",\n    url: \"projcontrol?acao=getLoginUsuario\",\n    data: {\n      usu_email: email,\n      usu_senha: password\n    },\n    success: function success() {},\n    error: function error() {}\n  });\n}\n\nfunction teste() {\n  console.log(\"AAAAAAAAAAAAAAAAAAAAAAAAH\");\n}\n\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./js/TelaLogin/telaLogin.js?");
-
-/***/ }),
-
 /***/ "./js/main.js":
 /*!********************!*\
   !*** ./js/main.js ***!
@@ -130,7 +106,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(f
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(global) {/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.js\");\n/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _TelaLogin_TelaLoginAnimacoes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TelaLogin/TelaLoginAnimacoes */ \"./js/TelaLogin/TelaLoginAnimacoes.js\");\n/* harmony import */ var _Aluno_dashBoard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Aluno/dashBoard */ \"./js/Aluno/dashBoard.js\");\n/* harmony import */ var _TelaLogin_telaLogin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./TelaLogin/telaLogin */ \"./js/TelaLogin/telaLogin.js\");\nglobal.jQuery = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n\n // PELO AMOR DE DEUS NAO MEXA NISSO OBRIGADO\n\n\nObject(_TelaLogin_TelaLoginAnimacoes__WEBPACK_IMPORTED_MODULE_2__[\"capsLock\"])();\nObject(_TelaLogin_TelaLoginAnimacoes__WEBPACK_IMPORTED_MODULE_2__[\"validaEmail\"])(\"#userEmail\");\nObject(_TelaLogin_TelaLoginAnimacoes__WEBPACK_IMPORTED_MODULE_2__[\"validaSenha\"])(\"#userPassword\");\nObject(_TelaLogin_TelaLoginAnimacoes__WEBPACK_IMPORTED_MODULE_2__[\"validaEmail\"])(\"#recuperarEmail\");\nObject(_TelaLogin_TelaLoginAnimacoes__WEBPACK_IMPORTED_MODULE_2__[\"validaEmail\"])(\"#userEmailRegister\");\nObject(_TelaLogin_TelaLoginAnimacoes__WEBPACK_IMPORTED_MODULE_2__[\"validaSenha\"])(\"#userPasswordRegister\");\nObject(_TelaLogin_TelaLoginAnimacoes__WEBPACK_IMPORTED_MODULE_2__[\"textoRecuperarSenha\"])();\nObject(_TelaLogin_TelaLoginAnimacoes__WEBPACK_IMPORTED_MODULE_2__[\"habilitaBotoes\"])(\"#recuperarEmail\", \"#recuperarSenhaBtn\");\nObject(_TelaLogin_TelaLoginAnimacoes__WEBPACK_IMPORTED_MODULE_2__[\"habilitaBotoes\"])(\"#userPassword\", \".loginBtn\");\nObject(_TelaLogin_TelaLoginAnimacoes__WEBPACK_IMPORTED_MODULE_2__[\"habilitaBotoes\"])(\"#userPasswordRegister\", \".registerBtn\");\nObject(_TelaLogin_TelaLoginAnimacoes__WEBPACK_IMPORTED_MODULE_2__[\"mudaParaTelaDeRegistro\"])();\nObject(_TelaLogin_TelaLoginAnimacoes__WEBPACK_IMPORTED_MODULE_2__[\"verificaCargo\"])();\nObject(_TelaLogin_TelaLoginAnimacoes__WEBPACK_IMPORTED_MODULE_2__[\"timeAlerta\"])();\n\nObject(_Aluno_dashBoard__WEBPACK_IMPORTED_MODULE_3__[\"ChamaLeftBar\"])();\nObject(_Aluno_dashBoard__WEBPACK_IMPORTED_MODULE_3__[\"alterarInformacoesConta\"])();\n\nObject(_TelaLogin_telaLogin__WEBPACK_IMPORTED_MODULE_4__[\"teste\"])();\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node_modules/webpack/buildin/global.js */ \"./node_modules/webpack/buildin/global.js\")))\n\n//# sourceURL=webpack:///./js/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(global) {/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.js\");\n/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _TelaLogin_TelaLoginAnimacoes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TelaLogin/TelaLoginAnimacoes */ \"./js/TelaLogin/TelaLoginAnimacoes.js\");\nglobal.jQuery = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n\n // PELO AMOR DE DEUS NAO MEXA NISSO OBRIGADO\n\n\nObject(_TelaLogin_TelaLoginAnimacoes__WEBPACK_IMPORTED_MODULE_2__[\"capsLock\"])();\nObject(_TelaLogin_TelaLoginAnimacoes__WEBPACK_IMPORTED_MODULE_2__[\"validaEmail\"])(\"#userEmail\");\nObject(_TelaLogin_TelaLoginAnimacoes__WEBPACK_IMPORTED_MODULE_2__[\"validaSenha\"])(\"#userPassword\");\nObject(_TelaLogin_TelaLoginAnimacoes__WEBPACK_IMPORTED_MODULE_2__[\"validaEmail\"])(\"#recuperarEmail\");\nObject(_TelaLogin_TelaLoginAnimacoes__WEBPACK_IMPORTED_MODULE_2__[\"validaEmail\"])(\"#userEmailRegister\");\nObject(_TelaLogin_TelaLoginAnimacoes__WEBPACK_IMPORTED_MODULE_2__[\"validaSenha\"])(\"#userPasswordRegister\");\nObject(_TelaLogin_TelaLoginAnimacoes__WEBPACK_IMPORTED_MODULE_2__[\"textoRecuperarSenha\"])();\nObject(_TelaLogin_TelaLoginAnimacoes__WEBPACK_IMPORTED_MODULE_2__[\"habilitaBotoes\"])(\"#recuperarEmail\", \"#recuperarSenhaBtn\");\nObject(_TelaLogin_TelaLoginAnimacoes__WEBPACK_IMPORTED_MODULE_2__[\"habilitaBotoes\"])(\"#userPassword\", \".loginBtn\");\nObject(_TelaLogin_TelaLoginAnimacoes__WEBPACK_IMPORTED_MODULE_2__[\"habilitaBotoes\"])(\"#userPasswordRegister\", \".registerBtn\");\nObject(_TelaLogin_TelaLoginAnimacoes__WEBPACK_IMPORTED_MODULE_2__[\"mudaParaTelaDeRegistro\"])();\nObject(_TelaLogin_TelaLoginAnimacoes__WEBPACK_IMPORTED_MODULE_2__[\"verificaCargo\"])();\nObject(_TelaLogin_TelaLoginAnimacoes__WEBPACK_IMPORTED_MODULE_2__[\"timeAlerta\"])();\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node_modules/webpack/buildin/global.js */ \"./node_modules/webpack/buildin/global.js\")))\n\n//# sourceURL=webpack:///./js/main.js?");
 
 /***/ }),
 
