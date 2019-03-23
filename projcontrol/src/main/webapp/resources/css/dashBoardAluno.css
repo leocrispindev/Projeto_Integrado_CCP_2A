@@ -37,16 +37,93 @@
     width:100vw;
     height:100vh;
     justify-content:center;
+    flex-direction: column;
     align-items:center;
     display:flex;
 }
 
-.bloco img{ /*tamanho da img*/
-    width:40%;
-    
+
+.titulo-informacoes{
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 1000;
+    font-size: 50px;
+    text-align: center;
+    text-transform: capitalize;
 }
+
+.titulo-informacoes::after{
+    content: '|';
+    margin-left: 5px;
+    opacity: 1;
+    animation: blink .7s 10s;
+}
+
+@keyframes blink{
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.alterar-informacoes{
+    display: block;
+    margin-left: auto;
+    margin-right:5%;
+    cursor: pointer;
+}
+
+.alterar-informacoes:hover{
+    transition: 1s;
+    transform: rotate(360deg);
+}
+
+
+.corpo-informacoes{
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    text-align: center;
+    text-transform: capitalize;
+    opacity: 1;
+}
+
+.corpo-informacoes{
+    animation: blinkInformacoes 2s;
+}
+
+@keyframes blinkInformacoes{
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.avatar-usuario{
+    width:0px;
+    height:0px;
+}
+
+.avatar-usuario-carregado{
+    transition: 1s;
+    width:200px; 
+    height:200px;
+}
+
+
 #nodejs{ /*faz parte do bloco*/
-    background-color: #7fbd42;
+    background: url("../assets/background1.jpg");
+    background-size: cover;
 }
 
 
