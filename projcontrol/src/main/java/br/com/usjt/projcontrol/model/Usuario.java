@@ -1,9 +1,18 @@
 package br.com.usjt.projcontrol.model;
 
 public abstract class Usuario {
+	private int id;
 	private String nome;
 	private String email;
 	private String senha;
+	
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 	public String getNome() {
 		return nome;
