@@ -14,11 +14,11 @@ public class AlunoDAO {
 	
 	Conexao conexao = null;
 	String mensagem = "";
+	Aluno alunoDados = null;
 	
 	//=> Método para retorno de ID do Aluno pelas credenciais de acesso
 	public Aluno loginAluno(Aluno aluno) {
 		conexao = new Conexao();
-		Aluno alunoDados = null;
 		
 		try (Connection conn = Conexao.getConexaoMYSQL()) {
 
@@ -99,6 +99,57 @@ public class AlunoDAO {
 		
 	}
 	
+	public void updateAluno(Aluno aluno) {
+		conexao = new Conexao();
+		
+		try (Connection conn = conexao.getConexaoMYSQL()){
+			
+			//=> Query para update de dados do Aluno
+			String sql = "UPDATE FROM usuario SET email = ?, senha = ? WHERE id = ?";
+			
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setString(1, aluno.getEmail());
+			stmt.setString(2,  aluno.getSenha());
+			stmt.setInt(3,aluno.getId());
+			stmt.execute();
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+				
+	}
+	
+	public void deleteAluno(int id) {
+		conexao = new Conexao();
+		
+		try (Connection conn = conexao.getConexaoMYSQL()){
+			
+			//=> Query para update de dados do Aluno
+			String sql = "DELETE FROM aluno WHERE id = ?";
+			
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, id);
+			stmt.execute();
+			
+			try {
+				String sqlUsuario = "DELETE FROM usuario WHERE id = ?";
+				PreparedStatement stmtU = conn.prepareStatement(sqlUsuario);
+				stmtU.setInt(1, id);
+				stmtU.execute();
+				
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+			
+		}finally {
+			conexao.closeConexaoMYSQL();
+		}
+	}
+	
+
 	private int getUsuarioID() {
 		
 		String sqlRetornaIDUsuario = "SELECT id FROM usuario ORDER BY id DESC LIMIT 0,1";

@@ -30,4 +30,41 @@ public class ServiceAluno implements Serializable{
 		
 		return mensagem;
 	}
+	
+	public String setUpdate(Aluno aluno) {
+		try {
+			
+			usuarioD.updateAluno(aluno);
+			mensagem = "Operação Efetuada com Sucesso";
+			
+		}catch(Exception e) {
+			mensagem = "Houve um erro no processo. Contate o Administrador do sistema.";
+		}
+		
+		return mensagem;
+	}
+	
+	public String setDelete(int id) {
+		try {
+			
+			usuarioD.deleteAluno(id);
+			mensagem = "Operação Efetuada com Sucesso";
+			
+		}catch(Exception e) {
+			mensagem = "Houve um erro no processo. Contate o Administrador do sistema.";
+		}
+		
+		return mensagem;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
