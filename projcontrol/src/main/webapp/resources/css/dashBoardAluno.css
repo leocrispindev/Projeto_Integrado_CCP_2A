@@ -26,7 +26,7 @@
     border-bottom-style: solid;
     border-bottom-width: 5px;
     border-bottom-color: white;
-
+    
 }
 
 .scroll input{ /*radio button some*/
@@ -83,6 +83,54 @@
     transform: rotate(360deg);
 }
 
+.periodo-letivo{
+    padding:5px;
+    border-style: solid;
+    border-color: #ffff;
+    background-color: #ffff;
+    border-width: 2px;
+    border-radius:5%;
+    -moz-appearance:none;
+    -webkit-animation: none;
+    appearance: none;
+    background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right .75rem center/8px 10px;
+    animation: subida 2s;
+    width:200px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: medium;
+    
+}
+
+.periodo-letivo:hover{
+    transition: 0.5s;
+    background-color: #ffff;
+}
+
+@keyframes subida{
+    0%{
+        margin-top:50%;
+        opacity: .0;
+    }
+    50%{
+        margin-top:10%;
+        opacity: .5;
+    }
+    100%{
+        margin-top:0%;
+        opacity:1;
+    }
+}
+
+.alterar-informacoes-titulo{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.input-alterar-informacoes:hover{
+    transition: 1s;
+    -webkit-box-shadow: -4px 2px 27px 0px rgba(255,101,73,1);
+    -moz-box-shadow: -4px 2px 27px 0px rgba(255,101,73,1);
+    box-shadow: -4px 2px 27px 0px rgba(255,101,73,1);
+}
 
 .corpo-informacoes{
     color: #fff;
@@ -165,4 +213,27 @@
 }
 #rd_angular:checked ~ .sections{
     margin-top: -400vh;
+}
+
+.input-modal{
+    display:inline!important;
+}
+
+
+@keyframes fadeModal{
+    0%{
+        width: 0vw;
+        height: 0vh;
+        border-radius: 100%;
+    }
+    50%{
+        width: 50vw;
+        height: 50vh;
+        border-radius: 50%;
+    }
+    100%{
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0%;
+    }
 }

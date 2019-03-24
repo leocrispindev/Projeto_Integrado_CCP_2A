@@ -31,3 +31,6 @@ import {animaAvatar, animaEscritaTexto} from './TelaAluno/TelaAlunoAnimacoes';
 animaAvatar();
 
 animaEscritaTexto('.titulo-informacoes');
+
+validaEmail('#EmailAlterado');
+validaSenha('#SenhaAlterada');
