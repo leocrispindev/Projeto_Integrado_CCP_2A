@@ -32,5 +32,6 @@ animaAvatar();
 
 animaEscritaTexto('.titulo-informacoes');
 
+
 validaEmail('#EmailAlterado');
 validaSenha('#SenhaAlterada');

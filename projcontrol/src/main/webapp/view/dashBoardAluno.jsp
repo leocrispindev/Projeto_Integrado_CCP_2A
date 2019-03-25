@@ -49,7 +49,11 @@
 				
 			</section>
 			<section class="bloco" id="bootstrap">
+				<i class="fas fa-users" style="font-size:30vh; color: #fff;"></i>
+				<p class="corpo-informacoes"  style="font-size: 40px;">Existem:</p>
+				<h1 class="titulo-informacoes alunos-em-turma">30 Alunos<small></small></h1>
 				
+
 			</section>
 			<section class="bloco" id="sass"></section>
 			<section class="bloco" id="ruby"></section>

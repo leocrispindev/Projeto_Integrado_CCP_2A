@@ -237,3 +237,36 @@
         border-radius: 0%;
     }
 }
+
+.alunos-em-turma::after{
+    content: '';
+}
+
+.alunos-em-turma{
+    transform: rotateX(0deg);
+    opacity: 1;
+    animation: rotateText 3s;
+}
+
+.alunos-em-turma small::before{
+    content: '';
+}
+
+.alunos-em-turma small::after{
+    content: ' Em sua turma';
+}
+
+@keyframes rotateText{
+    0%{
+        transform: rotateX(180deg);
+        opacity: .0;
+    }
+    50%{
+        transform: rotateX(90deg);
+        opacity: .0;
+    }
+    100%{
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+}
