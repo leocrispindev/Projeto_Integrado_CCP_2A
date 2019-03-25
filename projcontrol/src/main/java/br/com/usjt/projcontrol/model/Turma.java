@@ -1,11 +1,11 @@
 package br.com.usjt.projcontrol.model;
 
-import java.util.Calendar;
+import java.util.Date;
 
 public class Turma {
 	
 	private String codigoIdentificador;
-	private Calendar anoLetivo;
+	private Date anoLetivo;
 	private Aluno alunos;
 	
 	public String getCodigoIdentificador() {
@@ -14,10 +14,10 @@ public class Turma {
 	public void setCodigoIdentificador(String codigoIdentificador) {
 		this.codigoIdentificador = codigoIdentificador;
 	}
-	public Calendar getAnoLetivo() {
+	public Date getAnoLetivo() {
 		return anoLetivo;
 	}
-	public void setAnoLetivo(Calendar anoLetivo) {
+	public void setAnoLetivo(Date anoLetivo) {
 		this.anoLetivo = anoLetivo;
 	}
 	public Aluno getAlunos() {

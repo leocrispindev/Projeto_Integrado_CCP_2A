@@ -36,19 +36,14 @@ public class ServletGlobal extends HttpServlet {
 			String url = "/projectcontrol/" + operacao + ".jsp";
 			response.sendRedirect(url);
 
-		} catch (ClassNotFoundException e) {
-
-			e.printStackTrace();
-		} catch (InstantiationException e) {
-
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-
-			e.printStackTrace();
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+			throw new ServletException(e);
 		}
+		
+		String nome;
 		String[] tipoEndereco = nome.split(":");
 		if (tipoEndereco[0].equals("foword")) {
-			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/" + tipoEndereco[1]);
+			RequestDispatcher rd = request.getRequestDispatcher("webapp/" + tipoEndereco[1]);
 			rd.forward(request, response);
 		} else {
 			response.sendRedirect(tipoEndereco[1]);

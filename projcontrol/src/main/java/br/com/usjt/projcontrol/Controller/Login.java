@@ -16,12 +16,14 @@ public class Login implements Acao{
 		
 		String login, senha;
 		
-		login = request.getParameter("");
-		senha = request.getParameter("");
+		login = request.getParameter("login");
+		senha = request.getParameter("senha");
+		
+		System.out.println("Logando " + login + " senha " + senha);
 		
 		
 		
-		return null;
+		return "redirect:dashBoardAluno.jsp";
 	}
 	
 }
