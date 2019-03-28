@@ -52,12 +52,12 @@
 					<h1 class="corpo-informacoes">${email}</h1>
 					<h1 class="corpo-informacoes">${grupoQuePertence}</h1>
 					<form class="form-inline">
-						FAZ UM :FOREACH PRA PEGAR OS PERIODOS LETIVOS DO ALUNO E COLOCAR AI 
+						FAZ UM :FOREACH PRA PEGAR OS PERIODOS LETIVOS DO ALUNO E COLOCAR AI NO SELECT
 						<select class="periodo-letivo" id="inlineFormCustomSelectPref">
 							<option disabled selected>Período Letivo</option>
-							<option value="1">${PERIODO LETIVO 1}</option>
-							<option value="2">${PERIODO LETIVO 3}</option>
-							<option value="3">${PERIODO LETIVO 2}</option>
+							<option value="1">${PERIODO LETIVO[1]}</option>
+							<option value="2">${PERIODO LETIVO[2]}</option>
+							<option value="3">${PERIODO LETIVO[3]}</option>
 						</select>
 					</form> -->
 					
@@ -107,19 +107,92 @@
 					
 				</section>
 				<section class="bloco" id="sass">
-					<h1 class="titulo-informacoes titulo-top">Seu Grupo</h1>
+					<h1 class="titulo-informacoes titulo-top">Grupo</h1>
 					
 					<div class="card text-dark bg-light mb-3 card-margin" style="max-width: 18rem;">
-						<div class="card-header">CCPNE-32A</div>
-						<div class="card-body">
-							<h5 class="card-title">Professor: Teste</h5>
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						<div class="card-header">Numero do Grupo </div>
+						<div class="card-body card-grupo">
+							<h5 class="card-title">Keit Yamamoto </h5>
+							<p class="card-text">Japa <small style="font-weight:bold;">NOTA</small></p>
+							<p class="card-text">Fake Japa <small style="font-weight:bold;">NOTA</small></p>
+							<p class="card-text">CssGuy <small style="font-weight:bold;">NOTA</small></p>
+							<p class="card-text">Springmen <small style="font-weight:bold;">NOTA</small></p>
+							<p class="card-text">Leozao <small style="font-weight:bold;">NOTA</small></p>
 						</div>
 					</div>
 					
+					<!-- <div class="card text-dark bg-light mb-3 card-margin" style="max-width: 18rem;">
+						<div class="card-header">${numero Do Grupo}</div>
+						<div class="card-body card-grupo">
+							<h5 class="card-title">${nome do orientador}</h5>
+							c:foreach Pelos alunos que o grupo possui
+							<p class="card-text">${aluno[i} <small style="font-weight:bold;">${aluno.nota[i]}</small></p>
+							fim do foreach
+						</div>
+					</div> -->
+					
 				</section>
-				<section class="bloco" id="ruby"></section>
-				<section class="bloco" id="angular"></section>
+				<section class="bloco" id="ruby">
+					<h1 class="titulo-informacoes titulo-top">Tema</h1>
+					
+					<div class="card text-dark bg-light mb-3 card-margin" style="max-width: 18rem;">
+						<div class="card-header">Titulo</div>
+						<div class="card-body card-grupo">
+							<h5 class="card-title">data de Cadastro</h5>
+							<p class="card-text">Introducao</p>
+							<p class="card-text">Requisitos</p>
+						</div>
+					</div>
+					
+					<!-- <div class="card text-dark bg-light mb-3 card-margin" style="max-width: 18rem;">
+						<div class="card-header">${titulo}</div>
+						<div class="card-body card-grupo">
+							<h5 class="card-title">${data_de_cadastro}</h5>
+							<p class="card-text">${introducao}</p>
+							<p class="card-text">${requisitos}</p>
+						</div>
+					</div> -->
+					
+				</section>
+				<section class="bloco bloco-no-overflow-y" id="angular">
+					<h1 class="titulo-informacoes titulo-top">Cronograma</h1>
+					
+					<div class="container-fluid">
+						<table class="table table-striped table-dark">
+							<thead>
+								<tr>
+									<th scope="col">Atividade</th>
+									<th scope="col">Descrição da Atividade</th>
+									<th scope="col">Data de Postagem</th>
+									<th scope="col">Data de Entrega</th>
+									<th scope="col">Enviar Atividade</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th id="numeroAtividade" scope="row">1</th>
+									<td id="descAtividade">Entrega de Telas</td>
+									<td id="dataDePostagem">12/01/2019</td>
+									<td id="dataDeEntrega">12/07/2019</td>
+									<td><button data-toggle="modal" data-target="#modalEntrega" id="btnEnviarAtividades" type="button" class="btn btn-danger">Enviar Atividade</button></td>
+								</tr>
+								<tr>
+									<th id="numeroAtividade" scope="row">2</th>
+									<td id="descAtividade">Entrega do DAO</td>
+									<td id="dataDePostagem">12/01/2019</td>
+									<td id="dataDeEntrega">24/08/2019</td>
+									<td><button data-toggle="modal" data-target="#modalEntrega" id="btnEnviarAtividades" type="button" class="btn btn-danger">Enviar Atividade</button></td>
+								</tr>
+								<!-- <tr>
+									<th scope="row">2 tem que somar 1 na row sempre</th>
+									<td>${descricao da atividade}</td>
+									<td>${professor que pediu}</td>
+									<td>${data estipulada para entrega}</td>
+								</tr> -->
+							</tbody>
+						</table>
+					</div>
+				</section>
 			</section>
 			
 			<!-- Modal -->
@@ -153,6 +226,30 @@
 					</div>
 				</div>
 			</div>
+			
+			
+			<!-- MODAL ENVIO ATIVIDADE ALUNO -->
+			<div class="modal fade" id="modalEntrega" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalCenterTitle">Enviar Atividades</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<p id="recebeInformacoes"></p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+							<button type="button" class="btn btn-danger">Enviar Atividade</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
 			
 			<script src="../resources/bundle.js"></script>
 			<script defer src="../resources/js/all.min.js"></script>

@@ -118,7 +118,6 @@ function verificaCargo(){
     
     $('#imARegister').on("change",()=>{        
         
-        console.log($('#imARegister').val());
         
         if($('#imARegister').val() == "professor"){
             

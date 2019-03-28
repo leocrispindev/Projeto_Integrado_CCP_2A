@@ -26,12 +26,13 @@ verificaCargo();
 
 timeAlerta();
 
-import {animaAvatar, animaEscritaTexto} from './TelaAluno/TelaAlunoAnimacoes';
+import {animaAvatar, animaEscritaTexto, enviaInformacoesParaModal} from './TelaAluno/TelaAlunoAnimacoes';
 
 animaAvatar();
 
 animaEscritaTexto('.titulo-informacoes');
 
+enviaInformacoesParaModal();
 
 validaEmail('#EmailAlterado');
 validaSenha('#SenhaAlterada');

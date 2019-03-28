@@ -186,11 +186,13 @@
 }
 
 #ruby{
-    background-color:#aaa; 
+    background: url("../assets/background4.jpg");
+    background-size: cover;
 }
 
 #angular{
-    background-color:#414950;
+    background: url("../assets/background5.jpg");
+    background-size: cover;
 }
 
 .scroll{
@@ -272,14 +274,15 @@
 .button-right{
     padding-left:25px;
     padding-right:25px;
-    border-radius:50%;
+    border-radius:100%!important;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     display: block;
     margin-left: auto;
-    margin-right: 5%;
+    margin-right: 2%;
     cursor: pointer;
     transition: 1s;
+    margin-top:15%;
 }
 
 .bloco-no-overflow{
@@ -288,7 +291,7 @@
 
 .button-right:hover{
     transition: 1s;
-    transform: scale(1.2) rotate(360deg);
+    transform: scale(1.1) rotate(360deg);
 }
 
 .turma{
@@ -298,6 +301,27 @@
 .card{
     border-radius: 10px;
 }
+
+.card-grupo{
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.custom-file-label{
+    background:#343a40;
+    color:#fff;
+}
+
+.custom-file-button{
+    background:#343a40;
+    color:#fff;
+}
+
+.bloco-no-overflow-y{
+    overflow-y: scroll;
+}
+
+
 
 
 @media only screen and (min-width: 768px) and (max-width: 1280px) {

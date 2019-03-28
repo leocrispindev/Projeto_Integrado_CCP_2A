@@ -8,11 +8,12 @@ function animaAvatar(){
 }
 
 function animaEscritaTexto(id){
+
     const titulo = document.querySelector(`${id}`); 
+    
     if(titulo == null){
         
     }else{
-        
         
         const textoArray = titulo.innerHTML.split('');
         titulo.innerHTML = '';
@@ -24,4 +25,15 @@ function animaEscritaTexto(id){
     
 }
 
-export{animaAvatar,animaEscritaTexto};
+function enviaInformacoesParaModal(){
+    
+    $('#btnEnviarAtividades').on("click",()=>{
+
+        
+        
+        
+    });
+
+}
+
+export{animaAvatar,animaEscritaTexto,enviaInformacoesParaModal};
