@@ -107,35 +107,16 @@
 					
 				</section>
 				<section class="bloco" id="sass">
-					<div class="grupo-aluno">
-						
-						<div class="aluno">
-							<i class="fas fa-male" style="color:#fff; font-size:80px;"></i>
-							<h6>Japa</h6>
+					<h1 class="titulo-informacoes titulo-top">Seu Grupo</h1>
+					
+					<div class="card text-dark bg-light mb-3 card-margin" style="max-width: 18rem;">
+						<div class="card-header">CCPNE-32A</div>
+						<div class="card-body">
+							<h5 class="card-title">Professor: Teste</h5>
+							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 						</div>
-						<div class="aluno">
-							<i class="fas fa-male" style="color:#fff; font-size:80px;"></i>
-							<h6>Fake Japa</h6>
-						</div>
-						<div class="aluno">
-							<i class="fas fa-male" style="color:#fff; font-size:80px;"></i>
-							<h6>cssguy</h6>
-						</div>
-						<div class="aluno">
-							<i class="fas fa-male" style="color:#fff; font-size:80px;"></i>
-							<h6>Springmen</h6>
-						</div>
-						<div class="aluno">
-							<i class="fas fa-male" style="color:#fff; font-size:80px;"></i>
-							<h6>PhpDude</h6>
-						</div>
-						
 					</div>
-
-					<div class="aluno">
-						<i class="fas fa-male" style="color:#fff; font-size:80px;"></i>
-						<h6>Keitola</h6>
-					</div>
+					
 				</section>
 				<section class="bloco" id="ruby"></section>
 				<section class="bloco" id="angular"></section>

@@ -8,9 +8,11 @@ function animaAvatar(){
 }
 
 function animaEscritaTexto(id){
-    
-    $(document).ready(function() {
-        const titulo = document.querySelector(`${id}`); 
+    const titulo = document.querySelector(`${id}`); 
+    if(titulo == null){
+        
+    }else{
+        
         
         const textoArray = titulo.innerHTML.split('');
         titulo.innerHTML = '';
@@ -18,7 +20,7 @@ function animaEscritaTexto(id){
             setTimeout( () => titulo.innerHTML += letra
             , 155 * i);
         });
-    });
+    }
     
 }
 
