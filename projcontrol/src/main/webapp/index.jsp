@@ -1,3 +1,6 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,8 +33,8 @@
 		<!-- FORMULARIO DE LOGIN -->
 		<form id="form-login" action="entrada?acao=Login" method="POST">
 			<div class="form-group">
-				<small>N�o tem uma conta? <a id="fazerRegistro">Fa�a seu
-						registro</a>
+				<small>N�o tem uma conta? <a id="fazerRegistro">Fa�a
+						seu registro</a>
 				</small> <i hidden id="inform-capslock" title="CAPSLOCK LIGADO!"
 					class="fas fa-lock  caps-lock-warn"></i> <br /> <label
 					for="userEmail">Email</label> <input type="email"
@@ -42,7 +45,8 @@
 					id="senhaRequisitos"
 					title="A senha � composta por:&#013;Minimo 6 Caracteres&#013;Letra Maiuscula&#013;Letra Minuscula&#013; Caracter Especial&#013;Numero"
 					class="fas fa-info-circle password-warn"></i> <input
-					type="password" class="form-control" id="userPassword" name="usu_senha" required>
+					type="password" class="form-control" id="userPassword"
+					name="usu_senha" required>
 			</div>
 			<div class="form-group">
 				<label for="imA">Eu sou um:</label> <select
@@ -58,7 +62,7 @@
 				data-toggle="modal" data-target="#exampleModalCenter">Esqueceu
 					sua Senha?</a></small> <br />
 			<button disabled type="submit"
-			class="btn btn-primary btn-lg btn-block loginBtn"> Login</button>
+				class="btn btn-primary btn-lg btn-block loginBtn">Login</button>
 		</form>
 
 		<!-- FORMULARIO DE REGISTRO -->
@@ -135,11 +139,11 @@
 				<div class="modal-body">
 					<form>
 						<div class="form-group">
-							<label for="recuperarEmail" >Endere�o de E-mail</label> <input
+							<label for="recuperarEmail">Endere�o de E-mail</label> <input
 								type="email" class="form-control" id="recuperarEmail"
 								aria-describedby="emailHelp"> <small id="infoEmail"
-								class="text-success" hidden>Enviamos as informa��es de
-								senha para o respectivo email!</small>
+								class="text-success" hidden>Enviamos as informa��es
+								de senha para o respectivo email!</small>
 						</div>
 					</form>
 				</div>
