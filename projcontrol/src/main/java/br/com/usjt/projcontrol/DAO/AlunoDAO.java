@@ -22,27 +22,19 @@ public class AlunoDAO {
 		
 		try (Connection conn = Conexao.getConexaoMYSQL()) {
 
-			String sql = "SELECT usu.* FROM usuario usu INNER JOIN aluno al "
-					+ "ON usu.id = al.aluno_ìd"
-					+ "WHERE usu.email = ? AND usu.senha = ?";
+			String sql = "SELECT nome, email, senha FROM usuario WHERE email = ? AND senha = ?;";
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			
 			stmt.setString(1, aluno.getEmail());
 			stmt.setString(2, aluno.getSenha());
-			
-			try(ResultSet rs = stmt.executeQuery()) {
-				
-				alunoDados = new Aluno();
+			ResultSet rs = stmt.executeQuery();
+			alunoDados = new Aluno();
+			while(rs.next()) {
 				alunoDados.setId(rs.getInt(1));
-				alunoDados.setNome(rs.getNString("nome"));
+				alunoDados.setNome(rs.getString("nome"));
 				alunoDados.setEmail(rs.getString("email"));
 				alunoDados.setSenha(rs.getString("senha"));
-				
-			}catch(SQLException e) {
-				System.out.println("Erro ao pegar ID");
-				e.printStackTrace();
 			}
-			
+				
 		}catch(SQLException e) {
 			e.printStackTrace();
 			
@@ -145,6 +137,7 @@ public class AlunoDAO {
 			e.printStackTrace();
 			
 		}finally {
+			
 			conexao.closeConexaoMYSQL();
 		}
 	}

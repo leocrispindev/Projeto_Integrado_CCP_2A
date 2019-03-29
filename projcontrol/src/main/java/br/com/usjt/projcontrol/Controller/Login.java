@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.usjt.projcontrol.Interface.Acao;
+import br.com.usjt.projcontrol.Service.ServiceAluno;
+import br.com.usjt.projcontrol.model.Aluno;
 
 public class Login implements Acao{
 
@@ -16,14 +18,23 @@ public class Login implements Acao{
 		
 		String login, senha;
 		
-		login = request.getParameter("login");
-		senha = request.getParameter("senha");
+		login = request.getParameter("usu_email");
+		senha = request.getParameter("usu_senha");
+	
+		ServiceAluno serviceAluno = new ServiceAluno();
+		Aluno aluno = new Aluno();
+		aluno.setEmail(login);
+		aluno.setSenha(senha);
 		
-		System.out.println("Logando " + login + " senha " + senha);
+		Aluno alunoSession = new Aluno();
+		alunoSession = serviceAluno.setCredencaisLogin(aluno);
 		
+		if(alunoSession.getId() != 0) {
+			return "forward:view/dashBoardAluno.jsp";
+		}else {
+			return "acessonegado:index.jsp";
+		}
 		
-		
-		return "redirect:dashBoardAluno.jsp";
 	}
 	
 }

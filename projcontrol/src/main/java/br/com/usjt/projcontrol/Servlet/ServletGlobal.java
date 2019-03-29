@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import controller.Acao;
+import br.com.usjt.projcontrol.Interface.Acao;
+
 
 @WebServlet(urlPatterns = "/entrada")
 public class ServletGlobal extends HttpServlet {
@@ -32,22 +33,21 @@ public class ServletGlobal extends HttpServlet {
 			Class classe = Class.forName(classPath);
 			Acao acao = (Acao) classe.newInstance();
 
-			String dados = acao.executa(request, response);
-			String url = "/projectcontrol/" + operacao + ".jsp";
-			response.sendRedirect(url);
-
+			String dados = acao.execute(request, response);
+		
+			String[] tipoEndereco = dados.split(":");
+			if (tipoEndereco[0].equals("forward")) {
+				
+				//RequestDispatcher rd = request.getRequestDispatcher("view/" + tipoEndereco[1]);
+				//rd.forward(request, response);
+				response.sendRedirect("view/"+tipoEndereco[1]);
+			} else if(tipoEndereco[0].equals("acessonegado")){
+				response.sendRedirect(tipoEndereco[1]);
+			}
+			
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
 			throw new ServletException(e);
 		}
 		
-		String nome;
-		String[] tipoEndereco = nome.split(":");
-		if (tipoEndereco[0].equals("foword")) {
-			RequestDispatcher rd = request.getRequestDispatcher("webapp/" + tipoEndereco[1]);
-			rd.forward(request, response);
-		} else {
-			response.sendRedirect(tipoEndereco[1]);
-		}
-
 	}
 }

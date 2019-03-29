@@ -8,21 +8,30 @@ public class Conexao {
 	static Connection conn = null;
 	
 	public Conexao() {
-
+		
 	}
 
-	public static Connection getConexaoMYSQL() throws SQLException{
-		
-		DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-		String serverName = "localhost"; 
-		String mydatabase = "projeto";
-		String porta = "3306";
-		String username = "root";  
-		String password = "root"; 
-		;;String url = "jdbc:mysql://" + serverName +":" + porta + "/" + mydatabase+ "?useTimezone=true&serverTimezone=UTC";
+	public static Connection getConexaoMYSQL() {
+		try {
 			
-		conn = DriverManager.getConnection(url, username, password);	
+			Class.forName("com.mysql.jdbc.Driver");
+			
+			String mydatabase = "projeto";
+			String porta = "3306";
+			String username = "root";  
+			String password = ""; 
+			String url = "jdbc:mysql://localhost:" + porta + "/" + mydatabase+ "?useTimezone=true&serverTimezone=UTC";
+				
+			conn = DriverManager.getConnection(url, username, password);	
+			
+		}catch(ClassNotFoundException e) {
+			System.out.println("Erro-->Driver n encontrado");
+			
+		}catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
 		return conn;
+
 	}
 	
 	public void closeConexaoMYSQL() {
