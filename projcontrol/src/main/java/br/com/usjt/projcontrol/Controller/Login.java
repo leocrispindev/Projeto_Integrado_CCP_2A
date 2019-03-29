@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.usjt.projcontrol.Interface.Acao;
 import br.com.usjt.projcontrol.Service.ServiceAluno;
@@ -30,6 +31,9 @@ public class Login implements Acao{
 		alunoSession = serviceAluno.setCredencaisLogin(aluno);
 		
 		if(alunoSession.getId() != 0) {
+			System.out.println("Usuario existe");
+			HttpSession sessao = request.getSession();
+			sessao.setAttribute("usuarioLogado", alunoSession);
 			return "forward:view/dashBoardAluno.jsp";
 		}else {
 			return "acessonegado:index.jsp";
