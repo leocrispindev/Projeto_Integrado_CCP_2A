@@ -9,7 +9,7 @@
     height:60px;
     position:fixed;
     display:flex;
-    background:transparent;
+    background:#2b2e39;
 }
 
 .links label{
@@ -24,11 +24,9 @@
 }
 
 .links label:hover{ 
-    border-bottom-style: solid;
-    border-bottom-width: 5px;
-    border-bottom-color: white;
-    
+    border-bottom: solid #ffff 1px;
 }
+
 
 .scroll input{ /*radio button some*/
     /* display:none; */
@@ -227,6 +225,7 @@
 #rd_angular:checked ~ .sections{
     margin-top: -400vh;
 }
+
 
 .input-modal{
     display:inline!important;

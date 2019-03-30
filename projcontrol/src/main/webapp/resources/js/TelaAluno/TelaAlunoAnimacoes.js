@@ -40,6 +40,7 @@ function scrollDetect(){
         rd_sass.removeAttr("checked"); 
         rd_ruby.removeAttr("checked"); 
         rd_angular.removeAttr("checked"); 
+        
     });
 
     $('#rd_bootstrap').on("click",()=>{
@@ -49,6 +50,7 @@ function scrollDetect(){
         rd_sass.removeAttr("checked"); 
         rd_ruby.removeAttr("checked"); 
         rd_angular.removeAttr("checked"); 
+
     });
 
     $('#rd_sass').on("click",()=>{
@@ -123,7 +125,6 @@ function scrollDetect(){
             }
             
         } else if(tecla == 40 || tecla == 39) {
-            console.log(tecla);
             // seta pra BAIXO
             
             if(rd_nodejs.prop("checked")){

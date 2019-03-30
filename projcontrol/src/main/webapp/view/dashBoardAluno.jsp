@@ -18,11 +18,11 @@
 <body>
 	
 	<nav class="navbar links">
-		<label for="rd_nodejs">Informações</label>
-		<label for="rd_bootstrap">Turma</label>
-		<label for="rd_sass">Grupo</label>
-		<label for="rd_ruby">Tema</label>
-		<label for="rd_angular">Cronograma</label>
+		<label id="label-custom" for="rd_nodejs">Informações</label>
+		<label id="label-custom" for="rd_bootstrap">Turma</label>
+		<label id="label-custom" for="rd_sass">Grupo</label>
+		<label id="label-custom" for="rd_ruby">Tema</label>
+		<label id="label-custom" for="rd_angular">Cronograma</label>
 	</nav>
 	
 	<div class="scroll">
