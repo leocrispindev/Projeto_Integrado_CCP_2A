@@ -1,5 +1,5 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<!-- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> -->
+<!-- <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,11 +26,13 @@
 	</nav>
 	
 	<div class="scroll">
-		<input type="radio" name="grupo" id="rd_nodejs" checked="true">
-		<input type="radio" name="grupo" id="rd_bootstrap">
-		<input type="radio" name="grupo" id="rd_sass">
-		<input type="radio" name="grupo" id="rd_ruby">
-		<input type="radio" name="grupo" id="rd_angular">
+		<form id="formDosRadio">
+			<input type="radio" name="grupo" id="rd_nodejs" checked="true">
+			<input type="radio" name="grupo" id="rd_bootstrap">
+			<input type="radio" name="grupo" id="rd_sass">
+			<input type="radio" name="grupo" id="rd_ruby">
+			<input type="radio" name="grupo" id="rd_angular">
+		</form>
 		
 		<section class="sections">
 			<section class="bloco" id="nodejs">
@@ -48,6 +50,7 @@
 						<option value="3">Three</option>
 					</select>
 				</form>
+				<a class="deslogar"><i class="fas fa-sign-out-alt" style="font-size: 40px; color: #fff;"></i></a>
 				
 				<!-- COMO INSERIR DINAMICAMENTE -->
 				

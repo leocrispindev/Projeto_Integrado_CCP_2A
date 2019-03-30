@@ -26,13 +26,20 @@ verificaCargo();
 
 timeAlerta();
 
-import {animaAvatar, animaEscritaTexto, enviaInformacoesParaModal} from './TelaAluno/TelaAlunoAnimacoes';
+import {animaAvatar, animaEscritaTexto, scrollDetect} from './TelaAluno/TelaAlunoAnimacoes';
 
 animaAvatar();
 
 animaEscritaTexto('.titulo-informacoes');
 
-enviaInformacoesParaModal();
+$(window).on("load",()=>{
+    document.querySelector('#formDosRadio').reset();
+    // $('.sections').css('margin-top','0vh');
+    var rd_nodejs = $('#rd_nodejs');
+    $('#rd_nodejs').attr("checked",true);
+});
+
+scrollDetect();
 
 validaEmail('#EmailAlterado');
 validaSenha('#SenhaAlterada');
