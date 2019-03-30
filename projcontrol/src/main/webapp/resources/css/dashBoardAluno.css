@@ -307,15 +307,6 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-.custom-file-label{
-    background:#343a40;
-    color:#fff;
-}
-
-.custom-file-button{
-    background:#343a40;
-    color:#fff;
-}
 
 .bloco-no-overflow-y{
     overflow-y: scroll;

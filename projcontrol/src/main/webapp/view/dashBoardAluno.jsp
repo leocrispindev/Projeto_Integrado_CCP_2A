@@ -243,6 +243,10 @@
 						</div>
 						<div class="modal-body">
 							<p id="recebeInformacoes"></p>
+							<div class="custom-file">
+								<input type="file" class="custom-file-input" id="customFileLang" lang="es">
+								<label class="custom-file-label" for="customFileLang">Selecionar Arquivo</label>
+							</div>
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
