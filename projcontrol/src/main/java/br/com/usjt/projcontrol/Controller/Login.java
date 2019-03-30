@@ -31,9 +31,10 @@ public class Login implements Acao{
 		alunoSession = serviceAluno.setCredencaisLogin(aluno);
 		
 		if(alunoSession.getId() != 0) {
-			System.out.println("Usuario existe");
+			request.setAttribute("alunoDados", alunoSession);
 			HttpSession sessao = request.getSession();
 			sessao.setAttribute("usuarioLogado", alunoSession);
+			
 			return "forward:view/dashBoardAluno.jsp";
 		}else {
 			return "acessonegado:index.jsp";

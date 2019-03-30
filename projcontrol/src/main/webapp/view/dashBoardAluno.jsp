@@ -1,4 +1,4 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html>
@@ -10,9 +10,9 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	
 	<link rel="stylesheet"
-	href="../resources/node_modules/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="../resources/css/dashBoardAluno.css">
-	<link rel="icon" href="../resources/assets/favicon.ico" type="image/x-icon">
+	href="./resources/node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./resources/css/dashBoardAluno.css">
+	<link rel="icon" href="./resources/assets/favicon.ico" type="image/x-icon">
 	<title>Dashboard Aluno</title>
 </head>
 <body>
@@ -37,17 +37,16 @@
 		<section class="sections">
 			<section class="bloco" id="nodejs">
 				<a data-toggle="modal" data-target="#modal-trocar-senha" class="alterar-informacoes"><i class="fas fa-cog icone-gear" style="font-size: 50px; color: #fff;"></i></a>
-				<img src="../resources/assets/avatar.png" id="avatar-usuario" class="avatar-usuario" alt="teste">
-				<h1 class="titulo-informacoes">Luke Skywalker</h1>
-				<h1 class="corpo-informacoes">luke@skywalker.com</h1>
-				<h1 class="corpo-informacoes">Aluno</h1>
-				<h1 class="corpo-informacoes">Grupo 7</h1>
+				<img src="./resources/assets/avatar.png" id="avatar-usuario" class="avatar-usuario" alt="teste">
+				<h1 class="titulo-informacoes">${alunoDados.nome}</h1>
+				<h1 class="corpo-informacoes">${alunoDados.email}</h1>
+				<h1 class="corpo-informacoes">Grupo 3</h1>
 				<form class="form-inline">
 					<select class="periodo-letivo" id="inlineFormCustomSelectPref">
 						<option disabled selected>Período Letivo</option>
-						<option value="1">One</option>
-						<option value="2">Two</option>
-						<option value="3">Three</option>
+						<option value="1">${PERIODO_LETIVO[1]}</option>
+						<option value="2">${PERIODO_LETIVO[2]}</option>
+						<option value="3">${PERIODO_LETIVO[3]}</option>
 					</select>
 				</form>
 				<a class="deslogar"><i class="fas fa-sign-out-alt" style="font-size: 40px; color: #fff;"></i></a>
@@ -61,9 +60,9 @@
 						FAZ UM :FOREACH PRA PEGAR OS PERIODOS LETIVOS DO ALUNO E COLOCAR AI NO SELECT
 						<select class="periodo-letivo" id="inlineFormCustomSelectPref">
 							<option disabled selected>Período Letivo</option>
-							<option value="1">${PERIODO LETIVO[1]}</option>
-							<option value="2">${PERIODO LETIVO[2]}</option>
-							<option value="3">${PERIODO LETIVO[3]}</option>
+							<option value="1">${PERIODO_LETIVO[1]}</option>
+							<option value="2">${PERIODO_LETIVO[2]}</option>
+							<option value="3">${PERIODO_LETIVO[3]}</option>
 						</select>
 					</form> -->
 					
@@ -102,7 +101,7 @@
 							<div class="card-header">${TURMA}</div>
 							<div class="card-body">
 								<h5 class="card-title">${PROFESSOR}</h5>
-								<p class="card-text">${Tema c:foreach{atividade}}</p>
+								<p class="card-text">${$teste}</p>
 							</div>
 						</div> -->
 						<!-- fecha foreach -->
@@ -128,11 +127,11 @@
 					</div>
 					
 					<!-- <div class="card text-dark bg-light mb-3 card-margin" style="max-width: 18rem;">
-						<div class="card-header">${numero Do Grupo}</div>
+						<div class="card-header">${numeroDoGrupo}</div>
 						<div class="card-body card-grupo">
-							<h5 class="card-title">${nome do orientador}</h5>
+							<h5 class="card-title">${$teste}</h5>
 							c:foreach Pelos alunos que o grupo possui
-							<p class="card-text">${aluno[i} <small style="font-weight:bold;">${aluno.nota[i]}</small></p>
+							<p class="card-text">${aluno} <small style="font-weight:bold;">${aluno.nota}</small></p>
 							fim do foreach
 						</div>
 					</div> -->
@@ -191,9 +190,9 @@
 								</tr>
 								<!-- <tr>
 									<th scope="row">2 tem que somar 1 na row sempre</th>
-									<td>${descricao da atividade}</td>
-									<td>${professor que pediu}</td>
-									<td>${data estipulada para entrega}</td>
+									<td>${one}</td>
+									<td>${two}</td>
+									<td>${three}</td>
 								</tr> -->
 							</tbody>
 						</table>
@@ -215,7 +214,7 @@
 							<form>
 								<div class="form-group">
 									<label for="EmailAlterado" class="col-form-label">Novo Email:</label>
-									<input type="email" class="form-control input-modal input-alterar-informacoes" id="EmailAlterado">
+									<input type="email" class="form-control input-modal input-alterar-informacoes" value=${alunoDados.email} id="EmailAlterado">
 								</div>
 								<div class="form-group">
 									<i hidden id="senhaRequisitos" title="A senha é composta por:&#013;Minimo 6 Caracteres&#013;Letra Maiuscula&#013;Letra Minuscula&#013; Caracter Especial&#013;Numero"
@@ -261,7 +260,7 @@
 			
 			
 			
-			<script src="../resources/bundle.js"></script>
-			<script defer src="../resources/js/all.min.js"></script>
+			<script src="./resources/bundle.js"></script>
+			<script defer src="./resources/js/all.min.js"></script>
 		</body>
 		</html>

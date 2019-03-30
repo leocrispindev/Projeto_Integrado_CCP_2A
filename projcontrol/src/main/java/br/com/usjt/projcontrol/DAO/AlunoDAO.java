@@ -22,7 +22,7 @@ public class AlunoDAO {
 		
 		try (Connection conn = Conexao.getConexaoMYSQL()) {
 
-			String sql = "SELECT nome, email, senha FROM usuario WHERE email = ? AND senha = ?;";
+			String sql = "SELECT id, nome, email, senha FROM usuario WHERE email = ? AND senha = ?;";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(1, aluno.getEmail());
 			stmt.setString(2, aluno.getSenha());
@@ -153,7 +153,9 @@ public class AlunoDAO {
 			PreparedStatement stmt = conn.prepareStatement(sqlRetornaIDUsuario);
 			
 			try(ResultSet rs = stmt.executeQuery()) {
-				usuID = rs.getInt(1);
+				while(rs.next()) {
+					usuID = rs.getInt(1);
+				}
 				
 			}catch(SQLException e) {
 				e.printStackTrace();

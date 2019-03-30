@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+
 import br.com.usjt.projcontrol.Interface.Acao;
 
 
@@ -36,13 +38,22 @@ public class ServletGlobal extends HttpServlet {
 			String dados = acao.execute(request, response);
 		
 			String[] tipoEndereco = dados.split(":");
+			
 			if (tipoEndereco[0].equals("forward")) {
 				
-				//RequestDispatcher rd = request.getRequestDispatcher("view/" + tipoEndereco[1]);
-				//rd.forward(request, response);
-				response.sendRedirect("view/"+tipoEndereco[1]);
-			} else if(tipoEndereco[0].equals("acessonegado")){
+				RequestDispatcher rd = request.getRequestDispatcher(tipoEndereco[1]);
+				rd.forward(request, response);
+				
+			}else if(tipoEndereco[0].equals("json")){
+				
+				response.setContentType("application/json");
+				String json = new Gson().toJson(tipoEndereco[1]);
+				response.getWriter().write(json);
+				
+				
+			}else if(tipoEndereco[0].equals("acessonegado")){
 				response.sendRedirect(tipoEndereco[1]);
+				
 			}
 			
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {

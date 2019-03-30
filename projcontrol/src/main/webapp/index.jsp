@@ -116,7 +116,7 @@
 				class="btn btn-secondary btn-xl btn-block returnBtn">Retornar</button>
 			<button type="button" data-toggle="collapse"
 				data-target="#successWarn" disabled type="submit"
-				class="btn btn-primary btn-xl btn-block registerBtn">Registrar</button>
+				class="btn btn-primary btn-xl btn-block registerBtn" onclick="setCadastroAluno()">Registrar</button>
 		</form>
 	</div>
 
