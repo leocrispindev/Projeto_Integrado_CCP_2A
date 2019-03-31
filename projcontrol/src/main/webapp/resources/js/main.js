@@ -43,3 +43,8 @@ scrollDetect();
 
 validaEmail('#EmailAlterado');
 validaSenha('#SenhaAlterada');
+
+
+import{deleteBtn, deletaOCard} from './TelaProfessor/TelaProfessorAnimacoes';
+
+deleteBtn();

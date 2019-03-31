@@ -179,27 +179,47 @@
 #nodejs{ /*faz parte do bloco*/
     background: url("../assets/background1.jpg");
     background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 
 #bootstrap{
     background: url("../assets/background2.jpg");
     background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #sass{
     background: url("../assets/background3.jpg");
     background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #ruby{
     background: url("../assets/background4.jpg");
     background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #angular{
     background: url("../assets/background5.jpg");
     background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .scroll{
@@ -226,11 +246,12 @@
     margin-top: -400vh;
 }
 
-
 .input-modal{
     display:inline!important;
+    opacity: 1!important;
+    position: relative!important;
+    display:none;
 }
-
 
 @keyframes fadeModal{
     0%{

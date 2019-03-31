@@ -6,9 +6,10 @@
 
 .links{
     width:100%;
-    height:50px;
+    height:60px;
     position:fixed;
     display:flex;
+    background:#2b2e39;
 }
 
 .links label{
@@ -23,14 +24,15 @@
 }
 
 .links label:hover{ 
-    border-bottom-style: solid;
-    border-bottom-width: 5px;
-    border-bottom-color: white;
-    
+    border-bottom: solid #ffff 1px;
 }
 
+
 .scroll input{ /*radio button some*/
-    display:none;
+    /* display:none; */
+    opacity: 0;
+    background:transparent;
+    position: absolute;
 }
 
 .bloco{ /* barar de rolagem scroll*/
@@ -84,11 +86,9 @@
 }
 
 .deslogar{
-    display: block;
-    margin-right: auto;
-    margin-left:5%;
     cursor: pointer;
 }
+
 
 .periodo-letivo{
     padding:5px;
@@ -179,22 +179,37 @@
 #nodejs{ /*faz parte do bloco*/
     background: url("../assets/background1.jpg");
     background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 
 #bootstrap{
     background: url("../assets/background2.jpg");
     background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #sass{
     background: url("../assets/background3.jpg");
     background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #ruby{
     background: url("../assets/background4.jpg");
     background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #angular{
@@ -210,7 +225,7 @@
 }
 
 .sections{
-    transition:all .4s;
+    transition:all .5s;
 }
 
 #rd_bootstrap:checked ~ .sections{
@@ -226,8 +241,12 @@
     margin-top: -400vh;
 }
 
+
 .input-modal{
     display:inline!important;
+    opacity: 1!important;
+    position: relative!important;
+    display:none;
 }
 
 
@@ -289,7 +308,16 @@
     margin-right: 2%;
     cursor: pointer;
     transition: 1s;
-    margin-top:15%;
+}
+
+.btn-delete{
+    padding-left:28px;
+    padding-right:28px;
+}
+
+.btn-delete::after{
+    content: '-';
+    color: #ff6043;
 }
 
 .bloco-no-overflow{
@@ -318,6 +346,30 @@
 .bloco-no-overflow-y{
     overflow-y: scroll;
 }
+
+.checkbox-aluno{
+    opacity: 1!important;
+    position: relative;
+}
+
+.paginacao-alunos{
+    margin-left:9vw;
+}
+
+.close-bar{
+    float: right;
+    font-size:15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-bar::after{
+    content: 'X';
+}
+
+
+
+
 
 
 

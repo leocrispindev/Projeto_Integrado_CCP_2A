@@ -222,6 +222,12 @@
 									<label for="SenhaAlterada" class="col-form-label">Nova Senha:</label>
 									<input type="password" class="form-control input-modal input-alterar-informacoes" id="SenhaAlterada">
 								</div>
+								<div class="form-group">
+									<i hidden id="senhaRequisitos" title="A senha é composta por:&#013;Minimo 6 Caracteres&#013;Letra Maiuscula&#013;Letra Minuscula&#013; Caracter Especial&#013;Numero"
+									class="fas fa-info-circle password-warn"></i>
+									<label for="SenhaAlterada" class="col-form-label">Confirmar Senha</label>
+									<input type="password" class="form-control input-modal input-alterar-informacoes" id="SenhaAlterada">
+								</div>
 							</form>
 						</div>
 						<div class="modal-footer">
