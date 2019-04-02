@@ -212,6 +212,7 @@
 						</div>
 						<div class="modal-body">
 							<form>
+						
 								<div class="form-group">
 									<label for="EmailAlterado" class="col-form-label">Novo Email:</label>
 									<input type="email" class="form-control input-modal input-alterar-informacoes" value=${alunoDados.email} id="EmailAlterado">

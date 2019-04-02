@@ -65,14 +65,14 @@ public class AlunoDAO {
 			//=> Caso ocorra o INSERT em Usuario 
 			//=> O processo seguinte é tentar o insert em Aluno
 			try {
-				
+			
 				//=>Método que retorna o ultimo ID inserido na tabela de Usuario
 				int usuID = this.getUsuarioID();
 				
 				//=>Insert na tabela de Aluno
 				String insertAluno = "INSERT INTO aluno (aluno_id, ra) VALUES (?,?)";
 				 
-				PreparedStatement stmtAluno = conn.prepareStatement(sql);
+				PreparedStatement stmtAluno = conn.prepareStatement(insertAluno);
 				stmtAluno.setInt(1, usuID);
 				stmtAluno.setInt(2, aluno.getRa());
 				stmtAluno.execute();
@@ -143,10 +143,10 @@ public class AlunoDAO {
 	}
 	
 
-	private int getUsuarioID() {
+	public int getUsuarioID() {
 		
 		String sqlRetornaIDUsuario = "SELECT id FROM usuario ORDER BY id DESC LIMIT 0,1";
-		int usuID = 0;
+		int usuarioID = 0;
 		conexao = new Conexao();
 		
 		try (Connection conn = Conexao.getConexaoMYSQL()) {
@@ -154,7 +154,7 @@ public class AlunoDAO {
 			
 			try(ResultSet rs = stmt.executeQuery()) {
 				while(rs.next()) {
-					usuID = rs.getInt(1);
+					usuarioID = rs.getInt(1);
 				}
 				
 			}catch(SQLException e) {
@@ -166,8 +166,7 @@ public class AlunoDAO {
 		}finally {
 			conexao.closeConexaoMYSQL();
 		}
-		
-		return usuID;
+		return usuarioID;
 	}
 	
 	

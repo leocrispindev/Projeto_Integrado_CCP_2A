@@ -5,42 +5,37 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import br.com.usjt.projcontrol.Interface.Acao;
 import br.com.usjt.projcontrol.Service.ServiceAluno;
 import br.com.usjt.projcontrol.model.Aluno;
 
-public class Login implements Acao{
+public class EditarAluno implements Acao {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
+			
+		String email, senha;
+		int ra;
 		
-		String login, senha;
-		
-		login = request.getParameter("usu_email");
+		nome = request.getParameter("usu_nome");
+		email = request.getParameter("usu_email");
 		senha = request.getParameter("usu_senha");
-	
+		ra = Integer.parseInt(request.getParameter("usu_ra"));
+		
 		ServiceAluno serviceAluno = new ServiceAluno();
+		
 		Aluno aluno = new Aluno();
-		aluno.setEmail(login);
+		aluno.setNome(nome);
+		aluno.setEmail(email);
 		aluno.setSenha(senha);
+		aluno.setRa(ra);
 		
-		Aluno alunoSession = new Aluno();
-		alunoSession = serviceAluno.setCredencaisLogin(aluno);
+		String result = serviceAluno.setCadastro(aluno);
 		
-		if(alunoSession.getId() != 0) {
-			
-			HttpSession sessao = request.getSession();
-			sessao.setAttribute("usuarioLogado", alunoSession);
-			request.setAttribute("alunoDados", alunoSession);
-			
-			return "forward:view/dashBoardAluno.jsp";
-		}else {
-			return "acessonegado:index.jsp";
-		}
-		
+		return "json:"+result;
+		return null;
 	}
-	
+
 }
