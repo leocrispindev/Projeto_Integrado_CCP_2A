@@ -70,14 +70,6 @@ main{
     100%{opacity: 1;};
 }
 
-.aviso{
-    margin-top:3%;
-    width:40%;
-    height:30vh;
-    position: absolute;
-    margin-left:40%;
-}
-
 
 
 
@@ -101,11 +93,6 @@ main{
         margin-left:35%;
     }
 
-    .aviso{
-        width:20%; 
-        height:20vh;
-        margin-left:70%;
-    }
 
 }
 

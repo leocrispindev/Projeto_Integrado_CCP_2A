@@ -9,18 +9,22 @@ function animaAvatar(){
 
 function animaEscritaTexto(id){
     
-    const titulo = document.querySelector(`${id}`); 
+    try{
+        const titulo = document.querySelector(`${id}`); 
     
-    if(titulo == null){
+        if(titulo == null){
+            
+        }else{
+            
+            const textoArray = titulo.innerHTML.split('');
+            titulo.innerHTML = '';
+            textoArray.forEach((letra, i) =>{
+                setTimeout( () => titulo.innerHTML += letra
+                , 155 * i);
+            });
+        }
+    }catch{
         
-    }else{
-        
-        const textoArray = titulo.innerHTML.split('');
-        titulo.innerHTML = '';
-        textoArray.forEach((letra, i) =>{
-            setTimeout( () => titulo.innerHTML += letra
-            , 155 * i);
-        });
     }
     
 }

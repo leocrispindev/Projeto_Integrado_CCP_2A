@@ -20,14 +20,6 @@
 
 	<main>
 
-	<div id="successWarn" class="alert alert-primary aviso collapse"
-		role="alert">
-		<span id="fechaAlert" style="float: right; cursor: pointer;">X</span>
-		<h4 class="alert-heading">Registrado</h4>
-		<hr>
-		<p class="mb-0">Parabéns você foi registrado com sucesso</p>
-	</div>
-
 	<div class="center-box">
 
 		<!-- FORMULARIO DE LOGIN -->
@@ -59,7 +51,7 @@
 				</select>
 			</div>
 			<small class="forgot-passowrd"><a href="#"
-				data-toggle="modal" data-target="#exampleModalCenter">Esqueceu
+				data-toggle="modal" data-target="#esqueciMinhaSenha">Esqueceu
 					sua Senha?</a></small> <br />
 			<button disabled type="submit"
 				class="btn btn-primary btn-lg btn-block loginBtn">Login</button>
@@ -84,7 +76,7 @@
 					<button class="btn btn-outline-dark" type="button" disabled
 						id="button-addon1">Nome e RA</button>
 				</div>
-				<input type="name" class="form-control" id="userNomeRegister"
+				<input type="text" class="form-control" id="userNomeRegister"
 					required> <input type="text" aria-label="Ra"
 					id="userRaRegister" class="form-control">
 			</div>
@@ -94,8 +86,8 @@
 					<button class="btn btn-outline-dark" type="button" disabled
 						id="button-addon1">Nome e Matricula</button>
 				</div>
-				<input type="name" class="form-control" id="userNomeRegister"
-					required> <input type="text" aria-label="Ra"
+				<input type="text" class="form-control" id="userNomeRegister"
+					required> <input type="text" aria-label="Matricula"
 					id="userMatriculaRegister" class="form-control">
 			</div>
 			<br />
@@ -123,7 +115,7 @@
 
 
 	<!-- MODAL ESQUECI MINHA SENHA -->
-	<div class="modal fade" id="exampleModalCenter" tabindex="-1"
+	<div class="modal fade" id="esqueciMinhaSenha" tabindex="-1"
 		role="dialog" aria-labelledby="exampleModalCenterTitle"
 		aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered" role="document">
@@ -160,6 +152,7 @@
 	<script src="./resources/node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="resources/js/TelaLogin/telaLogin.js"></script>
 	<script src="resources/bundle.js"></script>
+	<script src="./resources/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
 	<script defer src="resources/js/all.min.js"></script>
 </body>
 </html>

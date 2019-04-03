@@ -1,6 +1,6 @@
 global.jQuery = require('jquery');
 import $ from 'jquery';
-import 'bootstrap';
+import {bootstrap} from 'bootstrap';
 // PELO AMOR DE DEUS NAO MEXA NISSO OBRIGADO
 
 import {capsLock, validaEmail, validaSenha, textoRecuperarSenha, 
@@ -32,12 +32,16 @@ animaAvatar();
 
 animaEscritaTexto('.titulo-informacoes');
 
-$(window).on("load",()=>{
-    document.querySelector('#formDosRadio').reset();
-    // $('.sections').css('margin-top','0vh');
-    var rd_nodejs = $('#rd_nodejs');
-    $('#rd_nodejs').attr("checked",true);
-});
+
+
+if(document.querySelector('#formDosRadio') != null){
+    $(window).on("load",()=>{
+        document.querySelector('#formDosRadio').reset();
+        // $('.sections').css('margin-top','0vh');
+        var rd_nodejs = $('#rd_nodejs');
+        $('#rd_nodejs').attr("checked",true);
+    });
+}
 
 scrollDetect();
 
@@ -48,3 +52,5 @@ validaSenha('#SenhaAlterada');
 import{deleteBtn, deletaOCard} from './TelaProfessor/TelaProfessorAnimacoes';
 
 deleteBtn();
+
+

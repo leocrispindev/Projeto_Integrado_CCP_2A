@@ -1,4 +1,18 @@
 
+$(window).on("load",()=>{
+
+    Swal.fire({
+        title: 'Error!',
+        text: 'Do you want to continue',
+        type: 'error',
+        confirmButtonText: 'Cool'
+      })
+
+    //   https://sweetalert2.github.io/#examples da uma lida nos exemplos ai de como usar leozão 
+    // não importei o sweet alert no dashboard aluno nem no professor so na tela de login 
+});
+
+
 function setCadastroAluno() {
     var nome = $('#userNomeRegister').val();
     var ra = $('#userRaRegister').val();
