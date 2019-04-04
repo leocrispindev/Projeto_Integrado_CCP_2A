@@ -28,7 +28,7 @@ function setCadastroAluno() {
             console.log(data)
         },
         error: function(data) {
-            console.log('Erro')
+            console.log('Erro do caralho')
             console.log(data)
         }
     });
