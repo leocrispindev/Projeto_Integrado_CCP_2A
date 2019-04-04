@@ -24,8 +24,12 @@ function setCadastroAluno() {
         data: {usu_nome: nome, usu_email: email, usu_ra: ra, usu_senha: senha},
         type: 'POST',
         success: function (data) {
-            console.log('Sucesso')
-            console.log(data)
+        	 Swal.fire({
+        	        title: 'Sucesso!',
+        	        text: data,
+        	        type: 'success',
+        	        confirmButtonText: 'Cool'
+        	      })
         },
         error: function(data) {
             console.log('Erro')
