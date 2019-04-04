@@ -1,18 +1,4 @@
 
-$(window).on("load",()=>{
-
-    Swal.fire({
-        title: 'Error!',
-        text: 'Do you want to continue',
-        type: 'error',
-        confirmButtonText: 'Cool'
-      })
-
-    //   https://sweetalert2.github.io/#examples da uma lida nos exemplos ai de como usar leozão 
-    // não importei o sweet alert no dashboard aluno nem no professor so na tela de login 
-});
-
-
 function setCadastroAluno() {
     var nome = $('#userNomeRegister').val();
     var ra = $('#userRaRegister').val();
@@ -24,12 +10,21 @@ function setCadastroAluno() {
         data: {usu_nome: nome, usu_email: email, usu_ra: ra, usu_senha: senha},
         type: 'POST',
         success: function (data) {
-            console.log('Sucesso')
-            console.log(data)
+        	 Swal.fire({
+        	        title: 'Sucesso!',
+        	        text: data,
+        	        type: 'success',
+        	        confirmButtonText: 'OK'
+        	    })
         },
         error: function(data) {
-            console.log('Erro do caralho')
-            console.log(data)
+            
+            Swal.fire({
+                title: 'Error!',
+                text: data,
+                type: 'error',
+                confirmButtonText: 'OK'
+            })
         }
     });
 }
