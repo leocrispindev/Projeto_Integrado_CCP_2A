@@ -16,7 +16,7 @@ public class EditarAluno implements Acao {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 			
-		String email, senha;
+		String email, senha, nome;
 		int ra;
 		
 		nome = request.getParameter("usu_nome");
