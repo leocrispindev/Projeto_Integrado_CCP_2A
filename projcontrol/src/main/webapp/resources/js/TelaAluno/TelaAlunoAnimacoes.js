@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 function animaAvatar(){
     
     $(document).ready(function() {
@@ -5,6 +6,35 @@ function animaAvatar(){
         $('#avatar-usuario').addClass('avatar-usuario-carregado');
     });
     
+}
+
+function trocaSenha(){
+
+    
+
+    $('#trocar-senha').on("click",()=>{
+        Swal.mixin({
+            input: 'email',
+            confirmButtonText: 'Proximo &rarr;',
+            showCancelButton: true,
+            progressSteps: ['1', '2']
+          }).queue([
+            {
+              title: 'Alterar Email',
+              text: 'Digite seu Email atual'
+            },
+            'Digite seu novo Email',
+          ]).then((result) => {
+            if (result.value) {
+              Swal.fire({
+                title: 'Tudo feito!',
+                    // JSON.stringify(result.value)
+                confirmButtonText: 'Finalizar'
+              })
+            }
+          })
+
+    });
 }
 
 function animaEscritaTexto(id){
@@ -183,4 +213,4 @@ function scrollDetect(){
 }
 
 
-export{animaAvatar,animaEscritaTexto,scrollDetect};
+export{animaAvatar,animaEscritaTexto,scrollDetect,trocaSenha};

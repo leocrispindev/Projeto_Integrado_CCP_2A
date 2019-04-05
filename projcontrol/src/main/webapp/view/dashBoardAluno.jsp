@@ -1,5 +1,5 @@
-<!-- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  -->
-<!-- <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%> -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +36,7 @@
 		
 		<section class="sections">
 			<section class="bloco" id="nodejs">
-				<a data-toggle="modal" data-target="#modal-trocar-senha" class="alterar-informacoes"><i class="fas fa-cog icone-gear" style="font-size: 50px; color: #fff;"></i></a>
+				<a id="trocar-senha" class="alterar-informacoes"><i class="fas fa-cog icone-gear" style="font-size: 50px; color: #fff;"></i></a>
 				<img src="./resources/assets/avatar.png" id="avatar-usuario" class="avatar-usuario" alt="teste">
 				<h1 class="titulo-informacoes">${alunoDados.nome}</h1>
 				<h1 class="corpo-informacoes">${alunoDados.email}</h1>
@@ -200,6 +200,23 @@
 				</section>
 			</section>
 			
+			
+			<!-- modal pra escolher -->
+			<div class="modal" tabindex="-1" role="dialog">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Esqueceu alguma coisa?</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Esqueci Meu Email</button>
+						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Esqueci Minha Senha</button>
+					</div>
+				</div>
+			</div>
+			
 			<!-- Modal -->
 			<div class="modal fade" id="modal-trocar-senha" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 				<div class="modal-dialog modal-dialog-centered" role="document">
@@ -212,7 +229,7 @@
 						</div>
 						<div class="modal-body">
 							<form>
-						
+								
 								<div class="form-group">
 									<label for="EmailAlterado" class="col-form-label">Novo Email:</label>
 									<input type="email" class="form-control input-modal input-alterar-informacoes" value=${alunoDados.email} id="EmailAlterado">
