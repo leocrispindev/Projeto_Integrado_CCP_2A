@@ -18,23 +18,13 @@ function setCadastroAluno() {
         	    })
         },
         error: function(data) {
-<<<<<<< HEAD
-            Swal.fire({
-                title: 'Error!',
-                text: 'Erro ai po',
-                type: 'error',
-                confirmButtonText: 'Cool'
-              })
-            console.log(data)
-=======
-            
             Swal.fire({
                 title: 'Error!',
                 text: data,
                 type: 'error',
                 confirmButtonText: 'OK'
-            })
->>>>>>> 54f43b83f2f78e1702d225bb91b9f3be831c832b
+              })
+            console.log(data)
         }
     });
 }
