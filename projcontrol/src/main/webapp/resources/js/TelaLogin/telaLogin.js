@@ -28,7 +28,12 @@ function setCadastroAluno() {
             console.log(data)
         },
         error: function(data) {
-            console.log('Erro do caralho')
+            Swal.fire({
+                title: 'Error!',
+                text: 'Erro ai po',
+                type: 'error',
+                confirmButtonText: 'Cool'
+              })
             console.log(data)
         }
     });
