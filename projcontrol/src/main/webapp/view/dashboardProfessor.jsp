@@ -21,7 +21,7 @@
 		<label id="label-custom" for="rd_nodejs">Informações</label>
 		<label id="label-custom" for="rd_bootstrap">Turma</label>
 		<label id="label-custom" for="rd_sass">Grupo</label>
-		<label id="label-custom" for="rd_ruby">Tema</label>
+		<!-- <label id="label-custom" for="rd_ruby">Tema</label> -->
 		<label id="label-custom" for="rd_angular">Cronograma</label>
 	</nav>
 	
@@ -30,13 +30,13 @@
 			<input type="radio" name="grupo" id="rd_nodejs" checked="true">
 			<input type="radio" name="grupo" id="rd_bootstrap">
 			<input type="radio" name="grupo" id="rd_sass">
-			<input type="radio" name="grupo" id="rd_ruby">
+			<!-- <input type="radio" name="grupo" id="rd_ruby"> -->
 			<input type="radio" name="grupo" id="rd_angular">
 		</form>
 		
 		<section class="sections">
-			<section class="bloco" id="nodejs">
-				<a data-toggle="modal" data-target="#modal-trocar-senha" class="alterar-informacoes"><i class="fas fa-cog icone-gear" style="font-size: 50px; color: #fff;"></i></a>
+			<section class="bloco bloco-no-overflow" id="nodejs">
+				<a id="trocar-senha" class="alterar-informacoes"><i class="fas fa-cog icone-gear" style="font-size: 50px; color: #fff;"></i></a>
 				<img src="./resources/assets/avatar2.png" id="avatar-usuario" class="avatar-usuario" alt="teste">
 				<h1 class="titulo-informacoes">${professorDados.nome}</h1>
 				<h1 class="corpo-informacoes">${professorDados.email}</h1>
@@ -69,43 +69,41 @@
 				</section>
 				<section class="bloco bloco-no-overflow" id="bootstrap">
 					<h1 class="titulo-informacoes titulo-top">Suas Turmas</h1>
-					
-					<div class="card-box">
-						<div onclick="deleta('.card-margin')" class="card text-dark bg-light mb-3 turmas card-margin" style="max-width: 18rem;">
-							<div class="card-header">CCPS1DS-DSS <a><small class="botao-fechar"></small></a></div>
-							<div class="card-body">
-								<h5 class="card-title">Professor: Teste</h5>
-								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							</div>
-						</div>
-						
-						<div class="card text-dark bg-light mb-3 card-margin" style="max-width: 18rem;">
-							<div class="card-header">CCP1D1-C14 <a><small class="botao-fechar" ></small></a></div>
-							<div class="card-body">
-								<h5 class="card-title">Professor: Teste</h5>
-								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							</div>
-						</div>
-						
-						
-						<div class="card text-dark bg-light mb-3 card-margin" style="max-width: 18rem;">
-							<div class="card-header">CCPNE-32A <a><small class="botao-fechar"></small></a></div>
-							<div class="card-body">
-								<h5 class="card-title">Professor: Teste</h5>
-								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							</div>
-						</div>
-						
-						<!-- c:foreach -->
-						<!-- <div class="card text-dark bg-light mb-3 card-margin" style="max-width: 18rem;">
-							<div class="card-header">${TURMA}</div>
-							<div class="card-body">
-								<h5 class="card-title">${PROFESSOR}</h5>
-								<p class="card-text">${$teste}</p>
-							</div>
-						</div> -->
-						<!-- fecha foreach -->
-						
+					<div class="container-fluid">
+						<table class="table table-dark">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Turma</th>
+									<th scope="col">Tema</th>
+									<th scope="col">Descrição</th>
+									<th scope="col">Alunos</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row" id="botao-deletar" class="nao-deleta-linha"><a id="deletaLinhaTabela"><i class="fas fa-trash"></i></a></i></th>
+									<td>CCP1B1-MCA3</td>
+									<td>Chocolate</td>
+									<td>Um programa de chocolate</td>
+									<td style="cursor:pointer;"><a data-toggle="modal" data-target="#modal-lista-alunos">Ver Alunos</a></td>
+								</tr>
+								<tr>
+									<th scope="row" id="botao-deletar" class="nao-deleta-linha"><a id="deletaLinhaTabela"><i class="fas fa-trash"></i></a></th>
+									<td>CCP1B1-MASDS</td>
+									<td>Manga</td>
+									<td>Um programa de manga</td>
+									<td style="cursor:pointer;"><a data-toggle="modal" data-target="#modal-lista-alunos">Ver Alunos</a></td>
+								</tr>
+								<tr>
+									<th scope="row" id="botao-deletar" class="nao-deleta-linha"><a id="deletaLinhaTabela"><i class="fas fa-trash"></i></a></i></th>
+									<td>CCP1B1-MDSS</td>
+									<td>Arroz</td>
+									<td>Um programa de arroz</td>
+									<td style="cursor:pointer;"><a data-toggle="modal" data-target="#modal-lista-alunos">Ver Alunos</a></td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 					
 					<div class="card text-dark bg-light mb-3 button-right btn-delete" style="max-width: 18rem;"></div>
@@ -138,28 +136,9 @@
 					</div> -->
 					
 				</section>
-				<section class="bloco" id="ruby">
-					<h1 class="titulo-informacoes titulo-top">Tema</h1>
-					
-					<div class="card text-dark bg-light mb-3 card-margin" style="max-width: 18rem;">
-						<div class="card-header">Titulo</div>
-						<div class="card-body card-grupo">
-							<h5 class="card-title">data de Cadastro</h5>
-							<p class="card-text">Introducao</p>
-							<p class="card-text">Requisitos</p>
-						</div>
-					</div>
-					
-					<!-- <div class="card text-dark bg-light mb-3 card-margin" style="max-width: 18rem;">
-						<div class="card-header">${titulo}</div>
-						<div class="card-body card-grupo">
-							<h5 class="card-title">${data_de_cadastro}</h5>
-							<p class="card-text">${introducao}</p>
-							<p class="card-text">${requisitos}</p>
-						</div>
-					</div> -->
-					
-				</section>
+				
+				<!-- <section class="bloco" id="ruby"></section> -->
+				
 				<section class="bloco bloco-no-overflow-y" id="angular">
 					<h1 class="titulo-informacoes titulo-top">Cronograma</h1>
 					
@@ -244,7 +223,7 @@
 				<div class="modal-dialog modal-dialog-centered" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title alterar-informacoes-titulo" id="exampleModalLabel">Alterar Informações</h5>
+							<h5 class="modal-title alterar-informacoes-titulo" id="exampleModalLabel">Criar Turma</h5>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
@@ -322,22 +301,46 @@
 								</ul>
 							</nav>
 							<!-- COMO USAR
-							VOCÊ VAI CARREGAR ALUNOS DE ACORDO COM A PÁGINA CLICADA, A CADA CLIQUE NÁ VAI CARREGAR
-						ALUNOS DIFERETENS -->
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-							<button type="button" class="btn btn-danger btn-alterar-info">Alterar Informações</button>
+								VOCÊ VAI CARREGAR ALUNOS DE ACORDO COM A PÁGINA CLICADA, A CADA CLIQUE NÁ VAI CARREGAR
+								ALUNOS DIFERETENS -->
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+								<button type="button" class="btn btn-danger btn-alterar-info">Criar Turma</button>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			
-			
-			
-			
-			
-			<script src="./resources/bundle.js"></script>
-			<script defer src="./resources/js/all.min.js"></script>
-		</body>
-		</html>
+				
+				<!-- Modal LISTA ALUNOS-->
+				<div class="modal fade" id="modal-lista-alunos" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-scrollable" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalScrollableTitle">Lista de Alunos</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<p>João grilo</p>
+								<p>Pedro cartilagem</p>
+								<p>José dom bosco</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" data-dismiss="modal" class="btn btn-primary">Ok</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				
+				
+				
+				
+				
+				
+				<script src="./resources/bundle.js"></script>
+				<script defer src="./resources/js/all.min.js"></script>
+			</body>
+			</html>

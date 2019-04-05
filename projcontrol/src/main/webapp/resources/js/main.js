@@ -51,10 +51,14 @@ validaSenha('#SenhaAlterada');
 validaEmail('.swal2-input');
 
 
-import{deleteBtn, deletaOCard} from './TelaProfessor/TelaProfessorAnimacoes';
+import{deleteBtn, deletaOCard,deletaLinhaTabela} from './TelaProfessor/TelaProfessorAnimacoes';
 
 deleteBtn();
 
 trocaSenha();
+
+deletaLinhaTabela();
+
+
 
 

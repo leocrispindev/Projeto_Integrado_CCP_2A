@@ -367,9 +367,18 @@
     content: 'X';
 }
 
+.deleta-linha{
+    cursor: pointer;
+    opacity: 1;
+    transition:all 1s;
+}
 
-
-
+.nao-deleta-linha{
+    cursor: default;
+    opacity: 0;
+    transition:all 1s;
+    
+}
 
 
 
@@ -387,6 +396,7 @@
     .bloco-no-overflow{
         overflow-y:hidden;
     }
+
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
