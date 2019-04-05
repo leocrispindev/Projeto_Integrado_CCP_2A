@@ -21,7 +21,6 @@
 		<label id="label-custom" for="rd_nodejs">Informações</label>
 		<label id="label-custom" for="rd_bootstrap">Turma</label>
 		<label id="label-custom" for="rd_sass">Grupo</label>
-		<label id="label-custom" for="rd_ruby">Tema</label>
 		<label id="label-custom" for="rd_angular">Cronograma</label>
 	</nav>
 	
@@ -30,7 +29,6 @@
 			<input type="radio" name="grupo" id="rd_nodejs" checked="true">
 			<input type="radio" name="grupo" id="rd_bootstrap">
 			<input type="radio" name="grupo" id="rd_sass">
-			<input type="radio" name="grupo" id="rd_ruby">
 			<input type="radio" name="grupo" id="rd_angular">
 		</form>
 		
@@ -74,7 +72,7 @@
 						<div class="card text-dark bg-light mb-3 turmas card-margin" style="max-width: 18rem;">
 							<div class="card-header">CCPS1DS-DSS</div>
 							<div class="card-body">
-								<h5 class="card-title">Professor: Teste</h5>
+								<h5 class="card-title">Tema: tema</h5>
 								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 							</div>
 						</div>
@@ -133,28 +131,6 @@
 							c:foreach Pelos alunos que o grupo possui
 							<p class="card-text">${aluno} <small style="font-weight:bold;">${aluno.nota}</small></p>
 							fim do foreach
-						</div>
-					</div> -->
-					
-				</section>
-				<section class="bloco" id="ruby">
-					<h1 class="titulo-informacoes titulo-top">Tema</h1>
-					
-					<div class="card text-dark bg-light mb-3 card-margin" style="max-width: 18rem;">
-						<div class="card-header">Titulo</div>
-						<div class="card-body card-grupo">
-							<h5 class="card-title">data de Cadastro</h5>
-							<p class="card-text">Introducao</p>
-							<p class="card-text">Requisitos</p>
-						</div>
-					</div>
-					
-					<!-- <div class="card text-dark bg-light mb-3 card-margin" style="max-width: 18rem;">
-						<div class="card-header">${titulo}</div>
-						<div class="card-body card-grupo">
-							<h5 class="card-title">${data_de_cadastro}</h5>
-							<p class="card-text">${introducao}</p>
-							<p class="card-text">${requisitos}</p>
 						</div>
 					</div> -->
 					

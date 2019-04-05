@@ -230,7 +230,7 @@
 }
 
 .sections{
-    transition:all .5s;
+    transition:all .8s;
 }
 
 #rd_bootstrap:checked ~ .sections{
