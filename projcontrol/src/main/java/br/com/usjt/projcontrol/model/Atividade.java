@@ -3,18 +3,18 @@ package br.com.usjt.projcontrol.model;
 import java.util.Calendar;
 
 public class Atividade {
-	private int atividade_id;
+	private int atividadeId;
 	private int numero;
 	private String descricao;
 	private String formato;
-	private Calendar data_inicio;
-	private Calendar data_fim;
+	private Calendar dataInicio;
+	private Calendar dataFim;
 	
-	public int getAtividade_id() {
-		return atividade_id;
+	public int getAtividadeId() {
+		return atividadeId;
 	}
-	public void setAtividade_id(int atividade_id) {
-		this.atividade_id = atividade_id;
+	public void setAtividadeId(int atividadeId) {
+		this.atividadeId = atividadeId;
 	}
 	public int getNumero() {
 		return numero;
@@ -34,17 +34,17 @@ public class Atividade {
 	public void setFormato(String formato) {
 		this.formato = formato;
 	}
-	public Calendar getData_inicio() {
-		return data_inicio;
+	public Calendar getDataInicio() {
+		return dataInicio;
 	}
-	public void setData_inicio(Calendar data_inicio) {
-		this.data_inicio = data_inicio;
+	public void setDataInicio(Calendar dataInicio) {
+		this.dataInicio = dataInicio;
 	}
-	public Calendar getData_fim() {
-		return data_fim;
+	public Calendar getDataFim() {
+		return dataFim;
 	}
-	public void setData_fim(Calendar data_fim) {
-		this.data_fim = data_fim;
+	public void setDataFim(Calendar dataFim) {
+		this.dataFim = dataFim;
 	}
 	
 	public Atividade() {}

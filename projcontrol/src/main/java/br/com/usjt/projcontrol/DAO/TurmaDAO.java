@@ -78,12 +78,12 @@ public class TurmaDAO {
 		}
 	}
 
-	public void getTurma() {
+	public void getTurmaId() {
 
-		String sqlListaTurma = "SELECT codigoIdentificador FROM turma ORDER BY codigoIdentificador";
+		String sqlTurmaId = "SELECT codigoIdentificador FROM turma ORDER BY codigoIdentificador";
 
 		try (Connection conn = Conexao.getConexaoMYSQL()) {
-			PreparedStatement stmt = conn.prepareStatement(sqlListaTurma);
+			PreparedStatement stmt = conn.prepareStatement(sqlTurmaId);
 
 			stmt.executeQuery();
 

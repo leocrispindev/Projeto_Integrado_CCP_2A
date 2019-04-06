@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class Avaliacao {
-	private int avaliacao_id;
+	private int avaliacaoId;
 	private double nota;
 	private String comentario;
-	private Calendar data_avaliacao;
+	private Calendar dataAvaliacao;
 	private ArrayList<Entrega> entregas;
 	
-	public int getAvaliacao_id() {
-		return avaliacao_id;
+	public int getAvaliacaoId() {
+		return avaliacaoId;
 	}
 
-	public void setAvaliacao_id(int avaliacao_id) {
-		this.avaliacao_id = avaliacao_id;
+	public void setAvaliacaoId(int avaliacaoId) {
+		this.avaliacaoId = avaliacaoId;
 	}
 
 	public double getNota() {
@@ -34,12 +34,12 @@ public class Avaliacao {
 		this.comentario = comentario;
 	}
 
-	public Calendar getData_avaliacao() {
-		return data_avaliacao;
+	public Calendar getDataAvaliacao() {
+		return dataAvaliacao;
 	}
 
-	public void setData_avaliacao(Calendar data_avaliacao) {
-		this.data_avaliacao = data_avaliacao;
+	public void setDataAvaliacao(Calendar dataAvaliacao) {
+		this.dataAvaliacao = dataAvaliacao;
 	}
 
 	public ArrayList<Entrega> getEntregas() {
