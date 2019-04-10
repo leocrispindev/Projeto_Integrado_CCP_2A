@@ -4,10 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import br.com.usjt.projcontrol.Conexao.Conexao;
 import br.com.usjt.projcontrol.model.Aluno;
 import br.com.usjt.projcontrol.model.Professor;
+import br.com.usjt.projcontrol.model.Tema;
+import br.com.usjt.projcontrol.model.Turma;
 import br.com.usjt.projcontrol.model.Usuario;
 
 public class AlunoDAO {
@@ -22,13 +25,16 @@ public class AlunoDAO {
 		
 		try (Connection conn = Conexao.getConexaoMYSQL()) {
 
-			String sql = "SELECT id, nome, email, senha FROM usuario WHERE email = ? AND senha = ?;";
+			String sql = "SELECT usu.id, usu.nome, usu.email, usu.senha FROM usuario usu "
+					+ "INNER JOIN aluno al ON usu.id = al.aluno_id "
+					+ " WHERE usu.email = ? AND usu.senha = ?;";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(1, aluno.getEmail());
 			stmt.setString(2, aluno.getSenha());
 			ResultSet rs = stmt.executeQuery();
 			alunoDados = new Aluno();
 			while(rs.next()) {
+			
 				alunoDados.setId(rs.getInt(1));
 				alunoDados.setNome(rs.getString("nome"));
 				alunoDados.setEmail(rs.getString("email"));
@@ -169,7 +175,48 @@ public class AlunoDAO {
 		return usuarioID;
 	}
 	
-	
+	public ArrayList<Turma> getTurmasByAlunoID(int id) {
+		
+		String sql = "SELECT t.sigla, tm.titulo, tm.introducao FROM turma_aluno aluno "
+				+ "INNER JOIN turma t ON t.id = aluno.turma_id "
+				+ "INNER JOIN tema tm ON tm.id = t.id "
+				+ " WHERE aluno.aluno_id = ?";
+		
+		ArrayList<Turma> arrayTurmas = null;
+		conexao = new Conexao();
+		
+		try (Connection conn = Conexao.getConexaoMYSQL()) {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, id);
+			
+			arrayTurmas = new ArrayList<Turma>();
+			try(ResultSet result = stmt.executeQuery()) {
+				
+				while(result.next()) {
+					
+					Tema tema = new Tema();
+					tema.setTitulo(result.getString(2));
+					tema.setIntroducao(result.getString(3));
+					
+					Turma turma = new Turma();
+					turma.setSigla(result.getString(1));
+					turma.setTurmaTema(tema);
+				
+					arrayTurmas.add(turma);
+				}
+				
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			conexao.closeConexaoMYSQL();
+		}
+		
+		return arrayTurmas;
+	}
 	
 	
 	

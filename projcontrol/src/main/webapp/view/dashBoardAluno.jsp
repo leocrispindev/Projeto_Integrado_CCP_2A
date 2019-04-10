@@ -48,62 +48,25 @@
 					</select>
 				</form>
 				<a class="deslogar"><i class="fas fa-sign-out-alt" style="font-size: 40px; color: #fff;"></i></a>
-				
-				<!-- COMO INSERIR DINAMICAMENTE -->
-				
-				<!-- <h1 class="titulo-informacoes">${nome}</h1>
-					<h1 class="corpo-informacoes">${email}</h1>
-					<h1 class="corpo-informacoes">${grupoQuePertence}</h1>
-					<form class="form-inline">
-						FAZ UM :FOREACH PRA PEGAR OS PERIODOS LETIVOS DO ALUNO E COLOCAR AI NO SELECT
-						<select class="periodo-letivo" id="inlineFormCustomSelectPref">
-							<option disabled selected>Período Letivo</option>
-							<option value="1">${PERIODO_LETIVO[1]}</option>
-							<option value="2">${PERIODO_LETIVO[2]}</option>
-							<option value="3">${PERIODO_LETIVO[3]}</option>
-						</select>
-					</form> -->
 					
 				</section>
 				<section class="bloco bloco-no-overflow" id="bootstrap">
 					<h1 class="titulo-informacoes titulo-top">Suas Turmas</h1>
 					
 					<div class="card-box">
-						<div class="card text-dark bg-light mb-3 turmas card-margin" style="max-width: 18rem;">
-							<div class="card-header">CCPS1DS-DSS</div>
-							<div class="card-body">
-								<h5 class="card-title">Tema: tema</h5>
-								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						
+						<c:forEach var = "turma" items="${turmasDados}">
+							 <div class="card text-dark bg-light mb-3 card-margin" style="max-width: 18rem;">
+								<div class="card-header">${turma.getSigla()}</div>
+								<div class="card-body">
+									<h5 class="card-title">${turma.getTurmaTema().getTitulo()}</h5>
+									<p class="card-text">${turma.getTurmaTema().getIntroducao()}</p>
+								</div>
 							</div>
-						</div>
 						
-						<div class="card text-dark bg-light mb-3 card-margin" style="max-width: 18rem;">
-							<div class="card-header">CCP1D1-C14</div>
-							<div class="card-body">
-								<h5 class="card-title">Professor: Teste</h5>
-								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							</div>
-						</div>
+						</c:forEach>
 						
-						
-						<div class="card text-dark bg-light mb-3 card-margin" style="max-width: 18rem;">
-							<div class="card-header">CCPNE-32A</div>
-							<div class="card-body">
-								<h5 class="card-title">Professor: Teste</h5>
-								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							</div>
-						</div>
-						
-						<!-- c:foreach -->
-						<!-- <div class="card text-dark bg-light mb-3 card-margin" style="max-width: 18rem;">
-							<div class="card-header">${TURMA}</div>
-							<div class="card-body">
-								<h5 class="card-title">${PROFESSOR}</h5>
-								<p class="card-text">${$teste}</p>
-							</div>
-						</div> -->
-						<!-- fecha foreach -->
-						
+
 					</div>
 					
 					<!-- <div class="card text-dark bg-light mb-3 button-right" style="max-width: 18rem;"></div> -->

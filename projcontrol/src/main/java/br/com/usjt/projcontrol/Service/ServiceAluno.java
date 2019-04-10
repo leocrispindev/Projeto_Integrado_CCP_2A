@@ -1,9 +1,11 @@
 package br.com.usjt.projcontrol.Service;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import br.com.usjt.projcontrol.DAO.AlunoDAO;
 import br.com.usjt.projcontrol.model.Aluno;
+import br.com.usjt.projcontrol.model.Turma;
 import br.com.usjt.projcontrol.model.Usuario;
 
 public class ServiceAluno implements Serializable{
@@ -58,7 +60,13 @@ public class ServiceAluno implements Serializable{
 	}
 	
 	
-	
+	public ArrayList<Turma> getTurmasByAluno(int id) {
+		ArrayList<Turma> arrayTurmas = new ArrayList<Turma>();
+		
+		arrayTurmas = usuarioD.getTurmasByAlunoID(id);
+		
+		return arrayTurmas;
+	}
 	
 	
 	
