@@ -1,5 +1,6 @@
 package br.com.usjt.projcontrol.model;
 
+import java.sql.Date;
 import java.util.Calendar;
 
 public class Atividade {
@@ -7,8 +8,9 @@ public class Atividade {
 	private int numero;
 	private String descricao;
 	private String formato;
-	private Calendar dataInicio;
-	private Calendar dataFim;
+	private Date dataInicio;
+	private Date dataFim;
+	private Tema tema;
 	
 	public int getAtividadeId() {
 		return atividadeId;
@@ -34,17 +36,23 @@ public class Atividade {
 	public void setFormato(String formato) {
 		this.formato = formato;
 	}
-	public Calendar getDataInicio() {
+	public Date getDataInicio() {
 		return dataInicio;
 	}
-	public void setDataInicio(Calendar dataInicio) {
+	public void setDataInicio(Date dataInicio) {
 		this.dataInicio = dataInicio;
 	}
-	public Calendar getDataFim() {
+	public Date getDataFim() {
 		return dataFim;
 	}
-	public void setDataFim(Calendar dataFim) {
+	public void setDataFim(Date dataFim) {
 		this.dataFim = dataFim;
+	}
+	public Tema getTema() {
+		return tema;
+	}
+	public void setTema(Tema tema) {
+		this.tema = tema;
 	}
 	
 	public Atividade() {}
