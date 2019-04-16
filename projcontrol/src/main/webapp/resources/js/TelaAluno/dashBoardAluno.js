@@ -1,7 +1,7 @@
 
-function trocaSenha(){
+function trocaEmail(){
 
-    $('#trocar-senha').on("click",()=>{
+    $('#troca-email').on("click",()=>{
         Swal.mixin({
             input: 'email',
             confirmButtonText: 'Proximo &rarr;',
@@ -23,7 +23,33 @@ function trocaSenha(){
     });
 }
 
+function trocaSenha(){
+
+  $('#troca-senha').on("click",()=>{
+      Swal.mixin({
+          input: 'password',
+          confirmButtonText: 'Proximo &rarr;',
+          showCancelButton: true,
+          progressSteps: ['1', '2','3']
+        }).queue([
+          {
+            title: 'Digite sua Senha:',
+          },
+          'Digite sua nova Senha',
+          'Confirme sua nova Senha'
+        ]).then((result) => {
+          if (result.value) {
+                       
+              setUpdateEmail(result.value);
+          }
+        })
+
+  });
+}
+
+trocaEmail();
 trocaSenha();
+
 function setUpdateEmail(dados) {
     $.ajax({
         url: 'entrada?acao=EditarEmail',
