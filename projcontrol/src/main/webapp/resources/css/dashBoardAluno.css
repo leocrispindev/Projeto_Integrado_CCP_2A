@@ -87,7 +87,10 @@
 
 .deslogar{
     cursor: pointer;
+    margin-top: 1%;
 }
+
+
 
 
 .periodo-letivo{
@@ -340,6 +343,13 @@
     overflow-y: scroll;
 }
 
+.card-grupo{
+    margin-top: 0%;
+}
+
+.grupo-titulo{
+    margin-top:0%;
+}
 
 
 

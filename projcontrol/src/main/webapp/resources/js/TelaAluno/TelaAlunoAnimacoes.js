@@ -8,6 +8,15 @@ function animaAvatar(){
     
 }
 
+function animaDeslogar(){
+
+    $(".deslogar").on("mouseover",()=>{
+        $(".deslogarFas").removeClass('fa-door-closed');
+        $(".deslogarFas").addClass('fa-door-open');
+    });
+
+}
+
 
 
 function animaEscritaTexto(id){
@@ -151,4 +160,4 @@ function scrollDetect(){
 }
 
 
-export{animaAvatar,animaEscritaTexto,scrollDetect};
+export{animaAvatar,animaEscritaTexto,scrollDetect,animaDeslogar};

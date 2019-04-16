@@ -33,9 +33,11 @@
 		</form>
 
 		<section class="sections">
+
+			
 			<section class="bloco" id="nodejs">
 				<a data-target="#modalEscolha" data-toggle="modal" class="alterar-informacoes"><i
-						class="fas fa-cog icone-gear" style="font-size: 50px; color: #fff;"></i></a>
+				class="fas fa-cog icone-gear" style="font-size: 50px; color: #fff;"></i></a>
 				<img src="./resources/assets/avatar.png" id="avatar-usuario" class="avatar-usuario" alt="teste">
 				<h1 class="titulo-informacoes">${alunoDados.nome}</h1>
 				<h1 class="corpo-informacoes">${alunoDados.email}</h1>
@@ -48,9 +50,11 @@
 						<option value="3">${PERIODO_LETIVO[3]}</option>
 					</select>
 				</form>
-				<a class="deslogar"><i class="fas fa-sign-out-alt" style="font-size: 40px; color: #fff;"></i></a>
+				<a title="Deslogar" class="deslogar"><i class="deslogarFas fas fa-door-closed" style="font-size: 40px; color: #fff;"></i></a>
 
 			</section>
+
+
 			<section class="bloco bloco-no-overflow" id="bootstrap">
 				<h1 class="titulo-informacoes titulo-top">Suas Turmas</h1>
 
@@ -73,12 +77,13 @@
 				<!-- <div class="card text-dark bg-light mb-3 button-right" style="max-width: 18rem;"></div> -->
 
 			</section>
-			<section class="bloco" id="sass">
-				<h1 class="titulo-informacoes titulo-top">Grupo</h1>
+			
+			<section class="bloco " id="sass">
+				<h1 class="titulo-informacoes titulo-top grupo-titulo">Grupo</h1>
 
-				<div class="card text-dark bg-light mb-3 card-margin" style="max-width: 18rem;">
+				<div class="card text-dark bg-light mb-3 card-margin card-grupo" style="max-width: 18rem;">
 					<div class="card-header">Numero do Grupo </div>
-					<div class="card-body card-grupo">
+					<div class="card-body">
 						<h5 class="card-title">Keit Yamamoto </h5>
 						<p class="card-text">Japa <small style="font-weight:bold;">NOTA</small></p>
 						<p class="card-text">Fake Japa <small style="font-weight:bold;">NOTA</small></p>
@@ -131,11 +136,11 @@
 										type="button" class="btn btn-danger">Enviar Atividade</button></td>
 							</tr>
 							<!-- <tr>
-									<th scope="row">2 tem que somar 1 na row sempre</th>
-									<td>${one}</td>
-									<td>${two}</td>
-									<td>${three}</td>
-								</tr> -->
+								<th scope="row">2 tem que somar 1 na row sempre</th>
+								<td>${one}</td>
+								<td>${two}</td>
+								<td>${three}</td>
+							</tr> -->
 						</tbody>
 					</table>
 				</div>
