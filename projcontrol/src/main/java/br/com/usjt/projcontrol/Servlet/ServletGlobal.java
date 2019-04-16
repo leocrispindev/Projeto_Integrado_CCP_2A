@@ -47,8 +47,8 @@ public class ServletGlobal extends HttpServlet {
 			}else if(tipoEndereco[0].equals("json")){
 				
 				response.setContentType("application/json");
-				String json = new Gson().toJson(tipoEndereco[1]);
-				response.getWriter().write(json);
+				//String json = new Gson().toJson(tipoEndereco[1]);
+				response.getWriter().write(tipoEndereco[1]);
 				
 				
 			}else if(tipoEndereco[0].equals("acessonegado")){

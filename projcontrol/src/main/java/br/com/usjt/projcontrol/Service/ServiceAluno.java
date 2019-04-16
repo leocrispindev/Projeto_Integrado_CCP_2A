@@ -3,14 +3,14 @@ package br.com.usjt.projcontrol.Service;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import br.com.usjt.projcontrol.Controller.Validacao;
 import br.com.usjt.projcontrol.DAO.AlunoDAO;
 import br.com.usjt.projcontrol.model.Aluno;
 import br.com.usjt.projcontrol.model.Turma;
 import br.com.usjt.projcontrol.model.Usuario;
 
-public class ServiceAluno implements Serializable{
+public class ServiceAluno extends Validacao implements Serializable{
 	AlunoDAO usuarioD = null;
-	String mensagem = "";
 	
 	public ServiceAluno() {
 		usuarioD = new AlunoDAO();
@@ -20,43 +20,42 @@ public class ServiceAluno implements Serializable{
 		return usuarioD.loginAluno(aluno);
 	}
 	
-	public String setCadastro(Aluno aluno) {
+	public String[] setCadastro(Aluno aluno) {
 		try {
 			
 			usuarioD.cadastrarAluno(aluno);
-			mensagem = "Operação Efetuada com Sucesso";
+			return this.getMensagemSucesso();
 			
 		}catch(Exception e) {
-			mensagem = "Houve um erro no processo. Contate o Administrador do sistema.";
+			return this.getMensagemErro();
 		}
-		
-		return mensagem;
 	}
 	
-	public String setUpdate(Aluno aluno) {
+	/*public String setUpdate(Aluno aluno) {
 		try {
 			
 			usuarioD.updateAluno(aluno);
 			mensagem = "Operação Efetuada com Sucesso";
 			
 		}catch(Exception e) {
-			mensagem = "Houve um erro no processo. Contate o Administrador do sistema.";
+			mensagem[0] = "Erro";
+			mensagem[1] = "Os campos preenchidos possuem valores diferentes.";
+			mensagem[2] = "error";
 		}
 		
 		return mensagem;
-	}
+	}*/
 	
-	public String setDelete(int id) {
+	public String[] setDelete(int id) {
 		try {
 			
 			usuarioD.deleteAluno(id);
-			mensagem = "Operação Efetuada com Sucesso";
+			return this.getMensagemSucesso();
 			
 		}catch(Exception e) {
-			mensagem = "Houve um erro no processo. Contate o Administrador do sistema.";
+			return this.getMensagemErro();
 		}
 		
-		return mensagem;
 	}
 	
 	

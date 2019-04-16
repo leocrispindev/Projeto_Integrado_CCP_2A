@@ -13,10 +13,11 @@ import br.com.usjt.projcontrol.Service.ServiceAluno;
 import br.com.usjt.projcontrol.model.Aluno;
 
 public class CadastrarAluno implements Acao{
-
+	Gson json = new Gson();
+	
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
-			throws IOException, ServletException {
+			throws IOException, ServletException { 
 			
 		String nome, email, senha;
 		int ra;
@@ -24,7 +25,17 @@ public class CadastrarAluno implements Acao{
 		nome = request.getParameter("usu_nome");
 		email = request.getParameter("usu_email");
 		senha = request.getParameter("usu_senha");
-		ra = Integer.parseInt(request.getParameter("usu_ra"));
+		
+		try {
+			ra = Integer.parseInt(request.getParameter("usu_ra"));
+		}catch(Exception e) {
+			String[] retorno = {"Erro!","Preencha os dados corretamente.", "error"};
+			
+			String result = json.toJson(retorno);
+			
+			return "json:"+result;
+		}
+		
 		
 		ServiceAluno serviceAluno = new ServiceAluno();
 		
@@ -34,7 +45,9 @@ public class CadastrarAluno implements Acao{
 		aluno.setSenha(senha);
 		aluno.setRa(ra);
 		
-		String result = serviceAluno.setCadastro(aluno);
+		String[] retorno = serviceAluno.setCadastro(aluno);
+		
+		String result = json.toJson(retorno);
 		
 		return "json:"+result;
 	}

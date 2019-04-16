@@ -26,7 +26,7 @@ verificaCargo();
 
 timeAlerta();
 
-import {animaAvatar, animaEscritaTexto, scrollDetect, trocaSenha} from './TelaAluno/TelaAlunoAnimacoes';
+import {animaAvatar, animaEscritaTexto, scrollDetect} from './TelaAluno/TelaAlunoAnimacoes';
 
 animaAvatar();
 
@@ -54,8 +54,6 @@ validaEmail('.swal2-input');
 import{deleteBtn, deletaOCard,deletaLinhaTabela} from './TelaProfessor/TelaProfessorAnimacoes';
 
 deleteBtn();
-
-trocaSenha();
 
 deletaLinhaTabela();
 

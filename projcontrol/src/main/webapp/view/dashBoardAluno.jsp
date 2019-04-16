@@ -221,8 +221,9 @@
 				</div>
 			</div>
 			
-			
-			
+			<script src="./resources/node_modules/jquery/dist/jquery.min.js"></script>
+			<script src="./resources/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
+			<script src="./resources/js/TelaAluno/dashBoardAluno.js"></script>
 			<script src="./resources/bundle.js"></script>
 			<script defer src="./resources/js/all.min.js"></script>
 		</body>

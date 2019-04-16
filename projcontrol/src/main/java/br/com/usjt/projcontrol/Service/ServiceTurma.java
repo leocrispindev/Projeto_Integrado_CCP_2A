@@ -2,11 +2,12 @@ package br.com.usjt.projcontrol.Service;
 
 import java.io.Serializable;
 
+import br.com.usjt.projcontrol.Controller.Validacao;
 import br.com.usjt.projcontrol.DAO.TurmaDAO;
 import br.com.usjt.projcontrol.model.Aluno;
 import br.com.usjt.projcontrol.model.Turma;
 
-public class ServiceTurma implements Serializable {
+public class ServiceTurma extends Validacao implements Serializable {
 	private static final long serialVersionUID = -9191323271768963923L;
 	
 	TurmaDAO turmaD = null;
@@ -16,15 +17,14 @@ public class ServiceTurma implements Serializable {
 		turmaD = new TurmaDAO();
 	}
 	
-	public String setCadastro(Turma turma) {
+	public String[] setCadastro(Turma turma) {
 		
 		try {
 			turmaD.cadastrarTurma(turma);
-			mensagem = "Operação Efetuada com Sucesso";
+			return this.getMensagemSucesso();
 		} catch(Exception e) {
-			mensagem = "Houve um erro no processo. Contate o Administrador do sistema.";
+			return this.getMensagemErro();
 		}
-		return mensagem;
 	}
 	
 	public String setUpdate(Turma turma) {
@@ -40,17 +40,15 @@ public class ServiceTurma implements Serializable {
 		return mensagem;
 	}
 	
-	public String setDelete(Turma turma) {
+	public String[] setDelete(Turma turma) {
 		try {
 			
 			turmaD.deleteTurma(turma);
-			mensagem = "Operação Efetuada com Sucesso";
+			return this.getMensagemSucesso();
 			
 		}catch(Exception e) {
-			mensagem = "Houve um erro no processo. Contate o Administrador do sistema.";
+			return this.getMensagemErro();
 		}
-		
-		return mensagem;
 	}
 
 }
