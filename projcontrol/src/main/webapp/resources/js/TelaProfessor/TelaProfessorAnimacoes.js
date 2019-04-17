@@ -56,14 +56,8 @@ function deletaLinhaTabela(){
         var del = document.querySelectorAll("#deletaLinhaTabela");
         
         for(var i = 0; i < del.length; i++){
-            
-
-
+                        
             del[i].addEventListener("click",(event)=>{
-                var alvoEvento = event.target;
-                console.log(event.target.parentNode.parentNode.parentNode.parentNode);
-                
-                var paiDoAlvo = alvoEvento.parentNode;
 
                 Swal.fire({
                     title: 'Você tem centeza?',
@@ -76,10 +70,10 @@ function deletaLinhaTabela(){
                     if (result.value) {
                       Swal.fire(
                         'Turma Removida',
-                        paiDoAlvo.parentNode.parentNode.parentNode.remove(),
-                        'success'
+                        // 'success',
                       )
                     }
+                    $(event.target).parent().parent().parent().parent().remove()
                   })
 
                 

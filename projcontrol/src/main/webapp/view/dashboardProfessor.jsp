@@ -35,36 +35,24 @@
 		</form>
 		
 		<section class="sections">
+			
 			<section class="bloco bloco-no-overflow" id="nodejs">
-				<a id="trocar-senha" class="alterar-informacoes"><i class="fas fa-cog icone-gear" style="font-size: 50px; color: #fff;"></i></a>
-				<img src="./resources/assets/avatar2.png" id="avatar-usuario" class="avatar-usuario" alt="teste">
-				<h1 class="titulo-informacoes">${professorDados.nome}</h1>
-				<h1 class="corpo-informacoes">${professorDados.email}</h1>
-				<h1 class="corpo-informacoes">${professorDados.gruposQuantidade}</h1>
-				<form class="form-inline">
-					<select class="periodo-letivo" id="inlineFormCustomSelectPref">
-						<option disabled selected>Período Letivo</option>
-						<option value="1">${PERIODO_LETIVO[1]}</option>
-						<option value="2">${PERIODO_LETIVO[2]}</option>
-						<option value="3">${PERIODO_LETIVO[3]}</option>
-					</select>
-				</form>
-				<a class="deslogar"><i class="fas fa-sign-out-alt" style="font-size: 40px; color: #fff;"></i></a>
-				
-				<!-- COMO INSERIR DINAMICAMENTE -->
-				
-				<!-- <h1 class="titulo-informacoes">${nome}</h1>
-					<h1 class="corpo-informacoes">${email}</h1>
-					<h1 class="corpo-informacoes">${grupoQuePertence}</h1>
+				<a data-target="#modalEscolha" data-toggle="modal" class="alterar-informacoes"><i
+					class="fas fa-cog icone-gear" style="font-size: 50px; color: #fff;"></i></a>
+					<img src="./resources/assets/avatar2.png" id="avatar-usuario" class="avatar-usuario" alt="teste">
+					<h1 class="titulo-informacoes">${professorDados.nome}</h1>
+					<h1 class="corpo-informacoes">${professorDados.email}</h1>
+					<h1 class="corpo-informacoes">${professorDados.gruposQuantidade}</h1>
 					<form class="form-inline">
-						FAZ UM :FOREACH PRA PEGAR OS PERIODOS LETIVOS DO ALUNO E COLOCAR AI NO SELECT
 						<select class="periodo-letivo" id="inlineFormCustomSelectPref">
 							<option disabled selected>Período Letivo</option>
 							<option value="1">${PERIODO_LETIVO[1]}</option>
 							<option value="2">${PERIODO_LETIVO[2]}</option>
 							<option value="3">${PERIODO_LETIVO[3]}</option>
 						</select>
-					</form> -->
+					</form>
+					<a title="Deslogar" class="deslogar"><i class="deslogarFas fas fa-door-closed" style="font-size: 40px; color: #fff;"></i></a>
+					
 					
 				</section>
 				<section class="bloco bloco-no-overflow" id="bootstrap">
@@ -76,7 +64,6 @@
 									<th scope="col">#</th>
 									<th scope="col">Turma</th>
 									<th scope="col">Tema</th>
-									<th scope="col">Descrição</th>
 									<th scope="col">Alunos</th>
 								</tr>
 							</thead>
@@ -85,21 +72,18 @@
 									<th scope="row" id="botao-deletar" class="nao-deleta-linha"><a id="deletaLinhaTabela"><i class="fas fa-trash"></i></a></i></th>
 									<td>CCP1B1-MCA3</td>
 									<td>Chocolate</td>
-									<td>Um programa de chocolate</td>
 									<td style="cursor:pointer;"><a data-toggle="modal" data-target="#modal-lista-alunos">Ver Alunos</a></td>
 								</tr>
 								<tr>
 									<th scope="row" id="botao-deletar" class="nao-deleta-linha"><a id="deletaLinhaTabela"><i class="fas fa-trash"></i></a></th>
 									<td>CCP1B1-MASDS</td>
 									<td>Manga</td>
-									<td>Um programa de manga</td>
 									<td style="cursor:pointer;"><a data-toggle="modal" data-target="#modal-lista-alunos">Ver Alunos</a></td>
 								</tr>
 								<tr>
 									<th scope="row" id="botao-deletar" class="nao-deleta-linha"><a id="deletaLinhaTabela"><i class="fas fa-trash"></i></a></i></th>
 									<td>CCP1B1-MDSS</td>
 									<td>Arroz</td>
-									<td>Um programa de arroz</td>
 									<td style="cursor:pointer;"><a data-toggle="modal" data-target="#modal-lista-alunos">Ver Alunos</a></td>
 								</tr>
 							</tbody>
@@ -111,11 +95,11 @@
 					
 				</section>
 				<section class="bloco" id="sass">
-					<h1 class="titulo-informacoes titulo-top">Grupo</h1>
+					<h1 class="titulo-informacoes titulo-top grupo-titulo">Grupo</h1>
 					
-					<div class="card text-dark bg-light mb-3 card-margin" style="max-width: 18rem;">
+					<div class="card text-dark bg-light mb-3 card-margin card-grupo" style="max-width: 18rem;">
 						<div class="card-header">Numero do Grupo </div>
-						<div class="card-body card-grupo">
+						<div class="card-body">
 							<h5 class="card-title">Keit Yamamoto </h5>
 							<p class="card-text">Japa <small style="font-weight:bold;">NOTA</small></p>
 							<p class="card-text">Fake Japa <small style="font-weight:bold;">NOTA</small></p>
@@ -238,109 +222,115 @@
 									<label for="sigla" class="col-form-label">Sigla</label>
 									<input type="text" class="form-control input-modal" id="">
 								</div>
+								<div class="form-group">
+									<button data-toggle="modal" data-target="#vinculaAlunosTurma" type="button" class="btn btn-block btn-primary">Vincular Alunos a Turma <i class="fas fa-graduation-cap"></i></button>
+								</div>
 							</form>
-							<table class="table">
-								<thead>
-									<tr>
-										<th scope="col">ID</th>
-										<th scope="col">Nome</th>
-										<th scope="col">#</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<th scope="row">1</th>
-										<td>Mark</td>
-										<td><input type="checkbox" class="checkbox-aluno"></td>
-									</tr>
-									<tr>
-										<th scope="row">2</th>
-										<td>Jacob</td>
-										<td><input type="checkbox" class="checkbox-aluno"></td>
-									</tr>
-									<tr>
-										<th scope="row">3</th>
-										<td>Larry</td>
-										<td><input type="checkbox" class="checkbox-aluno"></td>
-									</tr>
-									<tr>
-										<th scope="row">4</th>
-										<td>Larry</td>
-										<td><input type="checkbox" class="checkbox-aluno"></td>
-									</tr>
-									<tr>
-										<th scope="row">5</th>
-										<td>Larry</td>
-										<td><input type="checkbox" class="checkbox-aluno"></td>
-									</tr>
-									<tr>
-										<th scope="row">6</th>
-										<td>Larry</td>
-										<td><input type="checkbox" class="checkbox-aluno"></td>
-									</tr>
-								</tbody>
-							</table>
 							
-							<nav aria-label="Navegação de página exemplo">
-								<ul class="pagination paginacao-alunos">
-									<li class="page-item">
-										<a class="page-link" href="#" aria-label="Anterior">
-											<span aria-hidden="true">&laquo;</span>
-											<span class="sr-only">Anterior</span>
-										</a>
-									</li>
-									<li class="page-item"><a class="page-link" href="#">1</a></li>
-									<li class="page-item"><a class="page-link" href="#">2</a></li>
-									<li class="page-item"><a class="page-link" href="#">3</a></li>
-									<li class="page-item">
-										<a class="page-link" href="#" aria-label="Próximo">
-											<span aria-hidden="true">&raquo;</span>
-											<span class="sr-only">Próximo</span>
-										</a>
-									</li>
-								</ul>
-							</nav>
-							<!-- COMO USAR
-								VOCÊ VAI CARREGAR ALUNOS DE ACORDO COM A PÁGINA CLICADA, A CADA CLIQUE NÁ VAI CARREGAR
-								ALUNOS DIFERETENS -->
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-								<button type="button" class="btn btn-danger btn-alterar-info">Criar Turma</button>
-							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+							<button type="button" class="btn btn-danger btn-alterar-info">Criar Turma</button>
 						</div>
 					</div>
 				</div>
-				
-				<!-- Modal LISTA ALUNOS-->
-				<div class="modal fade" id="modal-lista-alunos" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-					<div class="modal-dialog modal-dialog-scrollable" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalScrollableTitle">Lista de Alunos</h5>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div class="modal-body">
-								<p>João grilo</p>
-								<p>Pedro cartilagem</p>
-								<p>José dom bosco</p>
-							</div>
-							<div class="modal-footer">
-								<button type="button" data-dismiss="modal" class="btn btn-primary">Ok</button>
-							</div>
+			</div>
+			
+			<!-- Modal LISTA ALUNOS vinculados a turma-->
+			<div class="modal fade" id="modal-lista-alunos" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-scrollable" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalScrollableTitle">Lista de Alunos</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<p>João grilo</p>
+							<p>Pedro cartilagem</p>
+							<p>José dom bosco</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" data-dismiss="modal" class="btn btn-primary">Ok</button>
 						</div>
 					</div>
 				</div>
-				
-				
-				
-				
-				
-				
-				
-				<script src="./resources/bundle.js"></script>
-				<script defer src="./resources/js/all.min.js"></script>
-			</body>
-			</html>
+			</div>
+			
+			<!-- modal pra escolher -->
+			<div class="modal fade" id="modalEscolha" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+			aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title alterar-informacoes-titulo" id="exampleModalCenterTitle">Escolha uma
+							opção</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<button id="troca-email" type="button" class="btn btn-lg btn-danger btn-block"
+							data-dismiss="modal">Alterar Email</button>
+							<br />
+							<button id="troca-senha" type="button" class="btn btn-lg btn-primary btn-block"
+							data-dismiss="modal" >Alterar Senha </button>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<!-- Modal Carregar Alunos Para vincular a turma-->
+			<div class="modal fade" id="vinculaAlunosTurma" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-scrollable" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalScrollableTitle">Vincular Alunos a turma</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							
+							<div class="contentAlunos">
+
+								<div class="input-group mb-2 check-name-alunos">
+									<div class="input-group-prepend">
+										<div class="input-group-text">
+											<input class="aluno-bug" type="checkbox">
+										</div>
+									</div>
+									<input type="text" disabled class="form-control aluno-bug" value="${nomeDoAluno}">
+								</div>
+								<div class="input-group mb-2 check-name-alunos">
+										<div class="input-group-prepend">
+											<div class="input-group-text">
+												<input class="aluno-bug" type="checkbox">
+											</div>
+										</div>
+										<input type="text" disabled class="form-control aluno-bug" value="${nomeDoAluno}">
+									</div>
+
+							</div>
+							
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+							<button type="button" class="btn btn-primary">Salvar Alterações</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			
+			
+			<script src="./resources/node_modules/jquery/dist/jquery.min.js"></script>
+			<script src="./resources/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
+			<script src="./resources/js/TelaAluno/dashBoardAluno.js"></script>
+			<script src="./resources/bundle.js"></script>
+			<script defer src="./resources/js/all.min.js"></script>
+		</body>
+		</html>
