@@ -70,10 +70,10 @@ function deletaLinhaTabela(){
                     if (result.value) {
                       Swal.fire(
                         'Turma Removida',
-                        // 'success',
+                        $(event.target).parent().parent().parent().parent().remove(),
+                        'success'
                       )
                     }
-                    $(event.target).parent().parent().parent().parent().remove()
                   })
 
                 
