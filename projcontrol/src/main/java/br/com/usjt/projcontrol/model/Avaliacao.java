@@ -1,13 +1,13 @@
 package br.com.usjt.projcontrol.model;
 
+import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Calendar;
 
 public class Avaliacao {
 	private int avaliacaoId;
 	private double nota;
 	private String comentario;
-	private Calendar dataAvaliacao;
+	private Date dataAvaliacao;
 	private ArrayList<Entrega> entregas;
 	
 	public int getAvaliacaoId() {
@@ -34,11 +34,11 @@ public class Avaliacao {
 		this.comentario = comentario;
 	}
 
-	public Calendar getDataAvaliacao() {
+	public Date getDataAvaliacao() {
 		return dataAvaliacao;
 	}
 
-	public void setDataAvaliacao(Calendar dataAvaliacao) {
+	public void setDataAvaliacao(Date dataAvaliacao) {
 		this.dataAvaliacao = dataAvaliacao;
 	}
 

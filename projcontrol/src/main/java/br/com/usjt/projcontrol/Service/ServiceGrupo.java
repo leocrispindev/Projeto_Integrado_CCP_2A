@@ -7,10 +7,17 @@ import br.com.usjt.projcontrol.model.Grupo;
 
 public class ServiceGrupo {
 	
-	GrupoDAO dao;
+	private GrupoDAO dao;
 	
 	public ServiceGrupo() {
 		dao = new GrupoDAO();
+	}
+	
+	public ArrayList<Grupo> getListaGruposByAlunoId(int id) {
+		ArrayList<Grupo> gruposAlunoId = new ArrayList<>();
+		gruposAlunoId = dao.getGruposByAlunoID(id);
+		
+		return gruposAlunoId;
 	}
 	
 	public ArrayList<Grupo> getListaGrupos() {
