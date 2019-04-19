@@ -50,7 +50,7 @@
 						<option value="3">${PERIODO_LETIVO[3]}</option>
 					</select>
 				</form>
-				<a href="entrada?acao=Logout" title="Deslogar" class="deslogar"><i class="deslogarFas fas fa-door-closed" style="font-size: 40px; color: #fff;"></i></a>
+				<a title="Deslogar" class="deslogar"><i class="deslogarFas fas fa-door-closed" style="font-size: 40px; color: #fff;"></i></a>
 
 			</section>
 
