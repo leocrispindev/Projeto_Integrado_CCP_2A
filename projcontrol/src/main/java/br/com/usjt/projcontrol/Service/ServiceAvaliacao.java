@@ -9,16 +9,16 @@ import br.com.usjt.projcontrol.model.Avaliacao;
 public class ServiceAvaliacao implements Serializable {
 	private static final long serialVersionUID = 3159641701784067502L;
 	
-	private AvaliacaoDAO dao;
+	private AvaliacaoDAO avaliacaoService;
 	
 	public ServiceAvaliacao() {
-		dao = new AvaliacaoDAO();
+		avaliacaoService = new AvaliacaoDAO();
 	}
 	
 	public ArrayList<Avaliacao> getAvaliacoes() {
-		ArrayList<Avaliacao> lista = new ArrayList<>();
-		lista = dao.getAvaliacoes();
+		ArrayList<Avaliacao> arrayAvaliacoes = new ArrayList<>();
+		arrayAvaliacoes = avaliacaoService.getAvaliacoes();
 		
-		return lista;
+		return arrayAvaliacoes;
 	}
 }

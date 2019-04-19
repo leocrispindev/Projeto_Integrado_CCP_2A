@@ -9,6 +9,8 @@ public class Avaliacao {
 	private String comentario;
 	private Date dataAvaliacao;
 	private ArrayList<Entrega> entregas;
+	private Turma turma;
+	
 	
 	public int getAvaliacaoId() {
 		return avaliacaoId;
@@ -49,7 +51,7 @@ public class Avaliacao {
 	public void setEntregas(ArrayList<Entrega> entregas) {
 		this.entregas = entregas;
 	}
-
+	
 	public Avaliacao() {}
 	
 	

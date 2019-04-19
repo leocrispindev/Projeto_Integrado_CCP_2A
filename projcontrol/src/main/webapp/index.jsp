@@ -42,8 +42,7 @@
 			</div>
 			<div class="form-group">
 				<label for="imA">Eu sou um:</label> <select
-					class="form-control form-control-md" id="imA" data-offset="10,20"
-					required>
+					class="form-control form-control-md" id="imA" data-offset="10,20" name="usuario_acesso" required>
 					<option selected id="disabledOp" disabled value="default">Selecione</option>
 					<option>Aluno</option>
 					<option>Professor</option>
@@ -113,9 +112,6 @@
 	</div>
 
 	
-
-
-
 	<!-- MODAL ESQUECI MINHA SENHA -->
 	<div class="modal fade" id="esqueciMinhaSenha" tabindex="-1"
 		role="dialog" aria-labelledby="exampleModalCenterTitle"

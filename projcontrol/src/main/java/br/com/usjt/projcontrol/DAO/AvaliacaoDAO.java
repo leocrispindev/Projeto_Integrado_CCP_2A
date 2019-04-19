@@ -14,13 +14,21 @@ public class AvaliacaoDAO {
 	private Conexao conexao = null;
 	
 	public ArrayList<Avaliacao> getAvaliacoes() {
-		String sql = "SELECT a.* FROM avaliacao a INNER JOIN turma_aluno ta ON a.id = ta.id INNER JOIN entrega e ON e.id = a.id;";
+		int i = 0;
+		
+		String sql = "SELECT a.* FROM avaliacao a "
+				+ "INNER JOIN turma_aluno ta ON a.id = ta.id "
+				+ "INNER JOIN entrega e ON e.id = a.id;";
+		
 		ArrayList<Avaliacao> arrayAvaliacoes = new ArrayList<>();
 
 		try (Connection conn = Conexao.getConexaoMYSQL()) {
+			
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
+			
 			while (rs.next()) {
+				
 				Avaliacao ava = new Avaliacao();
 				ava.setAvaliacaoId(rs.getInt(1));
 				ava.setComentario(rs.getString("comentarios"));

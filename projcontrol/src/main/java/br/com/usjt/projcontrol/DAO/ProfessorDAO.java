@@ -20,17 +20,21 @@ public class ProfessorDAO {
 		
 		try (Connection conn = Conexao.getConexaoMYSQL()) {
 
-			String sql = "SELECT id, nome, email, senha FROM usuario WHERE email = ? AND senha = ?;";
+			String sql = "SELECT usu.id, usu.nome, usu.email, usu.senha FROM usuario usu "
+					+ "INNER JOIN professor p ON usu.id = p.professor_id "
+					+ " WHERE usu.email = ? AND usu.senha = ? AND p.administrador = 1;";
+			
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(1, professor.getEmail());
 			stmt.setString(2, professor.getSenha());
 			ResultSet rs = stmt.executeQuery();
-			professor = new Professor();
+			professorDados = new Professor();
+			
 			while(rs.next()) {
-				professor.setId(rs.getInt(1));
-				professor.setNome(rs.getString("nome"));
-				professor.setEmail(rs.getString("email"));
-				professor.setSenha(rs.getString("senha"));
+				professorDados.setId(rs.getInt(1));
+				professorDados.setNome(rs.getString("nome"));
+				professorDados.setEmail(rs.getString("email"));
+				professorDados.setSenha(rs.getString("senha"));
 			}
 				
 		}catch(SQLException e) {

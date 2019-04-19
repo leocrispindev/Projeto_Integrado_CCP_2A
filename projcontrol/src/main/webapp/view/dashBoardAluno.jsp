@@ -38,7 +38,7 @@
 			<section class="bloco" id="nodejs">
 				<a data-target="#modalEscolha" data-toggle="modal" class="alterar-informacoes"><i
 				class="fas fa-cog icone-gear" style="font-size: 50px; color: #fff;"></i></a>
-				<img src="../resources/assets/avatar.png" id="avatar-usuario" class="avatar-usuario" alt="teste">
+				<img src="./resources/assets/avatar.png" id="avatar-usuario" class="avatar-usuario" alt="teste">
 				<h1 class="titulo-informacoes">${alunoDados.nome}</h1>
 				<h1 class="corpo-informacoes">${alunoDados.email}</h1>
 				<h1 class="corpo-informacoes">Grupo 3</h1>
