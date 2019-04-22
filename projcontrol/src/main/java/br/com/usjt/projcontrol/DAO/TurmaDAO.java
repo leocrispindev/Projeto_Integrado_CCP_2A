@@ -3,15 +3,18 @@ package br.com.usjt.projcontrol.DAO;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import br.com.usjt.projcontrol.Conexao.Conexao;
+import br.com.usjt.projcontrol.model.Professor;
 import br.com.usjt.projcontrol.model.Turma;
 
 public class TurmaDAO {
 
-	Conexao conexao = null;
-	String mensagem = "";
+	private Conexao conexao = null;
+	private String mensagem = "";
 
 	public void cadastrarTurma(Turma turma) {
 
@@ -24,7 +27,7 @@ public class TurmaDAO {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 
 			stmt.setString(1, turma.getCodigoIdentificador());
-			stmt.setDate(2, (Date) turma.getAnoLetivo());
+			stmt.setInt(2, turma.getAnoLetivo());
 			stmt.setObject(3, turma.getAlunos());
 			stmt.execute();
 
@@ -66,7 +69,7 @@ public class TurmaDAO {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 
 			stmt.setString(1, turma.getCodigoIdentificador());
-			stmt.setDate(2, (Date) turma.getAnoLetivo());
+			stmt.setInt(2, turma.getAnoLetivo());
 			stmt.setObject(3, turma.getAlunos());
 			stmt.execute();
 
@@ -93,6 +96,26 @@ public class TurmaDAO {
 		} finally {
 			conexao.closeConexaoMYSQL();
 		}
+	}
+	
+	public ArrayList<Turma> getTurmas() {
+		String sql = "SELECT semestre_letivo, ano_letivo FROM turma;";
+		ArrayList<Turma> arrayTurmas = new ArrayList<>();
+
+		try (Connection conn = Conexao.getConexaoMYSQL()) {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			try (ResultSet rs = stmt.executeQuery();) {
+				while (rs.next()) {
+					Turma turma = new Turma();
+					turma.setSemestreLetivo(rs.getInt("semestre_letivo"));
+					turma.setAnoLetivo(rs.getInt("ano_letivo"));
+					arrayTurmas.add(turma);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return arrayTurmas;
 	}
 
 }

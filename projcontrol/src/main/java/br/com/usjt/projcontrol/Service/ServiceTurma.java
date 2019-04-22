@@ -1,10 +1,10 @@
 package br.com.usjt.projcontrol.Service;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import br.com.usjt.projcontrol.Controller.Validacao;
 import br.com.usjt.projcontrol.DAO.TurmaDAO;
-import br.com.usjt.projcontrol.model.Aluno;
 import br.com.usjt.projcontrol.model.Turma;
 
 public class ServiceTurma extends Validacao implements Serializable {
@@ -49,6 +49,11 @@ public class ServiceTurma extends Validacao implements Serializable {
 		}catch(Exception e) {
 			return this.getMensagemErro();
 		}
+	}
+	
+	public ArrayList<Turma> getListaTurmas() {
+		ArrayList<Turma> turmas = turmaD.getTurmas();
+		return turmas;
 	}
 
 }

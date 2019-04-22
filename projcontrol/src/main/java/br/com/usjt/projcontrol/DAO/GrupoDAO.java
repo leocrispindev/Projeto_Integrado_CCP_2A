@@ -53,6 +53,7 @@ public class GrupoDAO {
 					grupo.setNumero_grupo(rs.getInt("num_grupo"));
 
 					Professor professor = new Professor();
+					professor.setNome(rs.getString("nome_orientador"));
 					professor.setId(rs.getInt("id_orientador"));
 					grupo.setProfessor(professor);
 
@@ -76,48 +77,47 @@ public class GrupoDAO {
 				+ "INNER JOIN usuario u ON u.id = p.professor_id;";
 		ArrayList<Grupo> arrayGrupos = new ArrayList<>();
 
-		try(Connection conn = Conexao.getConexaoMYSQL()) {
+		try (Connection conn = Conexao.getConexaoMYSQL()) {
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			ResultSet rs = stmt.executeQuery();
-			while(rs.next()) {
+			try (ResultSet rs = stmt.executeQuery();) {
+				while (rs.next()) {
 
-				Professor professor = new Professor();
-				professor.setId(rs.getInt("professor_id"));
-				professor.setNome(rs.getString("nome"));
-				professor.setAdm(rs.getBoolean("administrador"));
-				professor.setMatricula(rs.getInt("matricula"));
+					Professor professor = new Professor();
+					professor.setId(rs.getInt("p.professor_id"));
+					professor.setNome(rs.getString("u.nome"));
+					professor.setAdm(rs.getBoolean("p.administrador"));
+					professor.setMatricula(rs.getInt("p.matricula"));
 
-				Grupo grupo = new Grupo();
-				grupo.setNome(rs.getString("nome"));
-				grupo.setNumero_grupo(rs.getInt("numero"));
-				grupo.setProfessor(professor);
+					Grupo grupo = new Grupo();
+					grupo.setNome(rs.getString("g.nome"));
+					grupo.setNumero_grupo(rs.getInt("g.numero"));
+					grupo.setProfessor(professor);
 
-				arrayGrupos.add(grupo);
+					arrayGrupos.add(grupo);
+				}
 			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			conexao.closeConexaoMYSQL();
 		}
-
 		return arrayGrupos;
 	}
 
-	public void getGrupoId() {
+	public int getGrupoId() {
 
 		String sqlGrupoId = "SELECT id FROM grupo ORDER BY id DESC LIMIT 0,1";
+		int grupoId = 0;
 
 		try (Connection conn = Conexao.getConexaoMYSQL()) {
 			PreparedStatement stmt = conn.prepareStatement(sqlGrupoId);
-
-			stmt.executeQuery();
+			try (ResultSet rs = stmt.executeQuery()) {
+				if(rs.next())
+					grupoId = rs.getInt(1);
+			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-
-		} finally {
-			conexao.closeConexaoMYSQL();
 		}
+		return grupoId;
 	}
 }

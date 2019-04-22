@@ -18,4 +18,26 @@ public class Professor extends Usuario{
 	}
 	
 	public Professor() {}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Professor other = (Professor) obj;
+		if (adm != other.adm)
+			return false;
+		if (matricula != other.matricula)
+			return false;
+		return true;
+	}
+	
+	@Override
+	public String toString() {
+		return "Professor [Matricula:" + matricula + ", adm:" + adm + ", Id:" + getId() + ", Nome:"
+				+ getNome() + ", Email:" + getEmail() + ", Senha:" + getSenha() + "]";
+	}
 }
