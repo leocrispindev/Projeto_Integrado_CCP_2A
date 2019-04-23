@@ -370,16 +370,47 @@
 					<div class="modal-dialog modal-dialog-centered big-modal" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalCenterTitle">Alunos</h5>
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 								</button>
 							</div>
-							<div class="modal-body">
+							<div class="modal-body corpo-modal">	
 								<form class="form-inline my-2 my-lg-0">
-									<input class="form-control mr-sm-2 input-aluno-search" type="search" placeholder="Search" aria-label="Search">
-									<button class="btn btn-danger my-2 my-sm-0" type="submit">Search</button>
+									<input class="form-control mr-sm-2 input-aluno-search" type="search" placeholder="Procurar Alunos" aria-label="Search">
+									<button class="btn btn-danger my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
 								</form>
+								<div class="container-fluid tabela-alunos">
+									<table class="table table-striped">
+										<thead>
+											<tr>
+												<th scope="col">#</th>
+												<th scope="col">First</th>
+												<th scope="col">Last</th>
+												<th scope="col">#</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th scope="row">1</th>
+												<td>Mark</td>
+												<td>Otto</td>
+												<td><button type="button" class="btn btn-danger btn-sm">Deletar</button></td>
+											</tr>
+											<tr>
+												<th scope="row">2</th>
+												<td>Jacob</td>
+												<td>Thornton</td>
+												<td><button type="button" class="btn btn-danger btn-sm">Deletar</button></td>
+											</tr>
+											<tr>
+												<th scope="row">3</th>
+												<td>Larry</td>
+												<td>the Bird</td>
+												<td><button type="button" class="btn btn-danger btn-sm">Deletar</button></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -394,3 +425,4 @@
 				<script defer src="../resources/js/all.min.js"></script>
 			</body>
 			</html>
+			

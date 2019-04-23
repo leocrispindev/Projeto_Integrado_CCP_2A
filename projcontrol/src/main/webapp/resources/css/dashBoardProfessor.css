@@ -454,7 +454,27 @@ input[type="number"] {
 }
 
 .big-modal{
-    max-width: 100%;
+    max-width: 95vw;
+    align-items: unset;
+    min-height: 95vh;
+    
+}
+
+.modal-title{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.corpo-modal{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: top;
+    align-items: center;
+}
+
+
+.tabela-alunos{
+    margin-top: 2%;
 }
 
 
