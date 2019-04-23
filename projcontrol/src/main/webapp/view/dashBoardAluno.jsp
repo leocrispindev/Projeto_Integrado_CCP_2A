@@ -18,10 +18,10 @@
 <body>
 
 	<nav class="navbar links">
-		<label id="label-custom" for="rd_nodejs">Informações</label>
-		<label id="label-custom" for="rd_bootstrap">Turma</label>
-		<label id="label-custom" for="rd_sass">Grupo</label>
-		<label id="label-custom" for="rd_angular">Cronograma</label>
+		<label id="information" for="rd_nodejs">Informações</label>
+		<label id="classes" for="rd_bootstrap">Turma</label>
+		<label id="group" for="rd_sass">Grupo</label>
+		<label id="schedule" for="rd_angular">Cronograma</label>
 	</nav>
 
 	<div class="scroll">
@@ -32,7 +32,7 @@
 			<input type="radio" name="grupo" id="rd_angular">
 		</form>
 
-		<section class="sections">
+		<section class="sections" id="scroll_control">
 
 			
 			<section class="bloco" id="nodejs">

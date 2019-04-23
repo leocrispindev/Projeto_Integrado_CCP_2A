@@ -43,52 +43,50 @@ function animaEscritaTexto(id){
 
 function scrollDetect(){
 
-    var rd_nodejs = $('#rd_nodejs');
-    var rd_bootstrap = $('#rd_bootstrap');
-    var rd_sass = $('#rd_sass');
-    if(rd_ruby = $('#rd_ruby')){
-        var rd_ruby = $('#rd_ruby');
-    }
-    var rd_angular = $('#rd_angular');
+    let obj = document.getElementById('scroll_control').style;
+    obj.marginTop = 0 + 'vh';
 
-    $('#rd_nodejs').on("click",()=>{
-        $('.sections').css('margin-top','0vh');
-
-        rd_nodejs.attr("checked",true);
-        rd_bootstrap.removeAttr("checked"); 
-        rd_sass.removeAttr("checked"); 
-        rd_ruby.removeAttr("checked"); 
-        rd_angular.removeAttr("checked"); 
+    let information = document.getElementById('information').addEventListener('click', () =>{
+        obj.marginTop = 0;
+    });
+    let classes = document.getElementById('classes').addEventListener('click', () =>{
+        obj.marginTop = -100 + 'vh';
+    });
+    let group = document.getElementById('group').addEventListener('click', () =>{
+        obj.marginTop = -200 + 'vh';
+    });
+    let schedule = document.getElementById('schedule').addEventListener('click', () =>{
+        obj.marginTop = -300 + 'vh';
     });
 
-    $('#rd_bootstrap').on("click",()=>{
-        $('.sections').css('margin-top','-100vh');
-
-        rd_bootstrap.attr("checked",true);
-        rd_nodejs.removeAttr("checked"); 
-        rd_sass.removeAttr("checked"); 
-        rd_ruby.removeAttr("checked"); 
-        rd_angular.removeAttr("checked"); 
-    });
-
-    $('#rd_sass').on("click",()=>{
-        $('.sections').css('margin-top','-200vh');
-
-        rd_sass.attr("checked",true);
-        rd_nodejs.removeAttr("checked"); 
-        rd_ruby.removeAttr("checked"); 
-        rd_bootstrap.removeAttr("checked"); 
-        rd_angular.removeAttr("checked"); 
-    });
-
-    $('#rd_angular').on("click",()=>{
-        $('.sections').css('margin-top','-300vh');
+    document.addEventListener('keydown', () =>{
         
-        rd_angular.attr("checked",true);
-        rd_nodejs.removeAttr("checked"); 
-        rd_bootstrap.removeAttr("checked"); 
-        rd_sass.removeAttr("checked");
-        rd_ruby.removeAttr("checked"); 
+        let tecla = event.keyCode;
+        if(tecla == 37 || tecla == 38){
+
+                if(obj.marginTop == 0 + 'vh'){
+                    obj.marginTop = -300 + 'vh';
+                }else if(obj.marginTop == -300 + 'vh'){
+                    obj.marginTop = -200 + 'vh';
+                }else if(obj.marginTop == -200 + 'vh'){
+                    obj.marginTop = -100 + 'vh';
+                }else if(obj.marginTop == -100 + 'vh'){
+                    obj.marginTop = 0 + 'vh';
+                }
+        }
+
+        if(tecla == 39 || tecla == 40){
+                
+            if(obj.marginTop == -300 + 'vh'){
+                obj.marginTop = 0 + 'vh';
+            }else if(obj.marginTop == -200 + 'vh'){
+                obj.marginTop = -300 + 'vh';
+            }else if(obj.marginTop == -100 + 'vh'){
+                obj.marginTop = -200 + 'vh';
+            }else if(obj.marginTop == 0 + 'vh'){
+                obj.marginTop = -100 + 'vh';
+            }
+        }
     });
     
 }
