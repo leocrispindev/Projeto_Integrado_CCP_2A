@@ -423,7 +423,7 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
     -webkit-appearance: none;
     margin: 0;
 }
- 
+
 input[type="number"] {
     -moz-appearance: textfield;
 }
@@ -436,7 +436,27 @@ input[type="number"] {
 
 .checkbox-filtro{
     margin-right: 2%;
+    margin-bottom: 1%;
 }
+
+.input-aluno-search{
+    opacity: 1!important;
+    background: #fff!important;
+    position: relative!important;
+}
+
+.search-bar-aluno{
+    margin-bottom: 5%;
+}
+
+.tabela-alunos{
+    margin-top: 2%;
+}
+
+.big-modal{
+    max-width: 100%;
+}
+
 
 @media only screen and (min-width: 768px) and (max-width: 1280px) {
     
@@ -447,15 +467,15 @@ input[type="number"] {
     .titulo-top{
         margin-top: 0px;
     }
-
+    
     .bloco-no-overflow{
         overflow-y:hidden;
     }
-
+    
     .card-grupo{
         margin-top:0%;
     }
-
+    
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
