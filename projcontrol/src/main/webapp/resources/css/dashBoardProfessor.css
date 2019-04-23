@@ -482,6 +482,10 @@ input[type="number"] {
     transition: 1s;
 }
 
+.fluider{
+    display: flex;
+    flex-direction: row;    
+}
 
 
 @media only screen and (min-width: 768px) and (max-width: 1280px) {

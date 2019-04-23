@@ -376,52 +376,55 @@
 							</div>
 							<div class="modal-body corpo-modal">	
 								<form class="form-inline my-2 my-lg-0">
-									<input class="form-control mr-sm-2 input-aluno-search" type="search" id="filtra-nomes" placeholder="Procurar Alunos" aria-label="Search">
-									<button class="btn btn-danger my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+								<input class="form-control mr-sm-2 input-aluno-search" type="search" id="filtra-nomes" placeholder="Procurar Alunos" aria-label="Search">
+									<div class="fluider">
+										<select class="custom-select checkbox-filtro my-2 my-sm-0" id="possiveis-filtros">
+											<option disabled selected>Filtrar</option>
+											<option value="Ra">Ra</option>
+											<option value="Nome">Nome</option>
+										</select>
+									</div>
 								</form>
-								<div class="container-fluid tabela-alunos">
-									<table class="table table-striped">
-										<thead>
-											<tr>
-												<th scope="col">RA</th>
-												<th scope="col">Nome</th>
-												<th scope="col">Sobrenome</th>
-												<th scope="col">#</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr id="aluno">
-												<th id="raAluno" scope="row">81819595</th>
-												<td id="nomeAluno" >Mark</td>
-												<td>Otto</td>
-												<td><button type="button" class="btn btn-danger btn-sm">Deletar</button></td>
-											</tr>
-											<tr id="aluno">
-												<th id="raAluno" scope="row">81819599</th>
-												<td id="nomeAluno">Jacob</td>
-												<td>Thornton</td>
-												<td><button type="button" class="btn btn-danger btn-sm">Deletar</button></td>
-											</tr>
-											<tr id="aluno">
-												<th id="raAluno" scope="row">81810000</th>
-												<td id="nomeAluno">Larry</td>
-												<td>the Bird</td>
-												<td><button type="button" class="btn btn-danger btn-sm">Deletar</button></td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
+								<table class="table table-striped tabela-alunos">
+									<thead>
+										<tr>
+											<th scope="col">RA</th>
+											<th scope="col">Nome</th>
+											<th scope="col">Sobrenome</th>
+											<th scope="col">#</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr id="aluno">
+											<th id="raAluno" scope="row">81819595</th>
+											<td id="nomeAluno" >Mark</td>
+											<td>Otto</td>
+											<td><button type="button" class="btn btn-danger btn-sm">Deletar</button></td>
+										</tr>
+										<tr id="aluno">
+											<th id="raAluno" scope="row">81819599</th>
+											<td id="nomeAluno">Jacob</td>
+											<td>Thornton</td>
+											<td><button type="button" class="btn btn-danger btn-sm">Deletar</button></td>
+										</tr>
+										<tr id="aluno">
+											<th id="raAluno" scope="row">81810000</th>
+											<td id="nomeAluno">Larry</td>
+											<td>the Bird</td>
+											<td><button type="button" class="btn btn-danger btn-sm">Deletar</button></td>
+										</tr>
+									</tbody>
+								</table>
 							</div>
 						</div>
 					</div>
-				</div>
+					
+					
+					<script src="./resources/node_modules/jquery/dist/jquery.min.js"></script>
+					<script src="./resources/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
+					<script src="./resources/js/TelaAluno/dashBoardAluno.js"></script>
+					<script src="./resources/bundle.js"></script>
+					<script defer src="./resources/js/all.min.js"></script>
+				</body>
+				</html>
 				
-				
-				<script src="./resources/node_modules/jquery/dist/jquery.min.js"></script>
-				<script src="./resources/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
-				<script src="./resources/js/TelaAluno/dashBoardAluno.js"></script>
-				<script src="./resources/bundle.js"></script>
-				<script defer src="./resources/js/all.min.js"></script>
-			</body>
-			</html>
-			
