@@ -1,5 +1,5 @@
-<!-- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  -->
-<!-- <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%> -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,18 +10,18 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	
 	<link rel="stylesheet"
-	href="../resources/node_modules/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="../resources/css/dashBoardProfessor.css">
-	<link rel="icon" href="../resources/assets/favicon.ico" type="image/x-icon">
+	href="./resources/node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./resources/css/dashBoardProfessor.css">
+	<link rel="icon" href="./resources/assets/favicon.ico" type="image/x-icon">
 	<title>Dashboard Professor</title>
 </head>
 <body>
 	
 	<nav class="navbar links">
-		<label id="label-custom" for="rd_nodejs">Informações</label>
-		<label id="label-custom" for="rd_bootstrap">Turma</label>
-		<label id="label-custom" for="rd_sass">Grupo</label>
-		<label id="label-custom" for="rd_angular">Avaliações Semanais</label>
+		<label id="information" for="rd_nodejs">Informações</label>
+		<label id="classes" for="rd_bootstrap">Turma</label>
+		<label id="group" for="rd_sass">Grupo</label>
+		<label id="schedule" for="rd_angular">Avaliações Semanais</label>
 		<label id="label-custom" data-toggle="modal" data-target="#modal-alunos-crud" for="rd_ruby">Aluno</label>
 	</nav>
 	
@@ -34,12 +34,12 @@
 			<input type="radio" name="grupo" id="rd_angular">
 		</form>
 		
-		<section class="sections">
+		<section class="sections" id="scroll_control">
 			
 			<section class="bloco bloco-no-overflow" id="nodejs">
 				<a data-target="#modalEscolha" data-toggle="modal" class="alterar-informacoes"><i
 					class="fas fa-cog icone-gear" style="font-size: 50px; color: #fff;"></i></a>
-					<img src="../resources/assets/avatar2.png" id="avatar-usuario" class="avatar-usuario" alt="teste">
+					<img src="./resources/assets/avatar2.png" id="avatar-usuario" class="avatar-usuario" alt="teste">
 					<h1 class="titulo-informacoes">${professorDados.nome}</h1>
 					<h1 class="corpo-informacoes">${professorDados.email}</h1>
 					<h1 class="corpo-informacoes">5</h1>
@@ -417,11 +417,11 @@
 				</div>
 				
 				
-				<script src="../resources/node_modules/jquery/dist/jquery.min.js"></script>
-				<script src="../resources/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
-				<script src="../resources/js/TelaAluno/dashBoardAluno.js"></script>
-				<script src="../resources/bundle.js"></script>
-				<script defer src="../resources/js/all.min.js"></script>
+				<script src="./resources/node_modules/jquery/dist/jquery.min.js"></script>
+				<script src="./resources/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
+				<script src="./resources/js/TelaAluno/dashBoardAluno.js"></script>
+				<script src="./resources/bundle.js"></script>
+				<script defer src="./resources/js/all.min.js"></script>
 			</body>
 			</html>
 			

@@ -88,9 +88,7 @@ function filtraNomes(){
     var filtro = document.querySelector("#filtra-nomes");
 
     filtro.addEventListener("input", function(){
-        var alunos = document.querySelectorAll('#aluno');
-        console.log(alunos);
-        
+        var alunos = document.querySelectorAll('#aluno');        
 
         if( this.value.length > 0){
             for(var i = 0; i < alunos.length; i++){

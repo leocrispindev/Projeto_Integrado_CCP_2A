@@ -1,5 +1,5 @@
-<!-- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  -->
-<!-- <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%> -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,9 +9,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-	<link rel="stylesheet" href="../resources/node_modules/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="../resources/css/dashBoardAluno.css">
-	<link rel="icon" href="../resources/assets/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="./resources/node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./resources/css/dashBoardAluno.css">
+	<link rel="icon" href="./resources/assets/favicon.ico" type="image/x-icon">
 	<title>Dashboard Aluno</title>
 </head>
 
@@ -38,7 +38,7 @@
 			<section class="bloco" id="nodejs">
 				<a data-target="#modalEscolha" data-toggle="modal" class="alterar-informacoes"><i
 				class="fas fa-cog icone-gear" style="font-size: 50px; color: #fff;"></i></a>
-				<img src="../resources/assets/avatar.png" id="avatar-usuario" class="avatar-usuario" alt="teste">
+				<img src="./resources/assets/avatar.png" id="avatar-usuario" class="avatar-usuario" alt="teste">
 				<h1 class="titulo-informacoes">${alunoDados.nome}</h1>
 				<h1 class="corpo-informacoes">${alunoDados.email}</h1>
 				<h1 class="corpo-informacoes">Grupo 3</h1>
@@ -197,11 +197,11 @@
 			</div>
 		</div>
 
-		<script src="../resources/node_modules/jquery/dist/jquery.min.js"></script>
-		<script src="../resources/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
-		<script src="../resources/js/TelaAluno/dashBoardAluno.js"></script>
-		<script src="../resources/bundle.js"></script>
-		<script defer src="../resources/js/all.min.js"></script>
+		<script src="./resources/node_modules/jquery/dist/jquery.min.js"></script>
+		<script src="./resources/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
+		<script src="./resources/js/TelaAluno/dashBoardAluno.js"></script>
+		<script src="./resources/bundle.js"></script>
+		<script defer src="./resources/js/all.min.js"></script>
 </body>
 
 </html>
