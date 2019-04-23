@@ -383,27 +383,27 @@
 									<table class="table table-striped">
 										<thead>
 											<tr>
-												<th scope="col">#</th>
-												<th scope="col">First</th>
-												<th scope="col">Last</th>
+												<th scope="col">RA</th>
+												<th scope="col">Nome</th>
+												<th scope="col">Sobrenome</th>
 												<th scope="col">#</th>
 											</tr>
 										</thead>
 										<tbody>
 											<tr>
-												<th scope="row">1</th>
+												<th scope="row">81819595</th>
 												<td>Mark</td>
 												<td>Otto</td>
 												<td><button type="button" class="btn btn-danger btn-sm">Deletar</button></td>
 											</tr>
 											<tr>
-												<th scope="row">2</th>
+												<th scope="row">81819599</th>
 												<td>Jacob</td>
 												<td>Thornton</td>
 												<td><button type="button" class="btn btn-danger btn-sm">Deletar</button></td>
 											</tr>
 											<tr>
-												<th scope="row">3</th>
+												<th scope="row">81810000</th>
 												<td>Larry</td>
 												<td>the Bird</td>
 												<td><button type="button" class="btn btn-danger btn-sm">Deletar</button></td>
@@ -417,7 +417,7 @@
 				</div>
 				
 				
-				
+				<script src="../resources/js/TelaProfessor/TelaProfessorAnimacoes.js"></script>
 				<script src="../resources/node_modules/jquery/dist/jquery.min.js"></script>
 				<script src="../resources/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
 				<script src="../resources/js/TelaAluno/dashBoardAluno.js"></script>

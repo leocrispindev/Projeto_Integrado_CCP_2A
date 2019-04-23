@@ -58,5 +58,3 @@ deletaLinhaTabela();
 animaDeslogar();
 
 
-
-
