@@ -42,7 +42,7 @@
 					<img src="../resources/assets/avatar2.png" id="avatar-usuario" class="avatar-usuario" alt="teste">
 					<h1 class="titulo-informacoes">${professorDados.nome}</h1>
 					<h1 class="corpo-informacoes">${professorDados.email}</h1>
-					<h1 class="corpo-informacoes">${professorDados.gruposQuantidade}</h1>
+					<h1 class="corpo-informacoes">5</h1>
 					<form class="form-inline">
 						<select class="periodo-letivo" id="inlineFormCustomSelectPref">
 							<option disabled selected>Período Letivo</option>
@@ -162,7 +162,7 @@
 					</div>
 					
 					<div class="container-fluid">
-						<table class="table table-striped table-dark">
+						<table class="table table-striped table-dark" id="tableAvaliacao">
 							<thead>
 								<tr>
 									<th scope="col">Atividade</th>

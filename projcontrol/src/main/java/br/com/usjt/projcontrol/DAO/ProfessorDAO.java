@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import br.com.usjt.projcontrol.Conexao.Conexao;
 import br.com.usjt.projcontrol.model.Professor;
@@ -53,7 +54,7 @@ public class ProfessorDAO {
 		try (Connection conn = conexao.getConexaoMYSQL()){
 			
 			
-			String sql = "UPDATE FROM usuario SET email = ?, senha = ? WHERE id = ?";
+			String sql = "UPDATE usuario SET email = ?, senha = ? WHERE id = ?";
 			
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(1, professor.getEmail());
@@ -73,7 +74,7 @@ public class ProfessorDAO {
 		try (Connection conn = conexao.getConexaoMYSQL()){
 			
 
-			String sql = "DELETE FROM aluno WHERE id = ?";
+			String sql = "DELETE FROM professor WHERE professor_id = ?";
 			
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, id);
@@ -122,5 +123,25 @@ public class ProfessorDAO {
 			conexao.closeConexaoMYSQL();
 		}
 		return usuarioId;
+	}
+	
+	public ArrayList<Professor> getProfessores() {
+		String sql = "SELECT p.professor_id, u.nome FROM professor p INNER JOIN usuario u ON p.professor_id = u.id;";
+		ArrayList<Professor> arrayProfessores = new ArrayList<>();
+
+		try (Connection conn = Conexao.getConexaoMYSQL()) {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			try (ResultSet rs = stmt.executeQuery();) {
+				while (rs.next()) {
+					Professor professor = new Professor();
+					professor.setId(rs.getInt("professor_id"));
+					professor.setNome(rs.getString("nome"));
+					arrayProfessores.add(professor);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return arrayProfessores;
 	}
 }

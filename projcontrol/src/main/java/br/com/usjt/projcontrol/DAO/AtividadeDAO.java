@@ -21,46 +21,45 @@ public class AtividadeDAO {
 
 		try (Connection conn = Conexao.getConexaoMYSQL()) {
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			ResultSet rs = stmt.executeQuery();
-			while (rs.next()) {
-				Atividade atividade = new Atividade();
-				atividade.setAtividadeId(rs.getInt("id"));
-				atividade.setNumero(rs.getInt("numero"));
-				atividade.setDescricao(rs.getString("descricao"));
-				atividade.setFormato(rs.getString("formato_entrega"));
-				atividade.setDataInicio(rs.getDate("dt_inicio"));
-				atividade.setDataFim(rs.getDate("dt_fim"));
-				Tema tema = new Tema();
-				tema.setTema_id(rs.getInt("tema_id"));
-				tema.setTitulo(rs.getString("titulo"));
-				tema.setIntroducao(rs.getString("introducao"));
-				tema.setRequisitos(rs.getString("requisitos"));
-				atividade.setTema(tema);
-				arrayAtividades.add(atividade);
+			try (ResultSet rs = stmt.executeQuery();) {
+				while (rs.next()) {
+					Atividade atividade = new Atividade();
+					atividade.setAtividadeId(rs.getInt("id"));
+					atividade.setNumero(rs.getInt("numero"));
+					atividade.setDescricao(rs.getString("descricao"));
+					atividade.setFormato(rs.getString("formato_entrega"));
+					atividade.setDataInicio(rs.getDate("dt_inicio"));
+					atividade.setDataFim(rs.getDate("dt_fim"));
+					Tema tema = new Tema();
+					tema.setTema_id(rs.getInt("tema_id"));
+					tema.setTitulo(rs.getString("titulo"));
+					tema.setIntroducao(rs.getString("introducao"));
+					tema.setRequisitos(rs.getString("requisitos"));
+					atividade.setTema(tema);
+					arrayAtividades.add(atividade);
+				}
 			}
-
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			conexao.closeConexaoMYSQL();
 		}
 		return arrayAtividades;
 	}
 
-	public void getAtividadeId() {
-
+	public int getAtividadeId() {
 		String sqlAtividadeId = "SELECT id FROM atividade ORDER BY id DESC LIMIT 0,1";
+		int atividadeId = 0;
 
 		try (Connection conn = Conexao.getConexaoMYSQL()) {
 			PreparedStatement stmt = conn.prepareStatement(sqlAtividadeId);
-
-			stmt.executeQuery();
+			try (ResultSet rs = stmt.executeQuery()) {
+				while (rs.next()) {
+					atividadeId = rs.getInt(1);
+				}
+			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-
-		} finally {
-			conexao.closeConexaoMYSQL();
 		}
+		return atividadeId;
 	}
 }

@@ -14,34 +14,42 @@ public class AvaliacaoDAO {
 	private Conexao conexao = null;
 	
 	public ArrayList<Avaliacao> getAvaliacoes() {
-		int i = 0;
+		ArrayList<Avaliacao> arrayAvaliacoes = new ArrayList<Avaliacao>();
+		Avaliacao ava = null;
+		conexao = new Conexao();
 		
-		String sql = "SELECT a.* FROM avaliacao a "
-				+ "INNER JOIN turma_aluno ta ON a.id = ta.id "
-				+ "INNER JOIN entrega e ON e.id = a.id;";
+		String sql ="select  Av.id AS avaliacao_id ,T.sigla AS sigla, "
+				+ "U.nome AS nome, " + 
+				"T.semestre_letivo AS semestre, "
+				+ "T.ano_letivo AS ano, Av.nota AS nota, "
+				+ "G.nome AS nome_grupo " + 
+				"from avaliacao Av " + 
+				"INNER JOIN turma_aluno Ta ON Av.id = Ta.id " + 
+				"INNER JOIN turma T ON T.id = Ta.turma_id " + 
+				"INNER JOIN grupo G ON Ta.grupo_id = G.id " + 
+				"INNER JOIN professor P ON P.professor_id = G.orientador_id " + 
+				"INNER JOIN usuario U ON P.professor_id = U.id GROUP BY Av.id;";
 		
-		ArrayList<Avaliacao> arrayAvaliacoes = new ArrayList<>();
 
-		try (Connection conn = Conexao.getConexaoMYSQL()) {
+		try (Connection conn = conexao.getConexaoMYSQL()) {
 			
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
 			
 			while (rs.next()) {
 				
-				Avaliacao ava = new Avaliacao();
+				ava = new Avaliacao();
 				ava.setAvaliacaoId(rs.getInt(1));
-				ava.setComentario(rs.getString("comentarios"));
-				ava.setDataAvaliacao(rs.getDate("dt_avaliacao"));
 				ava.setNota(rs.getDouble("nota"));
 				arrayAvaliacoes.add(ava);
 			}
-
+	
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			conexao.closeConexaoMYSQL();
 		}
+	
 		return arrayAvaliacoes;
 	}
 	

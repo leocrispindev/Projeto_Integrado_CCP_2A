@@ -25,7 +25,7 @@ public class AlunoDAO {
 		
 		try (Connection conn = Conexao.getConexaoMYSQL()) {
 
-			String sql = "SELECT usu.id, usu.nome, usu.email, usu.senha FROM usuario usu "
+			String sql = "SELECT usu.id, al.ra, usu.nome, usu.email, usu.senha FROM usuario usu "
 					+ "INNER JOIN aluno al ON usu.id = al.aluno_id "
 					+ " WHERE usu.email = ? AND usu.senha = ?;";
 			PreparedStatement stmt = conn.prepareStatement(sql);
@@ -36,6 +36,7 @@ public class AlunoDAO {
 			while(rs.next()) {
 			
 				alunoDados.setId(rs.getInt(1));
+				alunoDados.setRa(rs.getInt("ra"));
 				alunoDados.setNome(rs.getString("nome"));
 				alunoDados.setEmail(rs.getString("email"));
 				alunoDados.setSenha(rs.getString("senha"));
@@ -100,10 +101,10 @@ public class AlunoDAO {
 	public void updateAluno(Aluno aluno) {
 		conexao = new Conexao();
 		
-		try (Connection conn = conexao.getConexaoMYSQL()){
+		try (Connection conn = Conexao.getConexaoMYSQL()){
 			
 			//=> Query para update de dados do Aluno
-			String sql = "UPDATE FROM usuario SET email = ?, senha = ? WHERE id = ?";
+			String sql = "UPDATE usuario SET email = ?, senha = ? WHERE id = ?";
 			
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(1, aluno.getEmail());
@@ -115,15 +116,15 @@ public class AlunoDAO {
 			e.printStackTrace();
 		}
 				
-	}
+}
 	
 	public void deleteAluno(int id) {
 		conexao = new Conexao();
 		
-		try (Connection conn = conexao.getConexaoMYSQL()){
+		try (Connection conn = Conexao.getConexaoMYSQL()){
 			
 			//=> Query para update de dados do Aluno
-			String sql = "DELETE FROM aluno WHERE id = ?";
+			String sql = "DELETE FROM aluno WHERE aluno_id = ?";
 			
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, id);

@@ -19,7 +19,7 @@ public class Logout implements Acao {
 		sessao.removeAttribute("usuarioLogado");
 		sessao.invalidate();
 		
-		return "forward:index.jsp";
+		return "forward::index.jsp";
 	}
 
 }

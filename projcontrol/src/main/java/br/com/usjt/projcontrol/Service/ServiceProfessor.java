@@ -1,6 +1,7 @@
 package br.com.usjt.projcontrol.Service;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import br.com.usjt.projcontrol.DAO.ProfessorDAO;
 import br.com.usjt.projcontrol.model.Professor;
@@ -45,6 +46,11 @@ public class ServiceProfessor implements Serializable {
 		}
 
 		return mensagem;
+	}
+	
+	public ArrayList<Professor> getListaTurmas() {
+		ArrayList<Professor> professores = professorDAO.getProfessores();
+		return professores;
 	}
 
 }

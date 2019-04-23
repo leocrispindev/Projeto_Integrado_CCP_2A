@@ -37,7 +37,7 @@ public class ServletGlobal extends HttpServlet {
 
 			String dados = acao.execute(request, response);
 		
-			String[] tipoEndereco = dados.split(":");
+			String[] tipoEndereco = dados.split("::");
 			
 			if (tipoEndereco[0].equals("forward")) {
 				
@@ -47,10 +47,10 @@ public class ServletGlobal extends HttpServlet {
 			}else if(tipoEndereco[0].equals("json")){
 				
 				response.setContentType("application/json");
-				//String json = new Gson().toJson(tipoEndereco[1]);
+			
 				response.getWriter().write(tipoEndereco[1]);
 				
-				
+
 			}else if(tipoEndereco[0].equals("acessonegado")){
 				response.sendRedirect(tipoEndereco[1]);
 				
