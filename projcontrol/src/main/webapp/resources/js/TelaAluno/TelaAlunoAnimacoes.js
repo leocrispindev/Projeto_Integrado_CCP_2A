@@ -10,7 +10,7 @@ function animaAvatar(){
 
 function animaDeslogar(){
 
-    $(".deslogar").on("mouseover",()=>{
+    $(".deslogar").on("mouseover",()=>{        
         $(".deslogarFas").removeClass('fa-door-closed');
         $(".deslogarFas").addClass('fa-door-open');
     });

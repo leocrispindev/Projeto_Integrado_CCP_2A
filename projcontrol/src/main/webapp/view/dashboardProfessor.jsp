@@ -376,7 +376,7 @@
 							</div>
 							<div class="modal-body corpo-modal">	
 								<form class="form-inline my-2 my-lg-0">
-									<input class="form-control mr-sm-2 input-aluno-search" type="search" placeholder="Procurar Alunos" aria-label="Search">
+									<input class="form-control mr-sm-2 input-aluno-search" type="search" id="filtra-nomes" placeholder="Procurar Alunos" aria-label="Search">
 									<button class="btn btn-danger my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
 								</form>
 								<div class="container-fluid tabela-alunos">
@@ -390,21 +390,21 @@
 											</tr>
 										</thead>
 										<tbody>
-											<tr>
-												<th scope="row">81819595</th>
-												<td>Mark</td>
+											<tr id="aluno">
+												<th id="raAluno" scope="row">81819595</th>
+												<td id="nomeAluno" >Mark</td>
 												<td>Otto</td>
 												<td><button type="button" class="btn btn-danger btn-sm">Deletar</button></td>
 											</tr>
-											<tr>
-												<th scope="row">81819599</th>
-												<td>Jacob</td>
+											<tr id="aluno">
+												<th id="raAluno" scope="row">81819599</th>
+												<td id="nomeAluno">Jacob</td>
 												<td>Thornton</td>
 												<td><button type="button" class="btn btn-danger btn-sm">Deletar</button></td>
 											</tr>
-											<tr>
-												<th scope="row">81810000</th>
-												<td>Larry</td>
+											<tr id="aluno">
+												<th id="raAluno" scope="row">81810000</th>
+												<td id="nomeAluno">Larry</td>
 												<td>the Bird</td>
 												<td><button type="button" class="btn btn-danger btn-sm">Deletar</button></td>
 											</tr>
@@ -417,7 +417,6 @@
 				</div>
 				
 				
-				<script src="../resources/js/TelaProfessor/TelaProfessorAnimacoes.js"></script>
 				<script src="../resources/node_modules/jquery/dist/jquery.min.js"></script>
 				<script src="../resources/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
 				<script src="../resources/js/TelaAluno/dashBoardAluno.js"></script>

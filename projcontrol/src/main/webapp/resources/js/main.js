@@ -49,12 +49,14 @@ validaEmail('#EmailAlterado');
 validaSenha('#SenhaAlterada');
 
 
-import{deleteBtn, deletaOCard,deletaLinhaTabela} from './TelaProfessor/TelaProfessorAnimacoes';
+import{deleteBtn, deletaOCard,deletaLinhaTabela, filtraNomes} from './TelaProfessor/TelaProfessorAnimacoes';
 
 deleteBtn();
 
 deletaLinhaTabela();
 
 animaDeslogar();
+
+filtraNomes();
 
 

@@ -22,6 +22,7 @@ function deleteBtn(){
     
 }
 
+
 function deletaOCard(){
 
     if(document.querySelectorAll("#botao-deletar") != null){
@@ -82,7 +83,37 @@ function deletaLinhaTabela(){
 
 }
 
+function filtraNomes(){
+
+    var filtro = document.querySelector("#filtra-nomes");
+
+    filtro.addEventListener("input", function(){
+        var alunos = document.querySelectorAll('#aluno');
+        console.log(alunos);
+        
+
+        if( this.value.length > 0){
+            for(var i = 0; i < alunos.length; i++){
+                var aluno = alunos[i];
+                var tdNome = aluno.querySelector("#nomeAluno");                
+                var nome = tdNome.textContent;      
+                var expressao = new RegExp(this.value,"i");
+                if( !expressao.test(nome)){
+                    aluno.classList.add("invisivel");                    
+                }else{
+                    aluno.classList.remove("invisivel");                    
+                }
+            }
+        }else{
+            for(var i = 0; i < alunos.length; i++){
+                var aluno = alunos[i];
+                aluno.classList.remove("invisivel");                
+            }
+        }
+
+    });
+
+}
 
 
-
-export{deleteBtn,deletaOCard,deletaLinhaTabela};
+export{deleteBtn,deletaOCard,deletaLinhaTabela,filtraNomes};
