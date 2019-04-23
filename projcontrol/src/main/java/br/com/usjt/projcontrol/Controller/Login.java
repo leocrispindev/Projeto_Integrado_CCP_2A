@@ -58,9 +58,9 @@ public class Login implements Acao{
 			
 			request.setAttribute("turmasDados", turmas);
 			
-			return "forward:view/dashBoardAluno.jsp";
+			return "forward::view/dashBoardAluno.jsp";
 		}else {
-			return "acessonegado:index.jsp";
+			return "acessonegado::index.jsp";
 		}
 	}
 	
@@ -85,9 +85,9 @@ public class Login implements Acao{
 			
 			//request.setAttribute("turmasDados", turmas);
 			
-			return "forward:view/dashboardProfessor.jsp";
+			return "forward::view/dashboardProfessor.jsp";
 		}else {
-			return "acessonegado:index.jsp";
+			return "acessonegado::index.jsp";
 		}
 	}
 	

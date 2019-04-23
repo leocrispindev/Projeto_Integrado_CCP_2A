@@ -30,7 +30,7 @@ public class EditarEmail implements Acao{
 		String[] retorno = credenciais.setUpdateEmail(email, confirm_email, aluno.getId());
 		Gson json = new Gson();
 		String result = json.toJson(retorno);
-		return "json:"+result;
+		return "json::"+result;
 	}
 
 }

@@ -33,7 +33,7 @@ public class CadastrarAluno implements Acao{
 			
 			String result = json.toJson(retorno);
 			
-			return "json:"+result;
+			return "json::"+result;
 		}
 		
 		
@@ -49,7 +49,7 @@ public class CadastrarAluno implements Acao{
 		
 		String result = json.toJson(retorno);
 		
-		return "json:"+result;
+		return "json::"+result;
 	}
 	
 }
