@@ -10,7 +10,7 @@ public class Avaliacao {
 	private Date dataAvaliacao;
 	private ArrayList<Entrega> entregas;
 	private Turma turma;
-	
+	private Grupo grupo;
 	
 	public int getAvaliacaoId() {
 		return avaliacaoId;
@@ -52,6 +52,22 @@ public class Avaliacao {
 		this.entregas = entregas;
 	}
 	
+	public Turma getTurma() {
+		return turma;
+	}
+
+	public void setTurma(Turma turma) {
+		this.turma = turma;
+	}
+
+	public Grupo getGrupo() {
+		return grupo;
+	}
+
+	public void setGrupo(Grupo grupo) {
+		this.grupo = grupo;
+	}
+
 	public Avaliacao() {}
 	
 	

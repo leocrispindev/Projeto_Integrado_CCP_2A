@@ -219,7 +219,35 @@ public class AlunoDAO {
 		return arrayTurmas;
 	}
 	
-	
+	public ArrayList<Aluno> getAllAlunos(Aluno parametro) {
+		String sql = "select a.ra, u.nome, u.email from aluno a inner join usuario u on a.aluno_id = u.id;";
+		
+		/*if(!parametro.getNome().isEmpty()) {
+			sql += "u.nome LIKE "+parametro.getNome();
+		}*/
+		
+		ArrayList<Aluno> arrayAlunos = new ArrayList<>();
+		conexao = new Conexao();
+		
+		try (Connection conn = Conexao.getConexaoMYSQL()) {
+			
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			try (ResultSet rs = stmt.executeQuery();) {
+				while (rs.next()) {
+					Aluno aluno = new Aluno();
+					aluno.setRa(rs.getInt("ra"));
+					aluno.setNome(rs.getString("nome"));
+					aluno.setEmail(rs.getString("email"));
+					
+					arrayAlunos.add(aluno);
+				}
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return arrayAlunos;
+	}
 	
 	
 	

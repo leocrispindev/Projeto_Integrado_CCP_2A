@@ -165,41 +165,20 @@
 						<table class="table table-striped table-dark" id="tableAvaliacao">
 							<thead>
 								<tr>
-									<th scope="col">Atividade</th>
-									<th scope="col">Descrição da Atividade</th>
-									<th scope="col">Data de Postagem</th>
-									<th scope="col">Data de Entrega</th>
-									<th scope="col">Enviar Atividade</th>
+									<th scope="col">Avaliação</th>
+									<th scope="col">Nota</th>
+									<th scope="col">Turma</th>
+									<th scope="col">Grupo</th>
+									<th scope="col">Professor</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<th id="numeroAtividade" scope="row">1</th>
-									<td id="descAtividade">Entrega de Telas</td>
-									<td id="dataDePostagem">12/01/2019</td>
-									<td id="dataDeEntrega">12/07/2019</td>
-									<td><button data-toggle="modal" data-target="#modalEntrega" id="btnEnviarAtividades"
-										type="button" class="btn btn-danger">Enviar Atividade</button></td>
-									</tr>
-									<tr>
-										<th id="numeroAtividade" scope="row">2</th>
-										<td id="descAtividade">Entrega do DAO</td>
-										<td id="dataDePostagem">12/01/2019</td>
-										<td id="dataDeEntrega">24/08/2019</td>
-										<td><button data-toggle="modal" data-target="#modalEntrega" id="btnEnviarAtividades"
-											type="button" class="btn btn-danger">Enviar Atividade</button></td>
-										</tr>
-										<!-- <tr>
-											<th scope="row">2 tem que somar 1 na row sempre</th>
-											<td>${one}</td>
-											<td>${two}</td>
-											<td>${three}</td>
-										</tr> -->
-									</tbody>
-								</table>
-							</div>
+								
+							</tbody>
+						</table>
+					</div>
 							
-						</section>
+				</section>
 						
 					</section>
 				</section>
@@ -385,34 +364,17 @@
 										</select>
 									</div>
 								</form>
-								<table class="table table-striped tabela-alunos">
+								<table class="table table-striped tabela-alunos" id="tableAlunos">
 									<thead>
 										<tr>
 											<th scope="col">RA</th>
 											<th scope="col">Nome</th>
-											<th scope="col">Sobrenome</th>
+											<th scope="col">Email</th>
 											<th scope="col">#</th>
 										</tr>
 									</thead>
 									<tbody>
-										<tr id="aluno">
-											<th id="raAluno" scope="row">81819595</th>
-											<td id="nomeAluno" >Mark</td>
-											<td>Otto</td>
-											<td><button type="button" class="btn btn-danger btn-sm">Deletar</button></td>
-										</tr>
-										<tr id="aluno">
-											<th id="raAluno" scope="row">81819599</th>
-											<td id="nomeAluno">Jacob</td>
-											<td>Thornton</td>
-											<td><button type="button" class="btn btn-danger btn-sm">Deletar</button></td>
-										</tr>
-										<tr id="aluno">
-											<th id="raAluno" scope="row">81810000</th>
-											<td id="nomeAluno">Larry</td>
-											<td>the Bird</td>
-											<td><button type="button" class="btn btn-danger btn-sm">Deletar</button></td>
-										</tr>
+										
 									</tbody>
 								</table>
 							</div>
@@ -422,7 +384,7 @@
 					
 					<script src="./resources/node_modules/jquery/dist/jquery.min.js"></script>
 					<script src="./resources/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
-					<script src="./resources/js/TelaAluno/dashBoardAluno.js"></script>
+					<script src="./resources/js/TelaProfessor/dashBoardAdmin.js"></script>
 					<script src="./resources/bundle.js"></script>
 					<script defer src="./resources/js/all.min.js"></script>
 				</body>

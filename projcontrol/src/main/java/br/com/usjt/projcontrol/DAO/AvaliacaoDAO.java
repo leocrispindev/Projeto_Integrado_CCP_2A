@@ -8,6 +8,9 @@ import java.util.ArrayList;
 
 import br.com.usjt.projcontrol.Conexao.Conexao;
 import br.com.usjt.projcontrol.model.Avaliacao;
+import br.com.usjt.projcontrol.model.Grupo;
+import br.com.usjt.projcontrol.model.Professor;
+import br.com.usjt.projcontrol.model.Turma;
 
 public class AvaliacaoDAO {
 
@@ -17,7 +20,10 @@ public class AvaliacaoDAO {
 		ArrayList<Avaliacao> arrayAvaliacoes = new ArrayList<Avaliacao>();
 		Avaliacao ava = null;
 		conexao = new Conexao();
-		
+		Turma turmaA = null;
+		Grupo grupoA = null;
+		Professor professor = null;
+	
 		String sql ="select  Av.id AS avaliacao_id ,T.sigla AS sigla, "
 				+ "U.nome AS nome, " + 
 				"T.semestre_letivo AS semestre, "
@@ -30,7 +36,6 @@ public class AvaliacaoDAO {
 				"INNER JOIN professor P ON P.professor_id = G.orientador_id " + 
 				"INNER JOIN usuario U ON P.professor_id = U.id GROUP BY Av.id;";
 		
-
 		try (Connection conn = conexao.getConexaoMYSQL()) {
 			
 			PreparedStatement stmt = conn.prepareStatement(sql);
@@ -41,7 +46,24 @@ public class AvaliacaoDAO {
 				ava = new Avaliacao();
 				ava.setAvaliacaoId(rs.getInt(1));
 				ava.setNota(rs.getDouble("nota"));
+				
+				professor = new Professor();
+				professor.setNome(rs.getString("nome"));
+				
+				grupoA = new Grupo();
+				grupoA.setNome(rs.getNString("nome_grupo"));
+				grupoA.setProfessor(professor);
+				
+				turmaA = new Turma();
+				turmaA.setSigla(rs.getString("sigla"));
+				turmaA.setSemestreLetivo(rs.getInt("semestre"));
+				
+				ava.setTurma(turmaA);
+				ava.setGrupo(grupoA);
+				
 				arrayAvaliacoes.add(ava);
+				
+				
 			}
 	
 		} catch (SQLException e) {
