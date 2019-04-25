@@ -163,6 +163,9 @@ function deletaLinhaTabela(){
                 $('#modal-dark').removeClass("modal-dark");
                 $('#tableAlunos').removeClass("table-dark")
                 $('.light-mode-text').text("Light Mode On");
+                $('#mini-user').removeClass("modal-dark");
+                $('.corpo-informacoes').removeClass("info-dark");
+                $('.titulo-informacoes').removeClass("info-dark");
 
             }else{
 
@@ -170,13 +173,22 @@ function deletaLinhaTabela(){
                 $('#modal-dark').addClass("modal-dark");
                 $('#tableAlunos').addClass("table-dark");
                 $('.light-mode-text').text("Dark Mode On");
+                $('#mini-user').addClass("modal-dark");
+                $('.corpo-informacoes').addClass("info-dark");
+                $('.titulo-informacoes').addClass("info-dark");
             }
             
         });
         
     }
 
+    function closeModal(){
+        $('#close-modal').on("click",()=>{
+            $('.informacoes-aluno-modal').modal('hide');
+        });        
+    }
+
     
     
     
-    export{deleteBtn,deletaOCard,deletaLinhaTabela,filtraNomes,enableLightMode};
+    export{deleteBtn,deletaOCard,deletaLinhaTabela,filtraNomes,enableLightMode, closeModal};

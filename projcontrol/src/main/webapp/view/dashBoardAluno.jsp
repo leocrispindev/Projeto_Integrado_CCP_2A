@@ -35,7 +35,7 @@
 		<section class="sections" id="scroll_control">
 
 			
-			<section class="bloco" id="nodejs">
+			<section class="bloco bloco-no-overflow" id="nodejs">
 				<a data-target="#modalEscolha" data-toggle="modal" class="alterar-informacoes"><i
 				class="fas fa-cog icone-gear" style="font-size: 50px; color: #fff;"></i></a>
 				<img src="./resources/assets/estudante2.png" id="avatar-usuario" class="avatar-usuario" alt="teste">

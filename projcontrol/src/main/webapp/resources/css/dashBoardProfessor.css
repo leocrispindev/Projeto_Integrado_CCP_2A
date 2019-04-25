@@ -10,7 +10,9 @@
     position:fixed;
     display:flex;
     background:#2b2e39;
+    z-index: 2000;
 }
+
 
 .links label{
     padding:10px 0;
@@ -154,7 +156,7 @@
 }
 
 .corpo-informacoes{
-    animation: blinkInformacoes 2s;
+    animation: blinkInformacoes 1s;
 }
 
 @keyframes blinkInformacoes{
@@ -430,7 +432,7 @@ input[type="number"] {
 
 .checkboxes-all{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-bottom: 2%;
 }
 
@@ -457,6 +459,7 @@ input[type="number"] {
     min-width: 100vw;
     align-items: unset;
     /* min-height: 100vh; */
+    margin-top: 30%;
 }
 
 .modal-title{
@@ -488,12 +491,14 @@ input[type="number"] {
 
 .conteudo-aluno .titulo-informacoes {
     color: #343a40;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .conteudo-aluno .corpo-informacoes {
     color: #343a40;
-    font-size: 20px;
+    font-size: 18px;
+    padding-right: 5%;
+    padding-left: 5%;
 }
 
 .conteudo-aluno .avatar-usuario{
@@ -509,6 +514,14 @@ input[type="number"] {
 
 .light-mode-text{
     color: #fff;
+}
+
+.mini-user{
+    padding-top: 2%;
+}
+
+.info-dark{
+    color: #fff!important;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1280px) {
@@ -546,9 +559,14 @@ input[type="number"] {
     }
 
     .big-modal{
+        margin-top: 5%;
         min-width: 0px;
         max-width: 95vw;
         min-height: 95vh;
+    }
+
+    .checkboxes-all{
+        flex-direction: row;
     }
     
 }

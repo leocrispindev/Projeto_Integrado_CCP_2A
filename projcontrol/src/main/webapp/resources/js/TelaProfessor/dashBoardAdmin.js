@@ -77,9 +77,11 @@ function confirmDeleteAdmin(){
         for( var i = 0; i < alunos.length; i++ ){
             var aluno = alunos[i];
 
+        
             aluno.addEventListener("click",(event)=>{
+                let alvo = event.target.parentNode.parentNode;
                 Swal.fire({
-                    title: 'Você tem certeza Que deseja Deletar?',
+                    title: `Você tem certeza que deseja deletar ${alvo.querySelector("#nomeAluno").textContent} do sistema?`,
                     text: "Você não vai poder reverter essa alteração!",
                     type: 'warning',
                     showCancelButton: true,
@@ -91,7 +93,7 @@ function confirmDeleteAdmin(){
                     event.target.parentNode.parentNode.remove(),
                       Swal.fire(
                         'Deletado',
-                        'O aluno foi deletado com sucesso!',
+                        `O aluno ${alvo.querySelector("#nomeAluno").textContent} foi deletado(a) com sucesso!`,
                         'success'
                       )
                     }
