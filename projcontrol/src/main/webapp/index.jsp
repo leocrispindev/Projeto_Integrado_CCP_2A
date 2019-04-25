@@ -1,5 +1,5 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<!-- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> -->
+<!-- <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,96 +20,95 @@
 
 	<main>
 
-	<div class="center-box">
+		<div class="center-box">
 
-		<!-- FORMULARIO DE LOGIN -->
-		<form id="form-login" action="entrada?acao=Login" method="POST">
-			<div class="form-group">
-				<small>Não tem uma conta? <a id="fazerRegistro">Faça
-						seu registro</a>
-				</small> <i hidden id="inform-capslock" title="CAPSLOCK LIGADO!"
-					class="fas fa-lock  caps-lock-warn"></i> <br /> <label
-					for="userEmail">Email</label> <input type="email"
-					class="form-control" id="userEmail" name="usu_email" required>
-			</div>
-			<div class="form-group">
-				<label for="userPassword">Senha</label> <i hidden
-					id="senhaRequisitos"
-					title="A senha é composta por:&#013;Minimo 6 Caracteres&#013;Letra Maiuscula&#013;Letra Minuscula&#013; Caracter Especial&#013;Numero"
-					class="fas fa-info-circle password-warn"></i> <input
-					type="password" class="form-control" id="userPassword"
-					name="usu_senha" required>
-			</div>
-			<div class="form-group">
-				<label for="imA">Eu sou um:</label> <select
-					class="form-control form-control-md" id="imA" data-offset="10,20" name="usuario_acesso" required>
-					<option selected id="disabledOp" disabled value="default">Selecione</option>
-					<option>Aluno</option>
-					<option>Professor</option>
-					<option>Administrador</option>
-				</select>
-			</div>
-			<small class="forgot-passowrd"><a href="#"
-				data-toggle="modal" data-target="#esqueciMinhaSenha">Esqueceu
-					sua Senha?</a></small> <br />
-			<button disabled type="submit"
-				class="btn btn-primary btn-lg btn-block loginBtn">Login</button>
-		</form>
-
-		<!-- FORMULARIO DE REGISTRO -->
-		<form class="form-registro" id="form-registro" hidden>
-			<div class="form-group">
-				<label for="imARegister">Eu serei um:</label><i hidden
-					id="capslock-inform" title="CAPSLOCK LIGADO!"
-					class="fas fa-lock caps-lock-warn"></i> <select
-					class="form-control form-control-md select-control"
-					id="imARegister" required>
-					<option selected id="disabledOp" disabled value="default">Selecione</option>
-					<option value="aluno">Aluno</option>
-					<option value="professor">Professor</option>
-				</select>
-			</div>
-
-			<div class="input-group alunoAparece" id="nomeAlunoRegistro" hidden>
-				<div class="input-group-prepend">
-					<button class="btn btn-outline-dark" type="button" disabled
-						id="button-addon1">Nome e RA</button>
+			<form id="form-login" action="entrada?acao=Login" method="POST">
+				<div class="form-group">
+					<small>Não tem uma conta? <a id="fazerRegistro">Faça
+							seu registro</a>
+					</small> <i hidden id="inform-capslock" title="CAPSLOCK LIGADO!"
+						class="fas fa-lock  caps-lock-warn"></i> <br /> <label
+						for="userEmail">Email</label> <input type="email"
+						class="form-control" id="userEmail" name="usu_email" required>
 				</div>
-				<input type="text" class="form-control" id="userNomeRegister"
-					required> <input type="text" aria-label="Ra"
-					id="userRaRegister" class="form-control">
-			</div>
-			<div class="input-group professorAparece" id="nomeProfessorRegistro"
-				hidden>
-				<div class="input-group-prepend">
-					<button class="btn btn-outline-dark" type="button" disabled
-						id="button-addon1">Nome e Matricula</button>
+				<div class="form-group">
+					<label for="userPassword">Senha</label> <i hidden
+						id="senhaRequisitos"
+						title="A senha é composta por:&#013;Minimo 6 Caracteres&#013;Letra Maiuscula&#013;Letra Minuscula&#013; Caracter Especial&#013;Numero"
+						class="fas fa-info-circle password-warn"></i> <input
+						type="password" class="form-control" id="userPassword"
+						name="usu_senha" required>
 				</div>
-				<input type="text" class="form-control" id="userNomeRegister"
-					required> <input type="text" aria-label="Matricula"
-					id="userMatriculaRegister" class="form-control">
-			</div>
-			<br />
-			<div class="form-group">
-				<label for="userEmailRegister">Email</label> <input type="email"
-					class="form-control" id="userEmailRegister" required>
-			</div>
-			<div class="form-group">
-				<label for="userPasswordRegister">Senha</label> <i hidden
-					id="senhaRequisitosRegistro"
-					title="A senha é composta por:&#013;Minimo 6 Caracteres&#013;Letra Maiuscula&#013;Letra Minuscula&#013; Caracter Especial&#013;Numero"
-					class="fas fa-info-circle password-warn senhaRequisitosRegistro"></i>
-				<input type="password" class="form-control userPasswordRegister"
-					id="userPasswordRegister" required>
-			</div>
-			<br />
-			<button type="button"
-				class="btn btn-secondary btn-xl btn-block returnBtn">Retornar</button>
-			<button type="button" data-toggle="collapse"
-				data-target="#successWarn" disabled type="submit"
-				class="btn btn-primary btn-xl btn-block registerBtn" onclick="setCadastroAluno()">Registrar</button>
-		</form>
-	</div>
+				<div class="form-group">
+					<label for="imA">Eu sou um:</label> <select
+						class="form-control form-control-md" id="imA" data-offset="10,20" name="usuario_acesso" required>
+						<option selected id="disabledOp" disabled value="default">Selecione</option>
+						<option>Aluno</option>
+						<option>Administrador</option>
+					</select>
+				</div>
+				<small class="forgot-passowrd"><a href="#"
+					data-toggle="modal" data-target="#esqueciMinhaSenha">Esqueceu
+						sua Senha?</a></small> <br />
+				<button disabled type="submit"
+					class="btn btn-primary btn-lg btn-block loginBtn">Login</button>
+			</form>
+
+			<!-- FORMULARIO DE REGISTRO -->
+			<form class="form-registro" id="form-registro" hidden>
+				<div class="form-group">
+					<label for="imARegister">Eu serei um:</label><i hidden
+						id="capslock-inform" title="CAPSLOCK LIGADO!"
+						class="fas fa-lock caps-lock-warn"></i> <select
+						class="form-control form-control-md select-control"
+						id="imARegister" required>
+						<option selected id="disabledOp" disabled value="default">Selecione</option>
+						<option value="aluno">Aluno</option>
+						<option value="professor">Professor</option>
+					</select>
+				</div>
+
+				<div class="input-group alunoAparece" id="nomeAlunoRegistro" hidden>
+					<div class="input-group-prepend">
+						<button class="btn btn-outline-dark" type="button" disabled
+							id="button-addon1">Nome e RA</button>
+					</div>
+					<input type="text" class="form-control" id="userNomeRegister"
+						required> <input type="text" aria-label="Ra"
+						id="userRaRegister" class="form-control">
+				</div>
+				<div class="input-group professorAparece" id="nomeProfessorRegistro"
+					hidden>
+					<div class="input-group-prepend">
+						<button class="btn btn-outline-dark" type="button" disabled
+							id="button-addon1">Nome e Matricula</button>
+					</div>
+					<input type="text" class="form-control" id="userNomeRegister"
+						required> <input type="text" aria-label="Matricula"
+						id="userMatriculaRegister" class="form-control">
+				</div>
+				<br />
+				<div class="form-group">
+					<label for="userEmailRegister">Email</label> <input type="email"
+						class="form-control" id="userEmailRegister" required>
+				</div>
+				<div class="form-group">
+					<label for="userPasswordRegister">Senha</label> <i hidden
+						id="senhaRequisitosRegistro"
+						title="A senha é composta por:&#013;Minimo 6 Caracteres&#013;Letra Maiuscula&#013;Letra Minuscula&#013; Caracter Especial&#013;Numero"
+						class="fas fa-info-circle password-warn senhaRequisitosRegistro"></i>
+					<input type="password" class="form-control userPasswordRegister"
+						id="userPasswordRegister" required>
+				</div>
+				<br />
+				<button type="button"
+					class="btn btn-secondary btn-xl btn-block returnBtn">Retornar</button>
+				<button type="button" data-toggle="collapse"
+					data-target="#successWarn" disabled type="submit"
+					class="btn btn-primary btn-xl btn-block registerBtn" onclick="setCadastroAluno()">Registrar
+				</button>
+			</form>
+		</div>
 
 	
 	<!-- MODAL ESQUECI MINHA SENHA -->

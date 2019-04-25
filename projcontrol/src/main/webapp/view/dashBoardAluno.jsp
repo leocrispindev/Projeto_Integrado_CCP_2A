@@ -17,6 +17,7 @@
 
 <body>
 
+	<!-- NAVBAR -->
 	<nav class="navbar links">
 		<label id="information" for="rd_nodejs">Informações</label>
 		<label id="classes" for="rd_bootstrap">Turma</label>
@@ -24,6 +25,7 @@
 		<label id="schedule" for="rd_angular">Cronograma</label>
 	</nav>
 
+	<!-- RADIOS RESPONSAVEIS PELA NAVEGAÇÃO DA NAVBAR -->
 	<div class="scroll">
 		<form id="formDosRadio">
 			<input type="radio" name="grupo" id="rd_nodejs" checked="true">
@@ -37,7 +39,8 @@
 			
 			<section class="bloco bloco-no-overflow" id="nodejs">
 				<a data-target="#modalEscolha" data-toggle="modal" class="alterar-informacoes"><i
-				class="fas fa-cog icone-gear" style="font-size: 50px; color: #fff;"></i></a>
+					class="fas fa-cog icone-gear" style="font-size: 50px; color: #fff;"></i>
+				</a>
 				<img src="./resources/assets/estudante2.png" id="avatar-usuario" class="avatar-usuario" alt="teste">
 				<h1 class="titulo-informacoes">${alunoDados.nome}</h1>
 				<h1 class="corpo-informacoes">${alunoDados.email}</h1>
@@ -59,7 +62,6 @@
 				<h1 class="titulo-informacoes titulo-top">Suas Turmas</h1>
 
 				<div class="card-box">
-
 					<c:forEach var="turma" items="${turmasDados}">
 						<div class="card text-dark bg-light mb-3 card-margin" style="max-width: 18rem;">
 							<div class="card-header">${turma.getSigla()}</div>
@@ -68,15 +70,10 @@
 								<p class="card-text">${turma.getTurmaTema().getIntroducao()}</p>
 							</div>
 						</div>
-
 					</c:forEach>
-
-
 				</div>
-
-				<!-- <div class="card text-dark bg-light mb-3 button-right" style="max-width: 18rem;"></div> -->
-
 			</section>
+
 			
 			<section class="bloco " id="sass">
 				<h1 class="titulo-informacoes titulo-top grupo-titulo">Grupo</h1>
@@ -92,18 +89,9 @@
 						<p class="card-text">Leozao <small style="font-weight:bold;">NOTA</small></p>
 					</div>
 				</div>
-
-				<!-- <div class="card text-dark bg-light mb-3 card-margin" style="max-width: 18rem;">
-						<div class="card-header">${numeroDoGrupo}</div>
-						<div class="card-body card-grupo">
-							<h5 class="card-title">${$teste}</h5>
-							c:foreach Pelos alunos que o grupo possui
-							<p class="card-text">${aluno} <small style="font-weight:bold;">${aluno.nota}</small></p>
-							fim do foreach
-						</div>
-					</div> -->
-
 			</section>
+
+
 			<section class="bloco bloco-no-overflow-y" id="angular">
 				<h1 class="titulo-informacoes titulo-top">Cronograma</h1>
 
@@ -125,7 +113,8 @@
 								<td id="dataDePostagem">12/01/2019</td>
 								<td id="dataDeEntrega">12/07/2019</td>
 								<td><button data-toggle="modal" data-target="#modalEntrega" id="btnEnviarAtividades"
-										type="button" class="btn btn-danger">Enviar Atividade</button></td>
+										type="button" class="btn btn-danger">Enviar Atividade
+								</button></td>
 							</tr>
 							<tr>
 								<th id="numeroAtividade" scope="row">2</th>
@@ -133,14 +122,9 @@
 								<td id="dataDePostagem">12/01/2019</td>
 								<td id="dataDeEntrega">24/08/2019</td>
 								<td><button data-toggle="modal" data-target="#modalEntrega" id="btnEnviarAtividades"
-										type="button" class="btn btn-danger">Enviar Atividade</button></td>
+										type="button" class="btn btn-danger">Enviar Atividade
+								</button></td>
 							</tr>
-							<!-- <tr>
-								<th scope="row">2 tem que somar 1 na row sempre</th>
-								<td>${one}</td>
-								<td>${two}</td>
-								<td>${three}</td>
-							</tr> -->
 						</tbody>
 					</table>
 				</div>
@@ -148,7 +132,7 @@
 		</section>
 
 
-		<!-- modal pra escolher -->
+		<!-- modal pra escolher alterar senha ou email-->
 		<div class="modal fade" id="modalEscolha" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
 			aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered" role="document">

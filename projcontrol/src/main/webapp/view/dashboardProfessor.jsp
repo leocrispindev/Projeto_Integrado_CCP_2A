@@ -17,6 +17,7 @@
 </head>
 <body>
 	
+	<!-- NAVBAR -->
 	<nav class="navbar links">
 		<label id="information" for="rd_nodejs">Informações</label>
 		<label id="classes" for="rd_bootstrap">Turma</label>
@@ -25,6 +26,7 @@
 		<label id="label-custom" data-toggle="modal" data-target="#modal-alunos-crud" for="rd_ruby">Aluno</label>
 	</nav>
 	
+	<!-- RADIOS RESPONSAVEIS PELA FUNCAO DA NAVBAR -->
 	<div class="scroll">
 		<form id="formDosRadio">
 			<input type="radio" name="grupo" id="rd_nodejs" checked="true">
@@ -38,7 +40,8 @@
 			
 			<section class="bloco bloco-no-overflow" id="nodejs">
 				<a data-target="#modalEscolha" data-toggle="modal" class="alterar-informacoes"><i
-					class="fas fa-cog icone-gear" style="font-size: 50px; color: #fff;"></i></a>
+					class="fas fa-cog icone-gear" style="font-size: 50px; color: #fff;"></i>
+				</a>
 					<img src="./resources/assets/avatar2.png" id="avatar-usuario" class="avatar-usuario" alt="teste">
 					<h1 class="titulo-informacoes">${professorDados.nome}</h1>
 					<h1 class="corpo-informacoes">${professorDados.email}</h1>
@@ -52,9 +55,9 @@
 						</select>
 					</form>
 					<a title="Deslogar" href="entrada?acao=Logout" class="deslogar"><i class="deslogarFas fas fa-door-closed" style="font-size: 40px; color: #fff;"></i></a>
-					
-					
-				</section>
+			</section>
+
+
 				<section class="bloco bloco-no-overflow" id="bootstrap">
 					<h1 class="titulo-informacoes titulo-top">Suas Turmas</h1>
 					<div class="container-fluid">
@@ -183,45 +186,7 @@
 			</section>
 		</section>
 		
-		<!-- Modal -->
-		<div class="modal fade" id="modal-trocar-senha" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title alterar-informacoes-titulo" id="exampleModalLabel">Alterar Informações</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<form>
-							<div class="form-group">
-								<label for="EmailAlterado" class="col-form-label">Novo Email:</label>
-								<input type="email" class="form-control input-modal input-alterar-informacoes" value=${alunoDados.email} id="EmailAlterado">
-							</div>
-							<div class="form-group">
-								<i hidden id="senhaRequisitos" title="A senha é composta por:&#013;Minimo 6 Caracteres&#013;Letra Maiuscula&#013;Letra Minuscula&#013; Caracter Especial&#013;Numero"
-								class="fas fa-info-circle password-warn"></i>
-								<label for="SenhaAlterada" class="col-form-label">Nova Senha:</label>
-								<input type="password" class="form-control input-modal input-alterar-informacoes" id="SenhaAlterada">
-							</div>
-							<div class="form-group">
-								<i hidden id="senhaRequisitos" title="A senha é composta por:&#013;Minimo 6 Caracteres&#013;Letra Maiuscula&#013;Letra Minuscula&#013; Caracter Especial&#013;Numero"
-								class="fas fa-info-circle password-warn"></i>
-								<label for="SenhaAlterada" class="col-form-label">Confirmar senha:</label>
-								<input type="password" class="form-control input-modal input-alterar-informacoes" id="SenhaAlterada">
-							</div>
-						</form>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-						<button type="button" class="btn btn-danger btn-alterar-info">Alterar Informações</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<!-- Modal -->
+		<!-- Modal CRIAÇÃO DE TURMA-->
 		<div class="modal fade" id="modal-crud-turma" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered" role="document">
 				<div class="modal-content">
@@ -255,7 +220,7 @@
 			</div>
 		</div>
 		
-		<!-- Modal LISTA ALUNOS vinculados a turma-->
+		<!-- Modal LISTA ALUNOS QUE PERTENCEM A TURMA-->
 		<div class="modal fade" id="modal-lista-alunos" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-scrollable" role="document">
 				<div class="modal-content">
@@ -277,7 +242,7 @@
 			</div>
 		</div>
 		
-		<!-- modal pra escolher -->
+		<!-- modal pra escolher TROCAR SENHA OU EMAIL-->
 		<div class="modal fade" id="modalEscolha" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
 		aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered" role="document">
@@ -344,7 +309,7 @@
 		</div>
 		
 		
-		<!-- MODAL ALUNOS -->
+		<!-- MODAL CRUD ALUNOS -->
 		<div class="modal fade" id="modal-alunos-crud" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 			<div class="modal-dialog modal-dark modal-dialog-centered big-modal" role="document">
 				<div id="modal-dark" class="modal-content modal-dark">
@@ -411,7 +376,7 @@
 				</div>
 			</div>
 			
-			<!-- MODAL INFORMAÇÕES DO ALUNO  -->			
+			<!-- MODAL SELECT DO ALUNO  -->			
 			<div class="modal informacoes-aluno-modal" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 				<div class="modal-dialog modal-dialog-centered">
 					<div id="mini-user" class="modal-content modal-dark conteudo-aluno">
