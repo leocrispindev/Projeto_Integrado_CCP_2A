@@ -177,216 +177,261 @@
 							</tbody>
 						</table>
 					</div>
-							
+					
 				</section>
+				
+			</section>
+		</section>
+		
+		<!-- Modal -->
+		<div class="modal fade" id="modal-trocar-senha" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title alterar-informacoes-titulo" id="exampleModalLabel">Alterar Informações</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+								<label for="EmailAlterado" class="col-form-label">Novo Email:</label>
+								<input type="email" class="form-control input-modal input-alterar-informacoes" value=${alunoDados.email} id="EmailAlterado">
+							</div>
+							<div class="form-group">
+								<i hidden id="senhaRequisitos" title="A senha é composta por:&#013;Minimo 6 Caracteres&#013;Letra Maiuscula&#013;Letra Minuscula&#013; Caracter Especial&#013;Numero"
+								class="fas fa-info-circle password-warn"></i>
+								<label for="SenhaAlterada" class="col-form-label">Nova Senha:</label>
+								<input type="password" class="form-control input-modal input-alterar-informacoes" id="SenhaAlterada">
+							</div>
+							<div class="form-group">
+								<i hidden id="senhaRequisitos" title="A senha é composta por:&#013;Minimo 6 Caracteres&#013;Letra Maiuscula&#013;Letra Minuscula&#013; Caracter Especial&#013;Numero"
+								class="fas fa-info-circle password-warn"></i>
+								<label for="SenhaAlterada" class="col-form-label">Confirmar senha:</label>
+								<input type="password" class="form-control input-modal input-alterar-informacoes" id="SenhaAlterada">
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+						<button type="button" class="btn btn-danger btn-alterar-info">Alterar Informações</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Modal -->
+		<div class="modal fade" id="modal-crud-turma" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title alterar-informacoes-titulo" id="exampleModalLabel">Criar Turma</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+								<label for="anoLetivo" class="col-form-label">Ano Letivo</label>
+								<input type="number" class="form-control input-modal" value=${alunoDados.email} id="">
+							</div>
+							<div class="form-group">
+								<label for="sigla" class="col-form-label">Sigla</label>
+								<input type="text" class="form-control input-modal" id="">
+							</div>
+							<div class="form-group">
+								<button data-toggle="modal" data-target="#vinculaAlunosTurma" type="button" class="btn btn-block btn-primary">Vincular Alunos a Turma <i class="fas fa-graduation-cap"></i></button>
+							</div>
+						</form>
 						
-					</section>
-				</section>
-				
-				<!-- Modal -->
-				<div class="modal fade" id="modal-trocar-senha" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-					<div class="modal-dialog modal-dialog-centered" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title alterar-informacoes-titulo" id="exampleModalLabel">Alterar Informações</h5>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div class="modal-body">
-								<form>
-									<div class="form-group">
-										<label for="EmailAlterado" class="col-form-label">Novo Email:</label>
-										<input type="email" class="form-control input-modal input-alterar-informacoes" value=${alunoDados.email} id="EmailAlterado">
-									</div>
-									<div class="form-group">
-										<i hidden id="senhaRequisitos" title="A senha é composta por:&#013;Minimo 6 Caracteres&#013;Letra Maiuscula&#013;Letra Minuscula&#013; Caracter Especial&#013;Numero"
-										class="fas fa-info-circle password-warn"></i>
-										<label for="SenhaAlterada" class="col-form-label">Nova Senha:</label>
-										<input type="password" class="form-control input-modal input-alterar-informacoes" id="SenhaAlterada">
-									</div>
-									<div class="form-group">
-										<i hidden id="senhaRequisitos" title="A senha é composta por:&#013;Minimo 6 Caracteres&#013;Letra Maiuscula&#013;Letra Minuscula&#013; Caracter Especial&#013;Numero"
-										class="fas fa-info-circle password-warn"></i>
-										<label for="SenhaAlterada" class="col-form-label">Confirmar senha:</label>
-										<input type="password" class="form-control input-modal input-alterar-informacoes" id="SenhaAlterada">
-									</div>
-								</form>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-								<button type="button" class="btn btn-danger btn-alterar-info">Alterar Informações</button>
-							</div>
-						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+						<button type="button" class="btn btn-danger btn-alterar-info">Criar Turma</button>
 					</div>
 				</div>
-				
-				<!-- Modal -->
-				<div class="modal fade" id="modal-crud-turma" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-					<div class="modal-dialog modal-dialog-centered" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title alterar-informacoes-titulo" id="exampleModalLabel">Criar Turma</h5>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div class="modal-body">
-								<form>
-									<div class="form-group">
-										<label for="anoLetivo" class="col-form-label">Ano Letivo</label>
-										<input type="number" class="form-control input-modal" value=${alunoDados.email} id="">
-									</div>
-									<div class="form-group">
-										<label for="sigla" class="col-form-label">Sigla</label>
-										<input type="text" class="form-control input-modal" id="">
-									</div>
-									<div class="form-group">
-										<button data-toggle="modal" data-target="#vinculaAlunosTurma" type="button" class="btn btn-block btn-primary">Vincular Alunos a Turma <i class="fas fa-graduation-cap"></i></button>
-									</div>
-								</form>
-								
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-								<button type="button" class="btn btn-danger btn-alterar-info">Criar Turma</button>
-							</div>
-						</div>
+			</div>
+		</div>
+		
+		<!-- Modal LISTA ALUNOS vinculados a turma-->
+		<div class="modal fade" id="modal-lista-alunos" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-scrollable" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalScrollableTitle">Lista de Alunos</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>João grilo</p>
+						<p>Pedro cartilagem</p>
+						<p>José dom bosco</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" data-dismiss="modal" class="btn btn-primary">Ok</button>
 					</div>
 				</div>
-				
-				<!-- Modal LISTA ALUNOS vinculados a turma-->
-				<div class="modal fade" id="modal-lista-alunos" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-					<div class="modal-dialog modal-dialog-scrollable" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalScrollableTitle">Lista de Alunos</h5>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div class="modal-body">
-								<p>João grilo</p>
-								<p>Pedro cartilagem</p>
-								<p>José dom bosco</p>
-							</div>
-							<div class="modal-footer">
-								<button type="button" data-dismiss="modal" class="btn btn-primary">Ok</button>
-							</div>
-						</div>
+			</div>
+		</div>
+		
+		<!-- modal pra escolher -->
+		<div class="modal fade" id="modalEscolha" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title alterar-informacoes-titulo" id="exampleModalCenterTitle">Escolha uma
+						opção</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<button id="troca-email" type="button" class="btn btn-lg btn-danger btn-block"
+						data-dismiss="modal">Alterar Email</button>
+						<br />
+						<button id="troca-senha" type="button" class="btn btn-lg btn-primary btn-block"
+						data-dismiss="modal" >Alterar Senha </button>
 					</div>
 				</div>
-				
-				<!-- modal pra escolher -->
-				<div class="modal fade" id="modalEscolha" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-				aria-hidden="true">
-				<div class="modal-dialog modal-dialog-centered" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title alterar-informacoes-titulo" id="exampleModalCenterTitle">Escolha uma
-								opção</h5>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div class="modal-body">
-								<button id="troca-email" type="button" class="btn btn-lg btn-danger btn-block"
-								data-dismiss="modal">Alterar Email</button>
-								<br />
-								<button id="troca-senha" type="button" class="btn btn-lg btn-primary btn-block"
-								data-dismiss="modal" >Alterar Senha </button>
-							</div>
-						</div>
+			</div>
+		</div>
+		
+		
+		<!-- Modal Carregar Alunos Para vincular a turma-->
+		<div class="modal fade" id="vinculaAlunosTurma" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-scrollable" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalScrollableTitle">Vincular Alunos a turma</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
 					</div>
-				</div>
-				
-				
-				<!-- Modal Carregar Alunos Para vincular a turma-->
-				<div class="modal fade" id="vinculaAlunosTurma" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-					<div class="modal-dialog modal-dialog-scrollable" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalScrollableTitle">Vincular Alunos a turma</h5>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div class="modal-body">
-								
-								<div class="contentAlunos">
-									
-									<div class="input-group mb-2 check-name-alunos">
-										<div class="input-group-prepend">
-											<div class="input-group-text">
-												<input class="aluno-bug" type="checkbox">
-											</div>
-										</div>
-										<input type="text" disabled class="form-control aluno-bug" value="${nomeDoAluno}">
+					<div class="modal-body">
+						
+						<div class="contentAlunos">
+							
+							<div class="input-group mb-2 check-name-alunos">
+								<div class="input-group-prepend">
+									<div class="input-group-text">
+										<input class="aluno-bug" type="checkbox">
 									</div>
-									<div class="input-group mb-2 check-name-alunos">
-										<div class="input-group-prepend">
-											<div class="input-group-text">
-												<input class="aluno-bug" type="checkbox">
-											</div>
-										</div>
-										<input type="text" disabled class="form-control aluno-bug" value="${nomeDoAluno}">
-									</div>
-									
 								</div>
-								
+								<input type="text" disabled class="form-control aluno-bug" value="${nomeDoAluno}">
 							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-								<button type="button" class="btn btn-primary">Salvar Alterações</button>
+							<div class="input-group mb-2 check-name-alunos">
+								<div class="input-group-prepend">
+									<div class="input-group-text">
+										<input class="aluno-bug" type="checkbox">
+									</div>
+								</div>
+								<input type="text" disabled class="form-control aluno-bug" value="${nomeDoAluno}">
 							</div>
+							
 						</div>
+						
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+						<button type="button" class="btn btn-primary">Salvar Alterações</button>
 					</div>
 				</div>
-				
-				
-				<!-- MODAL ALUNOS -->
-				<div class="modal fade" id="modal-alunos-crud" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-					<div class="modal-dialog modal-dialog-centered big-modal" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
+			</div>
+		</div>
+		
+		
+		<!-- MODAL ALUNOS -->
+		<div class="modal fade" id="modal-alunos-crud" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+			<div class="modal-dialog modal-dark modal-dialog-centered big-modal" role="document">
+				<div id="modal-dark" class="modal-content modal-dark">
+					<div class="modal-header">
+							<div class="custom-control custom-switch">
+								<input type="checkbox" class="custom-control-input light-mode" id="customSwitch1">
+								<label class="custom-control-label light-mode-text" for="customSwitch1">Dark Mode On</label>
 							</div>
-							<div class="modal-body corpo-modal">	
-								<form class="form-inline my-2 my-lg-0">
-								<input class="form-control mr-sm-2 input-aluno-search" type="search" id="filtra-nomes" placeholder="Procurar Alunos" aria-label="Search">
-									<div class="fluider">
-										<select class="custom-select checkbox-filtro my-2 my-sm-0" id="possiveis-filtros">
-											<option disabled selected>Filtrar</option>
-											<option value="Ra">Ra</option>
-											<option value="Nome">Nome</option>
-										</select>
-									</div>
-								</form>
-								<table class="table table-striped tabela-alunos" id="tableAlunos">
-									<thead>
-										<tr>
-											<th scope="col">RA</th>
-											<th scope="col">Nome</th>
-											<th scope="col">Email</th>
-											<th scope="col">#</th>
-										</tr>
-									</thead>
-									<tbody>
-										
-									</tbody>
-								</table>
-							</div>
-						</div>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
 					</div>
-					
-					
-					<script src="./resources/node_modules/jquery/dist/jquery.min.js"></script>
-					<script src="./resources/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
-					<script src="./resources/js/TelaProfessor/dashBoardAdmin.js"></script>
-					<script src="./resources/bundle.js"></script>
-					<script defer src="./resources/js/all.min.js"></script>
-				</body>
-				</html>
-				
+					<div class="modal-body corpo-modal">	
+						<form class="form-inline my-2 my-lg-0">
+							<input class="form-control mr-sm-2 input-aluno-search" type="search" id="filtra-nomes" placeholder="Procurar Alunos" aria-label="Search">
+							<div class="fluider">
+								<select class="custom-select checkbox-filtro my-2 my-sm-0" id="possiveis-filtros">
+									<option disabled selected>Filtrar</option>
+									<option value="Ra">Ra</option>
+									<option value="Nome">Nome</option>
+								</select>
+							</div>
+						</form>
+						<table class="table table-dark table-striped tabela-alunos" id="tableAlunos">
+							<thead>
+								<tr>
+									<th scope="col">RA</th>
+									<th scope="col">Nome</th>
+									<th scope="col">Email</th>
+									<th scope="col">#</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr id="aluno">
+									<th id="raAluno" scope="row">81819595</th>
+									<td id="nomeAluno" >Mark</td>
+									<td>Otto</td>
+									<td>
+										<button type="button" id="deleta-aluno" class="btn btn-danger btn-sm">Deletar</button>
+										<button data-toggle="modal" data-target=".informacoes-aluno-modal" type="button" class="btn btn-primary btn-sm">Ver Informações</button>
+									</td>
+								</tr>
+								<tr id="aluno">
+									<th id="raAluno" scope="row">81819599</th>
+									<td id="nomeAluno">Jacob</td>
+									<td>Thornton</td>
+									<td>
+										<button type="button" id="deleta-aluno" class="btn btn-danger btn-sm">Deletar</button>
+										<button data-toggle="modal" data-target=".informacoes-aluno-modal" type="button" class="btn btn-primary btn-sm">Ver Informações</button>
+									</td>
+								</tr>
+								<tr id="aluno">
+									<th id="raAluno" scope="row">81810000</th>
+									<td id="nomeAluno">Larry</td>
+									<td>the Bird</td>
+									<td>
+										<button type="button" id="deleta-aluno" class="btn btn-danger btn-sm">Deletar</button>
+										<button data-toggle="modal" data-target=".informacoes-aluno-modal" type="button" class="btn btn-primary btn-sm">Ver Informações</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			
+			<!-- MODAL INFORMAÇÕES DO ALUNO  -->			
+			<div class="modal informacoes-aluno-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+					<div class="modal-content conteudo-aluno">
+						<img src="../resources/assets/estudante2.png" id="avatar-usuario" class="avatar-usuario" alt="Aluno">
+						<h1 class="titulo-informacoes">${alunoDados.nome}</h1>
+						<h1 class="corpo-informacoes">${alunoDados.email}</h1>
+						<h1 class="corpo-informacoes">Grupo 3</h1>
+						<h1 class="corpo-informacoes">3 Turmas</h1>
+						<h1 class="corpo-informacoes">CCP123B-MCA CCPAS2-ASD CCPAS-2</h1>
+						<button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-danger">Ok!</button>
+					</div>
+				</div>
+			</div>
+			
+			
+			<script src="./resources/node_modules/jquery/dist/jquery.min.js"></script>
+			<script src="./resources/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
+			<script src="./resources/js/TelaProfessor/dashBoardAdmin.js"></script>
+			<script src="./resources/bundle.js"></script>
+			<script defer src="./resources/js/all.min.js"></script>
+		</body>
+		</html>
+		

@@ -69,8 +69,41 @@ function montargridAlunos(data) {
     }
 }
 
+function confirmDeleteA(){
+
+    if(document.querySelectorAll('#deleta-aluno') != null){
+
+        let alunos = document.querySelectorAll('#deleta-aluno');
+        for( var i = 0; i < alunos.length; i++ ){
+            var aluno = alunos[i];
+
+            aluno.addEventListener("click",(event)=>{
+                Swal.fire({
+                    title: 'Você tem certeza Que deseja Deletar?',
+                    text: "Você não vai poder reverter essa alteração!",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Deletar'
+                  }).then((result) => {
+                    if (result.value) {
+                    event.target.parentNode.parentNode.remove(),
+                      Swal.fire(
+                        'Deletado',
+                        'O aluno foi deletado com sucesso!',
+                        'success'
+                      )
+                    }
+                  })
+            }); 
+        }
+    }
+        
+}
+
 $(function(){
     getAlunos();
     getAvaliacoes();
-  
+    confirmDelete();
   });

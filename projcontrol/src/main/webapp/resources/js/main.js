@@ -49,7 +49,7 @@ validaEmail('#EmailAlterado');
 validaSenha('#SenhaAlterada');
 
 
-import{deleteBtn, deletaOCard,deletaLinhaTabela, filtraNomes} from './TelaProfessor/TelaProfessorAnimacoes';
+import{deleteBtn, deletaOCard,deletaLinhaTabela, filtraNomes, enableLightMode, confirmDelete} from './TelaProfessor/TelaProfessorAnimacoes';
 
 deleteBtn();
 
@@ -58,5 +58,7 @@ deletaLinhaTabela();
 animaDeslogar();
 
 filtraNomes();
+
+enableLightMode();
 
 

@@ -152,6 +152,31 @@ function deletaLinhaTabela(){
             
         }
     }
+
+    function enableLightMode(){
+        
+        $('.light-mode').on("change",()=>{
+            
+            if( $('.light-mode').is(":checked") == true){
+
+                $('.light-mode-text').css("color","#343a40");
+                $('#modal-dark').removeClass("modal-dark");
+                $('#tableAlunos').removeClass("table-dark")
+                $('.light-mode-text').text("Light Mode On");
+
+            }else{
+
+                $('.light-mode-text').css("color","white");
+                $('#modal-dark').addClass("modal-dark");
+                $('#tableAlunos').addClass("table-dark");
+                $('.light-mode-text').text("Dark Mode On");
+            }
+            
+        });
+        
+    }
+
     
     
-    export{deleteBtn,deletaOCard,deletaLinhaTabela,filtraNomes};
+    
+    export{deleteBtn,deletaOCard,deletaLinhaTabela,filtraNomes,enableLightMode};

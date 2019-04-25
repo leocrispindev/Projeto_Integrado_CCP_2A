@@ -487,6 +487,30 @@ input[type="number"] {
     flex-direction: row;    
 }
 
+.conteudo-aluno .titulo-informacoes {
+    color: #343a40;
+    font-size: 30px;
+}
+
+.conteudo-aluno .corpo-informacoes {
+    color: #343a40;
+    font-size: 20px;
+}
+
+.conteudo-aluno .avatar-usuario{
+    width:30vw;
+    height:20vh;
+    display: block;
+    margin: 0 auto;
+}
+
+.modal-dark{
+    background: #343a40;
+}
+
+.light-mode-text{
+    color: #fff;
+}
 
 @media only screen and (min-width: 768px) and (max-width: 1280px) {
     
@@ -504,6 +528,18 @@ input[type="number"] {
     
     .card-grupo{
         margin-top:0%;
+    }
+
+    .conteudo-aluno .titulo-informacoes {
+        color: #343a40;
+        font-size: 40px;
+    }
+    
+    .conteudo-aluno .avatar-usuario{
+        width:10vw;
+        height:20vh;
+        display: block;
+        margin: 0 auto;
     }
     
 }
