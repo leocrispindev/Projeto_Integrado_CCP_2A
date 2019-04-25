@@ -69,7 +69,7 @@ function montargridAlunos(data) {
     }
 }
 
-function confirmDeleteA(){
+function confirmDeleteAdmin(){
 
     if(document.querySelectorAll('#deleta-aluno') != null){
 
@@ -105,5 +105,5 @@ function confirmDeleteA(){
 $(function(){
     getAlunos();
     getAvaliacoes();
-    confirmDelete();
+    confirmDeleteAdmin();
   });
