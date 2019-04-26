@@ -95,6 +95,7 @@
 				
 				<div class="card text-dark bg-light mb-3 button-right btn-delete" style="max-width: 18rem;"></div>
 				<div data-toggle="modal" data-target="#modal-crud-turma" class="card text-dark bg-light mb-3 button-right" style="max-width: 18rem;"></div>
+				<div data-toggle="modal" data-target="#vinculaAlunosTurma" class="card text-dark bg-light mb-3 button-aluno" style="max-width: 18rem;"><i class="fas fa-user-graduate btn-right-aluno"></i></div>
 				
 			</section>
 			<section class="bloco" id="sass">
@@ -178,7 +179,28 @@
 								</tr>
 							</thead>
 							<tbody>
-								
+								<tr>
+									<th scope="row">1</th>
+									<td>Mark</td>
+									<td>Otto</td>
+									<td>@mdo</td>
+									<td>@mdo</td>
+								  </tr>
+								  <tr>
+									<th scope="row">2</th>
+									<td>Jacob</td>
+									<td>Thornton</td>
+									<td>@fat</td>
+									<td>@fat</td>
+								  </tr>
+								  <tr>
+									<th scope="row">3</th>
+									<td>Larry</td>
+									<td>the Bird</td>
+									<td>@twitter</td>
+									<td>@twitter</td>
+								  </tr>
+								</tbody>
 							</tbody>
 						</table>
 					</div>
@@ -209,9 +231,6 @@
 							<label for="sigla" class="col-form-label">Sigla</label>
 							<input type="text" class="form-control input-modal" id="">
 						</div>
-						<div class="form-group">
-							<button data-toggle="modal" data-target="#vinculaAlunosTurma" type="button" class="btn btn-block btn-primary">Vincular Alunos a Turma <i class="fas fa-graduation-cap"></i></button>
-						</div>
 					</form>
 					
 				</div>
@@ -225,7 +244,7 @@
 	
 	<!-- Modal LISTA ALUNOS QUE PERTENCEM A TURMA-->
 	<div class="modal fade" id="modal-lista-alunos" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-scrollable" role="document">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalScrollableTitle">Lista de Alunos</h5>
@@ -271,7 +290,7 @@
 	
 	<!-- Modal Carregar Alunos Para vincular a turma-->
 	<div class="modal fade" id="vinculaAlunosTurma" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-scrollable" role="document">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalScrollableTitle">Vincular Alunos a turma</h5>
@@ -299,8 +318,28 @@
 							</div>
 							<input type="text" disabled class="form-control aluno-bug" value="${nomeDoAluno}">
 						</div>
-						
 					</div>
+					<hr/>
+					<h4>Turmas</h4>
+					<div class="contentAlunos">
+						<div class="input-group mb-2 check-name-alunos">
+							<div class="input-group-prepend">
+								<div class="input-group-text">
+									<input class="aluno-bug" type="checkbox">
+								</div>
+							</div>
+							<input type="text" disabled class="form-control aluno-bug" value="${nomeDaTurma}">
+						</div>
+						<div class="input-group mb-2 check-name-alunos">
+							<div class="input-group-prepend">
+								<div class="input-group-text">
+									<input class="aluno-bug" type="checkbox">
+								</div>
+							</div>
+							<input type="text" disabled class="form-control aluno-bug" value="${nomeDaTurma}">
+						</div>
+					</div>
+					
 					
 				</div>
 				<div class="modal-footer">
@@ -381,6 +420,21 @@
 		
 		<!-- MODAL SELECT DO ALUNO  -->			
 		<div class="modal informacoes-aluno-modal" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div id="mini-user" class="modal-content modal-dark conteudo-aluno">
+					<img src="../resources/assets/estudante2.png" id="avatar-usuario" class="avatar-usuario mini-user" alt="Aluno">
+					<h1 class="titulo-informacoes info-dark">${alunoDados.nome}</h1>
+					<h1 class="corpo-informacoes info-dark">${alunoDados.email}</h1>
+					<h1 class="corpo-informacoes info-dark">Grupo 3</h1>
+					<h1 class="corpo-informacoes info-dark">3 Turmas</h1>
+					<h1 class="corpo-informacoes info-dark">CCP123B-MCA CCPAS2-ASD CCPAS-2</h1>
+					<button type="button" id="close-modal" class="btn btn-danger">Ok!</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- MODAL SELECT DA AVALIAÇÃO  -->			
+		<div class="modal informacoes-avaliacao-modal" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
 				<div id="mini-user" class="modal-content modal-dark conteudo-aluno">
 					<img src="../resources/assets/estudante2.png" id="avatar-usuario" class="avatar-usuario mini-user" alt="Aluno">
