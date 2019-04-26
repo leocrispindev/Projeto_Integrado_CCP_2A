@@ -369,7 +369,7 @@
 										<button type="button" id="deleta-aluno" class="btn btn-danger btn-sm">Deletar</button>
 										<button data-toggle="modal" data-target=".informacoes-aluno-modal" type="button" class="btn btn-primary btn-sm">Ver Informações</button>
 									</td>
-								</tr>
+								</tr> 
 							</tbody>
 						</table>
 					</div>
