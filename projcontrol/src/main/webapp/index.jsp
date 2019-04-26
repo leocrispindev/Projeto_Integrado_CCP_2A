@@ -1,6 +1,7 @@
 <!-- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> -->
 <!-- <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%> -->
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +25,7 @@
 
 			<form id="form-login" action="entrada?acao=Login" method="POST">
 				<div class="form-group">
-					<small>NÃ£o tem uma conta? <a id="fazerRegistro">FaÃ§a
+					<small>Não tem uma conta? <a id="fazerRegistro">Faça
 							seu registro</a>
 					</small> <i hidden id="inform-capslock" title="CAPSLOCK LIGADO!"
 						class="fas fa-lock  caps-lock-warn"></i> <br /> <label
