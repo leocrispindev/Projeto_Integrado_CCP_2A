@@ -398,15 +398,16 @@ aria-hidden="true">
 	</div>
 	
 	<!-- MODAL SELECT DO ALUNO  -->			
-	<div class="modal informacoes-aluno-modal" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+	<div class="modal informacoes-aluno-modal" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="dadosAluno">
 		<div class="modal-dialog modal-dialog-centered">
 			<div id="mini-user" class="modal-content modal-dark conteudo-aluno">
-				<img src="../resources/assets/estudante2.png" id="avatar-usuario" class="avatar-usuario mini-user" alt="Aluno">
-				<h1 class="titulo-informacoes info-dark">${alunoDados.nome}</h1>
-				<h1 class="corpo-informacoes info-dark">${alunoDados.email}</h1>
-				<h1 class="corpo-informacoes info-dark">Grupo 3</h1>
-				<h1 class="corpo-informacoes info-dark">3 Turmas</h1>
-				<h1 class="corpo-informacoes info-dark">CCP123B-MCA CCPAS2-ASD CCPAS-2</h1>
+				<img src="./resources/assets/estudante2.png" id="avatar-usuario" class="avatar-usuario mini-user" alt="Aluno">
+				<h1 class="corpo-informacoes info-dark" id="alunoDadosRA"></h1>
+				<h1 class="corpo-informacoes info-dark" id="alunoDadosNOME"></h1>
+				<h1 class="corpo-informacoes info-dark" id="alunoDadosEMAIL"></h1>
+				<h1 class="corpo-informacoes info-dark" id="alunoDadosGRUPO"></h1>
+				<h1 class="corpo-informacoes info-dark" id="alunoDadosQtdTurmas"></h1>
+				<h1 class="corpo-informacoes info-dark" id="alunoDadosTurmas"></h1>
 				<button type="button" id="close-modal" class="btn btn-danger">Ok!</button>
 			</div>
 		</div>

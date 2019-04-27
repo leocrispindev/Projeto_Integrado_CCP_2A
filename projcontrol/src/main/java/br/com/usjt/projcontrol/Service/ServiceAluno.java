@@ -70,10 +70,24 @@ public class ServiceAluno extends Validacao implements Serializable{
 		return arrayTurmas;
 	}
 	
-	public ArrayList<Aluno> getListaAllAlunos(Aluno aluno) {
-		ArrayList<Aluno> arrayAlunos = usuarioD.getAllAlunos(aluno);
+	public ArrayList<Aluno> getListaAllAlunos() {
+		ArrayList<Aluno> arrayAlunos = usuarioD.getAllAlunos();
 		return arrayAlunos;
 	}
+	
+	public Aluno getDadosAlunoById(int id) {
+		Aluno aluno = new Aluno();
+		
+		aluno = usuarioD.getDadosAlunoById(id);
+		aluno.setTurmas(this.getTurmasByAluno(aluno.getId()));
+		
+		return aluno;
+	}
+	
+	
+	
+	
+	
 	
 	
 	

@@ -1,7 +1,10 @@
 package br.com.usjt.projcontrol.model;
 
+import java.util.ArrayList;
+
 public class Aluno extends Usuario{
 	private int ra;
+	private ArrayList<Turma> turmas;
 	
 	public Aluno() {}
 	
@@ -11,6 +14,14 @@ public class Aluno extends Usuario{
 
 	public void setRa(int ra) {
 		this.ra = ra;
+	}
+
+	public ArrayList<Turma> getTurmas() {
+		return turmas;
+	}
+
+	public void setTurmas(ArrayList<Turma> turmas) {
+		this.turmas = turmas;
 	}
 
 	@Override

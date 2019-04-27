@@ -223,12 +223,8 @@ public class AlunoDAO {
 		return arrayTurmas;
 	}
 	
-	public ArrayList<Aluno> getAllAlunos(Aluno parametro) {
+	public ArrayList<Aluno> getAllAlunos() {
 		String sql = "select a.ra, u.nome, u.email, u.id from aluno a inner join usuario u on a.aluno_id = u.id;";
-		
-		/*if(!parametro.getNome().isEmpty()) {
-			sql += "u.nome LIKE "+parametro.getNome();
-		}*/
 		
 		ArrayList<Aluno> arrayAlunos = new ArrayList<>();
 		conexao = new Conexao();
@@ -255,6 +251,37 @@ public class AlunoDAO {
 	}
 	
 	
+	public Aluno getDadosAlunoById(int id) {
+		conexao = new Conexao();
+		
+		try (Connection conn = Conexao.getConexaoMYSQL()) {
+
+			String sql = "SELECT usu.id, al.ra, usu.nome, usu.email, usu.senha FROM usuario usu "
+					+ "INNER JOIN aluno al ON usu.id = al.aluno_id "
+					+ " WHERE al.aluno_id = ?";
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, id);
+			ResultSet rs = stmt.executeQuery();
+			alunoDados = new Aluno();
+			
+			while(rs.next()) {
+			
+				alunoDados.setId(rs.getInt(1));
+				alunoDados.setRa(rs.getInt("ra"));
+				alunoDados.setNome(rs.getString("nome"));
+				alunoDados.setEmail(rs.getString("email"));
+				alunoDados.setSenha(rs.getString("senha"));
+			}
+				
+		}catch(SQLException e) {
+			e.printStackTrace();
+			
+		}finally {
+			conexao.closeConexaoMYSQL();
+		}
+		
+		return alunoDados;
+	}
 	
 	
 	

@@ -44,6 +44,7 @@ function getAlunos() {
             montargridAlunos(data);
         },
         error: function(data) {
+            console.log(data)
             Swal.fire({
                 title: 'Error!',
                 text: 'Erro ao retornar os dados.Contate o adminstrador do sistema.',
@@ -63,7 +64,7 @@ function montargridAlunos(data) {
                     "<td id='nomeAluno'>" + data[i].nome + "</td>" +
                     "<td>" + data[i].email  + "</td>" +
                     "<td><button type='button' id='deleta-aluno' class='btn btn-danger btn-sm' onclick='confirmDeleteAdmin("+ data[i].id+")'>Deletar</button></td>" +
-                    "<td><button data-toggle='modal' data-target='.informacoes-aluno-modal' type='button' class='btn btn-primary btn-sm'>Ver Informações</button></td>" +
+                    "<td><button data-toggle='modal' data-target='.informacoes-aluno-modal' type='button' class='btn btn-primary btn-sm' onclick='getDadosAluno("+ data[i].id+")'>Ver Informações</button></td>" +
                 "</tr>";
 
         $('#tableAlunos>tbody').append(row);
@@ -133,6 +134,35 @@ function deleteAluno(id) {
                 title: data[0],
                 text: data[1],
                 type: data[2],
+                confirmButtonText: 'OK'
+            })
+            
+        }
+    });
+}
+
+function getDadosAluno(id) {
+    var row = '';
+    $.ajax({
+        url: 'entrada?acao=DadosAluno',
+        data: {usu_id: id},
+        type: 'POST',
+        success: function (data) {
+
+            $('#alunoDadosRA').text("RA: "+data.ra);
+            $('#alunoDadosNOME').text(data.nome);
+            $('#alunoDadosEMAIL').text(data.email);
+            $('#alunoDadosQtdTurmas').text("Quantidade de Turmas: "+data.turmas.length);
+            for(i=0; i<data.turmas.length; i++) {
+                row+= data.turmas[i].sigla + ' ';
+            }
+            $('#alunoDadosTurmas').text("Turmas: "+row);
+        },
+        error: function(data) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Erro ao retornar os dados do aluno.Contate o adminstrador do sistema.',
+                type: 'error',
                 confirmButtonText: 'OK'
             })
             
