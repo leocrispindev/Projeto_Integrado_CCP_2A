@@ -161,7 +161,7 @@
 }
 
 .bloco-no-overflow-general{
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 @keyframes blinkInformacoes{
