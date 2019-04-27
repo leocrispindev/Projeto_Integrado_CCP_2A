@@ -62,22 +62,21 @@ function montargridAlunos(data) {
                     "<th id='raAluno' scope='row'>"+ data[i].ra + "</th>" +
                     "<td id='nomeAluno'>" + data[i].nome + "</td>" +
                     "<td>" + data[i].email  + "</td>" +
-                    "<td><button type='button' class='btn btn-danger btn-sm'>Deletar</button></td> "
+                    "<td><button type='button' id='deleta-aluno' class='btn btn-danger btn-sm' onclick='confirmDeleteAdmin("+ data[i].id+")'>Deletar</button></td>" +
+                    "<td><button data-toggle='modal' data-target='.informacoes-aluno-modal' type='button' class='btn btn-primary btn-sm'>Ver Informações</button></td>" +
                 "</tr>";
 
         $('#tableAlunos>tbody').append(row);
     }
 }
 
-function confirmDeleteAdmin(){
+/*function confirmDeleteAdmin(){
 
     if(document.querySelectorAll('#deleta-aluno') != null){
 
         let alunos = document.querySelectorAll('#deleta-aluno');
         for( var i = 0; i < alunos.length; i++ ){
             var aluno = alunos[i];
-
-        
             aluno.addEventListener("click",(event)=>{
                 let alvo = event.target.parentNode.parentNode;
                 Swal.fire({
@@ -90,22 +89,58 @@ function confirmDeleteAdmin(){
                     confirmButtonText: 'Deletar'
                   }).then((result) => {
                     if (result.value) {
-                    event.target.parentNode.parentNode.remove(),
-                      Swal.fire(
-                        'Deletado',
-                        `O aluno ${alvo.querySelector("#nomeAluno").textContent} foi deletado(a) com sucesso!`,
-                        'success'
-                      )
+                        deleteAluno(id)
                     }
                   })
             }); 
         }
     }
         
+}*/
+
+function confirmDeleteAdmin(id){
+    Swal.fire({
+        title: `Confirmar a exclusao do usuario?`,
+        text: "Você não vai poder reverter essa alteração!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Deletar'
+    }).then((result) => {
+        if (result.value) {
+            deleteAluno(id)
+        }
+    })         
+}
+function deleteAluno(id) {
+    var usuId = id;
+    $.ajax({
+        url: 'entrada?acao=DeletarAluno',
+        data: {usu_id: usuId},
+        type: 'POST',
+        success: function (data) {
+            Swal.fire({
+                title: data[0],
+                text: data[1],
+                type: data[2],
+                confirmButtonText: 'OK'
+            })
+            getAlunos();
+        },
+        error: function(data) {
+            Swal.fire({
+                title: data[0],
+                text: data[1],
+                type: data[2],
+                confirmButtonText: 'OK'
+            })
+            
+        }
+    });
 }
 
 $(function(){
     getAlunos();
     getAvaliacoes();
-    confirmDeleteAdmin();
   });

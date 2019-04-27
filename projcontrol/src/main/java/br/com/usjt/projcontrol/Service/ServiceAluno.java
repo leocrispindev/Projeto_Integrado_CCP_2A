@@ -49,8 +49,11 @@ public class ServiceAluno extends Validacao implements Serializable{
 	public String[] setDelete(int id) {
 		try {
 			
-			usuarioD.deleteAluno(id);
-			return this.getMensagemSucesso();
+			if(usuarioD.deleteAluno(id)) {
+				return this.getMensagemSucesso();
+			}else {
+				return this.getMensagemErroSQL();
+			}
 			
 		}catch(Exception e) {
 			return this.getMensagemErro();

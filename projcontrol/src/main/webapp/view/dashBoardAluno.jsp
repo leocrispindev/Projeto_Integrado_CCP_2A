@@ -19,7 +19,7 @@
 
 	<!-- NAVBAR -->
 	<nav class="navbar links">
-		<label id="information" for="rd_nodejs">Informações</label>
+		<label id="information" for="rd_nodejs">InformaÃ§Ãµes</label>
 		<label id="classes" for="rd_bootstrap">Turma</label>
 		<label id="group" for="rd_sass">Grupo</label>
 		<label id="schedule" for="rd_angular">Cronograma</label>
