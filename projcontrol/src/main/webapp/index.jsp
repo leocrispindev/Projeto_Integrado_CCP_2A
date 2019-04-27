@@ -25,7 +25,7 @@
 
 			<form id="form-login" action="entrada?acao=Login" method="POST">
 				<div class="form-group">
-					<small>N�o tem uma conta? <a id="fazerRegistro">Fa�a
+					<small>N�o tem uma conta? <a id="fazerRegistro">Fa�a
 							seu registro</a>
 					</small> <i hidden id="inform-capslock" title="CAPSLOCK LIGADO!"
 						class="fas fa-lock  caps-lock-warn"></i> <br /> <label
@@ -127,9 +127,9 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form>
+					<form method="POST">
 						<div class="form-group">
-							<label for="recuperarEmail">Endereço de E-mail</label> <input
+							<label for="recuperarEmail">Endereço de E-mail</label><input
 								type="email" class="form-control" id="recuperarEmail"
 								aria-describedby="emailHelp"> <small id="infoEmail"
 								class="text-success" hidden>Enviamos as informações
@@ -141,7 +141,7 @@
 					<button type="button" class="btn btn-secondary"
 						data-dismiss="modal">Fechar</button>
 					<button disabled type="button" class="btn btn-primary"
-						id="recuperarSenhaBtn">Recuperar Senha</button>
+					id="recuperarSenhaBtn">Recuperar Senha</button>
 				</div>
 			</div>
 		</div>
