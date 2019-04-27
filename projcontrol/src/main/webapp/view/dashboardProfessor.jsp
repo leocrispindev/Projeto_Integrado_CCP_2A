@@ -1,5 +1,5 @@
-<!-- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  -->
-<!-- <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%> -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,9 +10,9 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	
 	<link rel="stylesheet"
-	href="../resources/node_modules/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="../resources/css/dashBoardProfessor.css">
-	<link rel="icon" href="../resources/assets/favicon.ico" type="image/x-icon">
+	href="./resources/node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./resources/css/dashBoardProfessor.css">
+	<link rel="icon" href="./resources/assets/favicon.ico" type="image/x-icon">
 	<title>Dashboard Professor</title>
 </head>
 <body>
@@ -179,7 +179,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								
+
 							</tbody>
 					</table>
 				</div>
@@ -416,7 +416,7 @@ aria-hidden="true">
 	<div class="modal informacoes-avaliacao-modal" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered">
 			<div id="mini-user" class="modal-content modal-dark conteudo-aluno">
-				<img src="../resources/assets/estudante2.png" id="avatar-usuario" class="avatar-usuario mini-user" alt="Aluno">
+				<img src="./resources/assets/estudante2.png" id="avatar-usuario" class="avatar-usuario mini-user" alt="Aluno">
 				<h1 class="titulo-informacoes info-dark">${alunoDados.nome}</h1>
 				<h1 class="corpo-informacoes info-dark">${alunoDados.email}</h1>
 				<h1 class="corpo-informacoes info-dark">Grupo 3</h1>
@@ -428,10 +428,10 @@ aria-hidden="true">
 	</div>
 	
 	
-	<script src="../resources/node_modules/jquery/dist/jquery.min.js"></script>
-	<script src="../resources/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
-	<script src="../resources/js/TelaProfessor/dashBoardAdmin.js"></script>
-	<script src="../resources/bundle.js"></script>
-	<script defer src="../resources/js/all.min.js"></script>
+	<script src="./resources/node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="./resources/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
+	<script src="./resources/js/TelaProfessor/dashBoardAdmin.js"></script>
+	<script src="./resources/bundle.js"></script>
+	<script defer src="./resources/js/all.min.js"></script>
 </body>
 </html>
