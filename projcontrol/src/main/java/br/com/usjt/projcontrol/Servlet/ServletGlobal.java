@@ -57,6 +57,7 @@ public class ServletGlobal extends HttpServlet {
 			}
 			
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+			response.sendRedirect("view/pageNotFound.jsp");
 			throw new ServletException(e);
 		}
 		

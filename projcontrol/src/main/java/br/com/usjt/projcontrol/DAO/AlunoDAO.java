@@ -118,7 +118,7 @@ public class AlunoDAO {
 				
 }
 	
-	public void deleteAluno(int id) {
+	public boolean deleteAluno(int id) {
 		conexao = new Conexao();
 		
 		try (Connection conn = Conexao.getConexaoMYSQL()){
@@ -136,17 +136,21 @@ public class AlunoDAO {
 				stmtU.setInt(1, id);
 				stmtU.execute();
 				
+				return true;
+				
 			}catch(SQLException e) {
 				e.printStackTrace();
 			}
 			
 		}catch(SQLException e) {
+			
 			e.printStackTrace();
 			
 		}finally {
 			
 			conexao.closeConexaoMYSQL();
 		}
+		return false;
 	}
 	
 
@@ -220,7 +224,7 @@ public class AlunoDAO {
 	}
 	
 	public ArrayList<Aluno> getAllAlunos(Aluno parametro) {
-		String sql = "select a.ra, u.nome, u.email from aluno a inner join usuario u on a.aluno_id = u.id;";
+		String sql = "select a.ra, u.nome, u.email, u.id from aluno a inner join usuario u on a.aluno_id = u.id;";
 		
 		/*if(!parametro.getNome().isEmpty()) {
 			sql += "u.nome LIKE "+parametro.getNome();
@@ -235,7 +239,8 @@ public class AlunoDAO {
 			try (ResultSet rs = stmt.executeQuery();) {
 				while (rs.next()) {
 					Aluno aluno = new Aluno();
-					aluno.setRa(rs.getInt("ra"));
+					aluno.setId(rs.getInt("id"));
+					aluno.setRa(rs.getInt(1));
 					aluno.setNome(rs.getString("nome"));
 					aluno.setEmail(rs.getString("email"));
 					

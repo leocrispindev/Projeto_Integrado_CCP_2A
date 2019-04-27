@@ -9,6 +9,11 @@ import br.com.usjt.projcontrol.DAO.CredenciaisDAO;
 import br.com.usjt.projcontrol.model.Aluno;
 
 public class ServiceCredenciais extends Validacao implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	CredenciaisDAO credenciais = null;
 	String[] mensagem = new String[3];
 	
