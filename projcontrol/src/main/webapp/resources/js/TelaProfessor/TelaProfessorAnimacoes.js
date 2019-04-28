@@ -68,10 +68,14 @@ function deletaLinhaTabela(){
                     cancelButtonColor: '#d33',
                     confirmButtonText: 'Sim, Remover Turma!'
                 }).then((result) => {
+                    if(event.target.className == "delete_turma"){
+                        event.target.parentNode.parentNode.parentNode.remove();
+                    }else{
+                        event.target.parentNode.parentNode.remove();
+                    }
                     if (result.value) {
                         Swal.fire(
                             'Turma Removida',
-                            $(event.target).parent().parent().parent().parent().remove(),
                             'success'
                             )
                         }
