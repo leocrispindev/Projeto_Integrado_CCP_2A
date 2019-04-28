@@ -19,7 +19,7 @@
 
 	<!-- NAVBAR -->
 	<nav class="navbar links">
-		<label id="information" for="rd_nodejs">Informações</label>
+		<label id="information" for="rd_nodejs">Informa&ccedil;&otilde;es</label>
 		<label id="classes" for="rd_bootstrap">Turma</label>
 		<label id="group" for="rd_sass">Grupo</label>
 		<label id="schedule" for="rd_angular">Cronograma</label>
@@ -47,7 +47,7 @@
 				<h1 class="corpo-informacoes">Grupo 3</h1>
 				<form class="form-inline">
 					<select class="periodo-letivo" id="inlineFormCustomSelectPref">
-						<option disabled selected>Período Letivo</option>
+						<option disabled selected>Per&iacute;odo Letivo</option>
 						<option value="1">${PERIODO_LETIVO[1]}</option>
 						<option value="2">${PERIODO_LETIVO[2]}</option>
 						<option value="3">${PERIODO_LETIVO[3]}</option>
@@ -79,7 +79,7 @@
 				<h1 class="titulo-informacoes titulo-top grupo-titulo">Grupo</h1>
 
 				<div class="card text-dark bg-light mb-3 card-margin card-grupo" style="max-width: 18rem;">
-					<div class="card-header">Numero do Grupo </div>
+					<div class="card-header">N&uacute;mero do Grupo </div>
 					<div class="card-body">
 						<h5 class="card-title">Keit Yamamoto </h5>
 						<p class="card-text">Japa <small style="font-weight:bold;">NOTA</small></p>
@@ -100,7 +100,7 @@
 						<thead>
 							<tr>
 								<th scope="col">Atividade</th>
-								<th scope="col">Descrição da Atividade</th>
+								<th scope="col">Descri&ccedil;&atilde;o da Atividade</th>
 								<th scope="col">Data de Postagem</th>
 								<th scope="col">Data de Entrega</th>
 								<th scope="col">Enviar Atividade</th>
@@ -139,7 +139,7 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<h5 class="modal-title alterar-informacoes-titulo" id="exampleModalCenterTitle">Escolha uma
-							opção</h5>
+							op&ccedil;&atilde;o</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
