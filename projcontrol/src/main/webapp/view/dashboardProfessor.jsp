@@ -72,19 +72,19 @@
 						</thead>
 						<tbody>
 							<tr>
-								<th scope="row" id="botao-deletar" class="nao-deleta-linha"><a id="deletaLinhaTabela"><i class="fas fa-trash"></i></a></i></th>
+								<th scope="row" id="botao-deletar" class="nao-deleta-linha"><a id="deletaLinhaTabela"><img src="./resources/assets/trash-solid.png" alt="delete_turma" class="delete_turma"></a></th>
 								<td>CCP1B1-MCA3</td>
 								<td>Chocolate</td>
 								<td style="cursor:pointer;"><a data-toggle="modal" data-target="#modal-lista-alunos">Ver Alunos</a></td>
 							</tr>
 							<tr>
-								<th scope="row" id="botao-deletar" class="nao-deleta-linha"><a id="deletaLinhaTabela"><i class="fas fa-trash"></i></a></th>
+								<th scope="row" id="botao-deletar" class="nao-deleta-linha"><a id="deletaLinhaTabela"><img src="./resources/assets/trash-solid.png" alt="delete_turma" class="delete_turma"></a></th>
 								<td>CCP1B1-MASDS</td>
 								<td>Manga</td>
 								<td style="cursor:pointer;"><a data-toggle="modal" data-target="#modal-lista-alunos">Ver Alunos</a></td>
 							</tr>
 							<tr>
-								<th scope="row" id="botao-deletar" class="nao-deleta-linha"><a id="deletaLinhaTabela"><i class="fas fa-trash"></i></a></i></th>
+								<th scope="row" id="botao-deletar" class="nao-deleta-linha"><a id="deletaLinhaTabela"><img src="./resources/assets/trash-solid.png" alt="delete_turma" class="delete_turma"></a></th>
 								<td>CCP1B1-MDSS</td>
 								<td>Arroz</td>
 								<td style="cursor:pointer;"><a data-toggle="modal" data-target="#modal-lista-alunos">Ver Alunos</a></td>
