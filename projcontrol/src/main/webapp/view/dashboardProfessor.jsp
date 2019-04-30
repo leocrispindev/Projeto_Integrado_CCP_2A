@@ -19,10 +19,10 @@
 	
 	<!-- NAVBAR -->
 	<nav class="navbar links">
-		<label id="information" for="rd_nodejs">Informações</label>
+		<label id="information" for="rd_nodejs">Informa&ccedil;&otilde;es</label>
 		<label id="classes" for="rd_bootstrap">Turma</label>
 		<label id="group" for="rd_sass">Grupo</label>
-		<label id="schedule" for="rd_angular">Avaliações Semanais</label>
+		<label id="schedule" for="rd_angular">Avalia&ccedil;&otilde;es Semanais</label>
 		<label id="label-custom" data-toggle="modal" data-target="#modal-alunos-crud" for="rd_ruby">Aluno</label>
 	</nav>
 	
@@ -48,7 +48,7 @@
 				<h1 class="corpo-informacoes">5</h1>
 				<form class="form-inline">
 					<select class="periodo-letivo" id="inlineFormCustomSelectPref">
-						<option disabled selected>Período Letivo</option>
+						<option disabled selected>Per&iacute;odo Letivo</option>
 						<option value="1">${PERIODO_LETIVO[1]}</option>
 						<option value="2">${PERIODO_LETIVO[2]}</option>
 						<option value="3">${PERIODO_LETIVO[3]}</option>
@@ -102,7 +102,7 @@
 				<h1 class="titulo-informacoes titulo-top grupo-titulo">Grupo</h1>
 				
 				<div class="card text-dark bg-light mb-3 card-margin card-grupo" style="max-width: 18rem;">
-					<div class="card-header">Numero do Grupo </div>
+					<div class="card-header">N&uacute;mero do Grupo </div>
 					<div class="card-body">
 						<h5 class="card-title">Keit Yamamoto </h5>
 						<p class="card-text">Japa <small style="font-weight:bold;">NOTA</small></p>
@@ -121,7 +121,7 @@
 			<section class="bloco2 bloco-no-overflow-y bloco-no-overflow-general" id="angular">
 				
 				<div class="contentAvaliacoes">
-					<h1 class="titulo-informacoes titulo-top">Avaliação Semanal</h1>
+					<h1 class="titulo-informacoes titulo-top">Avalia&ccedil;&atilde;o Semanal</h1>
 					
 					<div class="checkboxes-all">
 						<form class="form-inline">
@@ -171,7 +171,7 @@
 						<table class="table table-striped table-dark mini-table" id="tableAvaliacao">
 							<thead>
 								<tr>
-									<th scope="col">Avaliação</th>
+									<th scope="col">Avalia&ccedil;&atilde;o</th>
 									<th scope="col">Nota</th>
 									<th scope="col">Turma</th>
 									<th scope="col">Grupo</th>
@@ -232,9 +232,9 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<p>João grilo</p>
+				<p>Jo&atilde;o grilo</p>
 				<p>Pedro cartilagem</p>
-				<p>José dom bosco</p>
+				<p>Jos&eacute; dom bosco</p>
 			</div>
 			<div class="modal-footer">
 				<button type="button" data-dismiss="modal" class="btn btn-primary">Ok</button>
@@ -250,7 +250,7 @@ aria-hidden="true">
 	<div class="modal-content">
 		<div class="modal-header">
 			<h5 class="modal-title alterar-informacoes-titulo" id="exampleModalCenterTitle">Escolha uma
-				opção</h5>
+				op&ccedil;&atilde;o</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -323,7 +323,7 @@ aria-hidden="true">
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-				<button type="button" class="btn btn-primary">Salvar Alterações</button>
+				<button type="button" class="btn btn-primary">Salvar Altera&ccedil;&otilde;es</button>
 			</div>
 		</div>
 	</div>
@@ -370,7 +370,7 @@ aria-hidden="true">
 							<td>Otto</td>
 							<td>
 								<button type="button" id="deleta-aluno" class="btn btn-danger btn-sm">Deletar</button>
-								<button data-toggle="modal" data-target=".informacoes-aluno-modal" type="button" class="btn btn-primary btn-sm">Ver Informações</button>
+								<button data-toggle="modal" data-target=".informacoes-aluno-modal" type="button" class="btn btn-primary btn-sm">Ver Informa&ccedil;&otilde;es</button>
 							</td>
 						</tr>
 						<tr id="aluno">
@@ -379,7 +379,7 @@ aria-hidden="true">
 							<td>Thornton</td>
 							<td>
 								<button type="button" id="deleta-aluno" class="btn btn-danger btn-sm">Deletar</button>
-								<button data-toggle="modal" data-target=".informacoes-aluno-modal" type="button" class="btn btn-primary btn-sm">Ver Informações</button>
+								<button data-toggle="modal" data-target=".informacoes-aluno-modal" type="button" class="btn btn-primary btn-sm">Ver Informa&ccedil;&otilde;es</button>
 							</td>
 						</tr>
 						<tr id="aluno">
@@ -388,7 +388,7 @@ aria-hidden="true">
 							<td>the Bird</td>
 							<td>
 								<button type="button" id="deleta-aluno" class="btn btn-danger btn-sm">Deletar</button>
-								<button data-toggle="modal" data-target=".informacoes-aluno-modal" type="button" class="btn btn-primary btn-sm">Ver Informações</button>
+								<button data-toggle="modal" data-target=".informacoes-aluno-modal" type="button" class="btn btn-primary btn-sm">Ver Informa&ccedil;&otilde;es</button>
 							</td>
 						</tr>
 					</tbody>

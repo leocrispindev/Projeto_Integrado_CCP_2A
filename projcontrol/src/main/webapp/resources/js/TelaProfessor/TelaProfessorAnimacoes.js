@@ -61,7 +61,7 @@ function deletaLinhaTabela(){
             del[i].addEventListener("click",(event)=>{
                 
                 Swal.fire({
-                    title: 'Você tem centeza?',
+                    title: 'Voc&ecirc; tem centeza?',
                     type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
