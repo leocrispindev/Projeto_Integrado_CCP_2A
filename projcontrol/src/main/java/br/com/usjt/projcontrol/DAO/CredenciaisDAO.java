@@ -39,7 +39,7 @@ public class CredenciaisDAO {
 
 		try (Connection conn = Conexao.getConexaoMYSQL()) {
 
-			String sql = "SELECT senha FROM usuario WHERE email = ?";
+			String sql = "SELECT senha,nome FROM usuario WHERE email = ?";
 
 			PreparedStatement stmt = conn.prepareStatement(sql);
 
@@ -49,7 +49,7 @@ public class CredenciaisDAO {
 			while (rs.next()) {
 				
 				r1.setSenha(rs.getString("senha"));
-				
+				r1.setNome(rs.getString("nome"));
 			}
 
 		} catch (SQLException e) {

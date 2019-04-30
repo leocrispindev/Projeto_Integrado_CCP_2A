@@ -4,15 +4,25 @@ public class RecuperarSenha {
 	
 	private String email;
 	private String senha;
+	private String nome;
 	
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
 	public RecuperarSenha() {
 		
 	}
 	
-	public RecuperarSenha(String email, String senha) {
+	public RecuperarSenha(String email, String senha, String nome) {
 		super();
 		this.email = email;
 		this.senha = senha;
+		this.nome = nome;
 	}
 	
 	public String getEmail() {
