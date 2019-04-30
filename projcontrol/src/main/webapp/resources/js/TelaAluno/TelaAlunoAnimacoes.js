@@ -42,6 +42,8 @@ function animaEscritaTexto(id){
 }
 
 function scrollDetect() {
+
+  if(document.getElementById('scroll_control') != null){
     let obj = document.getElementById('scroll_control').style;
     obj.marginTop = 0 + 'vh';
     let input1 = document.getElementById('rd_nodejs');
@@ -124,6 +126,8 @@ function scrollDetect() {
       }
     });
   }
+    
+}
 
 
 export{animaAvatar,animaEscritaTexto,scrollDetect,animaDeslogar};
