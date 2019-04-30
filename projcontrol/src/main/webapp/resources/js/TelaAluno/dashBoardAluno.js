@@ -39,8 +39,7 @@ function trocaSenha(){
       'Confirme sua nova Senha'
     ]).then((result) => {
       if (result.value) {
-        
-        setUpdateEmail(result.value);
+        setUpdateSenha(result.value);
       }
     })
     
@@ -52,8 +51,32 @@ trocaSenha();
 
 function setUpdateEmail(dados) {
   $.ajax({
-    url: 'entrada?acao=EditarEmail',
-    data: {email: dados[0], confirm_email: dados[1]},
+    url: 'entrada?acao=UpdateCredenciais',
+    data: {campo: dados[0], confirm_campo: dados[1], update:"email"},
+    type: 'POST',
+    success: function (data) {
+      Swal.fire({
+        title: data[0],
+        text: data[1],
+        type: data[2],
+        confirmButtonText: 'OK'
+      })
+    },
+    error: function(data) {
+      Swal.fire({
+        title: 'Error!',
+        text: data[1],
+        type: 'error',
+        confirmButtonText: 'OK'
+      })
+    }
+  });
+}
+
+function setUpdateSenha(dados) {
+  $.ajax({
+    url: 'entrada?acao=UpdateCredenciais',
+    data: {campo: dados[1], confirm_campo: dados[2], update:"senha"},
     type: 'POST',
     success: function (data) {
       Swal.fire({

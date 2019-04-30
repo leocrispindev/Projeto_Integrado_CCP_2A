@@ -10,16 +10,15 @@ import br.com.usjt.projcontrol.model.Aluno;
 public class CredenciaisDAO {
 	Conexao conexao = null;
 	
-	public void updateEmail(String email, int id) {
+	public void updateCredenciais(String campo, int id, String sql) {
 		conexao = new Conexao();
 		
 		try (Connection conn = conexao.getConexaoMYSQL()){
 			
 			//=> Query para update de dados do Aluno
-			String sql = "UPDATE usuario SET email = ? WHERE id = ?";
-			
+		
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setString(1, email);
+			stmt.setString(1, campo);
 			stmt.setInt(2, id);
 			stmt.execute();
 			
