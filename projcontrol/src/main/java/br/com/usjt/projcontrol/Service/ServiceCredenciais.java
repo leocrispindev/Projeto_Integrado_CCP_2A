@@ -21,11 +21,18 @@ public class ServiceCredenciais extends Validacao implements Serializable{
 		credenciais = new CredenciaisDAO();
 	}
 	
-	public String[] setUpdateEmail(String email, String confirmEmail, int id) {
+	public String[] setUpdateCredenciais(String campo, String confirmCampo, int id, String tipoUpdate) {
+		String sql = "";
 		try {
-			if(email.equals(confirmEmail)) {
+			if(campo.equals(confirmCampo)) {
 				
-				credenciais.updateEmail(email, id);
+				if(tipoUpdate.equals("email")) {
+					sql = "UPDATE usuario SET email = ? WHERE id = ?";
+				}else {
+					sql = "UPDATE usuario SET senha = ? WHERE id = ?";
+				}
+				
+				credenciais.updateCredenciais(campo, id, sql);
 				return this.getMensagemSucesso();
 				
 			}else {

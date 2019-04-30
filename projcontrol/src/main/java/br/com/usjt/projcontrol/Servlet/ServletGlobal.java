@@ -28,7 +28,8 @@ public class ServletGlobal extends HttpServlet {
 			throws IOException, ServletException {
 
 		try {
-
+			request.setCharacterEncoding("UTF-8");
+			
 			operacao = request.getParameter("acao");
 			classPath = "br.com.usjt.projcontrol.Controller." + operacao;
 

@@ -24,19 +24,9 @@ class AvaliacaoDAOTest {
 		
 		assertEquals(1, lista.get(0).getAvaliacaoId());
 		assertEquals(10.00, lista.get(0).getNota());
-		assertEquals("2019-02-22", lista.get(0).getDataAvaliacao().toString());
 		
 		assertEquals(2, lista.get(1).getAvaliacaoId());
 		assertEquals(9.50, lista.get(1).getNota());
-		assertEquals("2019-02-22", lista.get(1).getDataAvaliacao().toString());
 	}
 	
-	@Test
-	void testAvaliacaoId() {
-		int id = 28;
-		int ultimoIdAvaliacao = dao.getAvaliacaoId();
-		
-		assertEquals(id, ultimoIdAvaliacao);
-	}
-
 }

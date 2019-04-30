@@ -4,6 +4,7 @@ public class Validacao {
 	String [] mensagemSucesso = {"Sucesso!","Operação realizada com sucesso!","success"};
 	String[] mensagemErro = {"Ops!","Preencha os dados corretamente.", "warning"};
 	String[] mensagemErroSQL = {"Ops!","Este aluno possui vinculo com turmas.Não é possivel deleta-lo.", "info"};
+	String[] mensagemErroSQLCatch = {"Ops!","Houve um problema com a operação. Contate o administrador do sistema.", "error"};
 	
 	public String[] getMensagemSucesso() {
 		return this.mensagemSucesso;
@@ -15,5 +16,9 @@ public class Validacao {
 	
 	public String[] getMensagemErroSQL() {
 		return this.mensagemErroSQL;
+	}
+	
+	public String[] getMensagemErroSQLCatch() {
+		return this.mensagemErroSQLCatch;
 	}
 }
