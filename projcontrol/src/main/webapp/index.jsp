@@ -24,7 +24,7 @@
 
 			<form id="form-login" action="entrada?acao=Login" method="POST">
 				<div class="form-group">
-					<small>N�o tem uma conta? <a id="fazerRegistro">Fa�a
+					<small>N&atilde;o tem uma conta? <a id="fazerRegistro">Fa&ccedil;a
 							seu registro</a>
 					</small> <i hidden id="inform-capslock" title="CAPSLOCK LIGADO!"
 						class="fas fa-lock  caps-lock-warn"></i> <br /> <label
@@ -34,7 +34,7 @@
 				<div class="form-group">
 					<label for="userPassword">Senha</label> <i hidden
 						id="senhaRequisitos"
-						title="A senha é composta por:&#013;Minimo 6 Caracteres&#013;Letra Maiuscula&#013;Letra Minuscula&#013; Caracter Especial&#013;Numero"
+						title="A senha &eacute; composta por:&#013;M&iacute;nimo 6 Caracteres&#013;Letra Mai&uacute;scula&#013;Letra Min&uacute;scula&#013; Caracter Especial&#013;N&uacute;mero"
 						class="fas fa-info-circle password-warn"></i> <input
 						type="password" class="form-control" id="userPassword"
 						name="usu_senha" required>
@@ -95,7 +95,7 @@
 				<div class="form-group">
 					<label for="userPasswordRegister">Senha</label> <i hidden
 						id="senhaRequisitosRegistro"
-						title="A senha é composta por:&#013;Minimo 6 Caracteres&#013;Letra Maiuscula&#013;Letra Minuscula&#013; Caracter Especial&#013;Numero"
+						title="A senha &eacute; composta por:&#013;M&iacute;nimo 6 Caracteres&#013;Letra Mai&uacute;scula&#013;Letra Min&uacute;scula&#013; Caracter Especial&#013;N&uacute;mero"
 						class="fas fa-info-circle password-warn senhaRequisitosRegistro"></i>
 					<input type="password" class="form-control userPasswordRegister"
 						id="userPasswordRegister" required>
