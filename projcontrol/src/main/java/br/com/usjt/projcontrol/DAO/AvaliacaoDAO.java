@@ -75,6 +75,67 @@ public class AvaliacaoDAO {
 		return arrayAvaliacoes;
 	}
 	
+//	public ArrayList<Avaliacao> getAvaliacoesByTurma(Turma turma) {
+//		ArrayList<Avaliacao> arrayAvaliacoes = new ArrayList<Avaliacao>();
+//		String sql = "SELECT " + 
+//				"t.ano_letivo, t.semestre_letivo, t.sigla, u.nome, g.numero " + 
+//				"FROM avaliacao a " + 
+//				"INNER JOIN turma_aluno ta ON a.turma_aluno_id = ta.turma_id " + 
+//				"INNER JOIN turma t ON ta.turma_id = t.id " + 
+//				"INNER JOIN grupo g ON ta.grupo_id = g.id " + 
+//				"INNER JOIN professor p ON g.orientador_id = p.professor_id " + 
+//				"INNER JOIN usuario u ON p.professor_id = u.id " + 
+//				"WHERE t.semestre_letivo = ? AND t.ano_letivo = ?;";
+//		
+//		try (Connection conn = Conexao.getConexaoMYSQL()) {
+//			
+//			PreparedStatement stmt = conn.prepareStatement(sql);
+//			ResultSet rs = stmt.executeQuery();
+//			
+//			while (rs.next()) {
+//
+//				arrayAvaliacoes.add(ava);	
+//			}
+//	
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} finally {
+//			conexao.closeConexaoMYSQL();
+//		}
+//	
+//		return arrayAvaliacoes;
+//	}
+	
+	public ArrayList<Avaliacao> getAvaliacoesByDate() {
+		ArrayList<Avaliacao> arrayAvaliacoes = new ArrayList<Avaliacao>();
+		String sql = "SELECT DISTINCT\r\n" + 
+				"t.ano_letivo, t.semestre_letivo \r\n" + 
+				"FROM avaliacao a\r\n" + 
+				"INNER JOIN turma_aluno ta ON a.turma_aluno_id = ta.turma_id\r\n" + 
+				"INNER JOIN turma t ON ta.turma_id = t.id;";
+
+		try (Connection conn = Conexao.getConexaoMYSQL()) {
+
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				Avaliacao ava = new Avaliacao();
+				Turma t = new Turma();
+				t.setAnoLetivo(rs.getInt("ano_letivo"));
+				t.setSemestreLetivo(rs.getInt("semestre_letivo"));
+				ava.setTurma(t);
+				arrayAvaliacoes.add(ava);	
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			conexao.closeConexaoMYSQL();
+		}
+
+		return arrayAvaliacoes;
+	}
 	
 	public void getAvaliacaoId() {
 

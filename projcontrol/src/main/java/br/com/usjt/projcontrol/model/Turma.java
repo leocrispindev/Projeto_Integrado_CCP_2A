@@ -3,7 +3,8 @@ package br.com.usjt.projcontrol.model;
 
 public class Turma {
 	
-	private String codigoIdentificador, sigla;
+	private int codigoIdentificador;
+	private String sigla;
 	private int anoLetivo;
 	private int semestreLetivo;
 	private Aluno alunos;
@@ -15,10 +16,10 @@ public class Turma {
 	public void setTurmaTema(Tema turmaTema) {
 		this.turmaTema = turmaTema;
 	}
-	public String getCodigoIdentificador() {
+	public int getCodigoIdentificador() {
 		return codigoIdentificador;
 	}
-	public void setCodigoIdentificador(String codigoIdentificador) {
+	public void setCodigoIdentificador(int codigoIdentificador) {
 		this.codigoIdentificador = codigoIdentificador;
 	}
 	public int getAnoLetivo() {

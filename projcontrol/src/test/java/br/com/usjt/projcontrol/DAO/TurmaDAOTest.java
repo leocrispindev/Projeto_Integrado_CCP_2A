@@ -44,14 +44,30 @@ class TurmaDAOTest {
 	void testArrayTurmas() {
 		ArrayList<Turma> lista = turmaDao.getTurmas();
 		
-		for(int i = 0; i < lista.size(); i++) {
-			System.out.println(lista.get(i).getSemestreLetivo() + " " + lista.get(i).getAnoLetivo());
+		System.out.println("Array getTurmas()");
+		for (Turma t : lista) {
+			System.out.println(t.getSemestreLetivo() + " " + t.getAnoLetivo());
 		}
 		
 		assertEquals(1, lista.get(0).getSemestreLetivo());
 		assertEquals(2018, lista.get(0).getAnoLetivo());
 		assertEquals(2, lista.get(3).getSemestreLetivo());
 		assertEquals(2019, lista.get(3).getAnoLetivo());
+	}
+	
+	@Test
+	void testArrayTurmasByPeriodo() {
+		turma.setAnoLetivo(2018);
+		turma.setSemestreLetivo(1);
+		ArrayList<Turma> lista = turmaDao.getTurmasByPeriodo(turma);
+		
+		System.out.println("Array getTurmasByPeriodo()");
+		for (Turma t : lista) {
+			System.out.println(t.getSemestreLetivo() + " " + t.getAnoLetivo());
+		}
+		assertEquals(1, lista.get(0).getSemestreLetivo());
+		assertEquals(2018, lista.get(0).getAnoLetivo());
+		
 	}
 	
 

@@ -26,7 +26,7 @@ public class TurmaDAO {
 
 			PreparedStatement stmt = conn.prepareStatement(sql);
 
-			stmt.setString(1, turma.getCodigoIdentificador());
+			stmt.setInt(1, turma.getCodigoIdentificador());
 			stmt.setInt(2, turma.getAnoLetivo());
 			stmt.setObject(3, turma.getAlunos());
 			stmt.execute();
@@ -49,7 +49,7 @@ public class TurmaDAO {
 
 			PreparedStatement stmt = conn.prepareStatement(sql);
 
-			stmt.setString(1, turma.getCodigoIdentificador());
+			stmt.setInt(1, turma.getCodigoIdentificador());
 			stmt.execute();
 
 		} catch (SQLException e) {
@@ -68,7 +68,7 @@ public class TurmaDAO {
 
 			PreparedStatement stmt = conn.prepareStatement(sql);
 
-			stmt.setString(1, turma.getCodigoIdentificador());
+			stmt.setInt(1, turma.getCodigoIdentificador());
 			stmt.setInt(2, turma.getAnoLetivo());
 			stmt.setObject(3, turma.getAlunos());
 			stmt.execute();
@@ -110,6 +110,48 @@ public class TurmaDAO {
 					turma.setSemestreLetivo(rs.getInt("semestre_letivo"));
 					turma.setAnoLetivo(rs.getInt("ano_letivo"));
 					arrayTurmas.add(turma);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return arrayTurmas;
+	}
+	
+	public ArrayList<Turma> getPeriodoLetivo() {
+		ArrayList<Turma> arrayAno = new ArrayList<Turma>();
+		String sql = "SELECT DISTINCT ano_letivo FROM turma t ORDER BY ano_letivo DESC;";
+
+		try (Connection conn = Conexao.getConexaoMYSQL()) {
+
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			try(ResultSet rs = stmt.executeQuery();){
+				while (rs.next()) {
+					Turma t = new Turma();
+					t.setAnoLetivo(rs.getInt("ano_letivo"));
+					arrayAno.add(t);	
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+		return arrayAno;
+	}
+	
+	public ArrayList<Turma> getTurmasByPeriodo(Turma turma) {
+		String sql = "SELECT id, sigla FROM turma where semestre_letivo = ? AND ano_letivo = ?;";
+		ArrayList<Turma> arrayTurmas = new ArrayList<>();
+
+		try (Connection conn = Conexao.getConexaoMYSQL()) {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, turma.getSemestreLetivo());
+			stmt.setInt(2, turma.getAnoLetivo());
+			try (ResultSet rs = stmt.executeQuery();) {
+				while (rs.next()) {
+					Turma t = new Turma();
+					t.setSigla(rs.getString("sigla"));
+					t.setCodigoIdentificador(rs.getInt("id"));
+					arrayTurmas.add(t);
 				}
 			}
 		} catch (SQLException e) {
