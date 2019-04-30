@@ -117,52 +117,41 @@
 			</section>
 			
 			<!-- <section class="bloco" id="ruby"></section> -->
-			
 			<section class="bloco2 bloco-no-overflow-y bloco-no-overflow-general" id="angular">
 				
 				<div class="contentAvaliacoes">
 					<h1 class="titulo-informacoes titulo-top">Avalia&ccedil;&atilde;o Semanal</h1>
 					
+					<!--  Filtros de avaliação -->
+					
 					<div class="checkboxes-all">
 						<form class="form-inline">
-							<select class="custom-select checkbox-filtro" id="inlineFormCustomSelectPref">
+							<select class="custom-select checkbox-filtro" id="ano-letivo">
 								<option disabled selected>Ano Letivo</option>
-								<option value="1"></option>
-								<option value="2"></option>
-								<option value="3"></option>
 							</select>
 						</form>
 						
 						<form class="form-inline">
-							<select class="custom-select checkbox-filtro" id="inlineFormCustomSelectPref">
+							<select class="custom-select checkbox-filtro" id="semestre-letivo" onchange="getTurmasByPeriodoLetivo()">
 								<option disabled selected>Semestre Letivo</option>
-								<option value="1"></option>
-								<option value="2"></option>
-								<option value="3"></option>
+								<option>1</option>
+								<option>2</option>
 							</select>
 						</form>
 						<form class="form-inline">
-							<select class="custom-select checkbox-filtro" id="inlineFormCustomSelectPref">
+							<select class="custom-select checkbox-filtro" id="turma">
 								<option disabled selected>Turma</option>
-								<option value="1"></option>
-								<option value="2"></option>
-								<option value="3"></option>
+
 							</select>
 						</form>
 						<form class="form-inline">
-							<select class="custom-select checkbox-filtro" id="inlineFormCustomSelectPref">
+							<select class="custom-select checkbox-filtro" id="professor">
 								<option disabled selected>Professor</option>
-								<option value="1"></option>
-								<option value="2"></option>
-								<option value="3"></option>
 							</select>
 						</form>
 						<form class="form-inline">
-							<select class="custom-select checkbox-filtro" id="inlineFormCustomSelectPref">
+							<select class="custom-select checkbox-filtro" id="grupo">
 								<option disabled selected>Grupo</option>
-								<option value="1"></option>
-								<option value="2"></option>
-								<option value="3"></option>
 							</select>
 						</form>
 					</div>
@@ -432,6 +421,7 @@ aria-hidden="true">
 	<script src="./resources/node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="./resources/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
 	<script src="./resources/js/TelaProfessor/dashBoardAdmin.js"></script>
+	<script src="./resources/js/TelaProfessor/administradorFiltros.js"></script>
 	<script src="./resources/bundle.js"></script>
 	<script defer src="./resources/js/all.min.js"></script>
 </body>
