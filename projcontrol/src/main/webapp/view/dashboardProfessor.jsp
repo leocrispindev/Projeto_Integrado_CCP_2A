@@ -126,20 +126,20 @@
 					
 					<div class="checkboxes-all">
 						<form class="form-inline">
-							<select class="custom-select checkbox-filtro" id="ano-letivo">
+							<select class="custom-select checkbox-filtro" id="ano-letivo" onchange="filtraTurmas()">
 								<option disabled selected>Ano Letivo</option>
 							</select>
 						</form>
 						
 						<form class="form-inline">
-							<select class="custom-select checkbox-filtro" id="semestre-letivo" onchange="getTurmasByPeriodoLetivo()">
+							<select class="custom-select checkbox-filtro" id="semestre-letivo" onchange="filtraTurmas()">
 								<option disabled selected>Semestre Letivo</option>
 								<option>1</option>
 								<option>2</option>
 							</select>
 						</form>
 						<form class="form-inline">
-							<select class="custom-select checkbox-filtro" id="turma">
+							<select class="custom-select checkbox-filtro" id="turma" onchange="getGruposByTurmas()">
 								<option disabled selected>Turma</option>
 
 							</select>

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import br.com.usjt.projcontrol.DAO.GrupoDAO;
 import br.com.usjt.projcontrol.model.Grupo;
+import br.com.usjt.projcontrol.model.Turma;
 
 public class ServiceGrupo {
 	
@@ -26,5 +27,11 @@ public class ServiceGrupo {
 		
 		return grupos;
 	}
-
+	
+	public ArrayList<Grupo> getListaGruposByTurmaId(Turma turma) {
+		ArrayList<Grupo> grupos = new ArrayList<>();
+		grupos = dao.getGruposByTurmaId(turma);
+		
+		return grupos;
+	}
 }
