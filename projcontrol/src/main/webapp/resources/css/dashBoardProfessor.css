@@ -340,7 +340,7 @@
 
 .button-right:hover{
     transition: 1s;
-    transform: scale(1.1) rotate(360deg);
+    transform: rotate(360deg);
 }
 
 .turma{
@@ -439,6 +439,14 @@ input[type="number"] {
     display: flex;
     flex-direction: column;
     margin-bottom: 2%;
+}
+
+.checkboxes-all .form-inline{
+    margin-right: 1%;
+}
+
+.aligner{
+    margin-left: 2vw!important;
 }
 
 .checkbox-filtro{

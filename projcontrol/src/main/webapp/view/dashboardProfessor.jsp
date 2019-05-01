@@ -122,7 +122,7 @@
 				<div class="contentAvaliacoes">
 					<h1 class="titulo-informacoes titulo-top">Avalia&ccedil;&atilde;o Semanal</h1>
 					
-					<!--  Filtros de avaliação -->
+					<!--  Filtros de avaliaï¿½ï¿½o -->
 					
 					<div class="checkboxes-all">
 						<form class="form-inline">
@@ -154,10 +154,13 @@
 								<option disabled selected>Grupo</option>
 							</select>
 						</form>
+						<form class="form-inline">
+							<button class="btn btn-outline-danger my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+						</form>
 					</div>
 					
 					<div class="container-fluid">
-						<table class="table table-striped table-dark mini-table" id="tableAvaliacao">
+						<table class="table table-striped table-dark mini-table aligner" id="tableAvaliacao">
 							<thead>
 								<tr>
 									<th scope="col">Avalia&ccedil;&atilde;o</th>
