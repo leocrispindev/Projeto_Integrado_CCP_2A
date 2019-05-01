@@ -22,7 +22,7 @@ public class GetEmailTrocaSenha implements Acao {
 		
 		ServiceJavaMailApp serviceEnviaEmail = new ServiceJavaMailApp();
 
-		serviceEnviaEmail.enviaEmail(email);
+		serviceEnviaEmail.enviaEmail(email,"mensagemRecuperarSenha",null);
 
 		return "forward::index.jsp";
 	}

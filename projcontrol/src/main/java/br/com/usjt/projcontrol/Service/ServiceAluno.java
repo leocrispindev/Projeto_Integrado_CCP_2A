@@ -22,8 +22,11 @@ public class ServiceAluno extends Validacao implements Serializable{
 	
 	public String[] setCadastro(Aluno aluno) {
 		try {
-			
 			usuarioD.cadastrarAluno(aluno);
+			
+			ServiceJavaMailApp javamail = new ServiceJavaMailApp();
+			javamail.enviaEmail(aluno.getEmail(),"mensagemCadastro", aluno);
+			
 			return this.getMensagemSucesso();
 			
 		}catch(Exception e) {

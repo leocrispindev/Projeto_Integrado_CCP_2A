@@ -21,7 +21,7 @@ public class CredenciaisDAO {
 			String sql = "UPDATE usuario SET email = ? WHERE id = ?";
 
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setString(1, campo);
+//			stmt.setString(1, campo);
 			stmt.setInt(2, id);
 			stmt.execute();
 
