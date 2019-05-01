@@ -202,6 +202,12 @@
 						<label for="sigla" class="col-form-label">Sigla</label>
 						<input type="text" class="form-control input-modal" id="">
 					</div>
+					<select class="custom-select checkbox-filtro" id="ano-letivo">
+						<option disabled selected>Semestre Letivo</option>
+					</select>
+					<select class="custom-select checkbox-filtro" id="ano-letivo">
+						<option disabled selected>Temas</option>
+					</select>
 				</form>
 				
 			</div>
