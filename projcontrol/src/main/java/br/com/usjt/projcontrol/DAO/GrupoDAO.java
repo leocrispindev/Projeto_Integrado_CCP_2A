@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import br.com.usjt.projcontrol.Conexao.Conexao;
 import br.com.usjt.projcontrol.model.Grupo;
 import br.com.usjt.projcontrol.model.Professor;
+import br.com.usjt.projcontrol.model.Turma;
 
 public class GrupoDAO {
 
 	private Conexao conexao = null;
-	private String mensagem = "";
 
 	public ArrayList<Grupo> getGruposByAlunoID(int id) {
 
@@ -102,7 +102,31 @@ public class GrupoDAO {
 		}
 		return arrayGrupos;
 	}
+	
+	public ArrayList<Grupo> getGruposByTurmaId(Turma turma) {
+		String sql = "SELECT g.id, g.nome FROM grupo g "
+				+ "INNER JOIN turma_aluno ta ON ta.grupo_id = g.id "
+				+ "INNER JOIN turma t ON t.id = ta.turma_id WHERE t.id = ?;";
+		ArrayList<Grupo> arrayGrupos = new ArrayList<>();
 
+		try (Connection conn = Conexao.getConexaoMYSQL()) {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, turma.getCodigoIdentificador());
+			try (ResultSet rs = stmt.executeQuery();) {
+				while (rs.next()) {
+					Grupo grupo = new Grupo();
+					grupo.setId(rs.getInt("g.id"));
+					grupo.setNome(rs.getString("g.nome"));
+					arrayGrupos.add(grupo);
+				}
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return arrayGrupos;
+	}
+	
 	public int getGrupoId() {
 
 		String sqlGrupoId = "SELECT id FROM grupo ORDER BY id DESC LIMIT 0,1";

@@ -1,6 +1,7 @@
 package br.com.usjt.projcontrol.model;
 
 public class Grupo {
+	private int id;
 	private Professor professor;
 	private int numero_grupo;
 	private String nome;
@@ -27,6 +28,14 @@ public class Grupo {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public Grupo() {}

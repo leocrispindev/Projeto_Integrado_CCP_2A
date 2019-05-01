@@ -48,7 +48,7 @@ public class ServiceProfessor implements Serializable {
 		return mensagem;
 	}
 	
-	public ArrayList<Professor> getListaTurmas() {
+	public ArrayList<Professor> getListaProfessores() {
 		ArrayList<Professor> professores = professorDAO.getProfessores();
 		return professores;
 	}
