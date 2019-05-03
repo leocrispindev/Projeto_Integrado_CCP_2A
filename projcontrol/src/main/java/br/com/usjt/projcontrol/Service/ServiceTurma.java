@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import br.com.usjt.projcontrol.Controller.Validacao;
 import br.com.usjt.projcontrol.DAO.TurmaDAO;
+import br.com.usjt.projcontrol.model.Aluno;
 import br.com.usjt.projcontrol.model.Turma;
 
 public class ServiceTurma extends Validacao implements Serializable {
@@ -63,6 +64,11 @@ public class ServiceTurma extends Validacao implements Serializable {
 	
 	public ArrayList<Turma> getPeriodoLetivo() {
 		ArrayList<Turma> periodo = turmaD.getPeriodoLetivo();
+		return periodo;
+	}
+	
+	public ArrayList<Turma> getPeriodoLetivoByAlunoId(Aluno aluno) {
+		ArrayList<Turma> periodo = turmaD.getPeriodoLetivoByAlunoId(aluno);
 		return periodo;
 	}
 
