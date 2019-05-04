@@ -88,7 +88,7 @@ public class GrupoDAO {
 	}
 	
 	public ArrayList<Grupo> getGruposByTurmaId(Turma turma) {
-		String sql = "SELECT g.id, g.nome FROM grupo g "
+		String sql = "SELECT DISTINCT g.id, g.nome FROM grupo g "
 				+ "INNER JOIN turma_aluno ta ON ta.grupo_id = g.id "
 				+ "INNER JOIN turma t ON t.id = ta.turma_id WHERE t.id = ?;";
 		ArrayList<Grupo> arrayGrupos = new ArrayList<>();

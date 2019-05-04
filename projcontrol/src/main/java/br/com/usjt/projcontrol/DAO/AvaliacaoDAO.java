@@ -16,7 +16,8 @@ public class AvaliacaoDAO {
 
 	private Conexao conexao = null;
 	
-	public ArrayList<Avaliacao> getAvaliacoes() {
+	public ArrayList<Avaliacao> getAvaliacoes(String filtros) {
+		
 		ArrayList<Avaliacao> arrayAvaliacoes = new ArrayList<Avaliacao>();
 		Avaliacao ava = null;
 		conexao = new Conexao();
@@ -34,7 +35,7 @@ public class AvaliacaoDAO {
 				"INNER JOIN turma T ON T.id = Ta.turma_id " + 
 				"INNER JOIN grupo G ON Ta.grupo_id = G.id " + 
 				"INNER JOIN professor P ON P.professor_id = G.orientador_id " + 
-				"INNER JOIN usuario U ON P.professor_id = U.id GROUP BY Av.id;";
+				"INNER JOIN usuario U ON P.professor_id = U.id " + filtros + " GROUP BY Av.id;";
 		
 		try (Connection conn = conexao.getConexaoMYSQL()) {
 			

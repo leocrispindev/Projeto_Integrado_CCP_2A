@@ -21,9 +21,13 @@ public class GetAvaliacoes implements Acao{
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 		
+		String turma = request.getParameter("turma");
+		String professor = request.getParameter("professor");
+		String grupo = request.getParameter("grupo");
+		
 		ServiceAvaliacao av = new ServiceAvaliacao();
 		
-		retornoAvaliacoes = av.getAvaliacoes();
+		retornoAvaliacoes = av.getAvaliacoes(turma, professor, grupo);
 		String retorno = json.toJson(retornoAvaliacoes);
 		
 		return "json::"+retorno;

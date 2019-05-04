@@ -1,8 +1,7 @@
 function getAvaliacoes() {
-
     $.ajax({
         url: 'entrada?acao=GetAvaliacoes',
-        data: {},
+        data: {turma: $('#turma').val(), professor: $('#professor').val(), grupo:$('#grupo').val()},
         type: 'POST',
         success: function (data) {
             montargrid(data);
@@ -172,5 +171,4 @@ function getDadosAluno(id) {
 
 $(function(){
     getAlunos();
-    getAvaliacoes();
   });

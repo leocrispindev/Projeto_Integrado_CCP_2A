@@ -155,7 +155,7 @@
 							</select>
 						</form>
 						<form class="form-inline">
-							<button class="btn btn-outline-danger my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+							<button class="btn btn-outline-danger my-2 my-sm-0" type="button" onclick="getAvaliacoes()"><i class="fas fa-search"></i></button>
 						</form>
 					</div>
 					
@@ -364,33 +364,7 @@ aria-hidden="true">
 						</tr>
 					</thead>
 					<tbody>
-						<tr id="aluno">
-							<th id="raAluno" scope="row">81819595</th>
-							<td id="nomeAluno" >Mark</td>
-							<td>Otto</td>
-							<td>
-								<button type="button" id="deleta-aluno" class="btn btn-danger btn-sm">Deletar</button>
-								<button data-toggle="modal" data-target=".informacoes-aluno-modal" type="button" class="btn btn-primary btn-sm">Ver Informa&ccedil;&otilde;es</button>
-							</td>
-						</tr>
-						<tr id="aluno">
-							<th id="raAluno" scope="row">81819599</th>
-							<td id="nomeAluno">Jacob</td>
-							<td>Thornton</td>
-							<td>
-								<button type="button" id="deleta-aluno" class="btn btn-danger btn-sm">Deletar</button>
-								<button data-toggle="modal" data-target=".informacoes-aluno-modal" type="button" class="btn btn-primary btn-sm">Ver Informa&ccedil;&otilde;es</button>
-							</td>
-						</tr>
-						<tr id="aluno">
-							<th id="raAluno" scope="row">81810000</th>
-							<td id="nomeAluno">Larry</td>
-							<td>the Bird</td>
-							<td>
-								<button type="button" id="deleta-aluno" class="btn btn-danger btn-sm">Deletar</button>
-								<button data-toggle="modal" data-target=".informacoes-aluno-modal" type="button" class="btn btn-primary btn-sm">Ver Informa&ccedil;&otilde;es</button>
-							</td>
-						</tr>
+						
 					</tbody>
 				</table>
 			</div>
