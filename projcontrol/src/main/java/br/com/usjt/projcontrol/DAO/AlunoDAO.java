@@ -8,10 +8,10 @@ import java.util.ArrayList;
 
 import br.com.usjt.projcontrol.Conexao.Conexao;
 import br.com.usjt.projcontrol.model.Aluno;
+import br.com.usjt.projcontrol.model.Grupo;
 import br.com.usjt.projcontrol.model.Professor;
 import br.com.usjt.projcontrol.model.Tema;
 import br.com.usjt.projcontrol.model.Turma;
-import br.com.usjt.projcontrol.model.Usuario;
 
 public class AlunoDAO {
 	
@@ -283,8 +283,64 @@ public class AlunoDAO {
 		return alunoDados;
 	}
 	
+	public ArrayList<Grupo> getGruposByAlunoId(int id) {
+		String sql = "SELECT u.nome, g.id, u.id, g.nome, g.numero FROM aluno a "
+				+ "INNER JOIN turma_aluno ta ON a.aluno_id = ta.Aluno_id "
+				+ "INNER JOIN grupo g ON g.id = ta.grupo_id "
+				+ "INNER JOIN professor p ON g.orientador_id = p.professor_id "
+				+ "INNER JOIN usuario u ON p.professor_id = u.id WHERE a.aluno_id = ?;";
+		
+		ArrayList<Grupo> arrayGrupos = new ArrayList<>();
+		
+		try (Connection conn = Conexao.getConexaoMYSQL()) {
+			
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, id);
+			try (ResultSet rs = stmt.executeQuery();) {
+				while (rs.next()) {
+					Grupo grupo = new Grupo();
+					grupo.setNome(rs.getString("g.nome"));
+					grupo.setNumero_grupo(rs.getInt("g.numero"));
+					grupo.setId(rs.getInt("g.id"));
+					Professor professor = new Professor();
+					professor.setNome(rs.getString("u.nome"));
+					professor.setId(rs.getInt("u.id"));
+					grupo.setProfessor(professor);
+					
+					arrayGrupos.add(grupo);
+				}
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return arrayGrupos;
+	}
 	
-	
-	
-	
+	public ArrayList<Aluno> getAlunosByGrupoId(int id) {
+		String sql = "SELECT a.ra, u.nome FROM aluno a "
+				+ "INNER JOIN usuario u ON a.aluno_id = u.id "
+				+ "INNER JOIN turma_aluno ta ON a.aluno_id = ta.Aluno_id "
+				+ "INNER JOIN grupo g ON ta.grupo_id = g.id WHERE g.id = ?;";
+		
+		ArrayList<Aluno> arrayAlunos = new ArrayList<>();
+		
+		try (Connection conn = Conexao.getConexaoMYSQL()) {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, id);
+			try (ResultSet rs = stmt.executeQuery();) {
+				while (rs.next()) {
+					Aluno aluno = new Aluno();
+					aluno.setNome(rs.getString("u.nome"));
+					aluno.setRa(rs.getInt("a.ra"));
+					arrayAlunos.add(aluno);
+				}
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return arrayAlunos;
+	}
 }
+

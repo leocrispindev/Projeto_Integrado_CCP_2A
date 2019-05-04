@@ -11,8 +11,8 @@ import javax.servlet.http.HttpSession;
 import br.com.usjt.projcontrol.Interface.Acao;
 import br.com.usjt.projcontrol.Service.ServiceAluno;
 import br.com.usjt.projcontrol.Service.ServiceProfessor;
-import br.com.usjt.projcontrol.Service.ServiceTurma;
 import br.com.usjt.projcontrol.model.Aluno;
+import br.com.usjt.projcontrol.model.Grupo;
 import br.com.usjt.projcontrol.model.Professor;
 import br.com.usjt.projcontrol.model.Turma;
 
@@ -56,7 +56,11 @@ public class Login implements Acao{
 			ArrayList<Turma> turmas = new ArrayList<Turma>();
 			turmas = serviceAluno.getTurmasByAluno(alunoSession.getId());
 			
+			ArrayList<Grupo> grupos = new ArrayList<Grupo>();
+			grupos = serviceAluno.getGruposByAluno(alunoSession.getId());
+			
 			request.setAttribute("turmasDados", turmas);
+			request.setAttribute("gruposDados", grupos);
 			
 			return "forward::view/dashBoardAluno.jsp";
 		}else {

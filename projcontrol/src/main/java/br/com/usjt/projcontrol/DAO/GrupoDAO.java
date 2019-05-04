@@ -5,56 +5,42 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import br.com.usjt.projcontrol.Conexao.Conexao;
+import br.com.usjt.projcontrol.model.Aluno;
 import br.com.usjt.projcontrol.model.Grupo;
 import br.com.usjt.projcontrol.model.Professor;
 import br.com.usjt.projcontrol.model.Turma;
 
 public class GrupoDAO {
 
-	private Conexao conexao = null;
+	public ArrayList<Grupo> getGruposByAluno(Aluno aluno, int ano, int semestre) {
 
-	public ArrayList<Grupo> getGruposByAlunoID(int id) {
-
-		String sql = "SELECT " + 
-				"    a.ra 'ra' , " + 
-				"    ua.nome 'nome_aluno', " + 
-				"    g.numero 'num_grupo', " + 
-				"    g.nome 'nome_grupo', " + 
-				"    u.id 'id_orientador', " +
-				"    u.nome 'nome_orientador' " + 
-				"FROM" + 
-				"    grupo g " + 
-				"        INNER JOIN " + 
-				"    professor p ON p.professor_id = g.orientador_id " + 
-				"        INNER JOIN " + 
-				"    usuario u ON u.id = p.professor_id " + 
-				"        INNER JOIN " + 
-				"    turma_aluno ta ON ta.grupo_id = g.id " + 
-				"        INNER JOIN " + 
-				"    aluno a ON a.aluno_id = ta.Aluno_id " + 
-				"        INNER JOIN " + 
-				"    usuario ua ON ua.id = a.aluno_id " + 
-				"WHERE " + 
-				"    a.aluno_id = ? " + 
-				"ORDER BY g.numero;";
+		String sql = "SELECT g.numero, g.nome, u.nome, u.id, t.semestre_letivo, t.ano_letivo FROM aluno a "
+				+ "INNER JOIN turma_aluno ta ON a.aluno_id = ta.Aluno_id "
+				+ "INNER JOIN turma t ON ta.turma_id = t.id "
+				+ "INNER JOIN grupo g ON g.id = ta.grupo_id "
+				+ "INNER JOIN professor p ON g.orientador_id = p.professor_id "
+				+ "INNER JOIN usuario u ON p.professor_id = u.id "
+				+ "WHERE a.aluno_id = ? and t.semestre_letivo = ? and t.ano_letivo = ?;";
 
 		ArrayList<Grupo> arrayGruposDoAluno = new ArrayList<Grupo>();
-		conexao = new Conexao();
 
 		try (Connection conn = Conexao.getConexaoMYSQL()) {
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setInt(1, id);
+			stmt.setInt(1, aluno.getId());
+			stmt.setInt(2, semestre);
+			stmt.setInt(3, ano);
 			try(ResultSet rs = stmt.executeQuery()) {
 				while(rs.next()) {
 					Grupo grupo = new Grupo();
-					grupo.setNome(rs.getString("nome_grupo"));
-					grupo.setNumero_grupo(rs.getInt("num_grupo"));
+					grupo.setNome(rs.getString("g.nome"));
+					grupo.setNumero_grupo(rs.getInt("g.numero"));
 
 					Professor professor = new Professor();
-					professor.setNome(rs.getString("nome_orientador"));
-					professor.setId(rs.getInt("id_orientador"));
+					professor.setNome(rs.getString("u.nome"));
+					professor.setId(rs.getInt("u.id"));
 					grupo.setProfessor(professor);
 
 					arrayGruposDoAluno.add(grupo);
@@ -65,8 +51,6 @@ public class GrupoDAO {
 
 		}catch(SQLException e) {
 			e.printStackTrace();
-		}finally {
-			conexao.closeConexaoMYSQL();
 		}
 		return arrayGruposDoAluno;
 	}

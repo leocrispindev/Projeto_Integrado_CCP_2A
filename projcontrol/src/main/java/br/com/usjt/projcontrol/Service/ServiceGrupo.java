@@ -2,7 +2,10 @@ package br.com.usjt.projcontrol.Service;
 
 import java.util.ArrayList;
 
+import org.apache.taglibs.standard.tag.common.core.ForEachSupport;
+
 import br.com.usjt.projcontrol.DAO.GrupoDAO;
+import br.com.usjt.projcontrol.model.Aluno;
 import br.com.usjt.projcontrol.model.Grupo;
 import br.com.usjt.projcontrol.model.Turma;
 
@@ -14,11 +17,11 @@ public class ServiceGrupo {
 		dao = new GrupoDAO();
 	}
 	
-	public ArrayList<Grupo> getListaGruposByAlunoId(int id) {
-		ArrayList<Grupo> gruposAlunoId = new ArrayList<>();
-		gruposAlunoId = dao.getGruposByAlunoID(id);
+	public ArrayList<Grupo> getGruposByAluno(Aluno aluno, int ano, int semestre) {
+		ArrayList<Grupo> grupo = new ArrayList<>();
+		grupo = dao.getGruposByAluno(aluno, ano, semestre);
 		
-		return gruposAlunoId;
+		return grupo;
 	}
 	
 	public ArrayList<Grupo> getListaGrupos() {

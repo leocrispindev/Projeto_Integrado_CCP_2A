@@ -25,35 +25,37 @@
 		<label id="schedule" for="rd_angular">Cronograma</label>
 	</nav>
 
-	<!-- RADIOS RESPONSAVEIS PELA NAVEGAÃ‡ÃƒO DA NAVBAR -->
+	<!-- RADIOS RESPONSAVEIS PELA NAVEGAÇÃO DA NAVBAR -->
 	<div class="scroll">
 		<form id="formDosRadio">
 			<input type="radio" name="grupo" id="rd_nodejs" checked="true">
-			<input type="radio" name="grupo" id="rd_bootstrap">
-			<input type="radio" name="grupo" id="rd_sass">
-			<input type="radio" name="grupo" id="rd_angular">
+			<input type="radio" name="grupo" id="rd_bootstrap"> <input
+				type="radio" name="grupo" id="rd_sass"> <input type="radio"
+				name="grupo" id="rd_angular">
 		</form>
 
 		<section class="sections" id="scroll_control">
 
-			
+
 			<section class="bloco bloco-no-overflow" id="nodejs">
-				<a data-target="#modalEscolha" data-toggle="modal" class="alterar-informacoes"><i
-					class="fas fa-cog icone-gear" style="font-size: 50px; color: #fff;"></i>
-				</a>
-				<img src="./resources/assets/estudante2.png" id="avatar-usuario" class="avatar-usuario" alt="teste">
+				<a data-target="#modalEscolha" data-toggle="modal"
+					class="alterar-informacoes"><i class="fas fa-cog icone-gear"
+					style="font-size: 50px; color: #fff;"></i> </a> <img
+					src="./resources/assets/estudante2.png" id="avatar-usuario"
+					class="avatar-usuario" alt="teste">
 				<h1 class="titulo-informacoes">${alunoDados.nome}</h1>
 				<h1 class="corpo-informacoes">${alunoDados.email}</h1>
 				<h1 class="corpo-informacoes">Grupo 3</h1>
+				<h1 class="corpo-informacoes" id="aluno-id" hidden="true">${alunoDados.id}</h1>
 				<form class="form-inline">
-					<select class="periodo-letivo" id="inlineFormCustomSelectPref">
-						<option disabled selected>Per&iacute;odo Letivo</option>
-						<option value="1">${PERIODO_LETIVO[1]}</option>
-						<option value="2">${PERIODO_LETIVO[2]}</option>
-						<option value="3">${PERIODO_LETIVO[3]}</option>
+					<select class="periodo-letivo" id="periodo-letivo"
+						onchange="filtraGrupo()">
+						<option disabled selected>Período Letivo</option>
 					</select>
 				</form>
-				<a href="entrada?acao=Logout" title="Deslogar" class="deslogar"><i class="deslogarFas fas fa-door-closed" style="font-size: 40px; color: #fff;"></i></a>
+				<a href="entrada?acao=Logout" title="Deslogar" class="deslogar"><i
+					class="deslogarFas fas fa-door-closed"
+					style="font-size: 40px; color: #fff;"></i></a>
 
 			</section>
 
@@ -63,7 +65,8 @@
 
 				<div class="card-box">
 					<c:forEach var="turma" items="${turmasDados}">
-						<div class="card text-dark bg-light mb-3 card-margin" style="max-width: 18rem;">
+						<div class="card text-dark bg-light mb-3 card-margin"
+							style="max-width: 18rem;">
 							<div class="card-header">${turma.getSigla()}</div>
 							<div class="card-body">
 								<h5 class="card-title">${turma.getTurmaTema().getTitulo()}</h5>
@@ -74,25 +77,29 @@
 				</div>
 			</section>
 
-			
-			<section class="bloco " id="sass">
-				<h1 class="titulo-informacoes titulo-top grupo-titulo">Grupo</h1>
 
-				<div class="card text-dark bg-light mb-3 card-margin card-grupo" style="max-width: 18rem;">
-					<div class="card-header">N&uacute;mero do Grupo </div>
-					<div class="card-body">
-						<h5 class="card-title">Keit Yamamoto </h5>
-						<p class="card-text">Japa <small style="font-weight:bold;">NOTA</small></p>
-						<p class="card-text">Fake Japa <small style="font-weight:bold;">NOTA</small></p>
-						<p class="card-text">CssGuy <small style="font-weight:bold;">NOTA</small></p>
-						<p class="card-text">Springmen <small style="font-weight:bold;">NOTA</small></p>
-						<p class="card-text">Leozao <small style="font-weight:bold;">NOTA</small></p>
+			<section class="bloco " id='sass'>
+				<h1 class="titulo-informacoes titulo-top grupo-titulo">Grupos</h1>
+
+				<c:forEach var="grupo" items="${gruposDados}">
+					<div class="card text-dark bg-light mb-3 card-margin card-grupo"
+						style="max-width: 50rem;">
+						<div class="card-header">Grupo nº ${grupo.getNumero_grupo()}
+							Nome: ${grupo.getNome()}</div>
+						<div class="card-body">
+							<h5 class="card-title">${grupo.getProfessor().getNome()}</h5>
+							<p class="card-id" hidden="true">${grupo.getId()}</p>
+						
+<%-- 							<c:forEach var="aluno" items="${integrantes}"> --%>
+<%-- 								<p class="card-text" style="font-weight: bold;">RA: ${aluno.getRa()} </p> <p>Nome: ${aluno.getNome() }</p> --%>
+<%-- 							</c:forEach> --%>
+						</div>
 					</div>
-				</div>
+				</c:forEach>
 			</section>
 
 
-			<section class="bloco bloco-no-overflow-y" id="angular">
+	<section class="bloco bloco-no-overflow-y" id="angular">
 				<h1 class="titulo-informacoes titulo-top">Cronograma</h1>
 
 				<div class="container-fluid">
@@ -184,6 +191,7 @@
 		<script src="./resources/node_modules/jquery/dist/jquery.min.js"></script>
 		<script src="./resources/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
 		<script src="./resources/js/TelaAluno/dashBoardAluno.js"></script>
+		<script src="./resources/js/TelaAluno/alunoDados.js"></script>
 		<script src="./resources/bundle.js"></script>
 		<script defer src="./resources/js/all.min.js"></script>
 </body>
