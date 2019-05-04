@@ -158,7 +158,7 @@
 							<button class="btn btn-outline-danger my-2 my-sm-0" type="button" onclick="getAvaliacoes()"><i class="fas fa-search"></i></button>
 						</form>
 
-						
+
 					</div>
 					
 					<div class="container-fluid">
@@ -407,10 +407,18 @@ aria-hidden="true">
 	
 	<script src="./resources/node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="./resources/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
+	<script src="./resources/js/TelaProfessor/dashBoardAdminTurma.js"></script>
 	<script src="./resources/js/TelaProfessor/dashBoardAdmin.js"></script>
 	<script src="./resources/js/TelaProfessor/administradorFiltros.js"></script>
-	<script src="./resources/js/TelaProfessor/dashBoardAdminTurma.js"></script>
 	<script src="./resources/bundle.js"></script>
 	<script defer src="./resources/js/all.min.js"></script>
+	<script>
+		
+		$(function(){
+    		getAlunos();
+    		getTemas();
+		});
+		  
+	</script>
 </body>
 </html>

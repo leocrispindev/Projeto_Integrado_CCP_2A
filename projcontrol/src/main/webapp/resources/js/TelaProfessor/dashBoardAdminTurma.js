@@ -55,5 +55,33 @@ function getPeriodoLetivo() {
     });
 }
 
+function getTemas() {
+    $.ajax({
+        url: 'entrada?acao=GetTema',
+        data: {},
+        type: 'POST',
+        success: function (data) {
+            $('#temaRegister').children().remove().end();
+        	$('#temaRegister').prepend('<option disabled selected>Tema</option>');
+        	
+        	for(i = 0; i < data.length; i++) {
+	        	$('#temaRegister').append($('<option>', {
+	        	    value: data[i].id,
+	        	    text: data[i].titulo
+	        	}));
+        	} 	
+        },
+        error: function(data) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Erro ao retornar os dados.Contate o adminstrador do sistema.',
+                type: 'error',
+                confirmButtonText: 'OK'
+            })
+            
+        }
+    });
+}
+
 
 

@@ -168,7 +168,3 @@ function getDadosAluno(id) {
         }
     });
 }
-
-$(function(){
-    getAlunos();
-  });

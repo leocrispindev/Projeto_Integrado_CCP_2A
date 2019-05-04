@@ -14,14 +14,14 @@ import br.com.usjt.projcontrol.Service.ServiceTema;
 import br.com.usjt.projcontrol.model.Tema;
 
 public class GetTema implements Acao{
-
+	Gson json = new Gson();
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
-		Gson json = new Gson();
 		
+		ArrayList<Tema> temas = new ArrayList<Tema>();
 		ServiceTema serviceTema = new ServiceTema();
-		ArrayList<Tema> temas = serviceTema.getTemas();
+		temas = serviceTema.getTemas();
 		
 		String retorno = json.toJson(temas);
 

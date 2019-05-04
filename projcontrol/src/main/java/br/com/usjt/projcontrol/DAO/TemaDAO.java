@@ -22,7 +22,7 @@ public class TemaDAO {
 				while (rs.next()) {
 
 					Tema tema = new Tema();
-					tema.setTema_id(rs.getInt("tema_id"));
+					tema.setTema_id(rs.getInt("id"));
 					tema.setTitulo(rs.getString("titulo"));
 					
 					arrayTema.add(tema);
