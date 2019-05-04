@@ -16,9 +16,26 @@ public class ServiceAvaliacao implements Serializable {
 		avaliacaoService = new AvaliacaoDAO();
 	}
 	
-	public ArrayList<Avaliacao> getAvaliacoes() {
+	public ArrayList<Avaliacao> getAvaliacoes(String turma, String professor, String grupo) {
+		int turma_id, professor_id, grupo_id;
+		String filtros = "";
+		
+		
+		turma_id = Integer.parseInt(turma);
+		filtros = "WHERE Ta.turma_id = "+turma_id;
+		
+		if(professor != null && professor.length() > 0) {
+			professor_id = Integer.parseInt(professor);
+			filtros += " AND P.professor_id = "+professor_id;
+		}
+		
+		if(grupo != null && grupo.length() > 0) {
+			grupo_id = Integer.parseInt(grupo);
+			filtros += " AND G.id = "+grupo_id;
+		}
+		
 		ArrayList<Avaliacao> arrayAvaliacoes = new ArrayList<>();
-		arrayAvaliacoes = avaliacaoService.getAvaliacoes();
+		arrayAvaliacoes = avaliacaoService.getAvaliacoes(filtros);
 		
 		return arrayAvaliacoes;
 	}
