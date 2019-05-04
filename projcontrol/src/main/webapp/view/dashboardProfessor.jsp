@@ -196,16 +196,18 @@
 				<form>
 					<div class="form-group">
 						<label for="anoLetivo" class="col-form-label">Ano Letivo</label>
-						<input type="number" class="form-control input-modal" value=${alunoDados.email} id="">
+						<input type="number" class="form-control input-modal" value=${alunoDados.email} id="anoLetivoRegister">
 					</div>
 					<div class="form-group">
 						<label for="sigla" class="col-form-label">Sigla</label>
-						<input type="text" class="form-control input-modal" id="">
+						<input type="text" class="form-control input-modal" id="siglaRegister">
 					</div>
-					<select class="custom-select checkbox-filtro" id="ano-letivo">
+					<select class="custom-select checkbox-filtro" id="semestreLetivoRegister">
 						<option disabled selected>Semestre Letivo</option>
+						<option >1</option>
+						<option >2</option>
 					</select>
-					<select class="custom-select checkbox-filtro" id="ano-letivo">
+					<select class="custom-select checkbox-filtro" id="temaRegister">
 						<option disabled selected>Temas</option>
 					</select>
 				</form>
@@ -431,6 +433,7 @@ aria-hidden="true">
 	<script src="./resources/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
 	<script src="./resources/js/TelaProfessor/dashBoardAdmin.js"></script>
 	<script src="./resources/js/TelaProfessor/administradorFiltros.js"></script>
+	<script src="./resources/js/TelaProfessor/dashBoardAdminTurma.js"></script>
 	<script src="./resources/bundle.js"></script>
 	<script defer src="./resources/js/all.min.js"></script>
 </body>
