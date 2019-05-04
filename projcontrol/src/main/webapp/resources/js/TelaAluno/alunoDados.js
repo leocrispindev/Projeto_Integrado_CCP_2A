@@ -57,34 +57,34 @@ function filtraGrupo() {
 }
 
 function getIntegrantesDoGrupo(){
-	
-	var arrayIds = $('.card-id');
-	var grupos = $('.card.text-dark.bg-light.mb-3.card-margin.card-grupo');
-	for(i = 0; i < arrayIds.length; i++) {
-		var id = arrayIds[i].textContent;
-		var card = grupos[i];
-		
-    $.ajax({
-        url: 'entrada?acao=PreencherGrupos',
-        data: {grupoId: id},
-        type: 'POST',
-        success: function (data) {
-        	for(j = 0; j < data.length; j++) {
-        		var aluno = "<p class='card-text'>RA: " + data[j].ra + " | " + data[j].nome + "  </p>"; 
-        		 $(card).append(aluno);
-        	}
-        },
-        error: function(data) {
-            Swal.fire({
-                title: 'Error!',
-                text: 'Erro ao retornar os dados.Contate o adminstrador do sistema.',
-                type: 'error',
-                confirmButtonText: 'OK'
-            })
-            
-        }
-    });
-}
+    var arrayIds = $('.card-id');
+    var grupos = $('.card.text-dark.bg-light.mb-3.card-margin.card-grupo');
+
+	for(let i = 0; i < arrayIds.length; i++) {
+        var id = arrayIds[i].textContent;
+        var card = grupos[i];
+        $.ajax({
+            url: 'entrada?acao=PreencherGrupos',
+            data: {grupoId: id},
+            type: 'POST',
+            success: function (data) {
+                let cardzao = document.querySelectorAll(".card-grupo");
+                for(j = 0; j < data.length; j++) {                
+                    var aluno = "<p class='card-text'>RA: " + data[j].ra + " | " + data[j].nome + "  </p>"; 
+                    $(cardzao[i]).append(aluno);
+                }
+            },
+            error: function(data) {
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Erro ao retornar os dados.Contate o adminstrador do sistema.',
+                    type: 'error',
+                    confirmButtonText: 'OK'
+                })
+                
+            }
+        });
+    }
 }
 
 $(function() {

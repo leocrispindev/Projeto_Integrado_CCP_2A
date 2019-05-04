@@ -257,6 +257,11 @@
     display:none;
 }
 
+.dd{
+    display:flex;
+    flex-direction: row;
+}
+
 @keyframes fadeModal{
     0%{
         width: 0vw;
