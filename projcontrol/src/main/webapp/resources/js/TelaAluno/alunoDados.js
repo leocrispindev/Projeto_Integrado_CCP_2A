@@ -41,7 +41,7 @@ function filtraGrupo() {
 //			        			"<p class='card-text'>[Aluno] <small style='font-weight:bold;'>[Nota]</small></p>" +
 		        			"</div>" +
 	        			"</div>"
-		        $('#sass').append(card);
+		        $('.dd').append(card);
         	}
         },
         error: function(data) {
@@ -59,19 +59,18 @@ function filtraGrupo() {
 function getIntegrantesDoGrupo(){
 	
 	var arrayIds = $('.card-id');
-	var grupos = $('.card.text-dark.bg-light.mb-3.card-margin.card-grupo');
-	for(i = 0; i < arrayIds.length; i++) {
+	for(let i = 0; i < arrayIds.length; i++) {
 		var id = arrayIds[i].textContent;
-		var card = grupos[i];
 		
     $.ajax({
         url: 'entrada?acao=PreencherGrupos',
         data: {grupoId: id},
         type: 'POST',
         success: function (data) {
+            var grupos = $('.card.text-dark.bg-light.mb-3.card-margin.card-grupo');
         	for(j = 0; j < data.length; j++) {
-        		var aluno = "<p class='card-text'>RA: " + data[j].ra + " | " + data[j].nome + "  </p>"; 
-        		 $(card).append(aluno);
+                var aluno = "<p class='card-text'> " + "<span style='font-weight: bold;'>" + data[j].ra + "</span>" + " " + data[j].nome + "  </p>"; 
+        		 $(grupos[i]).append(aluno);
         	}
         },
         error: function(data) {
