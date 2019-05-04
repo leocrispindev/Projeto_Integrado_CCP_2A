@@ -157,6 +157,8 @@
 						<form class="form-inline">
 							<button class="btn btn-outline-danger my-2 my-sm-0" type="button" onclick="getAvaliacoes()"><i class="fas fa-search"></i></button>
 						</form>
+
+						
 					</div>
 					
 					<div class="container-fluid">
