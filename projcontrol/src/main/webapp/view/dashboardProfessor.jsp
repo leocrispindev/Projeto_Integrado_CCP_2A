@@ -412,11 +412,13 @@ aria-hidden="true">
 	<script src="./resources/js/TelaProfessor/administradorFiltros.js"></script>
 	<script src="./resources/bundle.js"></script>
 	<script defer src="./resources/js/all.min.js"></script>
+	
 	<script>
-		
+	
 		$(function(){
     		getAlunos();
-    		getTemas();
+			getTemas();
+			getListarTurma();
 		});
 		  
 	</script>
