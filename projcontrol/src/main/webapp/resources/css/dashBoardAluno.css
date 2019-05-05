@@ -4,6 +4,10 @@
     
 }
 
+body{
+     overflow-x: hidden;
+}
+
 .links{
     width:100%;
     height:60px;
@@ -206,6 +210,7 @@
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
+    overflow-y: auto;
 }
 
 #ruby{
@@ -348,13 +353,98 @@
     margin-top: 0%;
 }
 
-.grupo-titulo{
-    margin-top:0%;
+.dd{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 
+.dd .card{
+    width:31%;
+    padding-bottom:15px;
+    border:0;
+    border-radius: 0;
+    -webkit-box-shadow: -2px -1px 14px -5px rgba(0,0,0,0.57);
+    -moz-box-shadow: -2px -1px 14px -5px rgba(0,0,0,0.57);
+    box-shadow: -2px -1px 14px -5px rgba(0,0,0,0.57);
 
-@media only screen and (min-width: 768px) and (max-width: 1280px) {
+}
+
+.dd .card:hover{
+    box-shadow: none;
+}
+
+.grupo-titulo{
+    width:100%;
+
+}
+
+.dd .card-header{
+    background:#2b2e39;
+    color:white;
+    font-weight: bold;
+}
+
+.dd .card-body{
+    padding:15px 0;
+
+}
+
+.dd .card-title{
+    margin:2px 0;
+}
+
+.dd .card-text{
+    white-space: nowrap;
+    font-size: 15px;
+    margin:8px 0;
+}
+
+@media only screen and (min-width: 200px) and (max-width: 575.98px) {
+    .dd .card{
+        width:90%;
+    }
+    
+    .dd .card-header{
+        font-size: 16px;
+    }
+    
+    
+    .dd .card-text{
+        font-size: 12px;
+    }
+    
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767.98px){
+    .dd .card{
+        width:47%
+    }
+    
+    .dd .card-header{
+        font-size: 17px;
+    }
+    
+    .dd .card-text{
+        font-size: 13px;
+    }
+}
+
+@media only screen and (min-width: 768px){
+    .dd .card{
+        width:37%
+    }
+    
+    .dd .card-header{
+        font-size: 17px;
+    }
+    
+    .dd .card-text{
+        font-size: 14px;
+    }
     
 }
 

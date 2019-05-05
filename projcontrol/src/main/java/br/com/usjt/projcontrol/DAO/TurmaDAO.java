@@ -16,18 +16,19 @@ public class TurmaDAO {
 	private String mensagem = "";
 
 	public void cadastrarTurma(Turma turma) {
-
+		
 		conexao = new Conexao();
 
 		try (Connection conn = Conexao.getConexaoMYSQL()) {
 
-			String sql = "INSERT INTO turma (codigoIdentificador, anoLetivo, alunos) VALUES (?, ?, ?)";
+			String sql = "INSERT INTO turma (semestre_letivo, ano_letivo, sigla, tema_id) VALUES (?, ?, ?, ?)";
 
 			PreparedStatement stmt = conn.prepareStatement(sql);
 
-			stmt.setInt(1, turma.getCodigoIdentificador());
+			stmt.setInt(1, turma.getSemestreLetivo());
 			stmt.setInt(2, turma.getAnoLetivo());
-			stmt.setObject(3, turma.getAlunos());
+			stmt.setObject(3, turma.getSigla());
+			stmt.setObject(4, turma.getTurmaTema().getTema_id());
 			stmt.execute();
 
 		} catch (SQLException e) {
