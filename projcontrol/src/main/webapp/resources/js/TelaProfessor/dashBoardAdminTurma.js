@@ -3,7 +3,7 @@ function setCadastroTurma(){
     var sigla = $('#siglaRegister').val();
     var semestreLetivo = $('#semestreLetivoRegister').val();
     var tema = $('#temaRegister').val();
-	
+    
 	$.ajax({
 		url: 'entrada?acao=CadastrarTurma',
 		data: {anoLetivo: anoLetivo, sigla: sigla, semestreLetivo: semestreLetivo, tema: tema},
@@ -62,11 +62,10 @@ function getTemas() {
         type: 'POST',
         success: function (data) {
             $('#temaRegister').children().remove().end();
-        	$('#temaRegister').prepend('<option disabled selected>Tema</option>');
-        	
+        	$('#temaRegister').prepend('<option disabled selected>Temas</option>');
         	for(i = 0; i < data.length; i++) {
 	        	$('#temaRegister').append($('<option>', {
-	        	    value: data[i].id,
+	        	    value: data[i].tema_id,
 	        	    text: data[i].titulo
 	        	}));
         	} 	

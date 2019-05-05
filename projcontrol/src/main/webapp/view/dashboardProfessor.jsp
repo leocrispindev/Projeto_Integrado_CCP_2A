@@ -198,7 +198,7 @@
 				<form>
 					<div class="form-group">
 						<label for="anoLetivo" class="col-form-label">Ano Letivo</label>
-						<input type="number" class="form-control input-modal" value=${alunoDados.email} id="anoLetivoRegister">
+						<input type="number" class="form-control input-modal" id="anoLetivoRegister">
 					</div>
 					<div class="form-group">
 						<label for="sigla" class="col-form-label">Sigla</label>
@@ -206,8 +206,8 @@
 					</div>
 					<select class="custom-select checkbox-filtro" id="semestreLetivoRegister">
 						<option disabled selected>Semestre Letivo</option>
-						<option >1</option>
-						<option >2</option>
+						<option value="1">1</option>
+						<option value="1">2</option>
 					</select>
 					<select class="custom-select checkbox-filtro" id="temaRegister">
 						<option disabled selected>Temas</option>
@@ -217,7 +217,7 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-				<button type="button" class="btn btn-danger btn-alterar-info">Criar Turma</button>
+				<button type="button" class="btn btn-danger btn-alterar-info" onclick="setCadastroTurma()">Criar Turma</button>
 			</div>
 		</div>
 	</div>

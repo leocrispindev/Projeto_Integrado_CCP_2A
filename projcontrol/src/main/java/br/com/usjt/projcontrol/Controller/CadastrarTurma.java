@@ -25,9 +25,9 @@ public class CadastrarTurma implements Acao{
 		int anoLetivo;
 		int semestreLetivo;
 		Tema turmaTema = new Tema();
-		
+	
 		sigla = request.getParameter("sigla");
-		turmaTema.setTema_id(Integer.parseInt(request.getParameter("tema_id")));
+		turmaTema.setTema_id(Integer.parseInt(request.getParameter("tema")));
 		
 		try {
 			anoLetivo = Integer.parseInt(request.getParameter("anoLetivo"));
