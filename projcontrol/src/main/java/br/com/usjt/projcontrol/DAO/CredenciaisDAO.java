@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import br.com.usjt.projcontrol.Conexao.Conexao;
 import br.com.usjt.projcontrol.model.Aluno;
@@ -56,5 +57,32 @@ public class CredenciaisDAO {
 			conexao.closeConexaoMYSQL();
 		}
 
+	}
+	
+	public ArrayList<String> getAllEmails() {
+		ArrayList<String> a1 = new ArrayList<String>();
+
+		Conexao conexao = null;
+
+		conexao = new Conexao();
+
+		try (Connection conn = Conexao.getConexaoMYSQL()) {
+
+			String sql = "SELECT email FROM usuario";
+
+			PreparedStatement stmt = conn.prepareStatement(sql);
+
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				a1.add(rs.getString("email"));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			conexao.closeConexaoMYSQL();
+		}
+		return a1;
 	}
 }

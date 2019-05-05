@@ -126,24 +126,22 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form method="POST" action="entrada?acao=GetEmailTrocaSenha">
+					<form>
 						<div class="form-group">
-							<label for="recuperarEmail">Endereço de E-mail</label>
+							<label for="recuperarEmail">Endere&ccedilo de E-mail</label>
 							<input type="email" name="emailRecuperarSenha" class="form-control" id="recuperarEmail" 
 							aria-describedby="emailHelp"> 
-							<small id="infoEmail"
-								class="text-success" hidden>Enviamos as informações
-								de senha para o respectivo email!
-							</small>
 							<br/>
-							<button disabled type="submit" class="btn btn-primary"
-							id="recuperarSenhaBtn">Recuperar Senha</button>
 						</div>
 					</form>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">Fechar</button>
+						data-dismiss="modal">Fechar
+					</button>
+					<button disabled type="submit" class="btn btn-primary"
+							id="recuperarSenhaBtn" onclick="enviaNotificacaoAposRecuperarSenha()">Recuperar Senha
+					</button>
 				</div>
 			</div>
 		</div>

@@ -5,7 +5,7 @@ public class RecuperarSenha {
 	private String email;
 	private String senha;
 	private String nome;
-	
+
 	public String getNome() {
 		return nome;
 	}
