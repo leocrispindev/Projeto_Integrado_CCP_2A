@@ -25,7 +25,7 @@
 		<label id="schedule" for="rd_angular">Cronograma</label>
 	</nav>
 
-	<!-- RADIOS RESPONSAVEIS PELA NAVEGAÇÃO DA NAVBAR -->
+	<!-- RADIOS RESPONSAVEIS PELA NAVEGAï¿½ï¿½O DA NAVBAR -->
 	<div class="scroll">
 		<form id="formDosRadio">
 			<input type="radio" name="grupo" id="rd_nodejs" checked="true">
@@ -50,7 +50,7 @@
 				<form class="form-inline">
 					<select class="periodo-letivo" id="periodo-letivo"
 						onchange="filtraGrupo()">
-						<option disabled selected>Período Letivo</option>
+						<option disabled selected>Perï¿½odo Letivo</option>
 					</select>
 				</form>
 				<a href="entrada?acao=Logout" title="Deslogar" class="deslogar"><i
@@ -80,22 +80,23 @@
 
 			<section class="bloco " id='sass'>
 				<h1 class="titulo-informacoes titulo-top grupo-titulo">Grupos</h1>
-
-				<c:forEach var="grupo" items="${gruposDados}">
-					<div class="card text-dark bg-light mb-3 card-margin card-grupo"
-						style="max-width: 50rem;">
-						<div class="card-header">Grupo nº ${grupo.getNumero_grupo()}
-							Nome: ${grupo.getNome()}</div>
-						<div class="card-body">
-							<h5 class="card-title">${grupo.getProfessor().getNome()}</h5>
-							<p class="card-id" hidden="true">${grupo.getId()}</p>
-						
-<%-- 							<c:forEach var="aluno" items="${integrantes}"> --%>
-<%-- 								<p class="card-text" style="font-weight: bold;">RA: ${aluno.getRa()} </p> <p>Nome: ${aluno.getNome() }</p> --%>
-<%-- 							</c:forEach> --%>
+				<div class="dd">
+					<c:forEach var="grupo" items="${gruposDados}">
+						<div class="card text-dark bg-light mb-3 card-margin card-grupo"
+							style="max-width: 50rem;">
+							<div class="card-header">Grupo nï¿½ ${grupo.getNumero_grupo()}
+								<br/>  Nome: ${grupo.getNome()}</div>
+							<div class="card-body">
+								<h5 class="card-title">${grupo.getProfessor().getNome()}</h5>
+								<p class="card-id" hidden="true">${grupo.getId()}</p>
+							
+	<%-- 							<c:forEach var="aluno" items="${integrantes}"> --%>
+	<%-- 								<p class="card-text"><span style="font-weight: bold;">${aluno.getRa()} </span>  + ${aluno.getNome() }</p> --%>
+	<%-- 							</c:forEach> --%>
+							</div>
 						</div>
-					</div>
-				</c:forEach>
+					</c:forEach>
+				</div>	
 			</section>
 
 
