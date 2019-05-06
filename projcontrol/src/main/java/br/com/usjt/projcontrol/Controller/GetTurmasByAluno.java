@@ -11,25 +11,24 @@ import com.google.gson.Gson;
 
 import br.com.usjt.projcontrol.Interface.Acao;
 import br.com.usjt.projcontrol.Service.ServiceAluno;
-import br.com.usjt.projcontrol.model.Aluno;
 import br.com.usjt.projcontrol.model.Turma;
 
-public class GetPeriodoLetivo implements Acao{
+public class GetTurmasByAluno implements Acao {
 	
 	Gson json = new Gson();
-	ArrayList<Turma> periodo = new ArrayList<>();
-	
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
-			throws IOException, ServletException {		
-		Aluno aluno = new Aluno();
+			throws IOException, ServletException {
+		
 		int id = Integer.parseInt(request.getParameter("id"));
-		aluno.setId(id);
+		int ano = Integer.parseInt(request.getParameter("anoLetivo"));
+		int semestre = Integer.parseInt(request.getParameter("semestreLetivo"));
 		
 		ServiceAluno sa = new ServiceAluno();
-		periodo = sa.getPeriodoLetivoByAlunoId(aluno);
-		String retorno = json.toJson(periodo);
-		
+		ArrayList<Turma> turmas = sa.getTurmasByAlunoPeriodoLetivo(id, ano, semestre);
+		String retorno = json.toJson(turmas);
 		return "json::"+retorno;
 	}
+	
+
 }

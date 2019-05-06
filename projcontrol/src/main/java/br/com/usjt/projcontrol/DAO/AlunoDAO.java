@@ -342,5 +342,69 @@ public class AlunoDAO {
 		}
 		return arrayAlunos;
 	}
+	
+	public ArrayList<Turma> getPeriodoLetivoByAlunoId(Aluno aluno) {
+		ArrayList<Turma> arrayAno = new ArrayList<Turma>();
+		String sql = "SELECT DISTINCT ano_letivo, semestre_letivo FROM aluno a "
+				+ "INNER JOIN turma_aluno ta ON ta.Aluno_id = a.aluno_id "
+				+ "INNER JOIN turma t ON ta.turma_id = t.id "
+				+ "WHERE a.aluno_id = ? ORDER BY ano_letivo DESC;";
+
+		try (Connection conn = Conexao.getConexaoMYSQL()) {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, aluno.getId());
+			try(ResultSet rs = stmt.executeQuery();){
+				while (rs.next()) {
+					Turma t = new Turma();
+					t.setAnoLetivo(rs.getInt("ano_letivo"));
+					t.setSemestreLetivo(rs.getInt("semestre_letivo"));
+					arrayAno.add(t);	
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+		return arrayAno;
+	}
+	
+	public ArrayList<Turma> getTurmasByAlunoIdPeriodoLetivo(int id, int ano, int semestre) {
+		String sql = "SELECT t.sigla, tm.titulo, tm.introducao FROM turma_aluno aluno "
+				+ "INNER JOIN turma t ON t.id = aluno.turma_id "
+				+ "INNER JOIN tema tm ON tm.id = t.id "
+				+ " WHERE aluno.aluno_id = ? and t.ano_letivo = ? and t.semestre_letivo = ?;";
+		
+		ArrayList<Turma> arrayTurmas = new ArrayList<Turma>();
+		
+		try (Connection conn = Conexao.getConexaoMYSQL()) {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, id);
+			stmt.setInt(2, ano);
+			stmt.setInt(3, semestre);
+			
+			try(ResultSet rs = stmt.executeQuery()) {
+				
+				while(rs.next()) {
+					
+					Tema tema = new Tema();
+					tema.setTitulo(rs.getString(2));
+					tema.setIntroducao(rs.getString(3));
+					
+					Turma turma = new Turma();
+					turma.setSigla(rs.getString(1));
+					turma.setTurmaTema(tema);
+				
+					arrayTurmas.add(turma);
+				}
+				
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return arrayTurmas;
+	}
 }
+
 

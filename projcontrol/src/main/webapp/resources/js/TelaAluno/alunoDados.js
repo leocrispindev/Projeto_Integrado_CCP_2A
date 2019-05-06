@@ -24,9 +24,10 @@ function getPeriodoLetivo() {
     });
 }
 
-function filtraGrupo() {
+function filtraGrupos() {
 
 	var periodo = $('#periodo-letivo').val().split("/");
+	 $('.dd').children().remove().end();
 	
     $.ajax({
         url: 'entrada?acao=GetGruposByAluno',
@@ -34,14 +35,55 @@ function filtraGrupo() {
         type: 'POST',
         success: function (data) {
         	for(i = 0; i < data.length; i++) {
-	        	var card = "<div class='card text-dark bg-light mb-3 card-margin card-grupo' style='max-width: 18rem;'>" +
-		        			"<div class='card-header'>Grupo no." + data[i].numero_grupo + " </div>" +
-		        			"<div class='card-body'>" +
-			        			"<h5 class='card-title'>" + data[i].professor.nome + " </h5>" +
-//			        			"<p class='card-text'>[Aluno] <small style='font-weight:bold;'>[Nota]</small></p>" +
-		        			"</div>" +
-	        			"</div>"
+	        	var card = 
+						 "<div class='card text-dark bg-light mb-3 card-margin card-grupo' " + 
+							"style='max-width: 50rem;'> " + 
+							" <div class='card-header'>Grupo n&ordm " + data[i].numero_grupo + " <br/>Nome: " + data[i].nome + "</div> " +
+							"<div class='card-body'> " +
+								"<h5 class='card-title'>" + data[i].professor.nome + "</h5> " +
+								"<p class='card-id' hidden='true'>" + data[i].id + "</p> " +
+							"</div> " +
+						"</div> "
 		        $('.dd').append(card);
+	        	getIntegrantesDoGrupo();
+        	}
+        },
+        error: function(data) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Erro ao retornar os dados.Contate o adminstrador do sistema.',
+                type: 'error',
+                confirmButtonText: 'OK'
+            })
+            
+        }
+    });
+}
+
+function filtraTurmas() {
+
+	var periodo = $('#periodo-letivo').val().split("/");
+	 $('#bootstrap').children().remove().end();
+		
+    $.ajax({
+        url: 'entrada?acao=GetTurmasByAluno',
+        data: {id: $('#aluno-id').text(), anoLetivo: periodo[0], semestreLetivo: periodo[1]},
+        type: 'POST',
+        success: function (data) {
+        	for(i = 0; i < data.length; i++) {
+        		var turmasCard = 
+        			"<h1 class='titulo-informacoes titulo-top'>Suas Turmas</h1> " +
+    				"<div class='card-box'> " + 
+    					"<div class='card text-dark bg-light mb-3 card-margin' " +
+    						"style='max-width: 18rem;'> " +
+    						"<div class='card-header'>" + data[i].sigla + "</div> " +
+    						"<div class='card-body'> " +
+    							"<h5 class='card-title'>" + data[i].turmaTema.titulo + "</h5> " +
+    							"<p class='card-text'>" + data[i].turmaTema.introducao + "</p> " +
+    						"</div> " +
+    					"</div> " +
+    				"</div>";
+        		  $('#bootstrap').append(turmasCard);
         	}
         },
         error: function(data) {
@@ -58,33 +100,35 @@ function filtraGrupo() {
 
 function getIntegrantesDoGrupo(){
 	
-	var arrayIds = $('.card-id');
+    var arrayIds = $('.card-id');
+    var grupos = $('.card.text-dark.bg-light.mb-3.card-margin.card-grupo');
+
 	for(let i = 0; i < arrayIds.length; i++) {
-		var id = arrayIds[i].textContent;
-		
-    $.ajax({
-        url: 'entrada?acao=PreencherGrupos',
-        data: {grupoId: id},
-        type: 'POST',
-        success: function (data) {
-            var grupos = $('.card.text-dark.bg-light.mb-3.card-margin.card-grupo');
-        	for(j = 0; j < data.length; j++) {
-                var aluno = "<p class='card-text'> " + "<span style='font-weight: bold;'>" + data[j].ra + "</span>" + " " + data[j].nome + "  </p>"; 
-        		 $(grupos[i]).append(aluno);
-        	}
-        },
-        error: function(data) {
-            Swal.fire({
-                title: 'Error!',
-                text: 'Erro ao retornar os dados.Contate o adminstrador do sistema.',
-                type: 'error',
-                confirmButtonText: 'OK'
-            })
-            
-        }
-    });
+        var id = arrayIds[i].textContent;
+        $.ajax({
+            url: 'entrada?acao=PreencherGrupos',
+            data: {grupoId: id},
+            type: 'POST',
+            success: function (data) {
+                let cardzao = document.querySelectorAll(".card-grupo");
+                for(j = 0; j < data.length; j++) {                
+                    var aluno = "<p class='card-text'>RA: " + data[j].ra + " | " + data[j].nome + "  </p>"; 
+                    $(cardzao[i]).append(aluno);
+                }
+            },
+            error: function(data) {
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Erro ao retornar os dados.Contate o adminstrador do sistema.',
+                    type: 'error',
+                    confirmButtonText: 'OK'
+                })
+                
+            }
+        });
+    }
 }
-}
+
 
 $(function() {
 	getPeriodoLetivo();

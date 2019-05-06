@@ -100,4 +100,16 @@ public class ServiceAluno extends Validacao implements Serializable{
 		integrantes = usuarioD.getAlunosByGrupoId(id);
 		return integrantes;
 	}
+	
+	public ArrayList<Turma> getPeriodoLetivoByAlunoId(Aluno aluno) {
+		ArrayList<Turma> periodo = usuarioD.getPeriodoLetivoByAlunoId(aluno);
+		return periodo;
+	}
+	
+	public ArrayList<Turma> getTurmasByAlunoPeriodoLetivo(int id, int ano, int semestre){
+		ArrayList<Turma> turmas = new ArrayList<Turma>();
+		turmas = usuarioD.getTurmasByAlunoIdPeriodoLetivo(id, ano, semestre);
+		return turmas;
+	}
+
 }

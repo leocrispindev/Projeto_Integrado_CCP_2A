@@ -49,8 +49,8 @@
 				<h1 class="corpo-informacoes" id="aluno-id" hidden="true">${alunoDados.id}</h1>
 				<form class="form-inline">
 					<select class="periodo-letivo" id="periodo-letivo"
-						onchange="filtraGrupo()">
-						<option disabled selected>Perï¿½odo Letivo</option>
+						onchange="filtraGrupos(); filtraTurmas()()">
+						<option disabled selected>Período Letivo</option>
 					</select>
 				</form>
 				<a href="entrada?acao=Logout" title="Deslogar" class="deslogar"><i
@@ -84,19 +84,15 @@
 					<c:forEach var="grupo" items="${gruposDados}">
 						<div class="card text-dark bg-light mb-3 card-margin card-grupo"
 							style="max-width: 50rem;">
-							<div class="card-header">Grupo nï¿½ ${grupo.getNumero_grupo()}
+							<div class="card-header">Grupo nº ${grupo.getNumero_grupo()}
 								<br/>  Nome: ${grupo.getNome()}</div>
 							<div class="card-body">
 								<h5 class="card-title">${grupo.getProfessor().getNome()}</h5>
 								<p class="card-id" hidden="true">${grupo.getId()}</p>
-							
-	<%-- 							<c:forEach var="aluno" items="${integrantes}"> --%>
-	<%-- 								<p class="card-text"><span style="font-weight: bold;">${aluno.getRa()} </span>  + ${aluno.getNome() }</p> --%>
-	<%-- 							</c:forEach> --%>
 							</div>
 						</div>
 					</c:forEach>
-				</div>	
+				</div>
 			</section>
 
 

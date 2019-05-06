@@ -17,7 +17,7 @@ public class GrupoDAO {
 
 	public ArrayList<Grupo> getGruposByAluno(Aluno aluno, int ano, int semestre) {
 
-		String sql = "SELECT g.numero, g.nome, u.nome, u.id, t.semestre_letivo, t.ano_letivo FROM aluno a "
+		String sql = "SELECT g.numero, g.nome, g.id, u.nome, u.id, t.semestre_letivo, t.ano_letivo FROM aluno a "
 				+ "INNER JOIN turma_aluno ta ON a.aluno_id = ta.Aluno_id "
 				+ "INNER JOIN turma t ON ta.turma_id = t.id "
 				+ "INNER JOIN grupo g ON g.id = ta.grupo_id "
@@ -37,6 +37,7 @@ public class GrupoDAO {
 					Grupo grupo = new Grupo();
 					grupo.setNome(rs.getString("g.nome"));
 					grupo.setNumero_grupo(rs.getInt("g.numero"));
+					grupo.setId(rs.getInt("g.id"));
 
 					Professor professor = new Professor();
 					professor.setNome(rs.getString("u.nome"));

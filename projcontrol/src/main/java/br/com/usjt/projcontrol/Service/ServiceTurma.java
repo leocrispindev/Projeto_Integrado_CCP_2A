@@ -66,10 +66,5 @@ public class ServiceTurma extends Validacao implements Serializable {
 		ArrayList<Turma> periodo = turmaD.getPeriodoLetivo();
 		return periodo;
 	}
-	
-	public ArrayList<Turma> getPeriodoLetivoByAlunoId(Aluno aluno) {
-		ArrayList<Turma> periodo = turmaD.getPeriodoLetivoByAlunoId(aluno);
-		return periodo;
-	}
 
 }
