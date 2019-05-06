@@ -96,8 +96,8 @@ function enviaNotificacaoAposRecuperarSenha(){
             
             console.log(data);
             Toast.fire({
-                type: data[2],
-                title: data[1]
+                type: 'warning',
+                title: 'Ops! Tivemos Alguns Problemas, n&atildeo foi possivel enviar o email'
             })
 
 
@@ -112,10 +112,10 @@ function enviaNotificacaoAposRecuperarSenha(){
                 timer: 5000
             });
             
-            console.log(data);
+            
             Toast.fire({
-                type: data[2],
-                title: data[1]
+                type: 'warning',
+                title: 'Ops! Tivemos Alguns Problemas, n&atildeo foi possivel recuperar a senha'
             })
 
             
