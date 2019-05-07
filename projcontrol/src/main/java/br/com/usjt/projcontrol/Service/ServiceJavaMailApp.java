@@ -140,7 +140,7 @@ public class ServiceJavaMailApp {
 			throw new RuntimeException(e);
 		}
 		
-		System.out.println("seu retornador " + retornador[0]);
+//		System.out.println("seu retornador " + retornador[0]);
 		
 		if(retornador[0].equals("Sucesso!")) {
 			

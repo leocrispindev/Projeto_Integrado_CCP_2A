@@ -22,7 +22,7 @@ public class GetEmailTrocaSenha implements Acao {
 		String email;
 
 		email = request.getParameter("email");
-		System.out.println("email que chegou" + email);
+//		System.out.println("email que chegou " + email);
 		
 		ServiceJavaMailApp serviceEnviaEmail = new ServiceJavaMailApp();
 
