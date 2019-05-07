@@ -138,30 +138,6 @@ public class TurmaDAO {
 		return arrayAno;
 	}
 	
-	public ArrayList<Turma> getPeriodoLetivoByAlunoId(Aluno aluno) {
-		ArrayList<Turma> arrayAno = new ArrayList<Turma>();
-		String sql = "SELECT DISTINCT ano_letivo, semestre_letivo FROM aluno a "
-				+ "INNER JOIN turma_aluno ta ON ta.Aluno_id = a.aluno_id "
-				+ "INNER JOIN turma t ON ta.turma_id = t.id "
-				+ "WHERE a.aluno_id = ? ORDER BY ano_letivo DESC;";
-
-		try (Connection conn = Conexao.getConexaoMYSQL()) {
-			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setInt(1, aluno.getId());
-			try(ResultSet rs = stmt.executeQuery();){
-				while (rs.next()) {
-					Turma t = new Turma();
-					t.setAnoLetivo(rs.getInt("ano_letivo"));
-					t.setSemestreLetivo(rs.getInt("semestre_letivo"));
-					arrayAno.add(t);	
-				}
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} 
-		return arrayAno;
-	}
-	
 	public ArrayList<Turma> getTurmasByPeriodo(Turma turma) {
 		String sql = "SELECT id, sigla FROM turma where semestre_letivo = ? AND ano_letivo = ?;";
 		ArrayList<Turma> arrayTurmas = new ArrayList<>();
