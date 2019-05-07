@@ -211,6 +211,8 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     overflow-y: auto;
+    box-sizing: border-box;
+    display: inline-block;
 }
 
 #ruby{
@@ -384,6 +386,8 @@ body{
 
 .grupo-titulo{
     width:100%;
+    margin:0;
+    padding-top:100px;
 
 }
 
