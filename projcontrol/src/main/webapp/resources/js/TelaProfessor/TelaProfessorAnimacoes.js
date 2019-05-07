@@ -75,7 +75,8 @@ function deletaLinhaTabela(){
                     }
                     if (result.value) {
                         Swal.fire(
-                            'Turma Removida',
+                            'Sucesso',  
+                            'Turma removida!',
                             'success'
                             )
                         }

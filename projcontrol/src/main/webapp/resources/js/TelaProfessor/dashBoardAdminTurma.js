@@ -36,7 +36,7 @@ function getTemas() {
         type: 'POST',
         success: function (data) {
             $('#temaRegister').children().remove().end();
-            $('#temaRegister').prepend('<option disabled selected>Temas</option>');
+            $('#temaRegister').prepend('<option style="color: #6c757d;" disabled selected>Ex: Desenvolvimento Web</option>');
             for (i = 0; i < data.length; i++) {
                 $('#temaRegister').append($('<option>', {
                     value: data[i].tema_id,

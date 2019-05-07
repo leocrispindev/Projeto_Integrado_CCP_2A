@@ -63,7 +63,7 @@ function montargridAlunos(data) {
                     "<td id='nomeAluno'>" + data[i].nome + "</td>" +
                     "<td>" + data[i].email  + "</td>" +
                     "<td><button type='button' id='deleta-aluno' class='btn btn-danger btn-sm' onclick='confirmDeleteAdmin("+ data[i].id+")'>Excluir</button></td>" +
-                    "<td><button data-toggle='modal' data-target='.informacoes-aluno-modal' type='button' class='btn btn-primary btn-sm' onclick='getDadosAluno("+ data[i].id+")'>Ver Informações</button></td>" +
+                    "<td><button data-toggle='modal' data-target='.informacoes-aluno-modal' type='button' class='btn btn-primary btn-sm' onclick='getDadosAluno("+ data[i].id+")'>Ver Informa&ccedil&otildees</button></td>" +
                 "</tr>";
 
         $('#tableAlunos>tbody').append(row);

@@ -374,14 +374,17 @@ body{
     padding-bottom:15px;
     border:0;
     border-radius: 0;
-    -webkit-box-shadow: -2px -1px 14px -5px rgba(0,0,0,0.57);
-    -moz-box-shadow: -2px -1px 14px -5px rgba(0,0,0,0.57);
-    box-shadow: -2px -1px 14px -5px rgba(0,0,0,0.57);
+    -webkit-box-shadow: 0px 0px 43px -14px rgba(0,0,0,0.45);
+    -moz-box-shadow: 0px 0px 43px -14px rgba(0,0,0,0.45);
+    box-shadow: 0px 0px 43px -14px rgba(0,0,0,0.45);
+    transition: 1s;
 
 }
 
 .dd .card:hover{
     box-shadow: none;
+    transform: translateY(2px);
+    transition: all .3s ease;
 }
 
 .grupo-titulo{

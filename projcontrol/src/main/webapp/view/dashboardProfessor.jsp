@@ -93,9 +93,9 @@
 					</table>
 				</div>
 				
-				<div class="card text-dark bg-light mb-3 button-right btn-delete" style="max-width: 18rem;"></div>
-				<div data-toggle="modal" data-target="#modal-crud-turma" class="card text-dark bg-light mb-3 button-right" style="max-width: 18rem;"></div>
-				<div data-toggle="modal" data-target="#vinculaAlunosTurma" class="card text-dark bg-light mb-3 button-aluno" style="max-width: 18rem;"><i class="fas fa-user-graduate btn-right-aluno"></i></div>
+				<div class="card text-dark bg-light mb-3 button-right btn-delete" title="Excluir turma" style="max-width: 18rem;"></div>
+				<div data-toggle="modal" data-target="#modal-crud-turma" title="Criar turma" class="card text-dark bg-light mb-3 button-right" style="max-width: 18rem;"></div>
+				<div data-toggle="modal" data-target="#vinculaAlunosTurma" title="Vincular Alunos a turma" class="card text-dark bg-light mb-3 button-aluno" style="max-width: 18rem;"><i class="fas fa-user-graduate btn-right-aluno"></i></div>
 				
 			</section>
 			<section class="bloco" id="sass">
@@ -198,19 +198,21 @@
 				<form>
 					<div class="form-group">
 						<label for="anoLetivo" class="col-form-label">Ano Letivo</label>
-						<input type="number" class="form-control input-modal" id="anoLetivoRegister">
+						<input type="number" placeholder="Ex: 1&ordm Ano Letivo" class="form-control input-modal" id="anoLetivoRegister">
 					</div>
 					<div class="form-group">
 						<label for="sigla" class="col-form-label">Sigla</label>
-						<input type="text" class="form-control input-modal" id="siglaRegister">
+						<input type="text" placeholder="Ex: CCP123B-MCA" class="form-control input-modal" id="siglaRegister">
 					</div>
+					<label for="">Semestre Letivo</label>
 					<select class="custom-select checkbox-filtro" id="semestreLetivoRegister">
-						<option disabled selected>Semestre Letivo</option>
+						<option style="color: #6c757d;" disabled selected>Ex: 1&ordm Semestre</option>
 						<option value="1">1</option>
 						<option value="1">2</option>
 					</select>
+					<label for="">Temas</label>
 					<select class="custom-select checkbox-filtro" id="temaRegister">
-						<option disabled selected>Temas</option>
+						<option disabled selected></option>
 					</select>
 				</form>
 				
@@ -377,13 +379,13 @@ aria-hidden="true">
 	<div class="modal informacoes-aluno-modal" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="dadosAluno">
 		<div class="modal-dialog modal-dialog-centered">
 			<div id="mini-user" class="modal-content modal-dark conteudo-aluno">
-				<img src="./resources/assets/estudante2.png" id="avatar-usuario" class="avatar-usuario mini-user" alt="Aluno">
-				<h1 class="corpo-informacoes info-dark" id="alunoDadosRA"></h1>
-				<h1 class="corpo-informacoes info-dark" id="alunoDadosNOME"></h1>
-				<h1 class="corpo-informacoes info-dark" id="alunoDadosEMAIL"></h1>
-				<h1 class="corpo-informacoes info-dark" id="alunoDadosGRUPO"></h1>
-				<h1 class="corpo-informacoes info-dark" id="alunoDadosQtdTurmas"></h1>
-				<h1 class="corpo-informacoes info-dark" id="alunoDadosTurmas"></h1>
+				<img src="./resources/assets/estudante2.png" id="avatar-usuario" class="style-aluno-avatar avatar-usuario mini-user" alt="Aluno">
+				<h1 class="corpo-informacoes info-dark style-aluno-text" id="alunoDadosRA"></h1>
+				<h1 class="corpo-informacoes info-dark style-aluno-text" id="alunoDadosNOME"></h1>
+				<h1 class="corpo-informacoes info-dark style-aluno-text" id="alunoDadosEMAIL"></h1>
+				<h1 class="corpo-informacoes info-dark style-aluno-text" id="alunoDadosGRUPO"></h1>
+				<h1 class="corpo-informacoes info-dark style-aluno-text" id="alunoDadosQtdTurmas"></h1>
+				<h1 class="corpo-informacoes info-dark style-aluno-text" id="alunoDadosTurmas"></h1>
 				<button type="button" id="close-modal" class="btn btn-danger">Ok!</button>
 			</div>
 		</div>
