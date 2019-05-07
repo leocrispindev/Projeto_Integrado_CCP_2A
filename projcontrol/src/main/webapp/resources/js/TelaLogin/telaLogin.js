@@ -96,8 +96,8 @@ function enviaNotificacaoAposRecuperarSenha(){
             
             console.log(data);
             Toast.fire({
-                type: 'warning',
-                title: 'Ops! Tivemos Alguns Problemas, n&atildeo foi possivel enviar o email'
+                type: 'success',
+                title: data[1]
             })
 
 
