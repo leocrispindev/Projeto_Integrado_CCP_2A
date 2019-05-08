@@ -96,7 +96,7 @@ function enviaNotificacaoAposRecuperarSenha(){
             
             console.log(data);
             Toast.fire({
-                type: 'success',
+                type: data[2],
                 title: data[1]
             })
 
@@ -114,7 +114,7 @@ function enviaNotificacaoAposRecuperarSenha(){
             
             
             Toast.fire({
-                type: 'warning',
+                type: 'error',
                 title: 'Ops! Tivemos Alguns Problemas, n&atildeo foi possivel recuperar a senha'
             })
 

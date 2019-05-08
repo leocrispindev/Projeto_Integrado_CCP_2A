@@ -99,82 +99,116 @@
 				
 			</section>
 			<section class="bloco" id="sass">
+				
 				<h1 class="titulo-informacoes titulo-top grupo-titulo">Grupo</h1>
 				
-				<div class="card text-dark bg-light mb-3 card-margin card-grupo" style="max-width: 18rem;">
-					<div class="card-header">N&uacute;mero do Grupo </div>
-					<div class="card-body">
-						<h5 class="card-title">Keit Yamamoto </h5>
-						<p class="card-text">Japa <small style="font-weight:bold;">NOTA</small></p>
-						<p class="card-text">Fake Japa <small style="font-weight:bold;">NOTA</small></p>
-						<p class="card-text">CssGuy <small style="font-weight:bold;">NOTA</small></p>
-						<p class="card-text">Springmen <small style="font-weight:bold;">NOTA</small></p>
-						<p class="card-text">Leozao <small style="font-weight:bold;">NOTA</small></p>
-					</div>
+				<div class="position-box">
+
+					<form class="form-inline">
+						<select class="custom-select checkbox-filtro margin-style"
+							<option disabled selected>Ano Letivo</option>
+						</select>
+					</form>
+
+					<form class="form-inline">
+						<select class="custom-select checkbox-filtro margin-style"
+							<option disabled selected>Ano Letivo</option>
+						</select>
+					</form>
+				</div>
+			<div class="container-fluid"><table class="table table-dark">
+				<thead>
+					<tr>
+						<th scope="col">Numero Do Grupo</th>
+						<th scope="col">Nome Do Grupo</th>
+						<th scope="col">Orientador</th>
+						<th scope="col">#</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">1</th>
+						<td>Mark</td>
+						<td>Otto</td>
+						<td><a class="effectclick" data-target="#mostraAlunoGrupo" data-toggle="modal">Ver Alunos</a></td>
+					</tr>
+					<tr>
+						<th scope="row">2</th>
+						<td>Jacob</td>
+						<td>Thornton</td>
+						<td><a class="effectclick" data-target="#mostraAlunoGrupo" data-toggle="modal">Ver Alunos</a></td>
+					</tr>
+					<tr>
+						<th scope="row">3</th>
+						<td>Larry</td>
+						<td>the Bird</td>
+						<td><a class="effectclick" data-target="#mostraAlunoGrupo" data-toggle="modal">Ver Alunos</a></td>
+					</tr>
+				</tbody>
+			</table></div>
+			
+			
+		</section>
+		
+		<!-- <section class="bloco" id="ruby"></section> -->
+		<section class="bloco2 bloco-no-overflow-y bloco-no-overflow-general" id="angular">
+			
+			<div class="contentAvaliacoes">
+				<h1 class="titulo-informacoes titulo-top">Avalia&ccedil;&atilde;o Semanal</h1>
+				
+				<!--  Filtros de avalia��o -->
+				
+				<div class="checkboxes-all">
+					<form class="form-inline">
+						<select class="custom-select checkbox-filtro" id="ano-letivo" onchange="filtraTurmas()">
+							<option disabled selected>Ano Letivo</option>
+						</select>
+					</form>
+					
+					<form class="form-inline">
+						<select class="custom-select checkbox-filtro" id="semestre-letivo" onchange="filtraTurmas()">
+							<option disabled selected>Semestre Letivo</option>
+							<option>1</option>
+							<option>2</option>
+						</select>
+					</form>
+					<form class="form-inline">
+						<select class="custom-select checkbox-filtro" id="turma" onchange="getGruposByTurmas()">
+							<option disabled selected>Turma</option>
+							
+						</select>
+					</form>
+					<form class="form-inline">
+						<select class="custom-select checkbox-filtro" id="professor">
+							<option disabled selected>Professor</option>
+						</select>
+					</form>
+					<form class="form-inline">
+						<select class="custom-select checkbox-filtro" id="grupo">
+							<option disabled selected>Grupo</option>
+						</select>
+					</form>
+					<form class="form-inline">
+						<button class="btn btn-outline-danger my-2 my-sm-0" type="button" onclick="getAvaliacoes()"><i class="fas fa-search"></i></button>
+					</form>
+					
+					
 				</div>
 				
-				
-			</section>
-			
-			<!-- <section class="bloco" id="ruby"></section> -->
-			<section class="bloco2 bloco-no-overflow-y bloco-no-overflow-general" id="angular">
-				
-				<div class="contentAvaliacoes">
-					<h1 class="titulo-informacoes titulo-top">Avalia&ccedil;&atilde;o Semanal</h1>
-					
-					<!--  Filtros de avalia��o -->
-					
-					<div class="checkboxes-all">
-						<form class="form-inline">
-							<select class="custom-select checkbox-filtro" id="ano-letivo" onchange="filtraTurmas()">
-								<option disabled selected>Ano Letivo</option>
-							</select>
-						</form>
-						
-						<form class="form-inline">
-							<select class="custom-select checkbox-filtro" id="semestre-letivo" onchange="filtraTurmas()">
-								<option disabled selected>Semestre Letivo</option>
-								<option>1</option>
-								<option>2</option>
-							</select>
-						</form>
-						<form class="form-inline">
-							<select class="custom-select checkbox-filtro" id="turma" onchange="getGruposByTurmas()">
-								<option disabled selected>Turma</option>
-
-							</select>
-						</form>
-						<form class="form-inline">
-							<select class="custom-select checkbox-filtro" id="professor">
-								<option disabled selected>Professor</option>
-							</select>
-						</form>
-						<form class="form-inline">
-							<select class="custom-select checkbox-filtro" id="grupo">
-								<option disabled selected>Grupo</option>
-							</select>
-						</form>
-						<form class="form-inline">
-							<button class="btn btn-outline-danger my-2 my-sm-0" type="button" onclick="getAvaliacoes()"><i class="fas fa-search"></i></button>
-						</form>
-
-
-					</div>
-					
-					<div class="container-fluid">
-						<table class="table table-striped table-dark mini-table aligner" id="tableAvaliacao">
-							<thead>
-								<tr>
-									<th scope="col">Avalia&ccedil;&atilde;o</th>
-									<th scope="col">Nota</th>
-									<th scope="col">Turma</th>
-									<th scope="col">Grupo</th>
-									<th scope="col">Professor</th>
-								</tr>
-							</thead>
-							<tbody>
-
-							</tbody>
+				<div class="container-fluid">
+					<table class="table table-striped table-dark mini-table aligner" id="tableAvaliacao">
+						<thead>
+							<tr>
+								<th scope="col">Avalia&ccedil;&atilde;o</th>
+								<th scope="col">Nota</th>
+								<th scope="col">Turma</th>
+								<th scope="col">Grupo</th>
+								<th scope="col">Professor</th>
+							</tr>
+						</thead>
+						<tbody>
+							
+						</tbody>
 					</table>
 				</div>
 			</div>
@@ -406,6 +440,20 @@ aria-hidden="true">
 		</div>
 	</div>
 	
+	<!-- MODAL MOSTRA ALUNOS DO GRUPO  -->			
+	<div class="modal" id="mostraAlunoGrupo" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div id="mini-user" class="modal-content modal-dark conteudo-aluno">
+					<img src="./resources/assets/estudante2.png" id="avatar-usuario" class="avatar-usuario mini-user" alt="Aluno">
+					<h1 class="titulo-informacoes info-dark">${alunoDados.nome}</h1>
+					<h1 class="corpo-informacoes info-dark">${alunoDados.email}</h1>
+					<h1 class="corpo-informacoes info-dark">Grupo 3</h1>
+					<h1 class="corpo-informacoes info-dark">3 Turmas</h1>
+					<h1 class="corpo-informacoes info-dark">CCP123B-MCA CCPAS2-ASD CCPAS-2</h1>
+					<button type="button" id="close-modal" class="btn btn-danger">Ok!</button>
+				</div>
+			</div>
+		</div>
 	
 	<script src="./resources/node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="./resources/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
@@ -416,13 +464,13 @@ aria-hidden="true">
 	<script defer src="./resources/js/all.min.js"></script>
 	
 	<script>
-	
+		
 		$(function(){
-    		getAlunos();
+			getAlunos();
 			getTemas();
 			getListarTurma();
 		});
-		  
+		
 	</script>
 </body>
 </html>
