@@ -50,7 +50,7 @@
 				<form class="form-inline">
 					<select class="periodo-letivo" id="periodo-letivo"
 						onchange="filtraGrupos(); filtraTurmas()">
-						<option disabled selected>Per�odo Letivo</option>
+						<option disabled selected>Per&iacute;odo Letivo</option>
 					</select>
 				</form>
 				<a href="entrada?acao=Logout" title="Deslogar" class="deslogar"><i
@@ -63,7 +63,7 @@
 			<section class="bloco bloco-no-overflow" id="bootstrap">
 				<h1 class="titulo-informacoes titulo-top">Suas Turmas</h1>
 
-				<div class="card-box">
+				<div class="dd turma">
 					<c:forEach var="turma" items="${turmasDados}">
 						<div class="card text-dark bg-light mb-3 card-margin"
 							style="max-width: 18rem;">
@@ -80,10 +80,9 @@
 
 			<section class="bloco " id='sass'>
 				<h1 class="titulo-informacoes titulo-top grupo-titulo">Grupos</h1>
-				<div class="dd">
+				<div class="dd grupo">
 					<c:forEach var="grupo" items="${gruposDados}">
-						<div class="card text-dark bg-light mb-3 card-margin card-grupo"
-							style="max-width: 50rem;">
+						<div class="card text-dark bg-light mb-3 card-margin card-grupo">
 							<div class="card-header">Grupo n� ${grupo.getNumero_grupo()}
 								<br/>  Nome: ${grupo.getNome()}</div>
 							<div class="card-body">
