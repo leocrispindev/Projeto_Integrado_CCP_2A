@@ -64,7 +64,7 @@ function getListarTurma() {
         type: 'POST',
         success: function (dados) {
             console.log(dados);
-            
+            montarGridTurma(dados);
         },
         error: function(dados) {
             console.log(dados);
@@ -80,3 +80,17 @@ function getListarTurma() {
     });
 }
 
+function montarGridTurma(data) {
+    $('#tableTurma>tbody>tr').remove();
+    for(i=0; i<data.length; i++) {
+        var row = "<tr>" +
+                    "<td>  </td>" +
+                    "<td>" + data[i].sigla + "</td>" +
+                    "<td>" + data[i].turmaTema.titulo + "</td>" +
+                    "<td>" + data[i].semestreLetivo + "/" + data[i].anoLetivo + "</td>" +
+                    "<td><button type='button' id='vincular-aluno' class='btn btn-danger btn-sm' onclick=''>Vincular Aluno</button></td>" +
+                "</tr>";
+
+        $('#tableTurma>tbody').append(row);
+    }
+}

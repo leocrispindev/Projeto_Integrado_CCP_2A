@@ -61,13 +61,15 @@
 			<section class="bloco bloco-no-overflow" id="bootstrap">
 				<h1 class="titulo-informacoes titulo-top">Suas Turmas</h1>
 				<div class="container-fluid">
-					<table class="table table-dark">
+					<table class="table table-dark" id="tableTurma">
 						<thead>
 							<tr>
 								<th scope="col">#</th>
 								<th scope="col">Turma</th>
 								<th scope="col">Tema</th>
+								<th scope="col">Periodo Letivo</th>
 								<th scope="col">Alunos</th>
+
 							</tr>
 						</thead>
 						<tbody>
