@@ -98,8 +98,8 @@ public class TurmaDAO {
 		}
 	}
 	
-	public ArrayList<Turma> getTurmas() {
-		String sql = "SELECT semestre_letivo, ano_letivo FROM turma;";
+	public ArrayList<Turma> getAllPeriodosLetivos() {
+		String sql = "SELECT ano_letivo, semestre_letivo FROM turma order by ano_letivo desc;";
 		ArrayList<Turma> arrayTurmas = new ArrayList<>();
 
 		try (Connection conn = Conexao.getConexaoMYSQL()) {
@@ -143,7 +143,7 @@ public class TurmaDAO {
 		return arrayAllTurmas;
 	}
 	
-	public ArrayList<Turma> getPeriodoLetivo() {
+	public ArrayList<Turma> getAnoLetivo() {
 		ArrayList<Turma> arrayAno = new ArrayList<Turma>();
 		String sql = "SELECT DISTINCT ano_letivo FROM turma t ORDER BY ano_letivo DESC;";
 

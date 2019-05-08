@@ -58,7 +58,7 @@ public class GrupoDAO {
 
 	public ArrayList<Grupo> getGrupos() {
 		String sql = "SELECT g.*, p.administrador, p.professor_id, p.matricula, u.nome "
-				+ "FROM grupo g INNER JOIN professor p ON g.id = p.professor_id "
+				+ "FROM grupo g INNER JOIN professor p ON g.orientador_id = p.professor_id "
 				+ "INNER JOIN usuario u ON u.id = p.professor_id;";
 		ArrayList<Grupo> arrayGrupos = new ArrayList<>();
 
