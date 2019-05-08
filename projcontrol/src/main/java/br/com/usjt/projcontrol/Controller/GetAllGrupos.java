@@ -10,23 +10,23 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 
 import br.com.usjt.projcontrol.Interface.Acao;
-import br.com.usjt.projcontrol.Service.ServiceAvaliacao;
-import br.com.usjt.projcontrol.Service.ServiceTurma;
-import br.com.usjt.projcontrol.model.Turma;
+import br.com.usjt.projcontrol.Service.ServiceGrupo;
+import br.com.usjt.projcontrol.model.Grupo;
 
-public class FiltroPeriodoLetivo implements Acao{
-	
-	Gson json = new Gson();
-	ArrayList<Turma> ano = new ArrayList<>();
-	
+public class GetAllGrupos implements Acao{
+
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
+		ArrayList<Grupo> allGrupos = new ArrayList<>();
+		ServiceGrupo service = new ServiceGrupo();
+		Gson json = new Gson();
 		
-		ServiceTurma st = new ServiceTurma();
-		ano = st.getAnoLetivo();
-		String retorno = json.toJson(ano);
+		allGrupos = service.getListaGrupos();
+		
+		String retorno = json.toJson(allGrupos);
 		
 		return "json::"+retorno;
 	}
+
 }

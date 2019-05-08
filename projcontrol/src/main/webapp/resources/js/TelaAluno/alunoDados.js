@@ -1,7 +1,7 @@
 function getPeriodoLetivo() {
 	onLoad = document.getElementById('periodo-letivo').options[0].selected = 'selected';
     $.ajax({
-        url: 'entrada?acao=GetPeriodoLetivo',
+        url: 'entrada?acao=GetPeriodoLetivoByAluno',
         data: {id: $('#aluno-id').text()},
         type: 'POST',
         success: function (data) {

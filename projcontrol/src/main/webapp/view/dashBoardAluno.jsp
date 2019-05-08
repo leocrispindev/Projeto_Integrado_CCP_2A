@@ -45,7 +45,7 @@
 					class="avatar-usuario" alt="teste">
 				<h1 class="titulo-informacoes">${alunoDados.nome}</h1>
 				<h1 class="corpo-informacoes">${alunoDados.email}</h1>
-				<h1 class="corpo-informacoes">Grupo 3</h1>
+				<h1 class="corpo-informacoes">RA:${alunoDados.ra}</h1>
 				<h1 class="corpo-informacoes" id="aluno-id" hidden="true">${alunoDados.id}</h1>
 				<form class="form-inline">
 					<select class="periodo-letivo" id="periodo-letivo"

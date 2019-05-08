@@ -47,11 +47,8 @@
 				<h1 class="corpo-informacoes">${professorDados.email}</h1>
 				<h1 class="corpo-informacoes">5</h1>
 				<form class="form-inline">
-					<select class="periodo-letivo" id="inlineFormCustomSelectPref">
+					<select class="periodo-letivo" id="periodo-letivo-professor">
 						<option disabled selected>Per&iacute;odo Letivo</option>
-						<option value="1">${PERIODO_LETIVO[1]}</option>
-						<option value="2">${PERIODO_LETIVO[2]}</option>
-						<option value="3">${PERIODO_LETIVO[3]}</option>
 					</select>
 				</form>
 				<a title="Deslogar" href="entrada?acao=Logout" class="deslogar"><i class="deslogarFas fas fa-door-closed" style="font-size: 40px; color: #fff;"></i></a>
@@ -106,46 +103,28 @@
 				
 				<div class="position-box">
 
-					<form class="form-inline">
+					<form class="form-inline" id="grupo-turma-combobox">
 						<select class="custom-select checkbox-filtro margin-style">
-							<option disabled selected>Ano Letivo</option>
+							<option disabled selected>Turma</option>
 						</select>
 					</form>
 
-					<form class="form-inline">
+					<form class="form-inline" id="grupo-professor-combobox">
 						<select class="custom-select checkbox-filtro margin-style">
-							<option disabled selected>Ano Letivo</option>
+							<option disabled selected>Professor</option>
 						</select>
 					</form>
 				</div>
-			<div class="container-fluid"><table class="table table-dark">
+			<div class="container-fluid"><table class="table table-dark" id="tableGrupos">
 				<thead>
 					<tr>
-						<th scope="col">Numero Do Grupo</th>
+						<th scope="col">Nº Grupo</th>
 						<th scope="col">Nome Do Grupo</th>
 						<th scope="col">Orientador</th>
-						<th scope="col">#</th>
+						<th scope="col">Alunos</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<th scope="row">1</th>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td><a class="effectclick" data-target="#mostraAlunoGrupo" data-toggle="modal">Ver Alunos</a></td>
-					</tr>
-					<tr>
-						<th scope="row">2</th>
-						<td>Jacob</td>
-						<td>Thornton</td>
-						<td><a class="effectclick" data-target="#mostraAlunoGrupo" data-toggle="modal">Ver Alunos</a></td>
-					</tr>
-					<tr>
-						<th scope="row">3</th>
-						<td>Larry</td>
-						<td>the Bird</td>
-						<td><a class="effectclick" data-target="#mostraAlunoGrupo" data-toggle="modal">Ver Alunos</a></td>
-					</tr>
 				</tbody>
 			</table></div>
 			
@@ -462,6 +441,7 @@ aria-hidden="true">
 	<script src="./resources/js/TelaProfessor/dashBoardAdminTurma.js"></script>
 	<script src="./resources/js/TelaProfessor/dashBoardAdmin.js"></script>
 	<script src="./resources/js/TelaProfessor/administradorFiltros.js"></script>
+	<script src="./resources/js/TelaProfessor/dashBoardAdminGrupo.js"></script>
 	<script src="./resources/bundle.js"></script>
 	<script defer src="./resources/js/all.min.js"></script>
 	
