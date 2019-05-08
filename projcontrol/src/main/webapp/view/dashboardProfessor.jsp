@@ -100,20 +100,20 @@
 				<div data-toggle="modal" data-target="#vinculaAlunosTurma" title="Vincular Alunos a turma" class="card text-dark bg-light mb-3 button-aluno" style="max-width: 18rem;"><i class="fas fa-user-graduate btn-right-aluno"></i></div>
 				
 			</section>
-			<section class="bloco" id="sass">
+			<section class="bloco bloco-no-overflow-y" id="sass">
 				
 				<h1 class="titulo-informacoes titulo-top grupo-titulo">Grupo</h1>
 				
 				<div class="position-box">
 
 					<form class="form-inline">
-						<select class="custom-select checkbox-filtro margin-style"
+						<select class="custom-select checkbox-filtro margin-style">
 							<option disabled selected>Ano Letivo</option>
 						</select>
 					</form>
 
 					<form class="form-inline">
-						<select class="custom-select checkbox-filtro margin-style"
+						<select class="custom-select checkbox-filtro margin-style">
 							<option disabled selected>Ano Letivo</option>
 						</select>
 					</form>
