@@ -53,7 +53,7 @@ public class ServiceTurma extends Validacao implements Serializable {
 	}
 	
 	public ArrayList<Turma> getListaTurmas() {
-		ArrayList<Turma> turmas = turmaD.getTurmas();
+		ArrayList<Turma> turmas = turmaD.getAllTurmas();
 		return turmas;
 	}
 	

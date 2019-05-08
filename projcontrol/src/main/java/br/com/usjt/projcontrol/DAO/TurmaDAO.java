@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import br.com.usjt.projcontrol.Conexao.Conexao;
-import br.com.usjt.projcontrol.model.Aluno;
+import br.com.usjt.projcontrol.model.Tema;
 import br.com.usjt.projcontrol.model.Turma;
 
 public class TurmaDAO {
@@ -116,6 +116,31 @@ public class TurmaDAO {
 			e.printStackTrace();
 		}
 		return arrayTurmas;
+	}
+	
+	public ArrayList<Turma> getAllTurmas() {
+		String sql = "select tu.*, tu.id as turmaId, t.* from projeto.turma tu inner join projeto.tema t on tu.tema_id = t.id;";
+		ArrayList<Turma> arrayAllTurmas = new ArrayList<>();
+
+		try (Connection conn = Conexao.getConexaoMYSQL()) {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			try (ResultSet rs = stmt.executeQuery();) {
+				while (rs.next()) {
+					Turma turma = new Turma();
+					turma.setCodigoIdentificador(Integer.parseInt(rs.getString("turmaId")));
+					turma.setSigla(rs.getString("sigla"));
+					Tema tema = new Tema();
+					tema.setTitulo(rs.getString("titulo"));
+					turma.setTurmaTema(tema);
+					turma.setSemestreLetivo(rs.getInt("semestre_letivo"));
+					turma.setAnoLetivo(rs.getInt("ano_letivo"));
+					arrayAllTurmas.add(turma);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return arrayAllTurmas;
 	}
 	
 	public ArrayList<Turma> getPeriodoLetivo() {

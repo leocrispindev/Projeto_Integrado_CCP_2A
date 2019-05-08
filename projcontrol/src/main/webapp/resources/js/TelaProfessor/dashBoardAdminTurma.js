@@ -16,12 +16,14 @@ function setCadastroTurma() {
                 type: data[2],
                 confirmButtonText: 'OK'
             })
+
+            getListarTurma();
         },
         error: function (data) {
             Swal.fire({
-                title: 'Deu pau!',
-                text: data[1],
-                type: 'Erro',
+                title: 'Error!',
+                text: 'Erro ao retornar os dados.Contate o adminstrador do sistema.',
+                type: 'error',
                 confirmButtonText: 'OK'
             })
 
@@ -64,7 +66,7 @@ function getListarTurma() {
         type: 'POST',
         success: function (dados) {
             console.log(dados);
-            
+            montarGridTurma(dados);
         },
         error: function(dados) {
             console.log(dados);
@@ -80,3 +82,17 @@ function getListarTurma() {
     });
 }
 
+function montarGridTurma(data) {
+    $('#tableTurma>tbody>tr').remove();
+    for(i=0; i<data.length; i++) {
+        var row = "<tr>" +
+                    "<th scope='row' id='botao-deletar' class='nao-deleta-linha'><a id='deletaLinhaTabela'><img src='./resources/assets/trash-solid.png' alt='delete_turma' class='delete_turma'></a></th>" +
+                    "<td>" + data[i].sigla + "</td>" +
+                    "<td>" + data[i].turmaTema.titulo + "</td>" +
+                    "<td>" + data[i].semestreLetivo + "/" + data[i].anoLetivo + "</td>" +
+                    "<td><button type='button' id='vincular-aluno' class='btn btn-danger btn-sm' onclick=''>Vincular Aluno</button></td>" +
+                "</tr>";
+
+        $('#tableTurma>tbody').append(row);
+    }
+}
