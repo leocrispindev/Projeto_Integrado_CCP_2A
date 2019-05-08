@@ -27,7 +27,7 @@ function getPeriodoLetivo() {
 function filtraGrupos() {
 
 	var periodo = $('#periodo-letivo').val().split("/");
-	 $('.dd').children().remove().end();
+	 $('.dd.grupo').children().remove().end();
 	
     $.ajax({
         url: 'entrada?acao=GetGruposByAluno',
@@ -44,7 +44,7 @@ function filtraGrupos() {
 								"<p class='card-id' hidden='true'>" + data[i].id + "</p> " +
 							"</div> " +
 						"</div> "
-		        $('.dd').append(card);
+		        $('.dd.grupo').append(card);
 	        	getIntegrantesDoGrupo();
         	}
         },
@@ -63,7 +63,7 @@ function filtraGrupos() {
 function filtraTurmas() {
 
 	var periodo = $('#periodo-letivo').val().split("/");
-	 $('#bootstrap').children().remove().end();
+	 $('.dd.turma').children().remove().end();
 		
     $.ajax({
         url: 'entrada?acao=GetTurmasByAluno',
@@ -72,18 +72,15 @@ function filtraTurmas() {
         success: function (data) {
         	for(i = 0; i < data.length; i++) {
         		var turmasCard = 
-        			"<h1 class='titulo-informacoes titulo-top'>Suas Turmas</h1> " +
-    				"<div class='card-box'> " + 
     					"<div class='card text-dark bg-light mb-3 card-margin' " +
-    						"style='max-width: 18rem;'> " +
+    						"> " +
     						"<div class='card-header'>" + data[i].sigla + "</div> " +
     						"<div class='card-body'> " +
     							"<h5 class='card-title'>" + data[i].turmaTema.titulo + "</h5> " +
     							"<p class='card-text'>" + data[i].turmaTema.introducao + "</p> " +
     						"</div> " +
-    					"</div> " +
-    				"</div>";
-        		  $('#bootstrap').append(turmasCard);
+    					"</div> ";
+        		  $('.dd.turma').append(turmasCard);
         	}
         },
         error: function(data) {
@@ -111,8 +108,10 @@ function getIntegrantesDoGrupo(){
             type: 'POST',
             success: function (data) {
                 let cardzao = document.querySelectorAll(".card-grupo");
+                let cor;
                 for(j = 0; j < data.length; j++) {                
-                    var aluno = "<p class='card-text'>RA: " + data[j].ra + " | " + data[j].nome + "  </p>"; 
+                    j%2 == null ? cor = "style='background:#E5E5E5;'" : cor = "";
+                    var aluno = "<p class='card-text'" + cor + "><span style='font-weight:bold;'>" + data[j].ra + "</span>" + " | " + data[j].nome + "  </p>"; 
                     $(cardzao[i]).append(aluno);
                 }
             },
