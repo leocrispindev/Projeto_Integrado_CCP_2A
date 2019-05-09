@@ -51,53 +51,43 @@ body{
   align-items: center;
 }
 
-.title{
-  font-family: 'Baloo Bhai', cursive;
-  font-size: 5em;
-  color: white;
-  margin-bottom: 0%!important;
-  padding-bottom: 0%!important;
-}
-
-@keyframes roda{
-  100%{
-    transform: rotate(360deg);
-  }
-}
-
-.engrena{
-  font-size: 75px;
-  -webkit-animation-name: roda;
-  -webkit-animation-duration: 2s;
-  -webkit-animation-timing-function: linear;
-  -webkit-animation-iteration-count: infinite;
-  margin-bottom: 0px!important;
-  padding: 0px!important;
+.container-content{
+  display: block;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
 }
 
 .subtitulo{
   color: white;
-  font-family: 'Stylish', sans-serif;
-  font-size: 3em;
-  margin-bottom: 0%!important;
-  padding-bottom: 0%!important;
-  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size:30px;
+  font-weight: bold;
+  margin-bottom: 0%;
+  padding-bottom: 0%;
 }
 
-.deslogar{
-  margin-bottom: 20%!important;
+.img{
+  width:200px; 
+  height:200px;
+}
+
+.statusError{
+  margin-top: 0%;
+  padding-top: 0%;
+  padding-bottom: 0%;
+  margin-bottom: 0%;
+  font-family: 'Montserrat', sans-serif;
+  font-size:120px;
+  color: #fff;
+  font-weight:300; 
 }
 
 
 @media only screen and (min-width: 992px) {
-  .title{
-    font-family: 'Baloo Bhai', cursive;
-    font-size: 15em;
-    color: white;
-  }
   
-  .engrena{
-    font-size: 165px;
-  }
 }
 

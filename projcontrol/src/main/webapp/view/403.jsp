@@ -10,18 +10,19 @@
 
 	<title>404 Page Not Found</title>
 
-	<link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Stylish" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet"> 
 	<link type="text/css" rel="stylesheet" href="./resources/css/errorPages.css" />
 </head>
 
 <body>
 
 	<div id="notfoundB">
-		<h1 class="title">4<i class="fas fa-cog engrena"></i>3</h1>
-		<h6 class="subtitulo">ACESSO NEGADO :/</h6>
-		<a href="/projcontrol" title="Retornar a pagina principal" class="deslogar">
-			<i class="deslogarFas fas fa-door-closed" style="font-size: 40px; color: #fff;"></i>
-		</a>
+		<div class="container-content">
+			<img class="img" src="./resources/assets/erroricon.png" alt="">
+			<h3 class="statusError">403 <br/></h3>
+			<small class="subtitulo">ACESSO NEGADO!</small>
+			<a title="Retornar a pagina principal" href="/projcontrol" class="deslogar"><i class="deslogarFas fas fa-door-closed" style="font-size: 40px; color: #fff;"></i></a>
+		</div>
 	</div>
 
 	<script src="./resources/node_modules/jquery/dist/jquery.min.js"></script>

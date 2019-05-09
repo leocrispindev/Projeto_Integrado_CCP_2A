@@ -10,18 +10,19 @@
 
 	<title>404 Page Not Found</title>
 
-	<link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Stylish" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet"> 
 	<link type="text/css" rel="stylesheet" href="./resources/css/errorPages.css" />
 </head>
 
 <body>
 
 	<div id="notfoundC">
-		<h1 class="title">5<i class="fas fa-cog engrena"></i>0</h1>
-		<h6 class="subtitulo">PARECE QUE OCORREU ALGUM <br/> PROBLEMA COM NOSSO SERVIDOR ;(</h6>
-		<a href="/projcontrol" title="Retornar a pagina principal" class="deslogar">
-			<i class="deslogarFas fas fa-door-closed" style="font-size: 40px; color: #fff;"></i>
-		</a>
+		<div class="container-content">
+			<img class="img" src="./resources/assets/erroricon.png" alt="">
+			<h3 class="statusError">500 <br/></h3>
+			<small class="subtitulo">OPS! PARECE QUE OCORREU UM PROBLEMA COM NOSSO SERVIDOR :(</small>
+			<a title="Retornar a pagina principal" href="/projcontrol" class="deslogar"><i class="deslogarFas fas fa-door-closed" style="font-size: 40px; color: #fff;"></i></a>
+		</div>
 	</div>
 
 	<script src="./resources/node_modules/jquery/dist/jquery.min.js"></script>
