@@ -71,24 +71,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<th scope="row" id="botao-deletar" class="nao-deleta-linha"><a id="deletaLinhaTabela"><img src="./resources/assets/trash-solid.png" alt="delete_turma" class="delete_turma"></a></th>
-									<td>CCP1B1-MCA3</td>
-									<td>Chocolate</td>
-									<td style="cursor:pointer;"><a data-toggle="modal" data-target="#modal-lista-alunos">Ver Alunos</a></td>
-								</tr>
-								<tr>
-									<th scope="row" id="botao-deletar" class="nao-deleta-linha"><a id="deletaLinhaTabela"><img src="./resources/assets/trash-solid.png" alt="delete_turma" class="delete_turma"></a></th>
-									<td>CCP1B1-MASDS</td>
-									<td>Manga</td>
-									<td style="cursor:pointer;"><a data-toggle="modal" data-target="#modal-lista-alunos">Ver Alunos</a></td>
-								</tr>
-								<tr>
-									<th scope="row" id="botao-deletar" class="nao-deleta-linha"><a id="deletaLinhaTabela"><img src="./resources/assets/trash-solid.png" alt="delete_turma" class="delete_turma"></a></th>
-									<td>CCP1B1-MDSS</td>
-									<td>Arroz</td>
-									<td style="cursor:pointer;"><a data-toggle="modal" data-target="#modal-lista-alunos">Ver Alunos</a></td>
-								</tr>
+								
 							</tbody>
 						</table>
 					</div>
@@ -97,7 +80,7 @@
 				
 				<div class="card text-dark bg-light mb-3 button-right btn-delete" title="Excluir turma" style="max-width: 18rem;"></div>
 				<div data-toggle="modal" data-target="#modal-crud-turma" title="Criar turma" class="card text-dark bg-light mb-3 button-right" style="max-width: 18rem;"></div>
-				<div data-toggle="modal" data-target="#vinculaAlunosTurma" title="Vincular Alunos a turma" class="card text-dark bg-light mb-3 button-aluno" style="max-width: 18rem;"><i class="fas fa-user-graduate btn-right-aluno"></i></div>
+				<!-- <div data-toggle="modal" data-target="#vinculaAlunosTurma" title="Vincular Alunos a turma" class="card text-dark bg-light mb-3 button-aluno" style="max-width: 18rem;"><i class="fas fa-user-graduate btn-right-aluno"></i></div> -->
 				
 			</section>
 
@@ -326,28 +309,6 @@ aria-hidden="true">
 						<input type="text" disabled class="form-control aluno-bug" value="${nomeDoAluno}">
 					</div>
 				</div>
-				<hr/>
-				<h4>Turmas</h4>
-				<div class="contentAlunos">
-					<div class="input-group mb-2 check-name-alunos">
-						<div class="input-group-prepend">
-							<div class="input-group-text">
-								<input class="aluno-bug" type="checkbox">
-							</div>
-						</div>
-						<input type="text" disabled class="form-control aluno-bug" value="${nomeDaTurma}">
-					</div>
-					<div class="input-group mb-2 check-name-alunos">
-						<div class="input-group-prepend">
-							<div class="input-group-text">
-								<input class="aluno-bug" type="checkbox">
-							</div>
-						</div>
-						<input type="text" disabled class="form-control aluno-bug" value="${nomeDaTurma}">
-					</div>
-				</div>
-				
-				
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -356,6 +317,46 @@ aria-hidden="true">
 		</div>
 	</div>
 </div>
+
+<!-- Modal Carregar Alunos Para vincular a turma-->
+<div class="modal fade" id="desvinculaAlunosTurma" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalScrollableTitle">Desvincular Alunos a turma</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					
+					<div class="contentAlunos">
+						
+						<div class="input-group mb-2 check-name-alunos">
+							<div class="input-group-prepend">
+								<div class="input-group-text">
+									<input class="aluno-bug" type="checkbox">
+								</div>
+							</div>
+							<input type="text" disabled class="form-control aluno-bug" value="${nomeDoAluno}">
+						</div>
+						<div class="input-group mb-2 check-name-alunos">
+							<div class="input-group-prepend">
+								<div class="input-group-text">
+									<input class="aluno-bug" type="checkbox">
+								</div>
+							</div>
+							<input type="text" disabled class="form-control aluno-bug" value="${nomeDoAluno}">
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+					<button type="button" class="btn btn-primary">Salvar Altera&ccedil;&otilde;es</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
 <!-- MODAL CRUD ALUNOS -->
