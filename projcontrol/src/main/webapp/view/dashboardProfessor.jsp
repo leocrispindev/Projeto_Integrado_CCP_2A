@@ -57,76 +57,84 @@
 			
 			<section class="bloco bloco-no-overflow" id="bootstrap">
 				<h1 class="titulo-informacoes titulo-top">Suas Turmas</h1>
-				<div class="container-fluid">
-					<table class="table table-dark" id="tableTurma">
-						<thead>
-							<tr>
-								<th scope="col">#</th>
-								<th scope="col">Turma</th>
-								<th scope="col">Tema</th>
-								<th scope="col">Periodo Letivo</th>
-								<th scope="col">Alunos</th>
-
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<th scope="row" id="botao-deletar" class="nao-deleta-linha"><a id="deletaLinhaTabela"><img src="./resources/assets/trash-solid.png" alt="delete_turma" class="delete_turma"></a></th>
-								<td>CCP1B1-MCA3</td>
-								<td>Chocolate</td>
-								<td style="cursor:pointer;"><a data-toggle="modal" data-target="#modal-lista-alunos">Ver Alunos</a></td>
-							</tr>
-							<tr>
-								<th scope="row" id="botao-deletar" class="nao-deleta-linha"><a id="deletaLinhaTabela"><img src="./resources/assets/trash-solid.png" alt="delete_turma" class="delete_turma"></a></th>
-								<td>CCP1B1-MASDS</td>
-								<td>Manga</td>
-								<td style="cursor:pointer;"><a data-toggle="modal" data-target="#modal-lista-alunos">Ver Alunos</a></td>
-							</tr>
-							<tr>
-								<th scope="row" id="botao-deletar" class="nao-deleta-linha"><a id="deletaLinhaTabela"><img src="./resources/assets/trash-solid.png" alt="delete_turma" class="delete_turma"></a></th>
-								<td>CCP1B1-MDSS</td>
-								<td>Arroz</td>
-								<td style="cursor:pointer;"><a data-toggle="modal" data-target="#modal-lista-alunos">Ver Alunos</a></td>
-							</tr>
-						</tbody>
-					</table>
+				<div class="contentAvaliacoes">
+					<div class="container-fluid">
+						<table class="table table-dark" id="tableTurma">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Turma</th>
+									<th scope="col">Tema</th>
+									<th scope="col">Periodo Letivo</th>
+									<th scope="col">Alunos</th>
+									
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row" id="botao-deletar" class="nao-deleta-linha"><a id="deletaLinhaTabela"><img src="./resources/assets/trash-solid.png" alt="delete_turma" class="delete_turma"></a></th>
+									<td>CCP1B1-MCA3</td>
+									<td>Chocolate</td>
+									<td style="cursor:pointer;"><a data-toggle="modal" data-target="#modal-lista-alunos">Ver Alunos</a></td>
+								</tr>
+								<tr>
+									<th scope="row" id="botao-deletar" class="nao-deleta-linha"><a id="deletaLinhaTabela"><img src="./resources/assets/trash-solid.png" alt="delete_turma" class="delete_turma"></a></th>
+									<td>CCP1B1-MASDS</td>
+									<td>Manga</td>
+									<td style="cursor:pointer;"><a data-toggle="modal" data-target="#modal-lista-alunos">Ver Alunos</a></td>
+								</tr>
+								<tr>
+									<th scope="row" id="botao-deletar" class="nao-deleta-linha"><a id="deletaLinhaTabela"><img src="./resources/assets/trash-solid.png" alt="delete_turma" class="delete_turma"></a></th>
+									<td>CCP1B1-MDSS</td>
+									<td>Arroz</td>
+									<td style="cursor:pointer;"><a data-toggle="modal" data-target="#modal-lista-alunos">Ver Alunos</a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
+				
 				
 				<div class="card text-dark bg-light mb-3 button-right btn-delete" title="Excluir turma" style="max-width: 18rem;"></div>
 				<div data-toggle="modal" data-target="#modal-crud-turma" title="Criar turma" class="card text-dark bg-light mb-3 button-right" style="max-width: 18rem;"></div>
 				<div data-toggle="modal" data-target="#vinculaAlunosTurma" title="Vincular Alunos a turma" class="card text-dark bg-light mb-3 button-aluno" style="max-width: 18rem;"><i class="fas fa-user-graduate btn-right-aluno"></i></div>
 				
 			</section>
-			<section class="bloco bloco-no-overflow-y" id="sass">
-				
-				<h1 class="titulo-informacoes titulo-top grupo-titulo">Grupo</h1>
-				
-				<div class="position-box">
 
-					<form class="form-inline" id="grupo-turma-combobox">
-						<select class="custom-select checkbox-filtro margin-style">
-							<option disabled selected>Turma</option>
-						</select>
-					</form>
-
-					<form class="form-inline" id="grupo-professor-combobox">
-						<select class="custom-select checkbox-filtro margin-style">
-							<option disabled selected>Professor</option>
-						</select>
-					</form>
+			<section class="bloco2 bloco-no-overflow-y bloco-no-overflow-general" id="sass">
+				<div class="contentAvaliacoes">
+					<div class="container-fluid container-settings">
+						<h1 class="titulo-informacoes titulo-top grupo-titulo">Grupo</h1>
+						
+						<div class="position-box">
+							
+							<form class="form-inline" id="grupo-turma-combobox">
+								<select class="custom-select checkbox-filtro margin-style">
+									<option disabled selected>Turma</option>
+								</select>
+							</form>
+							
+							<form class="form-inline" id="grupo-professor-combobox">
+								<select class="custom-select checkbox-filtro margin-style">
+									<option disabled selected>Professor</option>
+								</select>
+							</form>
+						</div>
+						<div class="container-fluid"><table class="table table-dark" id="tableGrupos">
+							<thead>
+								<tr>
+									<th scope="col">Nï¿½ Grupo</th>
+									<th scope="col">Nome Do Grupo</th>
+									<th scope="col">Orientador</th>
+									<th scope="col">Alunos</th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
 				</div>
-			<div class="container-fluid"><table class="table table-dark" id="tableGrupos">
-				<thead>
-					<tr>
-						<th scope="col">Nº Grupo</th>
-						<th scope="col">Nome Do Grupo</th>
-						<th scope="col">Orientador</th>
-						<th scope="col">Alunos</th>
-					</tr>
-				</thead>
-				<tbody>
-				</tbody>
-			</table></div>
+			</div>
 			
 			
 		</section>
@@ -423,18 +431,18 @@ aria-hidden="true">
 	
 	<!-- MODAL MOSTRA ALUNOS DO GRUPO  -->			
 	<div class="modal" id="mostraAlunoGrupo" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered">
-				<div id="mini-user" class="modal-content modal-dark conteudo-aluno">
-					<img src="./resources/assets/estudante2.png" id="avatar-usuario" class="avatar-usuario mini-user" alt="Aluno">
-					<h1 class="titulo-informacoes info-dark">${alunoDados.nome}</h1>
-					<h1 class="corpo-informacoes info-dark">${alunoDados.email}</h1>
-					<h1 class="corpo-informacoes info-dark">Grupo 3</h1>
-					<h1 class="corpo-informacoes info-dark">3 Turmas</h1>
-					<h1 class="corpo-informacoes info-dark">CCP123B-MCA CCPAS2-ASD CCPAS-2</h1>
-					<button type="button" id="close-modal" class="btn btn-danger">Ok!</button>
-				</div>
+		<div class="modal-dialog modal-dialog-centered">
+			<div id="mini-user" class="modal-content modal-dark conteudo-aluno">
+				<img src="./resources/assets/estudante2.png" id="avatar-usuario" class="avatar-usuario mini-user" alt="Aluno">
+				<h1 class="titulo-informacoes info-dark">${alunoDados.nome}</h1>
+				<h1 class="corpo-informacoes info-dark">${alunoDados.email}</h1>
+				<h1 class="corpo-informacoes info-dark">Grupo 3</h1>
+				<h1 class="corpo-informacoes info-dark">3 Turmas</h1>
+				<h1 class="corpo-informacoes info-dark">CCP123B-MCA CCPAS2-ASD CCPAS-2</h1>
+				<button type="button" id="close-modal" class="btn btn-danger">Ok!</button>
 			</div>
 		</div>
+	</div>
 	
 	<script src="./resources/node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="./resources/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>

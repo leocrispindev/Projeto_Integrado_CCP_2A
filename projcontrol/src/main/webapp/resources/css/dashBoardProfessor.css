@@ -605,6 +605,8 @@ input[type="number"] {
     cursor: pointer;
 }
 
+
+
 @media only screen and (min-width: 768px) and (max-width: 1280px) {
     
 }
@@ -661,7 +663,11 @@ input[type="number"] {
     }
     
     .position-box{
-        margin-right:90%;
+        margin-left: 1%;
+    }
+
+    .container-settings{
+        margin-left: 2%;
     }
 }
 
