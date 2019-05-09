@@ -17,6 +17,7 @@
 <body>
 
 	<div id="notfoundB">
+		
 		<div class="container-content">
 			<img class="img" src="./resources/assets/erroricon.png" alt="">
 			<h3 class="statusError">403 <br/></h3>

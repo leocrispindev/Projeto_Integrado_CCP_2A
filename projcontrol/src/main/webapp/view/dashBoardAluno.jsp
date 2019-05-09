@@ -109,26 +109,22 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<th id="numeroAtividade" scope="row">1</th>
-								<td id="descAtividade">Entrega de Telas</td>
-								<td id="formatoDeEntrega">.java</td>
-								<td id="dataDePostagem">12/01/2019</td>
-								<td id="dataDeEntrega">12/07/2019</td>
-								<td><button data-toggle="modal" data-target="#modalEntrega" id="btnEnviarAtividades"
-										type="button" class="btn btn-danger">Enviar Atividade
-								</button></td>
-							</tr>
-							<tr>
-								<th id="numeroAtividade" scope="row">2</th>
-								<td id="descAtividade">Entrega do DAO</td>
-								<td id="formatoDeEntrega">.sql</td>
-								<td id="dataDePostagem">12/01/2019</td>
-								<td id="dataDeEntrega">24/08/2019</td>
-								<td><button data-toggle="modal" data-target="#modalEntrega" id="btnEnviarAtividades"
-										type="button" class="btn btn-danger">Enviar Atividade
-								</button></td>
-							</tr>
+							<c:forEach var="atividade" items="${ativdadeDados}">
+								<tr>
+									<th id="numeroAtividade" scope="row">${atividade.getAtividadeId()}</th>
+									<td id="descAtividade">${atividade.getDescricao()}</td>
+									<td id="formatoDeEntrega">${atividade.getFormato()}</td>
+									<td id="dataDePostagem">
+										<fmt:formatDate value="${atividade.getDataInicio()}" pattern="dd/MM/yyyy"/>
+									</td>
+									<td id="dataDeEntrega">
+										<fmt:formatDate value="${atividade.getDataFim()}" pattern="dd/MM/yyyy"/>
+									</td>
+									<td><button data-toggle="modal" data-target="#modalEntrega" id="btnEnviarAtividades"
+											type="button" class="btn btn-danger">Enviar Atividade
+									</button></td>
+								</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 			</section>

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import br.com.usjt.projcontrol.Conexao.Conexao;
 import br.com.usjt.projcontrol.model.Aluno;
+import br.com.usjt.projcontrol.model.Atividade;
 import br.com.usjt.projcontrol.model.Grupo;
 import br.com.usjt.projcontrol.model.Professor;
 import br.com.usjt.projcontrol.model.Tema;
@@ -404,6 +405,41 @@ public class AlunoDAO {
 			e.printStackTrace();
 		}
 		return arrayTurmas;
+	}
+
+
+	public ArrayList<Atividade> getAtividadeByAlunoID(int id) {
+		
+		String sql = "SELECT a.id, a.descricao, a.formato_entrega, a.dt_inicio, a.dt_fim, alu.nome, alu.email, alu.id "
+				+ "from atividade a inner join usuario alu where alu.id = ?;";
+		
+		ArrayList<Atividade> arrayAtividades = new ArrayList<Atividade>();
+		
+		try (Connection conn = Conexao.getConexaoMYSQL()) {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, id);
+			
+			try(ResultSet rs = stmt.executeQuery()) {
+				
+				while(rs.next()) {
+					
+					Atividade atividade = new Atividade();
+					atividade.setAtividadeId(rs.getInt(1));
+					atividade.setDescricao(rs.getString(2));
+					atividade.setFormato(rs.getString(3));
+					atividade.setDataInicio(rs.getDate(4));
+					atividade.setDataFim(rs.getDate(5));
+					arrayAtividades.add(atividade);
+				}
+				
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return arrayAtividades;
 	}
 }
 

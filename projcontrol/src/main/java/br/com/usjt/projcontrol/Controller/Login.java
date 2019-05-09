@@ -12,6 +12,7 @@ import br.com.usjt.projcontrol.Interface.Acao;
 import br.com.usjt.projcontrol.Service.ServiceAluno;
 import br.com.usjt.projcontrol.Service.ServiceProfessor;
 import br.com.usjt.projcontrol.model.Aluno;
+import br.com.usjt.projcontrol.model.Atividade;
 import br.com.usjt.projcontrol.model.Grupo;
 import br.com.usjt.projcontrol.model.Professor;
 import br.com.usjt.projcontrol.model.Turma;
@@ -59,8 +60,12 @@ public class Login implements Acao{
 			ArrayList<Grupo> grupos = new ArrayList<Grupo>();
 			grupos = serviceAluno.getGruposByAluno(alunoSession.getId());
 			
+			ArrayList<Atividade> atividades = new ArrayList<Atividade>();
+			atividades = serviceAluno.getAtividadeByAluno(alunoSession.getId());
+			
 			request.setAttribute("turmasDados", turmas);
 			request.setAttribute("gruposDados", grupos);
+			request.setAttribute("ativdadeDados", atividades);
 			
 			return "forward::view/dashBoardAluno.jsp";
 		}else {

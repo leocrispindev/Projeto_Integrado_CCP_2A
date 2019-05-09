@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import br.com.usjt.projcontrol.Controller.Validacao;
 import br.com.usjt.projcontrol.DAO.AlunoDAO;
 import br.com.usjt.projcontrol.model.Aluno;
+import br.com.usjt.projcontrol.model.Atividade;
+import br.com.usjt.projcontrol.model.Avaliacao;
 import br.com.usjt.projcontrol.model.Grupo;
 import br.com.usjt.projcontrol.model.Turma;
 
@@ -93,6 +95,12 @@ public class ServiceAluno extends Validacao implements Serializable{
 		ArrayList<Grupo> arrayGrupos = new ArrayList<Grupo>();
 		arrayGrupos = usuarioD.getGruposByAlunoId(id);
 		return arrayGrupos;
+	}
+	
+	public ArrayList<Atividade> getAtividadeByAluno(int id) {
+		ArrayList<Atividade> arrayAtividades = new ArrayList<Atividade>();
+		arrayAtividades = usuarioD.getAtividadeByAlunoID(id);
+		return arrayAtividades;
 	}
 	
 	public ArrayList<Aluno> getIntegrantesDoGrupo(int id) {
