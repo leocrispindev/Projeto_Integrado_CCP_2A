@@ -47,7 +47,7 @@
 				<h1 class="corpo-informacoes">${alunoDados.email}</h1>
 				<h1 class="corpo-informacoes">RA:${alunoDados.ra}</h1>
 				<h1 class="corpo-informacoes" id="aluno-id" hidden="true">${alunoDados.id}</h1>
-				<form class="form-inline">
+				<form class="form-inline periodo">
 					<select class="periodo-letivo" id="periodo-letivo"
 						onchange="filtraGrupos(); filtraTurmas()">
 						<option disabled selected>Per&iacute;odo Letivo</option>
@@ -83,7 +83,7 @@
 				<div class="dd grupo">
 					<c:forEach var="grupo" items="${gruposDados}">
 						<div class="card text-dark bg-light mb-3 card-margin card-grupo">
-							<div class="card-header">Grupo n� ${grupo.getNumero_grupo()}
+							<div class="card-header">Grupo n&deg; ${grupo.getNumero_grupo()}
 								<br/>  Nome: ${grupo.getNome()}</div>
 							<div class="card-body">
 								<h5 class="card-title">${grupo.getProfessor().getNome()}</h5>
@@ -97,8 +97,6 @@
 
 	<section class="bloco bloco-no-overflow-y" id="angular">
 				<h1 class="titulo-informacoes titulo-top">Cronograma</h1>
-
-				<div class="container-fluid">
 					<table class="table table-striped table-dark">
 						<thead>
 							<tr>
@@ -130,7 +128,6 @@
 							</tr>
 						</tbody>
 					</table>
-				</div>
 			</section>
 		</section>
 
