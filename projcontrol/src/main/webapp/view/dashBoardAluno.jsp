@@ -44,7 +44,7 @@
 					src="./resources/assets/estudante2.png" id="avatar-usuario"
 					class="avatar-usuario" alt="teste">
 				<h1 class="titulo-informacoes">${alunoDados.nome}</h1>
-				<h1 class="corpo-informacoes">${alunoDados.email}</h1>
+				<h1 class="corpo-informacoes" style="text-transform: none;">${alunoDados.email}</h1>
 				<h1 class="corpo-informacoes">RA:${alunoDados.ra}</h1>
 				<h1 class="corpo-informacoes" id="aluno-id" hidden="true">${alunoDados.id}</h1>
 				<form class="form-inline periodo">
@@ -102,6 +102,7 @@
 							<tr>
 								<th scope="col">Atividade</th>
 								<th scope="col">Descri&ccedil;&atilde;o da Atividade</th>
+								<th scope="col">Formato de Entrega</th>
 								<th scope="col">Data de Postagem</th>
 								<th scope="col">Data de Entrega</th>
 								<th scope="col">Enviar Atividade</th>
@@ -111,6 +112,7 @@
 							<tr>
 								<th id="numeroAtividade" scope="row">1</th>
 								<td id="descAtividade">Entrega de Telas</td>
+								<td id="formatoDeEntrega">.java</td>
 								<td id="dataDePostagem">12/01/2019</td>
 								<td id="dataDeEntrega">12/07/2019</td>
 								<td><button data-toggle="modal" data-target="#modalEntrega" id="btnEnviarAtividades"
@@ -120,6 +122,7 @@
 							<tr>
 								<th id="numeroAtividade" scope="row">2</th>
 								<td id="descAtividade">Entrega do DAO</td>
+								<td id="formatoDeEntrega">.sql</td>
 								<td id="dataDePostagem">12/01/2019</td>
 								<td id="dataDeEntrega">24/08/2019</td>
 								<td><button data-toggle="modal" data-target="#modalEntrega" id="btnEnviarAtividades"

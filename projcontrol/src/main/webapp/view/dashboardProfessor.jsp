@@ -44,7 +44,7 @@
 				</a>
 				<img src="./resources/assets/avatar2.png" id="avatar-usuario" class="avatar-usuario" alt="teste">
 				<h1 class="titulo-informacoes">${professorDados.nome}</h1>
-				<h1 class="corpo-informacoes">${professorDados.email}</h1>
+				<h1 class="corpo-informacoes" style="text-transform: none;">${professorDados.email}</h1>
 				<h1 class="corpo-informacoes">5</h1>
 				<form class="form-inline">
 					<select class="periodo-letivo" id="periodo-letivo-professor">
