@@ -30,15 +30,22 @@ function getAllGrupos() {
         data: {},
         type: 'POST',
         success: function (data) {
+            let identificadorDaTrAlunos = 0;
         	for(i = 0; i < data.length; i++) {
 	        	var row = 
 	        		"<tr>" +
 						"<th scope='row'>" + data[i].numero_grupo + "</th> " +
 						"<td>" + data[i].nome + "</td> " +
 						"<td>" + data[i].professor.nome + "</td> " +
-						"<td><a class='effectclick' data-target='#mostraAlunoGrupo' data-toggle='modal'>Ver Alunos</a></td> " +
-					"</tr>";
-	        	$('#tableGrupos>tbody').append(row);
+						`<td><a data-toggle='collapse' data-target='#esconde${identificadorDaTrAlunos}' class='effectclick'>Ver Alunos &or;</a></td> ` +
+                    "</tr>"+
+                    `<tr class='collapse style-alunos' aria-expanded="false" id='esconde${identificadorDaTrAlunos}'>
+                        <th></th>
+                        <td><td>
+                        <td>Izuku Midoriya <br/> Ochako Uraraka<br/> Todoroki shoto<br/> Uzumaki Naruto <td>
+                    </tr>`;
+                $('#tableGrupos>tbody').append(row);
+                identificadorDaTrAlunos++;
         	}
         },
         error: function(data) {

@@ -101,7 +101,7 @@ function montargridAlunos(data) {
 function confirmDeleteAdmin(id){
     Swal.fire({
         title: `Confirmar a exclusao do usuario?`,
-        text: "Voc&ecirc; n&atilde;o vai poder reverter essa altera&ccedil;&atilde;o!",
+        text: "Voce nao vai poder reverter!",
         type: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',

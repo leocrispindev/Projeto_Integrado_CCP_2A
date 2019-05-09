@@ -123,13 +123,14 @@
 						<div class="container-fluid"><table class="table table-dark" id="tableGrupos">
 							<thead>
 								<tr>
-									<th scope="col">N� Grupo</th>
+									<th scope="col">Numero Grupo</th>
 									<th scope="col">Nome Do Grupo</th>
 									<th scope="col">Orientador</th>
 									<th scope="col">Alunos</th>
 								</tr>
 							</thead>
 							<tbody>
+								
 							</tbody>
 						</table>
 					</div>
