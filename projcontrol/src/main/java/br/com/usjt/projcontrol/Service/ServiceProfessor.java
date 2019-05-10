@@ -52,10 +52,5 @@ public class ServiceProfessor implements Serializable {
 		ArrayList<Professor> professores = professorDAO.getProfessores();
 		return professores;
 	}
-	
-	public ArrayList<Professor> getListaProfessoresByPeriodo(int ano, int semestre){
-		ArrayList<Professor> professores = professorDAO.getProfessoresByPeriodo(ano, semestre);
-		return professores;
-	}
 
 }

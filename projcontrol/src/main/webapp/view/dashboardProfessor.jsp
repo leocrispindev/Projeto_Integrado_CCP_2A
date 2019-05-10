@@ -44,12 +44,10 @@
 				</a>
 				<img src="./resources/assets/avatar2.png" id="avatar-usuario" class="avatar-usuario" alt="teste">
 				<h1 class="titulo-informacoes">${professorDados.nome}</h1>
-
 				<h1 class="corpo-informacoes" style="text-transform: none;">${professorDados.email}</h1>
 				<h1 class="corpo-informacoes">5</h1>
-
 				<form class="form-inline">
-					<select class="periodo-letivo" id="periodo-letivo-professor" onchange="tableGruposFiltros()">
+					<select class="periodo-letivo" id="periodo-letivo-professor">
 						<option disabled selected>Per&iacute;odo Letivo</option>
 					</select>
 				</form>
@@ -89,29 +87,26 @@
 			<section class="bloco2 bloco-no-overflow-y bloco-no-overflow-general" id="sass">
 				<div class="contentAvaliacoes">
 					<div class="container-fluid container-settings">
-						<h1 class="titulo-informacoes titulo-top grupo-titulo">Grupos</h1>
+						<h1 class="titulo-informacoes titulo-top grupo-titulo">Grupo</h1>
 						
 						<div class="position-box">
 							
-							<form class="form-inline">
-								<select class="custom-select checkbox-filtro margin-style"  id="grupo-turma-combobox">
-									<option selected>Turma</option>
+							<form class="form-inline" id="grupo-turma-combobox">
+								<select class="custom-select checkbox-filtro margin-style">
+									<option disabled selected>Turma</option>
 								</select>
 							</form>
 							
-							<form class="form-inline">
-								<select class="custom-select checkbox-filtro margin-style"  id="grupo-professor-combobox">
-									<option selected>Professor</option>
+							<form class="form-inline" id="grupo-professor-combobox">
+								<select class="custom-select checkbox-filtro margin-style">
+									<option disabled selected>Professor</option>
 								</select>
-							</form>
-							<form class="form-inline">
-								<button class="btn btn-outline-danger my-2 my-sm-0" type="button" onclick="buscarGrupos()"><i class="fas fa-search"></i></button>
 							</form>
 						</div>
 						<div class="container-fluid"><table class="table table-dark" id="tableGrupos">
 							<thead>
 								<tr>
-									<th scope="col">N&ordm; Grupo</th>
+									<th scope="col">Numero Grupo</th>
 									<th scope="col">Nome Do Grupo</th>
 									<th scope="col">Orientador</th>
 									<th scope="col">Alunos</th>
