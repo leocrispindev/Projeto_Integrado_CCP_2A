@@ -65,7 +65,6 @@ function getListarTurma() {
         data: {},
         type: 'POST',
         success: function (dados) {
-            console.log(dados);
             montarGridTurma(dados);
         },
         error: function(dados) {

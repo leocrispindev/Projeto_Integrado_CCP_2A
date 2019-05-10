@@ -37,4 +37,44 @@ public class ServiceGrupo {
 		
 		return grupos;
 	}
+	
+	public ArrayList<Grupo> getGruposByProfTurma(String professor, String turma) {
+		int turmaId, profId;
+		String filtros = "";
+		
+		if(isValid(turma) && isValid(professor)) {
+			turmaId = Integer.parseInt(turma);
+			filtros = "WHERE t.id = " + turmaId;
+			profId = Integer.parseInt(professor);
+			filtros += " AND p.professor_id = " + profId;
+		} else if(isValid(turma)) {
+			turmaId = Integer.parseInt(turma);
+			filtros = " WHERE t.id = " + turmaId;
+		} else if(isValid(professor)) {
+			profId = Integer.parseInt(professor);
+			filtros = " WHERE p.professor_id = " + profId;
+		} 
+		
+		ArrayList<Grupo> gruposFiltrados = dao.getGruposByTurmaProfessor(filtros);
+		return gruposFiltrados;
+	}
+	
+    private boolean isNullOrEmpty(String s) {
+        return (s == null || s.equals(""));
+    }
+	
+	private boolean isValid(String filtro) {
+		if(filtro.length() <= 0)
+			return false;
+		if(filtro.equals(" "))
+			return false;
+		if(isNullOrEmpty(filtro))
+			return false;
+		if(filtro.equals("Turma"))
+			return false;
+		if(filtro.equals("Professor"))
+			return false;
+			
+		return true;
+	}
 }

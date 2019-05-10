@@ -57,7 +57,7 @@ public class GrupoDAO {
 	}
 
 	public ArrayList<Grupo> getGrupos() {
-		String sql = "SELECT g.*, p.administrador, p.professor_id, p.matricula, u.nome "
+		String sql = "SELECT g.*, p.professor_id, u.nome "
 				+ "FROM grupo g INNER JOIN professor p ON g.orientador_id = p.professor_id "
 				+ "INNER JOIN usuario u ON u.id = p.professor_id;";
 		ArrayList<Grupo> arrayGrupos = new ArrayList<>();
@@ -70,13 +70,12 @@ public class GrupoDAO {
 					Professor professor = new Professor();
 					professor.setId(rs.getInt("p.professor_id"));
 					professor.setNome(rs.getString("u.nome"));
-					professor.setAdm(rs.getBoolean("p.administrador"));
-					professor.setMatricula(rs.getInt("p.matricula"));
 
 					Grupo grupo = new Grupo();
 					grupo.setNome(rs.getString("g.nome"));
 					grupo.setNumero_grupo(rs.getInt("g.numero"));
 					grupo.setProfessor(professor);
+					grupo.setId(rs.getInt("g.id"));
 
 					arrayGrupos.add(grupo);
 				}
@@ -102,6 +101,40 @@ public class GrupoDAO {
 					Grupo grupo = new Grupo();
 					grupo.setId(rs.getInt("g.id"));
 					grupo.setNome(rs.getString("g.nome"));
+					arrayGrupos.add(grupo);
+				}
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return arrayGrupos;
+	}
+	
+	public ArrayList<Grupo> getGruposByTurmaProfessor(String filtros) {
+		String sql = "SELECT g.*, p.professor_id, u.nome FROM grupo g "
+				+ "INNER JOIN professor p ON g.orientador_id = p.professor_id "
+				+ "INNER JOIN usuario u ON u.id = p.professor_id "
+				+ "INNER JOIN turma_aluno ta ON ta.grupo_id = g.id "
+				+ "INNER JOIN turma t ON ta.turma_id = t.id "
+				+ filtros + " GROUP BY g.id;";
+		ArrayList<Grupo> arrayGrupos = new ArrayList<>();
+
+		try (Connection conn = Conexao.getConexaoMYSQL()) {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			try (ResultSet rs = stmt.executeQuery();) {
+				while (rs.next()) {
+
+					Professor professor = new Professor();
+					professor.setId(rs.getInt("p.professor_id"));
+					professor.setNome(rs.getString("u.nome"));
+
+					Grupo grupo = new Grupo();
+					grupo.setNome(rs.getString("g.nome"));
+					grupo.setNumero_grupo(rs.getInt("g.numero"));
+					grupo.setProfessor(professor);
+					grupo.setId(rs.getInt("g.id"));
+
 					arrayGrupos.add(grupo);
 				}
 			}
