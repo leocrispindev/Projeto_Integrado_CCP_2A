@@ -65,11 +65,9 @@ function getListarTurma() {
         data: {},
         type: 'POST',
         success: function (dados) {
-            console.log(dados);
             montarGridTurma(dados);
         },
         error: function(dados) {
-            console.log(dados);
 
             Swal.fire({
                 title: 'Error!',
@@ -83,6 +81,7 @@ function getListarTurma() {
 }
 
 function montarGridTurma(data) {
+
     $('#tableTurma>tbody>tr').remove();
     for(i=0; i<data.length; i++) {
         var row = "<tr>" +
@@ -91,11 +90,85 @@ function montarGridTurma(data) {
                     "<td>" + data[i].turmaTema.titulo + "</td>" +
                     "<td>" + data[i].semestreLetivo + "/" + data[i].anoLetivo + "</td>" +
                     "<td>"+
-                        "<button data-toggle='modal' data-target='#vinculaAlunosTurma' type='button' id='vincular-aluno' class='btn btn-danger btn-sm' onclick=''>Vincular Aluno</button>" +
+                        "<button data-toggle='modal' data-target='#vinculaAlunosTurma' type='button' id='vincular-aluno' class='btn btn-danger btn-sm'  onclick='getAlunoVinculo(" + data[i].semestreLetivo +',' + data[i].anoLetivo + ',' + data[i].codigoIdentificador +")'>Vincular Aluno</button>" +
                         "<button style='margin-left:3px;' data-toggle='modal' data-target='#desvinculaAlunosTurma' type='button' id='vincular-aluno' class='btn btn-primary btn-sm' onclick=''>Desvincular Aluno</button>" +
                         "</td>" +
                 "</tr>";
 
         $('#tableTurma>tbody').append(row);
     }
+}
+
+var turma = 0;
+function getAlunoVinculo(semestreLetivo, anoLetivo, turmaId) {
+    turma = turmaId;
+    ids = [];
+    $.ajax({
+        url: 'entrada?acao=GetAlunosVinculo',
+        data: {semestre: semestreLetivo, ano: anoLetivo},
+        type: 'POST',
+        success: function (data) {
+            for(i=0; i< data.length; i++) {
+              var conteudo = 
+              "<div class='input-group mb-2 check-name-alunos'>" +
+                    "<div class='input-group-prepend'>" +
+                        "<div class='input-group-text'>" +
+                            "<input class='aluno-bug' value='" + data[i].id +"' type='checkbox' onclick='setIdAluno(" + data[i].id +")'>" +
+                        "</div>" +
+                    "</div>" +
+                    "<input type='text' disabled class='form-control aluno-bug' value='" +data[i].nome +"'>"+
+                "</div>";
+
+                $('#modalVinculo').append(conteudo);
+            }
+        },
+        error: function(data) {
+           
+            Swal.fire({
+                title: 'Error!',
+                text: 'Erro ao retornar os dados.Contate o adminstrador do sistema.',
+                type: 'error',
+                confirmButtonText: 'OK'
+            })
+            
+        }
+    });
+    
+}
+
+var ids = [];
+function setIdAluno(id) {
+    ids.push(id);
+    console.log(ids);
+}
+
+function vincularAlunoTurma() {
+    console.log(turma);
+    console.log(ids);
+    $('#campoIdAlunos').val(ids);
+    $.ajax({
+        url: 'entrada?acao=VincularAlunoTurma',
+        data: { alunosIds: $('#campoIdAlunos').val(), turma_id: turma },
+        type: 'POST',
+        success: function (data) {
+
+            Swal.fire({
+                title: data[0],
+                text: data[1],
+                type: data[2],
+                confirmButtonText: 'OK'
+            })
+
+            getAlunos();
+        },
+        error: function (data) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Erro ao retornar os dados.Contate o adminstrador do sistema.',
+                type: 'error',
+                confirmButtonText: 'OK'
+            })
+
+        }
+    });
 }

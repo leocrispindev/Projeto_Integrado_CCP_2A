@@ -35,9 +35,6 @@ public class ServiceAluno extends Validacao implements Serializable{
 		
 	}
 
-	
-	
-	
 	/*public String setUpdate(Aluno aluno) {
 		try {
 			
@@ -118,6 +115,11 @@ public class ServiceAluno extends Validacao implements Serializable{
 		ArrayList<Turma> turmas = new ArrayList<Turma>();
 		turmas = usuarioD.getTurmasByAlunoIdPeriodoLetivo(id, ano, semestre);
 		return turmas;
+	}
+	
+	public ArrayList<Aluno> getAlunosVinculo(Turma turma) {
+		ArrayList<Aluno> arrayAlunos = usuarioD.getAlunosVinculo(turma);
+		return arrayAlunos;
 	}
 
 }

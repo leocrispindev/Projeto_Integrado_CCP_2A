@@ -290,9 +290,9 @@ aria-hidden="true">
 			</div>
 			<div class="modal-body">
 				
-				<div class="contentAlunos">
+				<div class="contentAlunos" id="modalVinculo">
 					
-					<div class="input-group mb-2 check-name-alunos">
+					<!-- <div class="input-group mb-2 check-name-alunos"> 
 						<div class="input-group-prepend">
 							<div class="input-group-text">
 								<input class="aluno-bug" type="checkbox">
@@ -307,12 +307,12 @@ aria-hidden="true">
 							</div>
 						</div>
 						<input type="text" disabled class="form-control aluno-bug" value="${nomeDoAluno}">
-					</div>
+					</div>-->
 				</div>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-				<button type="button" class="btn btn-primary">Salvar Altera&ccedil;&otilde;es</button>
+				<button type="button" class="btn btn-primary" onclick="vincularAlunoTurma()">Salvar Altera&ccedil;&otilde;es </button>
 			</div>
 		</div>
 	</div>
@@ -445,7 +445,7 @@ aria-hidden="true">
 			</div>
 		</div>
 	</div>
-	
+	<input type="hidden" id="campoIdAlunos">
 	<script src="./resources/node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="./resources/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
 	<script src="./resources/js/TelaProfessor/dashBoardAdminTurma.js"></script>
@@ -458,6 +458,7 @@ aria-hidden="true">
 	<script>
 		
 		$(function(){
+			
 			getAlunos();
 			getTemas();
 			getListarTurma();

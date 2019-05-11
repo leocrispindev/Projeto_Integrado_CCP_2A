@@ -182,11 +182,10 @@ public class AlunoDAO {
 	}
 	
 	public ArrayList<Turma> getTurmasByAlunoID(int id) {
-		
-		String sql = "SELECT t.sigla, tm.titulo, tm.introducao FROM turma_aluno aluno "
-				+ "INNER JOIN turma t ON t.id = aluno.turma_id "
-				+ "INNER JOIN tema tm ON tm.id = t.id "
-				+ " WHERE aluno.aluno_id = ?";
+				
+		String sql = "SELECT DISTINCT tur.sigla, te.titulo, te.introducao FROM turma tur "
+				+ " INNER JOIN turma_aluno ta ON ta.turma_id = tur.id " 
+				+ " INNER JOIN tema te ON te.id = tur.tema_id WHERE ta.aluno_id = ?;";
 		
 		ArrayList<Turma> arrayTurmas = null;
 		conexao = new Conexao();
@@ -407,7 +406,6 @@ public class AlunoDAO {
 		return arrayTurmas;
 	}
 
-
 	public ArrayList<Atividade> getAtividadeByAlunoID(int id) {
 		
 		String sql = "SELECT a.id, a.descricao, a.formato_entrega, a.dt_inicio, a.dt_fim, alu.nome, alu.email, alu.id "
@@ -440,6 +438,40 @@ public class AlunoDAO {
 			e.printStackTrace();
 		}
 		return arrayAtividades;
+	}
+	
+	public ArrayList<Aluno> getAlunosVinculo(Turma turma) {
+		String sql = "select DISTINCT u.nome as nome, a.aluno_id as aluno_id, a.ra as ra from aluno a "
+				+ "left join turma_aluno ta on ta.aluno_id = a.aluno_id "
+				+ "left join turma t on t.id = ta.turma_id " + 
+				" INNER JOIN usuario u ON a.aluno_id = u.id " + 
+				"	where t.semestre_letivo <> ?  OR t.ano_letivo <> ?; ";
+		
+		ArrayList<Aluno> arrayAlunos = new ArrayList<>();
+		conexao = new Conexao();
+		
+		try (Connection conn = Conexao.getConexaoMYSQL()) {
+			
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, turma.getSemestreLetivo());
+			stmt.setInt(2, turma.getAnoLetivo());
+			 
+			try (ResultSet rs = stmt.executeQuery();) {
+				while (rs.next()) {
+					Aluno aluno = new Aluno();
+					aluno.setId(rs.getInt("aluno_id"));
+					aluno.setRa(Integer.parseInt(rs.getString("ra")));
+					aluno.setNome(rs.getString("nome"));
+		
+					arrayAlunos.add(aluno);
+				}
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return arrayAlunos;
+
 	}
 }
 

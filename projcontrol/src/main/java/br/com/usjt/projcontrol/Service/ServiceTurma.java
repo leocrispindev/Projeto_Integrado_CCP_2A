@@ -71,5 +71,24 @@ public class ServiceTurma extends Validacao implements Serializable {
 		ArrayList<Turma> periodos = turmaD.getAllPeriodosLetivos();
 		return periodos;
 	}
+	
+	public String[] setVinculoAlunoTurma(String alunosIds, int turmaId) {
+		try {
+			
+			String[] idsString = alunosIds.split(",");
+			
+			int[] ids = new int[idsString.length];
+			
+			for(int i = 0; i < ids.length; i++) {
+				ids[i] = Integer.parseInt(idsString[i]);
+			}
+			
+			turmaD.vinculaAlunoTurma(ids,turmaId);
+			return this.getMensagemSucesso();
+			
+		}catch(Exception e) {
+			return this.getMensagemErro();
+		}
+	}
 
 }

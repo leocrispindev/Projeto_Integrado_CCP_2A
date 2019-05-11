@@ -184,5 +184,29 @@ public class TurmaDAO {
 		}
 		return arrayTurmas;
 	}
+	
+	public void vinculaAlunoTurma(int[] alunosIds, int turmaId) {
+		
+		conexao = new Conexao();
+
+		try (Connection conn = Conexao.getConexaoMYSQL()) {
+
+			String sql = "INSERT INTO turma_aluno (aluno_id, turma_id) VALUES (?, ?)";
+
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			
+			for(int i = 0; i<= alunosIds.length - 1; i++) {
+				stmt.setInt(1, alunosIds[i]);
+				stmt.setInt(2, turmaId);
+				stmt.execute();
+			}
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		} finally {
+			conexao.closeConexaoMYSQL();
+		}
+	} 
 
 }
