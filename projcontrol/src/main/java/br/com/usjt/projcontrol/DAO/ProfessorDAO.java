@@ -144,4 +144,32 @@ public class ProfessorDAO {
 		}
 		return arrayProfessores;
 	}
+	
+	public ArrayList<Professor> getProfessoresByPeriodo(int ano, int semestre) {
+		String sql = "SELECT DISTINCT p.professor_id, u.nome FROM professor p "
+				+ "INNER JOIN usuario u ON p.professor_id = u.id "
+				+ "INNER JOIN grupo g ON g.orientador_id = p.professor_id " 
+				+ "INNER JOIN turma_aluno ta ON ta.grupo_id = g.id "
+				+ "INNER JOIN turma t ON t.id = ta.turma_id "
+				+ "WHERE t.ano_letivo = ? AND t.semestre_letivo = ?;";
+		
+		ArrayList<Professor> arrayProfessores = new ArrayList<>();
+
+		try (Connection conn = Conexao.getConexaoMYSQL()) {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, ano);
+			stmt.setInt(2, semestre);
+			try (ResultSet rs = stmt.executeQuery();) {
+				while (rs.next()) {
+					Professor professor = new Professor();
+					professor.setId(rs.getInt("p.professor_id"));
+					professor.setNome(rs.getString("u.nome"));
+					arrayProfessores.add(professor);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return arrayProfessores;
+	}
 }
