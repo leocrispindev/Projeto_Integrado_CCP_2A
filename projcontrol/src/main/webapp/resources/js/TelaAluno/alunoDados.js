@@ -36,7 +36,7 @@ function filtraGrupos() {
         success: function (data) {
         	for(i = 0; i < data.length; i++) {
 	        	var card = 
-						 "<div class='card text-dark bg-light mb-3 card-margin card-grupo' " + 
+						 "<div class='card text-dark mb-3 card-margin card-grupo' " + 
 							"style='max-width: 50rem;'> " + 
 							" <div class='card-header'>Grupo n&ordm " + data[i].numero_grupo + " <br/>Nome: " + data[i].nome + "</div> " +
 							"<div class='card-body'> " +
@@ -72,7 +72,7 @@ function filtraTurmas() {
         success: function (data) {
         	for(i = 0; i < data.length; i++) {
         		var turmasCard = 
-    					"<div class='card text-dark bg-light mb-3 card-margin' " +
+    					"<div class='card text-dark mb-3 card-margin' " +
     						"> " +
     						"<div class='card-header'>" + data[i].sigla + "</div> " +
     						"<div class='card-body'> " +

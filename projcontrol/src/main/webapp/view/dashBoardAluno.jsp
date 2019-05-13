@@ -131,7 +131,7 @@
 										<fmt:formatDate value="${atividade.getDataFim()}" pattern="dd/MM/yyyy"/>
 									</td>
 									<td><button data-toggle="modal" data-target="#modalEntrega" id="btnEnviarAtividades"
-											type="button" class="btn btn-danger">Enviar Atividade
+											type="button" class="btn btn-sm btn-danger">Enviar Atividade
 									</button></td>
 								</tr>
 							</c:forEach>
