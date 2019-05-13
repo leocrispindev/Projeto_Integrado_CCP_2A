@@ -47,7 +47,7 @@
 				<h1 class="corpo-informacoes" style="text-transform: none;">${professorDados.email}</h1>
 				<h1 class="corpo-informacoes">5</h1>
 				<form class="form-inline">
-					<select class="periodo-letivo" id="periodo-letivo-professor">
+					<select class="periodo-letivo" id="periodo-letivo-professor" onchange="tableGruposFiltros()">
 						<option disabled selected>Per&iacute;odo Letivo</option>
 					</select>
 				</form>
@@ -91,16 +91,20 @@
 						
 						<div class="position-box">
 							
-							<form class="form-inline" id="grupo-turma-combobox">
-								<select class="custom-select checkbox-filtro margin-style">
-									<option disabled selected>Turma</option>
+							<form class="form-inline">
+								<select class="custom-select checkbox-filtro margin-style"  id="grupo-turma-combobox">
+									<option selected>Turma</option>
 								</select>
 							</form>
 							
-							<form class="form-inline" id="grupo-professor-combobox">
-								<select class="custom-select checkbox-filtro margin-style">
-									<option disabled selected>Professor</option>
+							<form class="form-inline">
+								<select class="custom-select checkbox-filtro margin-style" id="grupo-professor-combobox">
+									<option selected>Professor</option>
 								</select>
+							</form>
+							
+							<form class="form-inline">
+								<button class="btn btn-outline-danger my-2 my-sm-0" type="button" onclick="buscarGrupos()"><i class="fas fa-search"></i></button>
 							</form>
 						</div>
 						<div class="container-fluid"><table class="table table-dark" id="tableGrupos">
