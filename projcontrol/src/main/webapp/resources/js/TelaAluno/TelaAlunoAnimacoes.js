@@ -129,5 +129,134 @@ function scrollDetect() {
     
 }
 
+function gerenciar(){
+  let arrays = document.querySelectorAll(".gerenciador > a");
+  let grande = window.matchMedia("(min-width: 768px)");
+  let medio =  window.matchMedia("(min-width: 576px) and (max-width: 767.68px)");
+  let pequeno =  window.matchMedia("(min-width: 200px) and (max-width: 575.68px)");
 
-export{animaAvatar,animaEscritaTexto,scrollDetect,animaDeslogar};
+  
+  for(let i = 0; i < arrays.length; i++){ 
+    arrays[i].addEventListener('click', (event) =>{
+      
+      if(grande.matches){
+        if(event.target.className == 'multiplo1' || event.target.className == 'unico2'){
+          if(event.target.className == 'unico2'){
+            $('.unico2').attr("src", "./resources/assets/baseline_view_list_black_36dp.png");
+            $('.multiplo1').attr("src", "./resources/assets/baseline_view_module_white_36dp.png");
+            $('.card-turma').css('width', '50%');
+          }else if(event.target.className == 'multiplo1'){
+            $('.unico2').attr("src", "./resources/assets/baseline_view_list_white_36dp.png");
+            $('.multiplo1').attr("src", "./resources/assets/baseline_view_module_black_36dp.png");
+            $('.card-turma').css('width', '37%');
+          }
+        }
+        else{
+          if(event.target.className == 'unico4'){
+            $('.unico4').attr("src", "./resources/assets/baseline_view_list_black_36dp.png");
+            $('.multiplo3').attr("src", "./resources/assets/baseline_view_module_white_36dp.png");
+            $('.card-grupo').css('width', '55%');
+          }else if(event.target.className == 'multiplo3'){
+            $('.unico4').attr("src", "./resources/assets/baseline_view_list_white_36dp.png");
+            $('.multiplo3').attr("src", "./resources/assets/baseline_view_module_black_36dp.png");
+            $('.card-grupo').css('width', '37%');
+          }
+        }
+      }else if(medio.matches){
+        if(event.target.className == 'multiplo1' || event.target.className == 'unico2'){
+          if(event.target.className == 'unico2'){
+            $('.unico2').attr("src", "./resources/assets/baseline_view_list_black_36dp.png");
+            $('.multiplo1').attr("src", "./resources/assets/baseline_view_module_white_36dp.png");
+            $('.card-turma').css('width', '60%');
+          }else if(event.target.className == 'multiplo1'){
+            $('.unico2').attr("src", "./resources/assets/baseline_view_list_white_36dp.png");
+            $('.multiplo1').attr("src", "./resources/assets/baseline_view_module_black_36dp.png");
+            $('.card-turma').css('width', '40%');
+          }
+        }
+        else{
+          if(event.target.className == 'unico4'){
+            $('.unico4').attr("src", "./resources/assets/baseline_view_list_black_36dp.png");
+            $('.multiplo3').attr("src", "./resources/assets/baseline_view_module_white_36dp.png");
+            $('.card-grupo').css('width', '70%');
+          }else if(event.target.className == 'multiplo3'){
+            $('.unico4').attr("src", "./resources/assets/baseline_view_list_white_36dp.png");
+            $('.multiplo3').attr("src", "./resources/assets/baseline_view_module_black_36dp.png");
+            $('.card-grupo').css('width', '47%');
+          }
+        }
+      }else if(pequeno.matches){
+        if(event.target.className == 'multiplo1' || event.target.className == 'unico2'){
+          if(event.target.className == 'unico2'){
+            $('.unico2').attr("src", "./resources/assets/baseline_view_list_black_36dp.png");
+            $('.multiplo1').attr("src", "./resources/assets/baseline_view_module_white_36dp.png");
+            $('.card-turma').css('width', '75%');
+          }else if(event.target.className == 'multiplo1'){
+            $('.unico2').attr("src", "./resources/assets/baseline_view_list_white_36dp.png");
+            $('.multiplo1').attr("src", "./resources/assets/baseline_view_module_black_36dp.png");
+            $('.card-turma').css('width', '45%');
+          }
+        }
+        else{
+          if(event.target.className == 'unico4'){
+            $('.unico4').attr("src", "./resources/assets/baseline_view_list_black_36dp.png");
+            $('.multiplo3').attr("src", "./resources/assets/baseline_view_module_white_36dp.png");
+            $('.card-grupo').css('width', '90%');
+          }else if(event.target.className == 'multiplo3'){
+            $('.unico4').attr("src", "./resources/assets/baseline_view_list_white_36dp.png");
+            $('.multiplo3').attr("src", "./resources/assets/baseline_view_module_black_36dp.png");
+            $('.card-grupo').css('width', '85%');
+          }
+        }
+      }
+
+      if(event.target.className == 'brilho1' || event.target.className == 'brilho2'){
+        
+        if(event.target.className == 'brilho2'){
+          
+          if(event.target.src == "http://localhost:8080/projcontrol/resources/assets/baseline_brightness_6_black_36dp.png"){
+            
+            $('#sass .brilho2').attr("src", "./resources/assets/baseline_brightness_6_white_36dp.png");
+            $('#sass .card-header').css('background', 'white');
+            $('#sass .card-header').css('color', 'black');
+            $('#sass .card-text').css('color', 'white');
+            $('#sass .card-body').css('color', 'white');
+            $('#sass .card').css('background', '#2b2e39');
+
+          }else{
+
+            $('#sass .brilho2').attr("src", "./resources/assets/baseline_brightness_6_black_36dp.png");
+            $('#sass .card-header').css('background', '#2b2e39');
+            $('#sass .card-header').css('color', 'white');
+            $('#sass .card-text').css('color', 'black');
+            $('#sass .card-body').css('color', 'black');
+            $('#sass .card').css('background', 'white');
+          }
+        }else{
+
+          if(event.target.src == "http://localhost:8080/projcontrol/resources/assets/baseline_brightness_6_black_36dp.png"){
+            
+            $('#bootstrap .brilho1').attr("src", "./resources/assets/baseline_brightness_6_white_36dp.png");
+            $('#bootstrap .card-header').css('background', 'white');
+            $('#bootstrap .card-header').css('color', 'black');
+            $('#bootstrap .card-text').css('color', 'white');
+            $('#bootstrap .card-body').css('color', 'white');
+            $('#bootstrap .card').css('background', '#2b2e39');
+
+          }else{
+
+            $('#bootstrap .brilho1').attr("src", "./resources/assets/baseline_brightness_6_black_36dp.png");
+            $('#bootstrap .card-header').css('background', '#2b2e39');
+            $('#bootstrap .card-header').css('color', 'white');
+            $('#bootstrap .card-text').css('color', 'black');
+            $('#bootstrap .card-body').css('color', 'black');
+            $('#bootstrap .card').css('background', 'white');
+          }
+        }
+      }  
+    });
+  }
+}
+
+
+export{animaAvatar,animaEscritaTexto,scrollDetect,animaDeslogar,gerenciar};
