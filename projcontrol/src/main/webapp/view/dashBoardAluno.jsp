@@ -62,11 +62,15 @@
 
 			<section class="bloco bloco-no-overflow" id="bootstrap">
 				<h1 class="titulo-informacoes titulo-top">Suas Turmas</h1>
-
+				<div class="gerenciador">
+					<span style="font-weight: .9">Gerenciar</span>
+					<a  title="m&uacute;ltiplas fileiras"><img class="multiplo1" src="./resources/assets/baseline_view_module_black_36dp.png"></a>
+					<a  title="fileira &uacute;nica"><img class="unico2" src="./resources/assets/baseline_view_list_white_36dp.png"><img></a>
+					<a  title="cor"><img class="brilho1"  src="./resources/assets/baseline_brightness_6_black_36dp.png"></a>
+				</div>
 				<div class="dd turma">
 					<c:forEach var="turma" items="${turmasDados}">
-						<div class="card text-dark bg-light mb-3 card-margin"
-							style="max-width: 18rem;">
+						<div class="card card-turma text-dark mb-3 card-margin">
 							<div class="card-header">${turma.getSigla()}</div>
 							<div class="card-body">
 								<h5 class="card-title">${turma.getTurmaTema().getTitulo()}</h5>
@@ -80,9 +84,15 @@
 
 			<section class="bloco " id='sass'>
 				<h1 class="titulo-informacoes titulo-top grupo-titulo">Grupos</h1>
+				<div class="gerenciador">
+					<span style="font-weight: .9">Gerenciar</span>
+					<a  title="m&uacute;ltiplas fileiras"><img class="multiplo3"  src="./resources/assets/baseline_view_module_black_36dp.png"></a>
+					<a  title="fileira &uacute;nica"><img class="unico4"  src="./resources/assets/baseline_view_list_white_36dp.png"><img></a>
+					<a  title="cor"><img class="brilho2"  src="./resources/assets/baseline_brightness_6_black_36dp.png"></a>
+				</div>
 				<div class="dd grupo">
 					<c:forEach var="grupo" items="${gruposDados}">
-						<div class="card text-dark bg-light mb-3 card-margin card-grupo">
+						<div class="card card-grupo text-dark mb-3 card-margin card-grupo">
 							<div class="card-header">Grupo n&deg; ${grupo.getNumero_grupo()}
 								<br/>  Nome: ${grupo.getNome()}</div>
 							<div class="card-body">
