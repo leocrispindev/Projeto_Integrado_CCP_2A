@@ -284,7 +284,7 @@ aria-hidden="true">
 
 <!-- Modal Carregar Alunos Para vincular a turma-->
 <div class="modal fade" id="vinculaAlunosTurma" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+	<div style="margin-top:5%;" class="modal-xl modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title" id="exampleModalScrollableTitle">Vincular Alunos a turma</h5>
@@ -322,9 +322,9 @@ aria-hidden="true">
 	</div>
 </div>
 
-<!-- Modal Carregar Alunos Para vincular a turma-->
+<!-- Modal Carregar Alunos Para Desvincular a turma-->
 <div class="modal fade" id="desvinculaAlunosTurma" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+		<div style="margin-top:5%;" class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalScrollableTitle">Desvincular Alunos a turma</h5>
