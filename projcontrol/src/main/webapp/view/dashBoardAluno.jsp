@@ -49,7 +49,7 @@
 				<h1 class="corpo-informacoes" id="aluno-id" hidden="true">${alunoDados.id}</h1>
 				<form class="form-inline periodo">
 					<select class="periodo-letivo" id="periodo-letivo"
-						onchange="filtraGrupos(); filtraTurmas()">
+						onchange="filtraGrupos(); filtraTurmas(); filtraAtividades()">
 						<option disabled selected>Per&iacute;odo Letivo</option>
 					</select>
 				</form>
@@ -107,7 +107,7 @@
 
 	<section class="bloco bloco-no-overflow-y" id="angular">
 				<h1 class="titulo-informacoes titulo-top">Cronograma</h1>
-					<table class="table table-striped table-dark">
+					<table class="table table-striped table-dark" id="table-atividades">
 						<thead>
 							<tr>
 								<th scope="col">Atividade</th>
@@ -196,6 +196,7 @@
 		<script src="./resources/js/TelaAluno/alunoDados.js"></script>
 		<script src="./resources/bundle.js"></script>
 		<script defer src="./resources/js/all.min.js"></script>
+
 </body>
 
 </html>

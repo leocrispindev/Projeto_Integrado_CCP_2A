@@ -128,6 +128,61 @@ function getIntegrantesDoGrupo(){
     }
 }
 
+function filtraAtividades() {
+
+	var periodo = $('#periodo-letivo').val().split("/");
+	 $('#table-atividades>tbody>tr').remove();
+		
+    $.ajax({
+        url: 'entrada?acao=GetAtividadesByPeriodo',
+        data: {id: $('#aluno-id').text(), anoLetivo: periodo[0], semestreLetivo: periodo[1]},
+        type: 'POST',
+        success: function (data) {
+        	for(let i = 0; i < data.length; i++) {
+            	var row = 								
+    				"<tr> " +
+    					"<th class='numeroAtividade' scope='row'>" + data[i].numero + "</th> " +
+    					"<td class='descAtividade'>" + data[i].descricao + "</td> " +
+    					"<td class='formatoDeEntrega'>" + data[i].formato + "</td> " +
+    					"<td class='dataDePostagem'>" + dateFormat(data[i].dataInicio) + "</td> " +
+    					"<td class='dataDeEntrega'>" + dateFormat(data[i].dataFim) + "</td> " +
+    					"<td><button data-toggle='modal' data-target='#modalEntrega' id='btnEnviarAtividades' " +
+    							"type='button' class='btn btn-sm btn-danger'>Enviar Atividade " +
+    					"</button></td> " +
+    				"</tr>";
+            	$('#table-atividades>tbody').append(row);
+        	}
+        },
+        error: function(data) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Erro ao retornar os dados.Contate o adminstrador do sistema.',
+                type: 'error',
+                confirmButtonText: 'OK'
+            })
+            
+        }
+    });
+}
+
+function dateFormat(inputDate) {
+	var meses = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
+	
+	var data = inputDate.split(" ");
+	
+	var mesStr = data[0];
+	var dia = data[1].substring(0, data[1].length - 1);
+	var ano = data[2];
+	var mes = meses.indexOf(data[0]) + 1;
+	
+	if(mes <= 9)
+		mes = '0' + mes;
+	if(dia <= 9)
+		dia = '0' + dia;
+
+	return dia + "/" + mes + "/" + ano;
+}
+
 
 $(function() {
 	getPeriodoLetivo();
