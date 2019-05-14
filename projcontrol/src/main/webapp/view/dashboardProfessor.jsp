@@ -45,7 +45,6 @@
 				<img src="./resources/assets/avatar2.png" id="avatar-usuario" class="avatar-usuario" alt="teste">
 				<h1 class="titulo-informacoes">${professorDados.nome}</h1>
 				<h1 class="corpo-informacoes" style="text-transform: none;">${professorDados.email}</h1>
-				<h1 class="corpo-informacoes">5</h1>
 				<form class="form-inline">
 					<select class="periodo-letivo" id="periodo-letivo-professor" onchange="tableGruposFiltros()">
 						<option disabled selected>Per&iacute;odo Letivo</option>
@@ -293,25 +292,9 @@ aria-hidden="true">
 				</button>
 			</div>
 			<div class="modal-body">
-				
 				<div class="contentAlunos" id="modalVinculo">
 					
-					<!-- <div class="input-group mb-2 check-name-alunos"> 
-						<div class="input-group-prepend">
-							<div class="input-group-text">
-								<input class="aluno-bug" type="checkbox">
-							</div>
-						</div>
-						<input type="text" disabled class="form-control aluno-bug" value="${nomeDoAluno}">
-					</div>
-					<div class="input-group mb-2 check-name-alunos">
-						<div class="input-group-prepend">
-							<div class="input-group-text">
-								<input class="aluno-bug" type="checkbox">
-							</div>
-						</div>
-						<input type="text" disabled class="form-control aluno-bug" value="${nomeDoAluno}">
-					</div>-->
+					
 				</div>
 			</div>
 			<div class="modal-footer">
