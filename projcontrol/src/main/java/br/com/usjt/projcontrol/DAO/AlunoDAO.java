@@ -440,6 +440,46 @@ public class AlunoDAO {
 		return arrayAtividades;
 	}
 	
+	public ArrayList<Atividade> getAtividadeByAlunoIdPeriodoLetivo(int id, int ano, int semestre) {
+		
+		String sql = "SELECT ati.id, ati.descricao, ati.formato_entrega, ati.dt_inicio, ati.dt_fim, ati.numero "
+				+ "FROM atividade ati INNER JOIN tema te ON ati.tema_id = te.id "
+				+ "INNER JOIN turma t ON t.tema_id = te.id "
+				+ "INNER JOIN turma_aluno ta ON ta.turma_id = t.id "
+				+ "INNER JOIN aluno a ON a.aluno_id = ta.aluno_id "
+				+ "WHERE a.aluno_id = ? AND t.ano_letivo = ? AND t.semestre_letivo = ?;";
+		
+		ArrayList<Atividade> arrayAtividades = new ArrayList<Atividade>();
+		
+		try (Connection conn = Conexao.getConexaoMYSQL()) {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, id);
+			stmt.setInt(2, ano);
+			stmt.setInt(3, semestre);
+			
+			try(ResultSet rs = stmt.executeQuery()) {
+				
+				while(rs.next()) {
+					Atividade atividade = new Atividade();
+					atividade.setAtividadeId(rs.getInt(1));
+					atividade.setDescricao(rs.getString(2));
+					atividade.setFormato(rs.getString(3));		
+					atividade.setDataInicio(rs.getDate(4));
+					atividade.setDataFim(rs.getDate(5));
+					atividade.setNumero(rs.getInt(6));
+					arrayAtividades.add(atividade);
+				}
+				
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return arrayAtividades;
+	}
+	
 	public ArrayList<Aluno> getAlunosVinculo(Turma turma) {
 		String sql = "select DISTINCT u.nome as nome, a.aluno_id as aluno_id, a.ra as ra from aluno a "
 				+ "left join turma_aluno ta on ta.aluno_id = a.aluno_id "
