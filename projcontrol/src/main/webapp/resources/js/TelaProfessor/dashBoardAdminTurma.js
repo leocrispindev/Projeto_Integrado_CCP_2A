@@ -91,7 +91,6 @@ function montarGridTurma(data) {
                     "<td>" + data[i].semestreLetivo + "/" + data[i].anoLetivo + "</td>" +
                     "<td>"+
                         "<button data-toggle='modal' data-target='#vinculaAlunosTurma' type='button' id='vincular-aluno' class='btn btn-danger btn-sm'  onclick='getAlunoVinculo(" + data[i].semestreLetivo +',' + data[i].anoLetivo + ',' + data[i].codigoIdentificador +")'>Vincular Aluno</button>" +
-                        "<button style='margin-left:3px;' data-toggle='modal' data-target='#desvinculaAlunosTurma' type='button' id='vincular-aluno' class='btn btn-primary btn-sm' onclick=''>Desvincular Aluno</button>" +
                         "</td>" +
                 "</tr>";
 

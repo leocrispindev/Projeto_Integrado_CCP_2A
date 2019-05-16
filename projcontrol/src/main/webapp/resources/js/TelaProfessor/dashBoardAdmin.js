@@ -156,6 +156,10 @@ function getDadosAluno(id) {
                 row+= data.turmas[i].sigla + ' ';
             }
             $('#alunoDadosTurmas').text("Turmas: "+row);
+            let dropdown = $("#dropdownTurmas");
+            for(i=0; i<data.turmas.length; i++) {
+                dropdown.append(`<a class="dropdown-item" onclick="modalConfirm()" href="#">${data.turmas[i].sigla}</a>`);
+            }
         },
         error: function(data) {
             Swal.fire({
@@ -167,4 +171,27 @@ function getDadosAluno(id) {
             
         }
     });
+}
+
+
+function modalConfirm(){
+
+    Swal.fire({
+        title: 'Voce tem certeza disso?',
+        text: "Voce nao podera reverter isso!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sim, Desvincular'
+      }).then((result) => {
+        if (result.value) {
+          Swal.fire(
+            'Desvinculado!',
+            'O aluno foi desvinculado a essa turma!.',
+            'success'
+          )
+        }
+      })
+
 }

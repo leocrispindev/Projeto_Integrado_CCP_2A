@@ -100,6 +100,15 @@
 					<input type="password" class="form-control userPasswordRegister"
 						id="userPasswordRegister" required>
 				</div>
+				<div class="form-group">
+					<label for="userPasswordRegister">Confirmar Senha</label> <i hidden
+						id="senhaRequisitosRegistro"
+						title="A senha &eacute; composta por:&#013;M&iacute;nimo 6 Caracteres&#013;Letra Mai&uacute;scula&#013;Letra Min&uacute;scula&#013; Caracter Especial&#013;N&uacute;mero"
+						class="fas fa-info-circle password-warn senhaRequisitosRegistro"></i>
+					<input type="password" class="form-control userPasswordRegister"
+						id="userPasswordRegisterConfirm" required>
+						<small id="smallAlert" hidden style="color:lightcoral">Suas Senhas s&atildeo diferentes</small>
+				</div>
 				<br />
 				<button type="button"
 					class="btn btn-secondary btn-xl btn-block returnBtn">Retornar</button>

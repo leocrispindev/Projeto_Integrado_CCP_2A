@@ -5,7 +5,7 @@ function mudaParaTelaDeRegistro(){
         
         $("#form-registro").removeAttr("hidden");
 
-        $(".center-box").css("height","500px");
+        $(".center-box").css("height","550px");
         
         $(".returnBtn").on("click",(e)=>{
             e.preventDefault();
@@ -133,6 +133,20 @@ function verificaCargo(){
     });
 }
 
+function verificaSenha(){
+    let alert = $("#smallAlert");
+    let passwordConfirm = $("#userPasswordRegisterConfirm");
+    let password = $("#userPasswordRegister");
+
+    passwordConfirm.on("input",()=>{
+        if(passwordConfirm.val() != password.val()){
+            alert.removeAttr("hidden");
+        }else{
+            alert.attr("hidden","true");
+        }
+    });
+}
+
 export{verificaCargo};
 export{timeAlerta};
 export{mudaParaTelaDeRegistro};
@@ -141,3 +155,4 @@ export{textoRecuperarSenha};
 export{capsLock};
 export{validaEmail};
 export{validaSenha};
+export{verificaSenha};

@@ -4,7 +4,7 @@ import {bootstrap} from 'bootstrap';
 // PELO AMOR DE DEUS NAO MEXA NISSO OBRIGADO
 
 import {capsLock, validaEmail, validaSenha, textoRecuperarSenha, 
-    habilitaBotoes, mudaParaTelaDeRegistro, timeAlerta, verificaCargo} from './TelaLogin/TelaLoginAnimacoes';
+    habilitaBotoes, mudaParaTelaDeRegistro, timeAlerta, verificaCargo, verificaSenha} from './TelaLogin/TelaLoginAnimacoes';
 
 capsLock();
 validaEmail("#userEmail");
@@ -63,4 +63,6 @@ filtraNomes();
 enableLightMode();
 
 closeModal();
+
+verificaSenha();
 

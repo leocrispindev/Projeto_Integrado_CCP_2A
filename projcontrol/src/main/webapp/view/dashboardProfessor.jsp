@@ -305,46 +305,6 @@ aria-hidden="true">
 	</div>
 </div>
 
-<!-- Modal Carregar Alunos Para Desvincular a turma-->
-<div class="modal fade" id="desvinculaAlunosTurma" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-		<div style="margin-top:5%;" class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalScrollableTitle">Desvincular Alunos a turma</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					
-					<div class="contentAlunos">
-						
-						<div class="input-group mb-2 check-name-alunos">
-							<div class="input-group-prepend">
-								<div class="input-group-text">
-									<input class="aluno-bug" type="checkbox">
-								</div>
-							</div>
-							<input type="text" disabled class="form-control aluno-bug" value="${nomeDoAluno}">
-						</div>
-						<div class="input-group mb-2 check-name-alunos">
-							<div class="input-group-prepend">
-								<div class="input-group-text">
-									<input class="aluno-bug" type="checkbox">
-								</div>
-							</div>
-							<input type="text" disabled class="form-control aluno-bug" value="${nomeDoAluno}">
-						</div>
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-					<button type="button" class="btn btn-primary">Salvar Altera&ccedil;&otilde;es</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
 
 <!-- MODAL CRUD ALUNOS -->
 <div class="modal fade" id="modal-alunos-crud" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -397,7 +357,15 @@ aria-hidden="true">
 				<h1 class="corpo-informacoes info-dark style-aluno-text" id="alunoDadosEMAIL"></h1>
 				<h1 class="corpo-informacoes info-dark style-aluno-text" id="alunoDadosGRUPO"></h1>
 				<h1 class="corpo-informacoes info-dark style-aluno-text" id="alunoDadosQtdTurmas"></h1>
-				<h1 class="corpo-informacoes info-dark style-aluno-text" id="alunoDadosTurmas"></h1>
+				<h1 style="text-transform: uppercase;" class="corpo-informacoes info-dark style-aluno-text" id="alunoDadosTurmas"></h1>
+				<div style="margin-bottom:2%; display: inline;" title="Desvincular Aluno a Turma" class="btn-group corpo-informacoes">
+					<button title="Desvincular Aluno a Turma" type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i title="Desvincular Aluno a Turma" class="fas fa-unlock"></i>
+					</button>
+					<div id="dropdownTurmas" title="Desvincular Aluno a Turma" class="dropdown-menu">
+					  
+					</div>
+				  </div>
 				<button type="button" id="close-modal" class="btn btn-danger">Ok!</button>
 			</div>
 		</div>
@@ -432,6 +400,8 @@ aria-hidden="true">
 			</div>
 		</div>
 	</div>
+
+	</div>
 	<input type="hidden" id="campoIdAlunos">
 	<script src="./resources/node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="./resources/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
@@ -452,5 +422,6 @@ aria-hidden="true">
 		});
 		
 	</script>
+
 </body>
 </html>
