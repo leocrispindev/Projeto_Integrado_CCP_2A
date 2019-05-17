@@ -45,7 +45,7 @@ public class TurmaDAO {
 
 		try (Connection conn = Conexao.getConexaoMYSQL()) {
 
-			String sql = "DELETE FROM turma WHERE codigoIdentificador = ?";
+			String sql = "DELETE FROM turma WHERE id = ?";
 
 			PreparedStatement stmt = conn.prepareStatement(sql);
 

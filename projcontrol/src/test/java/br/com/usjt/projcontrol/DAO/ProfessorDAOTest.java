@@ -64,7 +64,7 @@ class ProfessorDAOTest {
 	
 	@Test
 	void testDeleteProfessor() {
-		professor.setEmail("prof.thiago@teste.com");
+		professor.setEmail("prof.danilo@teste.com");
 		professor.setSenha("Professor123@");
 		professor = dao.loginProfessor(professor);
 		
