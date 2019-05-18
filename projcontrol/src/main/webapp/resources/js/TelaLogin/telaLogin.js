@@ -52,8 +52,8 @@ function enviaEmailPosRegistro(email,nome){
             
             console.log(data);
             Toast.fire({
-                type: 'success',
-                title: data[0] + " Enviamos um email para o endere&ccedilo cadastrado!"
+                type: data[2],
+                title: data[1]
             })
             
         },

@@ -137,7 +137,7 @@ public class ServiceJavaMailApp {
 			System.out.println("Feito!!!");
 
 		} catch (MessagingException e) {
-			throw new RuntimeException(e);
+			System.out.println("Timeout ou Ausência de Conexão com internet Não foi Possivel mandar o e-mail: ");;
 		}
 		
 //		System.out.println("seu retornador " + retornador[0]);
