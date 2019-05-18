@@ -5,12 +5,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
 import br.com.usjt.projcontrol.model.Aluno;
+import br.com.usjt.projcontrol.model.Grupo;
 import br.com.usjt.projcontrol.model.Turma;
 /**
  * Testes persistência com o JUnit tendem a sofrer erros quando executados mais de uma vez
@@ -24,83 +24,149 @@ import br.com.usjt.projcontrol.model.Turma;
 class AlunoDAOTest {
 	
 	private AlunoDAO dao;
-	private Aluno aluno1, aluno2;
+	private Aluno aluno, alunoLogin;
 	private static int id;
 	
 	@BeforeEach
 	void setUp() throws Exception {
 		dao = new AlunoDAO();
-		aluno1 = new Aluno();
-		aluno2 = new Aluno();
+		aluno = new Aluno();
+		alunoLogin = new Aluno();
 		
-		aluno1.setId(id);
-		aluno1.setRa(Integer.MAX_VALUE);
-		aluno1.setNome("Joaquim do Insert");
-		aluno1.setEmail("test01@hotmail.com");
-		aluno1.setSenha("AlunoTest123@");
+		aluno.setId(id);
+		aluno.setRa(Integer.MAX_VALUE);
+		aluno.setNome("Jonathan Joestar");
+		aluno.setEmail("jon_test@hotmail.com");
+		aluno.setSenha("USJT@2019");
 		
-		aluno2.setEmail("test01@hotmail.com");
-		aluno2.setSenha("AlunoTest123@");
+		alunoLogin.setEmail("jon_test@hotmail.com");
+		alunoLogin.setSenha("USJT@2019");
 	}
 	
 	@Test
 	void test01Insert() {
-		dao.cadastrarAluno(aluno1);
+		dao.cadastrarAluno(aluno);
 		id = dao.getUsuarioID();
-		aluno1.setId(id);
+		aluno.setId(id);
 		
-		assertEquals(aluno1.getId(), dao.getUsuarioID());	
-		System.out.println("Insert:" + aluno1);
+		alunoLogin = dao.loginAluno(alunoLogin);
+		
+		assertEquals(aluno.getId(), alunoLogin.getId());	
+		System.out.println("Insert:" + aluno);
 	}
 	
 	@Test
 	void test02Login() {
-		aluno2 = dao.loginAluno(aluno2);
+		alunoLogin = dao.loginAluno(alunoLogin);
 		
-		assertEquals(aluno1, aluno2);
-		System.out.println("Login:" + aluno2);
+		assertEquals(aluno, alunoLogin);
+		System.out.println("Login:" + alunoLogin);
 	}
 	
 	@Test
 	void test03Update() {
-		aluno2 = dao.loginAluno(aluno2);
+		String email = "joestar_update@gmail.com";
+		String senha = "saojudas@2019";
+		aluno.setSenha(senha);
+		aluno.setEmail(email);
+		dao.updateAluno(aluno);
 		
-		String email = "update@gmail.com";
-		aluno2.setEmail(email);
-		dao.updateAluno(aluno2);
+		alunoLogin = dao.loginAluno(aluno);
 		
-		assertEquals(email, dao.loginAluno(aluno2).getEmail());
-		System.out.println("Update:" + aluno2);
+		assertEquals(aluno, alunoLogin);
+		System.out.println("Update:" + alunoLogin);
 	}
 	
 	@Test
-	@Disabled("Cannot delete or update a parent row: a foreign key constraint fails")
 	void test04Delete() {
-		aluno1 = null;
-		aluno2.setEmail("update@gmail.com");
-		aluno2.setSenha("AlunoTest123@");
-		aluno2 = dao.loginAluno(aluno2);
-		dao.deleteAluno(aluno2.getId());
+		aluno = null;
 		
-		assertEquals(aluno1, aluno2);
-		System.out.println("Delete:" + aluno2);
+		alunoLogin.setEmail("joestar_update@gmail.com");
+		alunoLogin.setSenha("saojudas@2019");
+		alunoLogin = dao.loginAluno(alunoLogin);
+		
+		boolean deletado = dao.deleteAluno(alunoLogin.getId());
+		
+		alunoLogin = dao.loginAluno(alunoLogin);
+		
+		assertEquals(true, deletado);
+		assertEquals(0, alunoLogin.getId());
+		System.out.println("Delete:" + alunoLogin);
 	}
 	
 	@Test
-	void test05ArrayDeTurmasPorAlunoId() {
-		Aluno a = new Aluno();
-		a.setEmail("martin@hotmail.com");
-		a.setSenha("Aluno123@");
-		a = dao.loginAluno(a);
+	void test05TurmasPorAlunoId() {
+		Aluno alunoMartin = new Aluno();
+		alunoMartin.setEmail("martin@hotmail.com");
+		alunoMartin.setSenha("Aluno123@");
+		alunoMartin = dao.loginAluno(alunoMartin);
 		
-		ArrayList<Turma> lista = new ArrayList<Turma>();
-		lista = dao.getTurmasByAlunoID(a.getId());
+		ArrayList<Turma> lista = dao.getTurmasByAlunoID(alunoMartin.getId());
 		
 		String sigla = "CCP1AN-MCA";
 		
 		assertEquals(sigla, lista.get(0).getSigla());
-		for(int i = 0; i < lista.size(); i++) {
-			System.out.println(lista.get(i).getSigla() + " | " + lista.get(i).getTurmaTema().getTitulo() + " | " + lista.get(i).getTurmaTema().getIntroducao());
+		
+		for (Turma turma : lista) {
+			System.out.println(turma.getSigla() + " | " 
+					+ turma.getTurmaTema().getTitulo() + " | " 
+					+ turma.getTurmaTema().getIntroducao());
 		}
+	}
+	
+	@Test
+	void test06ListarAllAlunos() {
+		ArrayList<Aluno> allAlunos = dao.getAllAlunos();
+		int tamanho = allAlunos.size();
+		
+		assertEquals(81811011, allAlunos.get(0).getRa());
+		assertEquals(81811110, allAlunos.get(tamanho - 1).getRa());
+	}
+	
+	@Test
+	void test07DadosByAlunoId() {
+		Aluno alunoDados = dao.getDadosAlunoById(11);
+		System.out.println("Dados por ID: " + alunoDados);
+		
+		Aluno alunoTest = new Aluno();
+		alunoTest.setEmail("martin@hotmail.com");
+		
+		assertEquals(alunoTest.getEmail(), alunoDados.getEmail());
+	}
+	
+	@Test
+	void test08GruposByAlunoId() {
+		ArrayList<Grupo> grupos = dao.getGruposByAlunoId(11);
+		
+		assertEquals(1, grupos.get(0).getId());
+		assertEquals(6, grupos.get(1).getId());
+		assertEquals(11, grupos.get(2).getId());
+		assertEquals(16, grupos.get(3).getId());
+	}
+	
+	@Test
+	void test09AlunosByGruposId() {
+		ArrayList<Aluno> listaAlunos = dao.getAlunosByGrupoId(1);
+		
+		assertEquals(81811011, listaAlunos.get(0).getRa());
+		assertEquals(81811012, listaAlunos.get(1).getRa());
+		assertEquals(81811013, listaAlunos.get(2).getRa());
+	}
+	
+	@Test
+	void test10PeriodoLetivoByAlunoId() {
+		Aluno alunoTest = new Aluno();
+		alunoTest.setId(12);
+		ArrayList<Turma> periodos = dao.getPeriodoLetivoByAlunoId(alunoTest);
+		
+		assertEquals(2018, periodos.get(0).getAnoLetivo());
+	}
+	
+	@Test
+	void test11TurmasByAlunoIdPeriodo() {
+		ArrayList<Turma> listaTurmas = dao.getTurmasByAlunoIdPeriodoLetivo(11, 2019, 1);
+		assertEquals("CCP2AN-MCA", listaTurmas.get(0).getSigla());
+		assertEquals("Projeto Integrado", listaTurmas.get(0).getTurmaTema().getTitulo());
+		assertEquals("Desenvolver projeto integrando conteúdo de todo o semestre.", listaTurmas.get(0).getTurmaTema().getIntroducao());
 	}
 }

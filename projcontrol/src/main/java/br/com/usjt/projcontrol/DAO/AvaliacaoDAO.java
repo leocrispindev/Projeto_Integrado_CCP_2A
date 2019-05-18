@@ -118,23 +118,19 @@ public class AvaliacaoDAO {
 		try (Connection conn = Conexao.getConexaoMYSQL()) {
 
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			ResultSet rs = stmt.executeQuery();
-
-			while (rs.next()) {
-				Avaliacao ava = new Avaliacao();
-				Turma t = new Turma();
-				t.setAnoLetivo(rs.getInt("ano_letivo"));
-				t.setSemestreLetivo(rs.getInt("semestre_letivo"));
-				ava.setTurma(t);
-				arrayAvaliacoes.add(ava);	
+			try(ResultSet rs = stmt.executeQuery()) {
+				while (rs.next()) {
+					Avaliacao ava = new Avaliacao();
+					Turma t = new Turma();
+					t.setAnoLetivo(rs.getInt("ano_letivo"));
+					t.setSemestreLetivo(rs.getInt("semestre_letivo"));
+					ava.setTurma(t);
+					arrayAvaliacoes.add(ava);	
+				}
 			}
-
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			conexao.closeConexaoMYSQL();
-		}
-
+		} 
 		return arrayAvaliacoes;
 	}
 	
