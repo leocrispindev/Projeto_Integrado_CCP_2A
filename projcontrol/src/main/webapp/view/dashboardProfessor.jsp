@@ -45,17 +45,12 @@
 				<img src="./resources/assets/avatar2.png" id="avatar-usuario" class="avatar-usuario" alt="teste">
 				<h1 class="titulo-informacoes">${professorDados.nome}</h1>
 				<h1 class="corpo-informacoes" style="text-transform: none;">${professorDados.email}</h1>
-				<form class="form-inline">
-					<select class="periodo-letivo" id="periodo-letivo-professor" onchange="tableGruposFiltros()">
-						<option disabled selected>Per&iacute;odo Letivo</option>
-					</select>
-				</form>
 				<a title="Deslogar" href="entrada?acao=Logout" class="deslogar"><i class="deslogarFas fas fa-door-closed" style="font-size: 40px; color: #fff;"></i></a>
 			</section>
 			
 			
-			<section class="bloco bloco-no-overflow" id="bootstrap">
-				<h1 class="titulo-informacoes titulo-top">Suas Turmas</h1>
+			<section class="bloco2 bloco-auto-overflow bloco-no-overflow" id="bootstrap">
+				<h1 style="margin-top:120px;" class="titulo-informacoes titulo-top">Suas Turmas</h1>
 				<div class="contentAvaliacoes">
 					<div class="container-fluid">
 						<table class="table table-dark" id="tableTurma">

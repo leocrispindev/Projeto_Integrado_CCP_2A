@@ -157,6 +157,10 @@
     opacity: 1;
 }
 
+.bloco-auto-overflow{
+    overflow-y: auto!important;
+}
+
 .modal{
     overflow-y: auto!important; 
 }
@@ -528,6 +532,7 @@ input[type="number"] {
 
 .modal-dark{
     background: #343a40;
+    overflow-x: auto;
 }
 
 .light-mode-text{
