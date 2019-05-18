@@ -10,23 +10,49 @@ import br.com.usjt.projcontrol.model.Avaliacao;
 class AvaliacaoDAOTest {
 	
 	private AvaliacaoDAO dao;
-	private ArrayList<Avaliacao> lista;
 
 	@BeforeEach
 	void setUp() throws Exception {
 		dao = new AvaliacaoDAO();
-		lista = new ArrayList<Avaliacao>();
 	}
 
 	@Test
-	void testArrayDeAvaliacoes() {
-		lista = dao.getAvaliacoes();
+	void testGetAvaliacoesComFiltro() {
+		String filtros = " ";
+		ArrayList<Avaliacao> lista = dao.getAvaliacoes(filtros);
 		
 		assertEquals(1, lista.get(0).getAvaliacaoId());
-		assertEquals(10.00, lista.get(0).getNota());
+		assertEquals("CCP1AN-MCA", lista.get(0).getTurma().getSigla());
+		assertEquals("Professor Keity", lista.get(0).getGrupo().getProfessor().getNome());
 		
-		assertEquals(2, lista.get(1).getAvaliacaoId());
-		assertEquals(9.50, lista.get(1).getNota());
+		filtros = "WHERE Ta.turma_id = 1 ";
+		lista = dao.getAvaliacoes(filtros);
+		
+		assertEquals(1, lista.get(0).getAvaliacaoId());
+		assertEquals("CCP1AN-MCA", lista.get(0).getTurma().getSigla());
+		assertEquals("Professor Keity", lista.get(0).getGrupo().getProfessor().getNome());
+		
+		filtros += " AND P.professor_id = 1 ";
+		lista = dao.getAvaliacoes(filtros);
+		
+		assertEquals(1, lista.get(0).getAvaliacaoId());
+		assertEquals("CCP1AN-MCA", lista.get(0).getTurma().getSigla());
+		assertEquals("Professor Keity", lista.get(0).getGrupo().getProfessor().getNome());
+		
+		filtros += " AND G.id = 1 ";
+		lista = dao.getAvaliacoes(filtros);
+		
+		assertEquals(1, lista.get(0).getAvaliacaoId());
+		assertEquals("CCP1AN-MCA", lista.get(0).getTurma().getSigla());
+		assertEquals("Professor Keity", lista.get(0).getGrupo().getProfessor().getNome());
+	}
+	
+	@Test
+	void testgetAvaliacoesByDate() {
+		ArrayList<Avaliacao> listaByDate = dao.getAvaliacoesByDate();
+		
+		assertEquals(2018, listaByDate.get(0).getTurma().getAnoLetivo());
+		assertEquals(1, listaByDate.get(0).getTurma().getSemestreLetivo());
 	}
 	
 }
