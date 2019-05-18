@@ -278,11 +278,12 @@ aria-hidden="true">
 
 <!-- Modal Carregar Alunos Para vincular a turma-->
 <div class="modal fade" id="vinculaAlunosTurma" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-	<div style="margin-top:5%;" class="modal-xl modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+	<div class="modal-xl responsive-modal-aluno-turma modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title" id="exampleModalScrollableTitle">Vincular Alunos a turma</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<input class="form-control mr-sm-2 input-aluno-search input-search-aluno-turma" type="search" id="filtra-nomes-checkbox" placeholder="Digite o nome do aluno" aria-label="Search">
+				<button type="button" id="resetaCheck" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>

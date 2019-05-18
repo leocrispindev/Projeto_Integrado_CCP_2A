@@ -638,6 +638,15 @@ input[type="number"] {
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.6);
 }
 
+.input-search-aluno-turma{
+    width: 200px!important;
+    margin-left:1%;
+}
+
+.responsive-modal-aluno-turma{
+    margin-top: 100px;
+}
+
 @media only screen and (min-width: 200px) and (max-width: 575.98px) {
     .table{
         font-size: 14.5px;
@@ -750,6 +759,10 @@ input[type="number"] {
 
     .container-settings{
         margin-left: 2%;
+    }
+
+    .responsive-modal-aluno-turma{
+        margin-top: 5%;
     }
 }
 

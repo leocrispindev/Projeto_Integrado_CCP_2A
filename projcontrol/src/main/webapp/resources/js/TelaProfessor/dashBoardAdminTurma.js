@@ -111,11 +111,11 @@ function getAlunoVinculo(semestreLetivo, anoLetivo, turmaId) {
               var conteudo = 
               "<div class='input-group mb-2 check-name-alunos'>" +
                     "<div class='input-group-prepend'>" +
-                        "<div class='input-group-text'>" +
-                            "<input class='aluno-bug' value='" + data[i].id +"' type='checkbox' onclick='setIdAluno(" + data[i].id +")'>" +
+                        "<div style='display:flex!important' class='input-group-text'>" +
+                            "<input id='input-checkBox' class='aluno-bug' value='" + data[i].id +"' type='checkbox' onclick='setIdAluno(" + data[i].id +")'>" +
                         "</div>" +
                     "</div>" +
-                    "<input type='text' disabled class='form-control aluno-bug' value='" +data[i].nome +  ' (RA) ' + data[i].ra + "'>"+
+                    "<input type='text' disabled class='form-control aluno-bug nomeAlunoFiltro' value='" +data[i].nome +  ' (RA) ' + data[i].ra + "'>"+
                 "</div>";
 
                 $('#modalVinculo').append(conteudo);
@@ -171,3 +171,48 @@ function vincularAlunoTurma() {
         }
     });
 }
+
+function filtraNomesCheckbox(){
+    var filtro = document.querySelector("#filtra-nomes-checkbox");
+
+    filtro.addEventListener("input", function(){
+        var alunos = document.querySelectorAll('.aluno-bug');        
+        var boxes = document.querySelectorAll("#input-checkBox");
+
+        if( this.value.length > 0){
+            for(var i = 0; i < alunos.length; i++){
+                var aluno = alunos[i];       
+                var nome = aluno.value;
+                var expressao = new RegExp(this.value,"i");
+                if( !expressao.test(nome)){
+                    aluno.parentNode.classList.add("invisivel");              
+                }else{
+                    aluno.parentNode.classList.remove("invisivel");   
+                }
+            }
+        }else{
+            for(var i = 0; i < alunos.length; i++){
+                var aluno = alunos[i];
+                aluno.parentNode.classList.remove("invisivel");
+            }
+        }
+        
+    });
+}
+
+function resetaCheckbox(){
+
+    document.querySelector("#resetaCheck").addEventListener("click",()=>{
+        document.querySelector("#filtra-nomes-checkbox").value = "";
+        let alunos = document.querySelectorAll(".aluno-bug");
+        for(var i = 0; i < alunos.length; i++){
+            alunos[i].checked = false;
+        }
+    });
+
+}
+
+$(window).on("load",()=>{
+    resetaCheckbox();
+    filtraNomesCheckbox()
+});
