@@ -76,11 +76,11 @@
 					</div>
 				</div>
 				
-				
-				<div class="card text-dark bg-light mb-3 button-right btn-delete" title="Excluir turma" style="max-width: 18rem;"></div>
-				<div data-toggle="modal" data-target="#modal-crud-turma" title="Criar turma" class="card text-dark bg-light mb-3 button-right" style="max-width: 18rem;"></div>
-				<!-- <div data-toggle="modal" data-target="#vinculaAlunosTurma" title="Vincular Alunos a turma" class="card text-dark bg-light mb-3 button-aluno" style="max-width: 18rem;"><i class="fas fa-user-graduate btn-right-aluno"></i></div> -->
-				
+				<div class="btn-turma">
+					<div class="card text-dark bg-light mb-3 button-right btn-delete" title="Excluir turma" style="max-width: 18rem;"></div>
+					<div data-toggle="modal" data-target="#modal-crud-turma" title="Criar turma" class="card text-dark bg-light mb-3 button-right" style="max-width: 18rem;"></div>
+					<!-- <div data-toggle="modal" data-target="#vinculaAlunosTurma" title="Vincular Alunos a turma" class="card text-dark bg-light mb-3 button-aluno" style="max-width: 18rem;"><i class="fas fa-user-graduate btn-right-aluno"></i></div> -->
+				</div>
 			</section>
 
 			<section class="bloco2 bloco-no-overflow-y bloco-no-overflow-general" id="sass">
