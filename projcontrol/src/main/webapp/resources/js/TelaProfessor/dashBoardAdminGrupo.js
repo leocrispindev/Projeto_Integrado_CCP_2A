@@ -44,7 +44,7 @@ function montargridGruposFiltrados(data) {
 }
 
 function getPeriodoProfessor() {
-	onLoad = document.getElementById('periodo-letivo-professor').options[0].selected = 'selected';
+	//onLoad = document.getElementById('periodo-letivo-professor').options[0].selected = 'selected';
     $.ajax({
         url: 'entrada?acao=GetPeriodoLetivo',
         data: {},

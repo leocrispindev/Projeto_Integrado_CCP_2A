@@ -115,7 +115,7 @@ function getAlunoVinculo(semestreLetivo, anoLetivo, turmaId) {
                             "<input class='aluno-bug' value='" + data[i].id +"' type='checkbox' onclick='setIdAluno(" + data[i].id +")'>" +
                         "</div>" +
                     "</div>" +
-                    "<input type='text' disabled class='form-control aluno-bug' value='" +data[i].nome +"'>"+
+                    "<input type='text' disabled class='form-control aluno-bug' value='" +data[i].nome +  ' (RA) ' + data[i].ra + "'>"+
                 "</div>";
 
                 $('#modalVinculo').append(conteudo);

@@ -90,5 +90,33 @@ public class ServiceTurma extends Validacao implements Serializable {
 			return this.getMensagemErro();
 		}
 	}
+	
+	public String[] setDesvincularAlunoTurma(int idAluno, int idTurma) {
+		try {
+			
+			
+			if(turmaD.desvinculaAlunoTurma(idAluno,idTurma)) {
+				return this.getMensagemSucesso();
+				
+			}else {
+				return this.getMensagemErroSQLCatch();
+			}
+			
+			
+		}catch(Exception e) {
+			return this.getMensagemErro();
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

@@ -208,5 +208,44 @@ public class TurmaDAO {
 			conexao.closeConexaoMYSQL();
 		}
 	} 
+	
+	
+public boolean desvinculaAlunoTurma(int idAluno, int idTurma) {
+		
+		conexao = new Conexao();
+
+		try (Connection conn = Conexao.getConexaoMYSQL()) {
+
+			String sql = "DELETE FROM turma_aluno WHERE aluno_id = ? AND turma_id = ?";
+
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			
+			stmt.setInt(1, idAluno);
+			stmt.setInt(2, idTurma);
+			stmt.execute();
+		
+			return true;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+			return false;
+			
+		} finally {
+			conexao.closeConexaoMYSQL();
+		}
+	} 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

@@ -183,7 +183,7 @@ public class AlunoDAO {
 	
 	public ArrayList<Turma> getTurmasByAlunoID(int id) {
 				
-		String sql = "SELECT DISTINCT tur.sigla, te.titulo, te.introducao FROM turma tur "
+		String sql = "SELECT DISTINCT tur.sigla, te.titulo, te.introducao, tur.id as turma_id FROM turma tur "
 				+ " INNER JOIN turma_aluno ta ON ta.turma_id = tur.id " 
 				+ " INNER JOIN tema te ON te.id = tur.tema_id WHERE ta.aluno_id = ?;";
 		
@@ -206,7 +206,7 @@ public class AlunoDAO {
 					Turma turma = new Turma();
 					turma.setSigla(result.getString(1));
 					turma.setTurmaTema(tema);
-				
+					turma.setCodigoIdentificador(Integer.parseInt(result.getString("turma_id")));
 					arrayTurmas.add(turma);
 				}
 				
@@ -368,7 +368,7 @@ public class AlunoDAO {
 	}
 	
 	public ArrayList<Turma> getTurmasByAlunoIdPeriodoLetivo(int id, int ano, int semestre) {
-		String sql = "SELECT t.sigla, tm.titulo, tm.introducao FROM turma_aluno aluno "
+		String sql = "SELECT t.sigla, tm.titulo, tm.introducao, t.id as turma_id FROM turma_aluno aluno "
 				+ "INNER JOIN turma t ON t.id = aluno.turma_id "
 				+ "INNER JOIN tema tm ON tm.id = t.id "
 				+ " WHERE aluno.aluno_id = ? and t.ano_letivo = ? and t.semestre_letivo = ?;";
@@ -392,7 +392,8 @@ public class AlunoDAO {
 					Turma turma = new Turma();
 					turma.setSigla(rs.getString(1));
 					turma.setTurmaTema(tema);
-				
+					turma.setCodigoIdentificador(Integer.parseInt(rs.getString("turma_id")));
+					
 					arrayTurmas.add(turma);
 				}
 				
@@ -485,7 +486,7 @@ public class AlunoDAO {
 				+ "left join turma_aluno ta on ta.aluno_id = a.aluno_id "
 				+ "left join turma t on t.id = ta.turma_id " + 
 				" INNER JOIN usuario u ON a.aluno_id = u.id " + 
-				"	where t.semestre_letivo <> ?  OR t.ano_letivo <> ?; ";
+				"	where (t.semestre_letivo <> ?  AND t.ano_letivo <> ?) OR (t.semestre_letivo is null AND t.ano_letivo is null);";
 		
 		ArrayList<Aluno> arrayAlunos = new ArrayList<>();
 		conexao = new Conexao();

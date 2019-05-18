@@ -147,7 +147,7 @@ function getDadosAluno(id) {
         data: {usu_id: id},
         type: 'POST',
         success: function (data) {
-
+          
             $('#alunoDadosRA').text("RA: "+data.ra);
             $('#alunoDadosNOME').text(data.nome);
             $('#alunoDadosEMAIL').text(data.email);
@@ -158,7 +158,7 @@ function getDadosAluno(id) {
             $('#alunoDadosTurmas').text("Turmas: "+row);
             let dropdown = $("#dropdownTurmas");
             for(i=0; i<data.turmas.length; i++) {
-                dropdown.append(`<a class="dropdown-item" onclick="modalConfirm()" href="#">${data.turmas[i].sigla}</a>`);
+                dropdown.append(`<a class="dropdown-item" onclick="modalConfirm(${data.id}, ${data.turmas[i].codigoIdentificador} )" href="#">${data.turmas[i].sigla}</a>`);
             }
         },
         error: function(data) {
@@ -174,7 +174,7 @@ function getDadosAluno(id) {
 }
 
 
-function modalConfirm(){
+function modalConfirm(idAluno, idTurma){
 
     Swal.fire({
         title: 'Voce tem certeza disso?',
@@ -186,12 +186,50 @@ function modalConfirm(){
         confirmButtonText: 'Sim, Desvincular'
       }).then((result) => {
         if (result.value) {
-          Swal.fire(
-            'Desvinculado!',
-            'O aluno foi desvinculado a essa turma!.',
-            'success'
-          )
+          desvincularAlunoTurma(idAluno,idTurma)
         }
       })
-
 }
+
+
+function desvincularAlunoTurma(idAluno, idTurma) {
+    $.ajax({
+        url: 'entrada?acao=DesvincularAlunoTurma',
+        data: {idAluno: idAluno, idTurma: idTurma},
+        type: 'POST',
+        success: function (data) {
+            Swal.fire({
+                title: data[0],
+                text: data[1],
+                type: data[2],
+                confirmButtonText: 'OK'
+            })
+        },
+        error: function(data) {
+            Swal.fire({
+                title: data[0],
+                text: data[1],
+                type: data[2],
+                confirmButtonText: 'OK'
+            })
+            
+        }
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
