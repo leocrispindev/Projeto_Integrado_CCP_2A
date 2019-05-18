@@ -5,7 +5,7 @@ function mudaParaTelaDeRegistro(){
         
         $("#form-registro").removeAttr("hidden");
 
-        $(".center-box").css("height","550px");
+        $(".center-box").css("height","575px");
         
         $(".returnBtn").on("click",(e)=>{
             e.preventDefault();
