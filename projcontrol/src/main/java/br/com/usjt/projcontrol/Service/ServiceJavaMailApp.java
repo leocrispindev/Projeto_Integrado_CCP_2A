@@ -1,5 +1,6 @@
 package br.com.usjt.projcontrol.Service;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -73,7 +74,7 @@ public class ServiceJavaMailApp {
 		Validacao v = new Validacao();
 		
 		try {
-
+			
 			RecuperarSenha r1 = new RecuperarSenha();
 			r1.setEmail(email);
 
@@ -84,9 +85,6 @@ public class ServiceJavaMailApp {
 			ArrayList<String> emailsDoBanco = new ArrayList<String>();
 			emailsDoBanco = c.getAllEmails();
 			Boolean enviou = false;
-			
-
-			
 
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress("groupdevusjt@gmail.com"));// Remetente
@@ -134,10 +132,20 @@ public class ServiceJavaMailApp {
 //			/// Metodo para enviar a mensagem criada
 //			Transport.send(message);
 
-			System.out.println("Feito!!!");
+			try {
+				ServiceCriaLogs.criaLogs("E-mail enviado com Sucesso ");
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
 
 		} catch (MessagingException e) {
-			System.out.println("Timeout ou Ausência de Conexão com internet Não foi Possivel mandar o e-mail: ");;
+			
+			try {
+				ServiceCriaLogs.criaLogs("Timeout ou Ausência de Conexão com internet Não foi Possivel mandar o e-mail");
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+			
 		}
 		
 //		System.out.println("seu retornador " + retornador[0]);
