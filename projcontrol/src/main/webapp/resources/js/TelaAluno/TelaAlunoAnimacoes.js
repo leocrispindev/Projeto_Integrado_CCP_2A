@@ -54,6 +54,8 @@ function scrollDetect() {
     let input3 = document.getElementById('rd_sass');
     let input4 = document.getElementById('rd_angular');
     document.getElementById('information').addEventListener('click', function () {
+      input1.checked = true;
+      input2.checked, input3.checked, input4.checked = false;
       obj.marginTop = 0 + 'vh';
       if($('.btn-turma') != null){
         $('.btn-turma').css('display', 'none');
@@ -68,6 +70,8 @@ function scrollDetect() {
       }
     });
     document.getElementById('classes').addEventListener('click', function () {
+      input2.checked = true;
+      input1.checked, input3.checked, input4.checked = false;
       obj.marginTop = -100 + 'vh';
       if($('.btn-turma') != null){
         $('.btn-turma').css('display', 'block');
@@ -82,6 +86,8 @@ function scrollDetect() {
       }
     });
     document.getElementById('group').addEventListener('click', function () {
+      input3.checked = true;
+      input2.checked, input1.checked, input4.checked = false;
       obj.marginTop = -200 + 'vh';
       if($('.btn-turma') != null){
         $('.btn-turma').css('display', 'none');
@@ -96,6 +102,8 @@ function scrollDetect() {
       }
     });
     document.getElementById('schedule').addEventListener('click', function () {
+      input4.checked = true;
+      input2.checked, input3.checked, input1.checked = false;
       obj.marginTop = -300 + 'vh';
       if($('.btn-turma') != null){
         $('.btn-turma').css('display', 'none');
@@ -177,7 +185,7 @@ function scrollDetect() {
       }
     });
   }
-    
+  tableGruposListarGrupos();
 }
 
 function gerenciar(){

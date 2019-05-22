@@ -59,23 +59,53 @@ function getTemas() {
 }
 
 function getListarTurma() {
-    
-    $.ajax({
-        url: 'entrada?acao=ListarTurma',
-        data: {},
-        type: 'POST',
-        success: function (dados) {
-            montarGridTurma(dados);
-        },
-        error: function(dados) {
-
-            Swal.fire({
-                title: 'Error!',
-                text: 'Erro ao retornar os dados.Contate o adminstrador do sistema.',
-                type: 'error',
-                confirmButtonText: 'OK'
-            })
+    document.querySelector("#classes").addEventListener("click", ()=>{        
+        if(document.querySelector('#tableTurma tbody').children.length == 0){
+            if(document.querySelector("#rd_bootstrap").checked){
+                $.ajax({
+                    url: 'entrada?acao=ListarTurma',
+                    data: {},
+                    type: 'POST',
+                    success: function (dados) {
+                        montarGridTurma(dados);
+                    },
+                    error: function(dados) {
             
+                        Swal.fire({
+                            title: 'Error!',
+                            text: 'Erro ao retornar os dados.Contate o adminstrador do sistema.',
+                            type: 'error',
+                            confirmButtonText: 'OK'
+                        })
+                        
+                    }
+                });
+            }
+        }
+    });
+
+    document.addEventListener('keydown', () =>{
+        if((event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40) && document.querySelector('#tableTurma tbody').children.length == 0){
+            if(document.querySelector("#rd_bootstrap").checked){
+                $.ajax({
+                    url: 'entrada?acao=ListarTurma',
+                    data: {},
+                    type: 'POST',
+                    success: function (dados) {
+                        montarGridTurma(dados);
+                    },
+                    error: function(dados) {
+            
+                        Swal.fire({
+                            title: 'Error!',
+                            text: 'Erro ao retornar os dados.Contate o adminstrador do sistema.',
+                            type: 'error',
+                            confirmButtonText: 'OK'
+                        })
+                        
+                    }
+                });
+            }
         }
     });
 }
