@@ -22,16 +22,18 @@ function montargrid(data) {
     $('#tableAvaliacao>tbody>tr').remove();
     for(i=0; i<data.length; i++) {
         var row = "<tr>" +
-                    "<td>" + data[i].avaliacaoId + "</td>" +
-                    "<td>" + data[i].nota + "</td>" +
-                    "<td>" + data[i].turma.sigla  + "</td>" +
-                    "<td>" + data[i].grupo.nome+ "</td>" +
-                    "<td>" + data[i].grupo.professor.nome + "</td>" +
-                "</tr>";
-
+        "<td>" + data[i].avaliacaoId + "</td>" +
+        "<td>" + data[i].nota + "</td>" +
+        "<td>" + data[i].turma.sigla  + "</td>" +
+        "<td>" + data[i].grupo.nome+ "</td>" +
+        "<td>" + data[i].grupo.professor.nome + "</td>" +
+        `<td><button data-toggle="modal" data-target="#modalAvaliacoes" class="btn btn-danger btn-sm">Ver informa&ccedil&otildees</button></td>`
+        "</tr>";
+        
         $('#tableAvaliacao>tbody').append(row);
     }
 }
+
 
 function getAlunos() {
     var parametro = $('#filtra-nomes').val();
@@ -61,21 +63,21 @@ function montargridAlunos(data) {
     $('#tableAlunos>tbody>tr').remove();
     for(i=0; i<data.length; i++) {
         var row = "<tr id='aluno'>" +
-                    "<th id='raAluno' scope='row'>"+ data[i].ra + "</th>" +
-                    "<td id='nomeAluno'>" + data[i].nome + "</td>" +
-                    "<td>" + data[i].email  + "</td>" +
-                    "<td><button type='button' id='deleta-aluno' class='btn btn-danger btn-sm' onclick='confirmDeleteAdmin("+ data[i].id+")'>Excluir</button></td>" +
-                    "<td><button data-toggle='modal' data-target='.informacoes-aluno-modal' type='button' class='btn btn-primary btn-sm' onclick='getDadosAluno("+ data[i].id+")'>Ver Informa&ccedil&otildees</button></td>" +
-                "</tr>";
-
+        "<th id='raAluno' scope='row'>"+ data[i].ra + "</th>" +
+        "<td id='nomeAluno'>" + data[i].nome + "</td>" +
+        "<td>" + data[i].email  + "</td>" +
+        "<td><button type='button' id='deleta-aluno' class='btn btn-danger btn-sm' onclick='confirmDeleteAdmin("+ data[i].id+")'>Excluir</button></td>" +
+        "<td><button data-toggle='modal' data-target='.informacoes-aluno-modal' type='button' class='btn btn-primary btn-sm' onclick='getDadosAluno("+ data[i].id+")'>Ver Informa&ccedil&otildees</button></td>" +
+        "</tr>";
+        
         $('#tableAlunos>tbody').append(row);
     }
 }
 
 /*function confirmDeleteAdmin(){
-
+    
     if(document.querySelectorAll('#deleta-aluno') != null){
-
+        
         let alunos = document.querySelectorAll('#deleta-aluno');
         for( var i = 0; i < alunos.length; i++ ){
             var aluno = alunos[i];
@@ -89,15 +91,15 @@ function montargridAlunos(data) {
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
                     confirmButtonText: 'Deletar'
-                  }).then((result) => {
+                }).then((result) => {
                     if (result.value) {
                         deleteAluno(id)
                     }
-                  })
+                })
             }); 
         }
     }
-        
+    
 }*/
 
 function confirmDeleteAdmin(id){
@@ -149,7 +151,7 @@ function getDadosAluno(id) {
         data: {usu_id: id},
         type: 'POST',
         success: function (data) {
-          
+            
             $('#alunoDadosRA').text("RA: "+data.ra);
             $('#alunoDadosNOME').text(data.nome);
             $('#alunoDadosEMAIL').text(data.email);
@@ -177,7 +179,7 @@ function getDadosAluno(id) {
 
 
 function modalConfirm(idAluno, idTurma){
-
+    
     Swal.fire({
         title: 'Voce tem certeza disso?',
         text: "Voce nao podera reverter isso!",
@@ -186,11 +188,11 @@ function modalConfirm(idAluno, idTurma){
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Sim, Desvincular'
-      }).then((result) => {
+    }).then((result) => {
         if (result.value) {
-          desvincularAlunoTurma(idAluno,idTurma)
+            desvincularAlunoTurma(idAluno,idTurma)
         }
-      })
+    })
 }
 
 

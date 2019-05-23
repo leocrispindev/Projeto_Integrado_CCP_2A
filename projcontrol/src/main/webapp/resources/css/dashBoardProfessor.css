@@ -535,6 +535,7 @@ input[type="number"] {
     overflow-x: auto;
 }
 
+
 .light-mode-text{
     color: #fff;
 }
@@ -646,6 +647,7 @@ input[type="number"] {
 .responsive-modal-aluno-turma{
     margin-top: 100px;
 }
+
 
 @media only screen and (min-width: 200px) and (max-width: 575.98px) {
     .table{

@@ -77,7 +77,7 @@
 					<!-- <div data-toggle="modal" data-target="#vinculaAlunosTurma" title="Vincular Alunos a turma" class="card text-dark bg-light mb-3 button-aluno" style="max-width: 18rem;"><i class="fas fa-user-graduate btn-right-aluno"></i></div> -->
 				</div>
 			</section>
-
+			
 			<section class="bloco2 bloco-no-overflow-y bloco-no-overflow-general" id="sass">
 				<div class="contentAvaliacoes">
 					<div class="container-fluid container-settings">
@@ -359,9 +359,9 @@ aria-hidden="true">
 						<i title="Desvincular Aluno a Turma" class="fas fa-unlock"></i>
 					</button>
 					<div id="dropdownTurmas" title="Desvincular Aluno a Turma" class="dropdown-menu">
-					  
+						
 					</div>
-				  </div>
+				</div>
 				<button type="button" id="close-modal" class="btn btn-danger">Ok!</button>
 			</div>
 		</div>
@@ -396,28 +396,50 @@ aria-hidden="true">
 			</div>
 		</div>
 	</div>
+</div>
 
+<!-- MODALZONA MOSTRA DETALHES AVALIACOES -->
+<div class="modal fade" id="modalAvaliacoes" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+	  <div class="modal-content modal-dark">
+		<div class="modal-header">
+		  <h5 style="color:white" class="modal-title" id="exampleModalCenterTitle">Detalhes Avaliacao</h5>
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		<div class="modal-body modal-white-text">
+		  <p style="color:white">INFORMACOES</p>
+		  <p style="color:white">INFORMACOES</p>
+		  <p style="color:white">INFORMACOES</p>
+		  <p style="color:white">INFORMACOES</p>
+		</div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-danger" data-dismiss="modal">Ok</button>
+		</div>
+	  </div>
 	</div>
-	<input type="hidden" id="campoIdAlunos">
-	<script src="./resources/node_modules/jquery/dist/jquery.min.js"></script>
-	<script src="./resources/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
-	<script src="./resources/js/TelaProfessor/dashBoardAdminTurma.js"></script>
-	<script src="./resources/js/TelaProfessor/dashBoardAdmin.js"></script>
-	<script src="./resources/js/TelaProfessor/administradorFiltros.js"></script>
-	<script src="./resources/js/TelaProfessor/dashBoardAdminGrupo.js"></script>
-	<script src="./resources/bundle.js"></script>
-	<script defer src="./resources/js/all.min.js"></script>
+  </div>
+
+<script src="./resources/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./resources/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
+<script src="./resources/js/TelaProfessor/dashBoardAdminTurma.js"></script>
+<script src="./resources/js/TelaProfessor/dashBoardAdmin.js"></script>
+<script src="./resources/js/TelaProfessor/administradorFiltros.js"></script>
+<script src="./resources/js/TelaProfessor/dashBoardAdminGrupo.js"></script>
+<script src="./resources/bundle.js"></script>
+<script defer src="./resources/js/all.min.js"></script>
+
+<script>
 	
-	<script>
+	$(function(){
 		
-		$(function(){
-			
-			getAlunos();
-			getTemas();
-			getListarTurma();
-		});
-		
-	</script>
+		getAlunos();
+		getTemas();
+		getListarTurma();
+	});
+	
+</script>
 
 </body>
 </html>
