@@ -35,23 +35,25 @@ function montargrid(data) {
 
 function getAlunos() {
     var parametro = $('#filtra-nomes').val();
-    $.ajax({
-        url: 'entrada?acao=ListarAlunos',
-        data: {nome: parametro},
-        type: 'POST',
-        success: function (data) {
-            montargridAlunos(data);
-        },
-        error: function(data) {
-            console.log(data)
-            Swal.fire({
-                title: 'Error!',
-                text: 'Erro ao retornar os dados.Contate o adminstrador do sistema.',
-                type: 'error',
-                confirmButtonText: 'OK'
-            })
-            
-        }
+    document.querySelector("#label-custom").addEventListener('click', () =>{
+        $.ajax({
+            url: 'entrada?acao=ListarAlunos',
+            data: {nome: parametro},
+            type: 'POST',
+            success: function (data) {
+                montargridAlunos(data);
+            },
+            error: function(data) {
+                console.log(data)
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Erro ao retornar os dados.Contate o adminstrador do sistema.',
+                    type: 'error',
+                    confirmButtonText: 'OK'
+                })
+                
+            }
+        });
     });
 }
 
