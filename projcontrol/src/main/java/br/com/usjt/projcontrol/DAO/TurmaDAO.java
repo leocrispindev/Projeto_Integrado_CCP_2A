@@ -39,7 +39,7 @@ public class TurmaDAO {
 		}
 	}
 
-	public void deleteTurma(Turma turma) {
+	public void deleteTurma(int id) {
 
 		conexao = new Conexao();
 
@@ -49,7 +49,7 @@ public class TurmaDAO {
 
 			PreparedStatement stmt = conn.prepareStatement(sql);
 
-			stmt.setInt(1, turma.getCodigoIdentificador());
+			stmt.setInt(1, id);
 			stmt.execute();
 
 		} catch (SQLException e) {

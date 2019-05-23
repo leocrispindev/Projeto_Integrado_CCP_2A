@@ -41,10 +41,10 @@ public class ServiceTurma extends Validacao implements Serializable {
 		return mensagem;
 	}
 	
-	public String[] setDelete(Turma turma) {
+	public String[] setDelete(int id) {
 		try {
 			
-			turmaD.deleteTurma(turma);
+			turmaD.deleteTurma(id);
 			return this.getMensagemSucesso();
 			
 		}catch(Exception e) {
