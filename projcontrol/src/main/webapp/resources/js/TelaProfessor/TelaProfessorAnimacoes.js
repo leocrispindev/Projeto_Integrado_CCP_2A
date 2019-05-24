@@ -51,27 +51,6 @@ function deletaOCard() {
 
 }
 
-function deletaLinhaTabela(turma_id) {
-
-        Swal.fire({
-            title: 'Voc&ecirc; tem centeza?',
-            type: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Sim, Remover Turma!'
-        }).then((result) => {
-            if (event.target.className == "delete_turma") {
-                event.target.parentNode.parentNode.parentNode.remove();
-            } else {
-                event.target.parentNode.parentNode.remove();
-            }
-            if (result.value) {
-                deleteTurma(turma_id);
-            }
-        })
-}
-
 function filtraNomes() {
 
     if (document.querySelector("#filtra-nomes") != null) {

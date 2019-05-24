@@ -58,26 +58,53 @@ function getTemas() {
     });
 }
 
+function deletaLinhaTabela(turma_id) {
+
+    Swal.fire({
+        title: 'Voc&ecirc; tem centeza?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sim, Remover Turma!'
+    }).then((result) => {
+        if (event.target.className == "delete_turma") {
+            event.target.parentNode.parentNode.parentNode.remove();
+        } else {
+            event.target.parentNode.parentNode.remove();
+        }
+        if (result.value) {
+            deleteTurma(turma_id);
+        }
+    })
+}
+
 function getListarTurma() {
-
-    $.ajax({
-        url: 'entrada?acao=ListarTurma',
-        data: {},
-        type: 'POST',
-        success: function (dados) {
-            montarGridTurma(dados);
-        },
-        error: function (dados) {
-
-            Swal.fire({
-                title: 'Error!',
-                text: 'Erro ao retornar os dados.Contate o adminstrador do sistema.',
-                type: 'error',
-                confirmButtonText: 'OK'
-            })
-
+    document.querySelector("#classes").addEventListener("click", ()=>{        
+        if(document.querySelector('#tableTurma tbody').children.length == 0){
+            if(document.querySelector("#rd_bootstrap").checked){
+                $.ajax({
+                    url: 'entrada?acao=ListarTurma',
+                    data: {},
+                    type: 'POST',
+                    success: function (dados) {
+                        montarGridTurma(dados);
+                    },
+                    error: function(dados) {
+            
+                        Swal.fire({
+                            title: 'Error!',
+                            text: 'Erro ao retornar os dados.Contate o adminstrador do sistema.',
+                            type: 'error',
+                            confirmButtonText: 'OK'
+                        })
+                        
+                    }
+                });
+            }
         }
     });
+
 }
 
 function montarGridTurma(data) {
