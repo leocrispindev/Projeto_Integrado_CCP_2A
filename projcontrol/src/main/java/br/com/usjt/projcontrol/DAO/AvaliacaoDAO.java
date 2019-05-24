@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import br.com.usjt.projcontrol.Conexao.Conexao;
+import br.com.usjt.projcontrol.model.Aluno;
+import br.com.usjt.projcontrol.model.Atividade;
 import br.com.usjt.projcontrol.model.Avaliacao;
 import br.com.usjt.projcontrol.model.Grupo;
 import br.com.usjt.projcontrol.model.Professor;
@@ -25,19 +27,25 @@ public class AvaliacaoDAO {
 		Grupo grupoA = null;
 		Professor professor = null;
 	
-		String sql ="select  Av.id AS avaliacao_id ,T.sigla AS sigla, "
-				+ "U.nome AS nome, " + 
-				"T.semestre_letivo AS semestre, "
-				+ "T.ano_letivo AS ano, Av.nota AS nota, "
-				+ "G.nome AS nome_grupo " + 
-				"from avaliacao Av " + 
-				"INNER JOIN turma_aluno Ta ON Av.id = Ta.id " + 
-				"INNER JOIN turma T ON T.id = Ta.turma_id " + 
-				"INNER JOIN grupo G ON Ta.grupo_id = G.id " + 
-				"INNER JOIN professor P ON P.professor_id = G.orientador_id " + 
-				"INNER JOIN usuario U ON P.professor_id = U.id " + filtros + " GROUP BY Av.id;";
+		String sql ="SELECT " + 
+				"  DISTINCT av.id AS avaliacao_id, " + 
+				"  T.sigla AS sigla, " + 
+				"  U.nome AS nome, " + 
+				"  T.semestre_letivo AS semestre, " + 
+				"  T.ano_letivo AS ano, " + 
+				"  Av.nota AS nota, " + 
+				"  G.nome AS nome_grupo, " + 
+				"  G.id AS id_grupo " + 
+				"FROM " + 
+				"  turma T " + 
+				"  INNER JOIN turma_aluno ta ON T.id = ta.turma_id " + 
+				"  INNER JOIN grupo G ON Ta.grupo_id = G.id " + 
+				"  INNER JOIN entrega e ON e.grupo_id = G.id " + 
+				"  INNER JOIN avaliacao av ON av.entrega_id = e.id " + 
+				"  INNER JOIN professor P ON P.professor_id = G.orientador_id " + 
+				"  INNER JOIN usuario U ON P.professor_id = U.id " + filtros + ";" ;
 		
-		try (Connection conn = conexao.getConexaoMYSQL()) {
+		try (Connection conn = Conexao.getConexaoMYSQL()) {
 			
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
@@ -53,6 +61,7 @@ public class AvaliacaoDAO {
 				
 				grupoA = new Grupo();
 				grupoA.setNome(rs.getNString("nome_grupo"));
+				grupoA.setId(rs.getInt("id_grupo"));
 				grupoA.setProfessor(professor);
 				
 				turmaA = new Turma();
@@ -149,5 +158,71 @@ public class AvaliacaoDAO {
 		} finally {
 			conexao.closeConexaoMYSQL();
 		}
+	}
+	
+	public ArrayList<Avaliacao> getAvaliacaoDetalhes(int avaliacaoId) {
+		ArrayList<Avaliacao> arrayAvaliacoes = new ArrayList<Avaliacao>();
+			String sql = "SELECT " + 
+					"  u.nome, " + 
+					"  a.ra, " + 
+					"  t.id 'turma_id', " + 
+					"  t.sigla, " + 
+					"  g.id 'grupo_id', " + 
+					"  g.numero 'grupo_numero', " + 
+					"  g.nome 'grupo_nome', " + 
+					"  ati.numero 'atividade_num', " + 
+					"  ati.descricao, " + 
+					"  av.nota, " + 
+					"  av.comentarios, " + 
+					"  av.dt_avaliacao " + 
+					"FROM " + 
+					"  usuario u " + 
+					"  INNER JOIN aluno a ON a.aluno_id = u.id " + 
+					"  INNER JOIN turma_aluno ta ON a.aluno_id = ta.aluno_id " + 
+					"  INNER JOIN turma t ON t.id = ta.turma_id " + 
+					"  INNER JOIN grupo g ON g.id = ta.grupo_id " + 
+					"  INNER JOIN entrega e ON e.grupo_id = g.id " + 
+					"  INNER JOIN atividade ati ON ati.id = e.atividade_id " + 
+					"  INNER JOIN avaliacao av ON av.entrega_id = e.id " + 
+					"  WHERE av.id = ?;";
+		try (Connection conn = Conexao.getConexaoMYSQL()) {
+
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, avaliacaoId);
+			try(ResultSet rs = stmt.executeQuery()) {
+				while (rs.next()) {
+					Aluno aluno = new Aluno();
+					aluno.setNome(rs.getString("nome"));
+					aluno.setRa(rs.getInt("ra"));
+					
+					Atividade atividade = new Atividade();
+					atividade.setDescricao(rs.getString("descricao"));
+					atividade.setNumero(rs.getInt("atividade_num"));
+					
+					Avaliacao avaliacao = new Avaliacao();
+					avaliacao.setNota(rs.getInt("nota"));
+					avaliacao.setComentario(rs.getString("comentarios"));
+					avaliacao.setDataAvaliacao(rs.getDate("dt_avaliacao"));
+					avaliacao.setAtividade(atividade);
+					
+					Turma turma = new Turma();
+					turma.setCodigoIdentificador(rs.getInt("turma_id"));
+					turma.setSigla(rs.getString("sigla"));
+					turma.setAlunos(aluno);
+					
+					Grupo grupo = new Grupo();
+					grupo.setId(rs.getInt("grupo_id"));
+					grupo.setNome(rs.getString("grupo_nome"));
+					grupo.setNumero_grupo(rs.getInt("grupo_numero"));
+					
+					avaliacao.setTurma(turma);
+					avaliacao.setGrupo(grupo);
+					arrayAvaliacoes.add(avaliacao);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+		return arrayAvaliacoes;
 	}
 }

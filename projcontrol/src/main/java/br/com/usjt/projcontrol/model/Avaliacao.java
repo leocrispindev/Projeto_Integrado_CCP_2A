@@ -8,6 +8,7 @@ public class Avaliacao {
 	private double nota;
 	private String comentario;
 	private Date dataAvaliacao;
+	private Atividade atividade;
 	private ArrayList<Entrega> entregas;
 	private Turma turma;
 	private Grupo grupo;
@@ -66,6 +67,14 @@ public class Avaliacao {
 
 	public void setGrupo(Grupo grupo) {
 		this.grupo = grupo;
+	}
+
+	public Atividade getAtividade() {
+		return atividade;
+	}
+
+	public void setAtividade(Atividade atividade) {
+		this.atividade = atividade;
 	}
 
 	public Avaliacao() {}

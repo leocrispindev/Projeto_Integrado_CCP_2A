@@ -26,7 +26,9 @@ function montargrid(data) {
                     "<td>" + data[i].nota + "</td>" +
                     "<td>" + data[i].turma.sigla  + "</td>" +
                     "<td>" + data[i].grupo.nome+ "</td>" +
+                    "<td hidden='true'>" + data[i].grupo.id+ "</td>" +
                     "<td>" + data[i].grupo.professor.nome + "</td>" +
+                    "<td><button data-toggle='modal' data-target='#modalAvaliacoes' class='btn btn-danger btn-sm' onclick='getAvaliacaoDetalhes(" + data[i].avaliacaoId + ")'>Ver informa&ccedil&otildees</button></td> " + 
                 "</tr>";
 
         $('#tableAvaliacao>tbody').append(row);
