@@ -396,8 +396,30 @@ aria-hidden="true">
 			</div>
 		</div>
 	</div>
-
 	</div>
+	
+	<!-- MODALZONA MOSTRA DETALHES AVALIACOES -->
+	<div class="modal fade" id="modalAvaliacoes" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+		  <div class="modal-content modal-dark">
+			<div class="modal-header">
+			  <h5 style="color:white" class="modal-title" id="exampleModalCenterTitle">Detalhes Avalia&ccedil;&atilde;o</h5>
+			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+			<div class="modal-body modal-white-text" id="avaliacoes-info">
+<!-- 			  <p style="color:white">INFORMACOES</p> -->
+			</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-danger" data-dismiss="modal">Ok</button>
+			</div>
+		  </div>
+		</div>
+	</div>
+
+
+	
 	<input type="hidden" id="campoIdAlunos">
 	<script src="./resources/node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="./resources/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
