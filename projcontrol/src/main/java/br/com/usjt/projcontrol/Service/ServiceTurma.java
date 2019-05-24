@@ -21,8 +21,14 @@ public class ServiceTurma extends Validacao implements Serializable {
 	public String[] setCadastro(Turma turma) {
 		
 		try {
-			turmaD.cadastrarTurma(turma);
-			return this.getMensagemSucesso();
+			if(!turmaD.getDuplicidadeSigla(turma.getSigla())) {
+				turmaD.cadastrarTurma(turma);
+				return this.getMensagemSucesso();
+				
+			}else {
+				return this.getMensagemDuplicidadeSigla();
+			} 
+			
 		} catch(Exception e) {
 			return this.getMensagemErro();
 		}
@@ -44,8 +50,11 @@ public class ServiceTurma extends Validacao implements Serializable {
 	public String[] setDelete(int id) {
 		try {
 			
-			turmaD.deleteTurma(id);
-			return this.getMensagemSucesso();
+			if(turmaD.deleteTurma(id)) {
+				return this.getMensagemSucesso();
+			}else {
+				return this.getMensagemErroDeleteTurma();
+			}
 			
 		}catch(Exception e) {
 			return this.getMensagemErro();

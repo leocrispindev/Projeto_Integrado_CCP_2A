@@ -39,7 +39,7 @@ public class TurmaDAO {
 		}
 	}
 
-	public void deleteTurma(int id) {
+	public boolean deleteTurma(int id) {
 
 		conexao = new Conexao();
 
@@ -51,13 +51,15 @@ public class TurmaDAO {
 
 			stmt.setInt(1, id);
 			stmt.execute();
-
+			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
 
 		} finally {
 			conexao.closeConexaoMYSQL();
 		}
+		
+		return false;
 	}
 
 	public void updateTurma(Turma turma) {
@@ -210,7 +212,7 @@ public class TurmaDAO {
 	} 
 	
 	
-public boolean desvinculaAlunoTurma(int idAluno, int idTurma) {
+	public boolean desvinculaAlunoTurma(int idAluno, int idTurma) {
 		
 		conexao = new Conexao();
 
@@ -237,7 +239,22 @@ public boolean desvinculaAlunoTurma(int idAluno, int idTurma) {
 	} 
 	
 	
-	
+	public boolean getDuplicidadeSigla(String sigla) {
+		String sql = "SELECT sigla FROM turma WHERE sigla = ?";
+		
+		try (Connection conn = Conexao.getConexaoMYSQL()) {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setString(1, sigla);
+			try (ResultSet rs = stmt.executeQuery();) {
+				while (rs.next()) {
+					return true;
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 	
 	
 	

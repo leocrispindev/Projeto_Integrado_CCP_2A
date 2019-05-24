@@ -17,7 +17,7 @@ function setCadastroTurma() {
                 confirmButtonText: 'OK'
             })
 
-            getListarTurma();
+            getListarTurmaAjax();
         },
         error: function (data) {
             Swal.fire({
@@ -105,6 +105,27 @@ function getListarTurma() {
         }
     });
 
+}
+
+function getListarTurmaAjax() {
+    $.ajax({
+        url: 'entrada?acao=ListarTurma',
+        data: {},
+        type: 'POST',
+        success: function (dados) {
+            montarGridTurma(dados);
+        },
+        error: function(dados) {
+
+            Swal.fire({
+                title: 'Error!',
+                text: 'Erro ao retornar os dados.Contate o adminstrador do sistema.',
+                type: 'error',
+                confirmButtonText: 'OK'
+            })
+            
+        }
+    });
 }
 
 function montarGridTurma(data) {
@@ -253,7 +274,7 @@ function deleteTurma(turma_id) {
                 type: data[2],
                 confirmButtonText: 'OK'
             })
-            getListarTurma();
+            getListarTurmaAjax();
         },
         error: function (data) {
             Swal.fire({

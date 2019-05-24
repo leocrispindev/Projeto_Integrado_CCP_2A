@@ -59,7 +59,7 @@ class TurmaDAOTest {
 		assertEquals(5, lista.get(0).getCodigoIdentificador());
 		assertEquals("CPM2-LCS", lista.get(0).getSigla());
 		
-		turmaDao.deleteTurma(turma);
+		//turmaDao.deleteTurma(turma);
 		lista = turmaDao.getTurmasByPeriodo(turma);
 		assertEquals(true, lista.isEmpty());
 	}

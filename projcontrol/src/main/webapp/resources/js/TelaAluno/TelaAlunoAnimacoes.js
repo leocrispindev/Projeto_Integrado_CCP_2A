@@ -35,8 +35,8 @@ function animaEscritaTexto(id){
                 , 155 * i);
             });
         }
-    }catch{
-        
+    }catch(e){
+    	
     }
     
 }
